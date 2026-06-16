@@ -187,6 +187,23 @@ nav.s{padding:12px 0;background:rgba(6,6,8,.92);backdrop-filter:blur(20px);borde
 .pft:hover:not(.on){border-color:rgba(249,115,22,.25);color:var(--text)}
 .pft.on{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.4);color:var(--accent)}
 
+/* ---- REVIEWS ---- */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+.rev-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
+.rev-card:hover{border-color:rgba(249,115,22,.3);transform:translateY(-3px)}
+.rev-top{display:flex;align-items:center;gap:12px}
+.rev-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1rem;font-weight:900;flex-shrink:0}
+.rev-info{flex:1;min-width:0}
+.rev-name{font-weight:700;font-size:.9rem}
+.rev-date{font-size:.72rem;color:var(--muted);margin-top:1px}
+.rev-stars{color:#f97316;font-size:.85rem;letter-spacing:1px}
+.rev-badge{display:inline-flex;font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);color:rgba(249,115,22,.8);width:fit-content}
+.rev-text{font-size:.875rem;color:rgba(240,240,239,.65);line-height:1.7;flex:1}
+.rev-src{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.65rem;color:var(--muted);border-top:1px solid var(--border);padding-top:12px;margin-top:auto}
+.rev-src::before{content:'';width:8px;height:8px;border-radius:50%;background:#00b341;flex-shrink:0}
+@media(max-width:900px){.rev-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.rev-grid{grid-template-columns:1fr}}
+
 /* ---- CONTACT GRID ---- */
 .cgrid{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
 
@@ -549,6 +566,95 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <div class="sch">Telegram Bot API</div><div class="sch">Telegram Mini App</div><div class="sch">openpyxl</div>
       <div class="sch">HTML5 / CSS3</div><div class="sch">Vanilla JS</div><div class="sch">Cloudflare Tunnel</div>
       <div class="sch">Git / GitHub</div><div class="sch">Linux / VPS</div><div class="sch">Pydantic</div><div class="sch">httpx</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sh" id="reviews">
+  <div class="wrap">
+    <div class="slabel">Отзывы с Kwork</div>
+    <h2 class="stitle rv">Что говорят клиенты</h2>
+    <p class="ssub rv">5 положительных отзывов · 0 отрицательных</p>
+    <div class="rev-grid">
+
+      <div class="rev-card rv">
+        <div class="rev-top">
+          <div class="rev-av" style="background:rgba(244,114,182,.15);color:#f472b6">P</div>
+          <div class="rev-info">
+            <div class="rev-name">PAFFKA</div>
+            <div class="rev-date">15 дней назад</div>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <div class="rev-badge">Разработка бота в Telegram</div>
+        <p class="rev-text">«Была задача сделать Инфо-Бота, продавец справился на УРА!! Уловил ход мыслей и разложил всё по полочкам — насмотреться не могу. Однозначно рекомендую Льва как отличного программиста, который превзошёл мои ожидания!»</p>
+        <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+      </div>
+
+      <div class="rev-card rv">
+        <div class="rev-top">
+          <div class="rev-av" style="background:rgba(251,191,36,.12);color:#fbbf24">Y</div>
+          <div class="rev-info">
+            <div class="rev-name">yoshihatemyself</div>
+            <div class="rev-date">20 дней назад</div>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <div class="rev-badge">Разработка бота в Telegram</div>
+        <p class="rev-text">«Всё отлично, продавец вежливый, быстро ответил и сделал работу.»</p>
+        <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+      </div>
+
+      <div class="rev-card rv">
+        <div class="rev-top">
+          <div class="rev-av" style="background:rgba(52,211,153,.12);color:#34d399">G</div>
+          <div class="rev-info">
+            <div class="rev-name">gainutdinovarsla</div>
+            <div class="rev-date">23 дня назад</div>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <div class="rev-badge">Создание ТГ бота</div>
+        <p class="rev-text">«Нужно было сделать срочно бота в Telegram — человек сделал всё за 3 часа, всё работает. Советую!»</p>
+        <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+      </div>
+
+      <div class="rev-card rv">
+        <div class="rev-top">
+          <div class="rev-av" style="background:rgba(56,189,248,.12);color:#38bdf8">S</div>
+          <div class="rev-info">
+            <div class="rev-name">shweppyk</div>
+            <div class="rev-date">24 дня назад</div>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <div class="rev-badge">Разработка бота в Telegram</div>
+        <p class="rev-text">«Спасибо, быстро разработал полностью рабочего бота под ТЗ.»</p>
+        <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+      </div>
+
+      <div class="rev-card rv">
+        <div class="rev-top">
+          <div class="rev-av" style="background:rgba(167,139,250,.12);color:#a78bfa">T</div>
+          <div class="rev-info">
+            <div class="rev-name">Tracksy</div>
+            <div class="rev-date">26 дней назад</div>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <div class="rev-badge">СЕО-копирайтинг</div>
+        <p class="rev-text">«Очень хороший, вежливый продавец! Отлично написан текст, соответствует ТЗ. Очень быстро, спасибо.»</p>
+        <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+      </div>
+
+      <div class="rev-card rv" style="border-color:rgba(249,115,22,.15);background:rgba(249,115,22,.04);display:flex;align-items:center;justify-content:center;text-align:center;gap:16px;flex-direction:column">
+        <div style="font-size:2rem">💼</div>
+        <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800">5 отзывов</div>
+        <div style="font-size:.85rem;color:var(--muted)">Все положительные, 0 отрицательных</div>
+        <a href="https://kwork.ru/user/piwhip" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.3);color:var(--accent);font-size:.85rem;font-weight:600;transition:all .2s">Смотреть на Kwork →</a>
+      </div>
+
     </div>
   </div>
 </section>
