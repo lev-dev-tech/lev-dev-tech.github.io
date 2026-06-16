@@ -14,7 +14,7 @@
   --mono:'JetBrains Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;cursor:none}
 a{text-decoration:none;color:inherit}
 
@@ -247,22 +247,55 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 
 /* ---- RESPONSIVE ---- */
 @media(max-width:900px){
+  .wrap{padding:0 20px}
   .nl{display:none}
-  .pi{grid-template-columns:1fr;gap:40px}
+  nav{padding:16px 0}
+  .hero{padding:100px 0 0;min-height:auto}
+  .hero-btns{margin-bottom:48px}
+  .sh{padding:72px 0 44px}
+  .pi{grid-template-columns:1fr;gap:36px}
+  .ps{padding:60px 0}
   .ps.flip .pvisual{order:0}
   .psbg{display:none}
-  .pgrid{grid-template-columns:1fr 1fr;gap:40px}
+  .pgrid{grid-template-columns:1fr 1fr;gap:24px}
   .pgrid::before{display:none}
-  .ccard{padding:40px 28px}
+  .pstep{padding:0 10px}
+  .contact-sec{padding:72px 0}
+  .ccard{padding:36px 24px}
   .ccard::after{display:none}
-  .cbtns{flex-direction:column}
+  .cbtns{flex-direction:column;align-items:flex-start}
+  .cbtn{width:100%;justify-content:center}
   .cgrid{grid-template-columns:1fr}
   .cright{display:none}
+  .cinfo{gap:16px}
+  .rev-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:560px){
-  .hero-title{font-size:3rem}
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .hero{padding:90px 0 0}
+  .hero-title{font-size:clamp(2.6rem,11vw,3.5rem)}
+  .typed-wrap{font-size:.82rem}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px;margin-bottom:40px}
+  .bp,.bg{width:100%;max-width:320px;justify-content:center}
+  .sh{padding:56px 0 32px}
+  .stitle{font-size:clamp(1.6rem,6vw,2.2rem)}
+  .ps{padding:48px 0}
+  .ptitle{font-size:clamp(1.4rem,5.5vw,2rem)}
+  .pvisual{display:none}
   .pgrid{grid-template-columns:1fr}
+  .pgrid::before{display:none}
   .phone{width:200px;height:380px}
+  .pftabs{gap:6px}
+  .pft{padding:7px 14px;font-size:.72rem}
+  .contact-sec{padding:56px 0}
+  .ccard{padding:28px 18px}
+  .ctitle{font-size:clamp(1.6rem,7vw,2.5rem)}
+  .csub{font-size:.88rem;margin-bottom:28px}
+  .cbtn{padding:13px 20px;font-size:.87rem}
+  .cbtns{margin-bottom:28px}
+  .cinfo{flex-direction:column;gap:12px}
+  .rev-grid{grid-template-columns:1fr}
+  footer .fi{flex-direction:column;text-align:center;gap:8px}
 }
 </style>
 </head>
@@ -770,7 +803,7 @@ function draw(){
     if(p.y<-30)Object.assign(p,mkp());
   });
   ctx.globalAlpha=1;
-  requestAnimationFrame(draw);
+  if(!window._stopDraw) requestAnimationFrame(draw);
 }
 document.fonts.ready.then(draw);
 
