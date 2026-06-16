@@ -276,6 +276,13 @@ nav.s{padding:12px 0;background:rgba(6,6,8,.92);backdrop-filter:blur(20px);borde
 .fii{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
 .fit{font-family:var(--mono);font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:1px}
 .fiv{font-size:.88rem;color:rgba(240,240,239,.85)}
+.finfo-link{text-decoration:none;transition:background .2s,border-color .2s}
+.finfo-link:hover{background:rgba(255,255,255,.04);border-color:rgba(249,115,22,.25);border-radius:12px}
+.finfo-link:hover .fiv{color:var(--accent)}
+.finfo-link:hover svg{opacity:.7}
+.fguarantees{display:flex;flex-direction:column;gap:10px;margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.fg{display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(240,240,239,.7)}
+.fg::before{content:'✓';color:#34d399;font-weight:900;font-family:'Syne',sans-serif;font-size:.9rem;flex-shrink:0}
 .fsuccess{display:none;text-align:center;padding:48px 0}
 .fsuccess.show{display:block}
 .fsuccess-icon{font-size:3rem;display:block;margin-bottom:16px}
@@ -743,7 +750,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 </section>
 
 <!-- FORM -->
-<section class="form-sec">
+<section class="form-sec" id="contact">
   <div class="wrap">
     <div class="fcard rv">
       <div class="fgrid">
@@ -766,6 +773,12 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
             </div>
             <button class="fsbtn" id="fSubmit">✈️ Отправить в Telegram</button>
             <p class="fhint">Откроется Telegram с готовым сообщением</p>
+            <div class="fguarantees">
+              <div class="fg">Отвечаю в течение часа в рабочее время</div>
+              <div class="fg">Бесплатная консультация по задаче</div>
+              <div class="fg">Фиксированная стоимость без скрытых доплат</div>
+              <div class="fg">Поддержка после сдачи проекта</div>
+            </div>
           </div>
           <div class="fsuccess" id="fSuccess">
             <span class="fsuccess-icon">🚀</span>
@@ -775,18 +788,21 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           </div>
         </div>
         <div class="finfo">
-          <div class="finfo-item">
+          <a href="https://t.me/gustaflmao" target="_blank" class="finfo-item finfo-link">
             <div class="fii" style="background:rgba(41,182,246,.1)">✈️</div>
             <div><span class="fit">Telegram</span><span class="fiv">@gustaflmao</span></div>
-          </div>
-          <div class="finfo-item">
+            <svg style="margin-left:auto;opacity:.35;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="mailto:leon2324830@gmail.com" class="finfo-item finfo-link">
             <div class="fii" style="background:rgba(249,115,22,.1)">✉️</div>
             <div><span class="fit">Email</span><span class="fiv">leon2324830@gmail.com</span></div>
-          </div>
-          <div class="finfo-item">
+            <svg style="margin-left:auto;opacity:.35;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="https://kwork.ru/user/piwhip" target="_blank" class="finfo-item finfo-link">
             <div class="fii" style="background:rgba(52,211,153,.1)">💼</div>
             <div><span class="fit">Kwork</span><span class="fiv">kwork.ru/user/piwhip</span></div>
-          </div>
+            <svg style="margin-left:auto;opacity:.35;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
           <div class="finfo-item">
             <div class="fii" style="background:rgba(251,191,36,.1)">⚡</div>
             <div><span class="fit">Скорость ответа</span><span class="fiv">Обычно &lt; 1 часа</span></div>
@@ -794,50 +810,6 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div class="finfo-item" style="border:none">
             <div class="fii" style="background:rgba(167,139,250,.1)">🌍</div>
             <div><span class="fit">Часовой пояс</span><span class="fiv">МСК (UTC+3)</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-sec" id="contact">
-  <div class="wrap">
-    <div class="ccard">
-      <div class="cgrid">
-        <div class="cleft">
-          <div class="cstatus"><span class="csdot"></span>Открыт к новым проектам</div>
-          <h2 class="ctitle">Есть задача?<br><em>Обсудим.</em></h2>
-          <p class="csub">Пишите напрямую — без форм и автоответов. Отвечаю в течение часа.</p>
-          <div class="cbtns">
-            <a href="https://t.me/gustaflmao" target="_blank" class="cbtn tg">✈️ &nbsp;Написать в Telegram</a>
-            <a href="mailto:leon2324830@gmail.com" class="cbtn em">✉️ &nbsp;leon2324830@gmail.com</a>
-            <a href="https://kwork.ru/user/piwhip" target="_blank" class="cbtn kw">💼 &nbsp;Профиль на Kwork</a>
-          </div>
-          <div class="cinfo">
-            <div class="ci"><span class="cl">// Telegram</span><span class="cv">@gustaflmao</span></div>
-            <div class="ci"><span class="cl">// Kwork</span><span class="cv">kwork.ru/user/piwhip</span></div>
-            <div class="ci"><span class="cl">// Ответ</span><span class="cv">&lt; 1 часа</span></div>
-            <div class="ci"><span class="cl">// Часовой пояс</span><span class="cv">МСК (UTC+3)</span></div>
-          </div>
-        </div>
-        <div class="cright">
-          <div class="term" style="width:270px;flex-shrink:0">
-            <div class="tbar"><span class="td r"></span><span class="td y"></span><span class="td g"></span><span class="ttitle">status.sh</span></div>
-            <div class="tbody">
-              <div><span class="tp">❯ </span><span class="tcmd">./status.sh</span></div><br>
-              <div><span class="tok">●</span><span style="color:#34d399"> online</span></div>
-              <div><span class="tinf">loc: <span style="color:#f0f0ef">Moscow, RU</span></span></div>
-              <div><span class="tinf">tz: &nbsp;<span style="color:#a78bfa">UTC+3 (МСК)</span></span></div>
-              <div><span class="tinf">ans: <span style="color:#fbbf24">&lt; 1 часа</span></span></div>
-              <div><span class="tinf">tg: &nbsp;<span style="color:rgba(56,189,248,.8)">@gustaflmao</span></span></div>
-              <div><span class="tinf">kw: &nbsp;<span style="color:#34d399">kwork.ru/piwhip</span></span></div><br>
-              <div><span class="tp">❯ </span><span class="tcmd">ls ./projects</span></div><br>
-              <div><span class="tinf">mini_app/ &nbsp;onetrade/</span></div>
-              <div><span class="tinf">parser/ &nbsp;&nbsp;&nbsp;mailing/</span></div>
-              <div><span class="tinf">landings/ &nbsp;<span class="tcur"></span></span></div>
-            </div>
           </div>
         </div>
       </div>
