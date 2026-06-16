@@ -30,6 +30,10 @@ a{text-decoration:none;color:inherit}
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:180px}
 #bar{position:fixed;top:0;left:0;height:2px;z-index:500;background:linear-gradient(90deg,var(--accent),#fb923c);width:0;transition:width .05s}
+#totop{position:fixed;left:28px;bottom:36px;z-index:400;width:44px;height:44px;border-radius:50%;background:rgba(6,6,8,.85);border:1px solid rgba(249,115,22,.35);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s,border-color .2s,background .2s;backdrop-filter:blur(12px)}
+#totop.vis{opacity:1;pointer-events:auto;transform:translateY(0)}
+#totop:hover{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.6)}
+#totop svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 #cur{width:8px;height:8px;border-radius:50%;background:var(--accent);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,opacity .15s}
 #cur.big{width:30px;height:30px;opacity:.3}
 
@@ -306,6 +310,9 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 <div class="noise"></div>
 <div id="bar"></div>
 <div id="cur"></div>
+<button id="totop" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <!-- NAV -->
 <nav id="nav">
@@ -758,8 +765,11 @@ document.querySelectorAll('a,button,.sch,.pstep').forEach(el=>{
 
 // PROGRESS BAR
 const bar=document.getElementById('bar');
+const totop=document.getElementById('totop');
 window.addEventListener('scroll',()=>{
-  bar.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
+  const y=window.scrollY;
+  bar.style.width=(y/(document.body.scrollHeight-window.innerHeight)*100)+'%';
+  totop.classList.toggle('vis',y>400);
 },{passive:true});
 
 // NAV
