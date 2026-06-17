@@ -5,7 +5,7 @@
 ### Telegram-разработчик · Python · Боты · Mini Apps · Автоматизация
 
 [![Portfolio](https://img.shields.io/badge/🌐_Портфолио-piwhip.github.io-f97316?style=for-the-badge)](https://piwhip.github.io)
-[![Telegram](https://img.shields.io/badge/Telegram-@gustaflmao-229ED9?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/gustaflmao)
+[![Telegram](https://img.shields.io/badge/Telegram-@piwhip-229ED9?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/piwhip)
 [![Kwork](https://img.shields.io/badge/Kwork-Профиль-00b341?style=for-the-badge)](https://kwork.ru/user/piwhip)
 [![Email](https://img.shields.io/badge/Email-leon2324830@gmail.com-f97316?style=for-the-badge&logo=gmail&logoColor=white)](mailto:leon2324830@gmail.com)
 
@@ -56,7 +56,7 @@
 
 | | |
 |--|--|
-| ✈️ **Telegram** | [@gustaflmao](https://t.me/gustaflmao) |
+| ✈️ **Telegram** | [@piwhip](https://t.me/piwhip) |
 | 💼 **Kwork** | [kwork.ru/user/piwhip](https://kwork.ru/user/piwhip) |
 | 📧 **Email** | [leon2324830@gmail.com](mailto:leon2324830@gmail.com) |
 | 🕐 **Ответ** | < 1 часа |
