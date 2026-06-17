@@ -1,0 +1,5 @@
+# Локальные файлы — НЕ публиковать на GitHub Pages
+resume.html
+*.pdf
+_extracted/
+.claude/
