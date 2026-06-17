@@ -256,6 +256,7 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .hst{flex:1;padding:18px 10px;text-align:center;position:relative}
 .hst:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--border)}
 .hsc{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:900;color:var(--text);display:block;line-height:1;letter-spacing:-.03em}
+.hsc .hu{font-family:'DM Sans',sans-serif;font-weight:800;font-size:.74em;letter-spacing:0;margin-left:.02em}
 .hsl{font-size:.68rem;color:var(--muted);margin-top:5px;font-family:var(--mono);letter-spacing:.04em}
 
 .rev-overflow{overflow:hidden;border-radius:16px}
@@ -978,7 +979,7 @@ document.querySelectorAll('.pgrid,.schips').forEach(el=>so.observe(el));
       },40);
     });
     document.querySelectorAll('.hsc[data-text]').forEach(el=>{
-      setTimeout(()=>{el.textContent=el.dataset.text},400);
+      setTimeout(()=>{el.innerHTML=el.dataset.text.replace(/</g,'&lt;').replace('ч','<span class="hu">ч</span>')},400);
     });
   }
   const obs=new IntersectionObserver(es=>{if(es[0].isIntersecting)run()},{threshold:.3});
