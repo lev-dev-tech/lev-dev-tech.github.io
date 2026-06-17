@@ -271,18 +271,23 @@ nav.s{padding:12px 0;background:rgba(6,6,8,.92);backdrop-filter:blur(20px);borde
 .fsbtn{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;border-radius:10px;background:var(--accent);color:#fff;font-size:.92rem;font-weight:700;border:none;cursor:pointer;transition:opacity .2s,transform .2s;margin-top:8px;width:100%}
 .fsbtn:hover{opacity:.88;transform:translateY(-1px)}
 .fhint{font-family:var(--mono);font-size:.65rem;color:var(--muted);margin-top:10px;text-align:center}
-.finfo-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
-.finfo-item:last-child{border-bottom:none}
+.fright{display:flex;flex-direction:column}
+.finfo{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.finfo-item{display:flex;align-items:center;gap:14px;padding:14px 18px}
+.finfo-item:not(:last-child){border-bottom:1px solid var(--border)}
 .fii{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.finfo-tx{min-width:0;overflow:hidden}
 .fit{font-family:var(--mono);font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:1px}
-.fiv{font-size:.88rem;color:rgba(240,240,239,.85)}
-.finfo-link{text-decoration:none;transition:background .2s,border-color .2s}
-.finfo-link:hover{background:rgba(255,255,255,.04);border-color:rgba(249,115,22,.25);border-radius:12px}
+.fiv{font-size:.88rem;color:rgba(240,240,239,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.finfo-link{text-decoration:none;transition:background .2s}
+.finfo-link:hover{background:rgba(249,115,22,.06)}
 .finfo-link:hover .fiv{color:var(--accent)}
-.finfo-link:hover svg{opacity:.7}
-.fguarantees{display:flex;flex-direction:column;gap:10px;margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
-.fg{display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(240,240,239,.7)}
-.fg::before{content:'✓';color:#34d399;font-weight:900;font-family:'Syne',sans-serif;font-size:.9rem;flex-shrink:0}
+.finfo-arr{margin-left:auto;color:var(--muted);opacity:.3;flex-shrink:0;transition:opacity .2s,transform .2s,color .2s}
+.finfo-link:hover .finfo-arr{opacity:.85;transform:translate(2px,-2px);color:var(--accent)}
+.fguarantees{display:flex;flex-direction:column;gap:11px;margin-top:18px;padding:20px 22px;background:rgba(52,211,153,.03);border:1px solid rgba(52,211,153,.13);border-radius:16px}
+.fgh{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#34d399;margin-bottom:2px}
+.fg{display:flex;align-items:flex-start;gap:10px;font-size:.86rem;color:rgba(240,240,239,.72);line-height:1.45}
+.fg::before{content:'✓';color:#34d399;font-weight:900;font-family:'Syne',sans-serif;font-size:.9rem;flex-shrink:0;line-height:1.45}
 .fsuccess{display:none;text-align:center;padding:48px 0}
 .fsuccess.show{display:block}
 .fsuccess-icon{font-size:3rem;display:block;margin-bottom:16px}
@@ -773,12 +778,6 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
             </div>
             <button class="fsbtn" id="fSubmit">✈️ Отправить в Telegram</button>
             <p class="fhint">Откроется Telegram с готовым сообщением</p>
-            <div class="fguarantees">
-              <div class="fg">Отвечаю в течение часа в рабочее время</div>
-              <div class="fg">Бесплатная консультация по задаче</div>
-              <div class="fg">Фиксированная стоимость без скрытых доплат</div>
-              <div class="fg">Поддержка после сдачи проекта</div>
-            </div>
           </div>
           <div class="fsuccess" id="fSuccess">
             <span class="fsuccess-icon">🚀</span>
@@ -787,29 +786,38 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
             <button onclick="document.getElementById('fSuccess').classList.remove('show');document.getElementById('fFormWrap').classList.remove('hide')" style="margin-top:20px;padding:10px 24px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:.85rem">Отправить ещё</button>
           </div>
         </div>
-        <div class="finfo">
-          <a href="https://t.me/gustaflmao" target="_blank" class="finfo-item finfo-link">
-            <div class="fii" style="background:rgba(41,182,246,.1)">✈️</div>
-            <div><span class="fit">Telegram</span><span class="fiv">@gustaflmao</span></div>
-            <svg style="margin-left:auto;opacity:.35;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-          <a href="mailto:leon2324830@gmail.com" class="finfo-item finfo-link">
-            <div class="fii" style="background:rgba(249,115,22,.1)">✉️</div>
-            <div><span class="fit">Email</span><span class="fiv">leon2324830@gmail.com</span></div>
-            <svg style="margin-left:auto;opacity:.35;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-          <a href="https://kwork.ru/user/piwhip" target="_blank" class="finfo-item finfo-link">
-            <div class="fii" style="background:rgba(52,211,153,.1)">💼</div>
-            <div><span class="fit">Kwork</span><span class="fiv">kwork.ru/user/piwhip</span></div>
-            <svg style="margin-left:auto;opacity:.35;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-          <div class="finfo-item">
-            <div class="fii" style="background:rgba(251,191,36,.1)">⚡</div>
-            <div><span class="fit">Скорость ответа</span><span class="fiv">Обычно &lt; 1 часа</span></div>
+        <div class="fright">
+          <div class="finfo">
+            <a href="https://t.me/gustaflmao" target="_blank" class="finfo-item finfo-link">
+              <div class="fii" style="background:rgba(41,182,246,.1)">✈️</div>
+              <div class="finfo-tx"><span class="fit">Telegram</span><span class="fiv">@gustaflmao</span></div>
+              <svg class="finfo-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <a href="mailto:leon2324830@gmail.com" class="finfo-item finfo-link">
+              <div class="fii" style="background:rgba(249,115,22,.1)">✉️</div>
+              <div class="finfo-tx"><span class="fit">Email</span><span class="fiv">leon2324830@gmail.com</span></div>
+              <svg class="finfo-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <a href="https://kwork.ru/user/piwhip" target="_blank" class="finfo-item finfo-link">
+              <div class="fii" style="background:rgba(52,211,153,.1)">💼</div>
+              <div class="finfo-tx"><span class="fit">Kwork</span><span class="fiv">kwork.ru/user/piwhip</span></div>
+              <svg class="finfo-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <div class="finfo-item">
+              <div class="fii" style="background:rgba(251,191,36,.1)">⚡</div>
+              <div class="finfo-tx"><span class="fit">Скорость ответа</span><span class="fiv">Обычно &lt; 1 часа</span></div>
+            </div>
+            <div class="finfo-item">
+              <div class="fii" style="background:rgba(167,139,250,.1)">🌍</div>
+              <div class="finfo-tx"><span class="fit">Часовой пояс</span><span class="fiv">МСК (UTC+3)</span></div>
+            </div>
           </div>
-          <div class="finfo-item" style="border:none">
-            <div class="fii" style="background:rgba(167,139,250,.1)">🌍</div>
-            <div><span class="fit">Часовой пояс</span><span class="fiv">МСК (UTC+3)</span></div>
+          <div class="fguarantees">
+            <div class="fgh">Что вы получаете</div>
+            <div class="fg">Отвечаю в течение часа в рабочее время</div>
+            <div class="fg">Бесплатная консультация по задаче</div>
+            <div class="fg">Фиксированная стоимость без скрытых доплат</div>
+            <div class="fg">Поддержка после сдачи проекта</div>
           </div>
         </div>
       </div>
