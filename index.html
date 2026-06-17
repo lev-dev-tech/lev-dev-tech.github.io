@@ -44,7 +44,7 @@ body,nav,.stack-sec,.proc-bg,.fcard,.ccard,.rev-card,.finput,.ftarea,.finfo,.fgu
 ::view-transition-new(root){z-index:9999}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;cursor:none}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 
 /* ---- FIXED LAYERS ---- */
@@ -63,8 +63,6 @@ a{text-decoration:none;color:inherit}
 #totop.vis{opacity:1;pointer-events:auto;transform:translateY(0)}
 #totop:hover{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.6)}
 #totop svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-#cur{width:8px;height:8px;border-radius:50%;background:var(--accent);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,opacity .15s}
-#cur.big{width:30px;height:30px;opacity:.3}
 
 /* ---- LAYOUT ---- */
 .wrap{max-width:1140px;margin:0 auto;padding:0 32px;position:relative;z-index:3}
@@ -343,59 +341,57 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 .rv.in{opacity:1;transform:translateY(0)}
 
 /* ---- RESPONSIVE ---- */
+/* ---- TABLET / LARGE PHONE ---- */
 @media(max-width:900px){
-  .wrap{padding:0 20px}
+  .wrap{padding:0 22px}
   .nl{display:none}
-  nav{padding:16px 0}
-  .hero{padding:100px 0 0;min-height:auto}
-  .hero-btns{margin-bottom:48px}
+  nav{padding:14px 0}
+  .navright{gap:10px}
+  .hero{padding:104px 0 0;min-height:auto}
+  .hero-btns{margin-bottom:44px}
   .sh{padding:72px 0 44px}
-  .pi{grid-template-columns:1fr;gap:36px}
-  .ps{padding:60px 0}
+  .pi{grid-template-columns:1fr;gap:34px}
+  .ps{padding:58px 0}
   .ps.flip .pvisual{order:0}
   .psbg{display:none}
   .pgrid{grid-template-columns:1fr 1fr;gap:24px}
   .pgrid::before{display:none}
   .pstep{padding:0 10px}
-  .contact-sec{padding:72px 0}
-  .ccard{padding:36px 24px}
-  .ccard::after{display:none}
-  .cbtns{flex-direction:column;align-items:flex-start}
-  .cbtn{width:100%;justify-content:center}
-  .cgrid{grid-template-columns:1fr}
-  .cright{display:none}
-  .cinfo{gap:16px}
-  .rev-grid{grid-template-columns:1fr 1fr}
+  .fcard{padding:40px 34px}
+  .fgrid{grid-template-columns:1fr;gap:32px}
 }
+/* ---- PHONE ---- */
 @media(max-width:600px){
   .wrap{padding:0 16px}
+  nav{padding:11px 0}
+  .ncta{padding:7px 15px;font-size:.8rem}
+  .tgl{width:36px;height:36px}
   .hero{padding:90px 0 0}
-  .hero-title{font-size:clamp(2.2rem,9.5vw,3.2rem)}
-  .typed-wrap{font-size:.82rem}
-  .hero-btns{flex-direction:column;align-items:center;gap:10px;margin-bottom:40px}
+  .hero-title{font-size:clamp(2.2rem,9.2vw,3.3rem)}
+  .typed-wrap{font-size:.8rem;min-height:2.4em;margin-bottom:36px}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px;margin-bottom:36px}
   .bp,.bg{width:100%;max-width:320px;justify-content:center}
-  .sh{padding:56px 0 32px}
-  .stitle{font-size:clamp(1.6rem,6vw,2.2rem)}
-  .ps{padding:48px 0}
-  .ptitle{font-size:clamp(1.4rem,5.5vw,2rem)}
-  .pvisual{display:none}
-  .pgrid{grid-template-columns:1fr}
-  .pgrid::before{display:none}
-  .phone{width:200px;height:380px}
-  .pftabs{gap:6px}
-  .pft{padding:7px 14px;font-size:.72rem}
-  .contact-sec{padding:56px 0}
-  .ccard{padding:28px 18px}
-  .ctitle{font-size:clamp(1.6rem,7vw,2.5rem)}
-  .csub{font-size:.88rem;margin-bottom:28px}
-  .cbtn{padding:13px 20px;font-size:.87rem}
-  .cbtns{margin-bottom:28px}
-  .cinfo{flex-direction:column;gap:12px}
-  .rev-grid{grid-template-columns:1fr}
   .hstats{max-width:100%}
-  .hsc{font-size:1.5rem}
-  .fcard{padding:28px 18px}
-  .fgrid{grid-template-columns:1fr;gap:28px}
+  .hsc{font-size:1.45rem}
+  .hsl{font-size:.6rem}
+  .hst{padding:15px 6px}
+  .sh{padding:52px 0 30px}
+  .stitle{font-size:clamp(1.6rem,6.2vw,2.2rem)}
+  .ssub{font-size:.9rem}
+  .ps{padding:44px 0}
+  .ptitle{font-size:clamp(1.45rem,6vw,2rem)}
+  .pdesc{font-size:.9rem}
+  .pvisual{display:none}
+  .pgrid{grid-template-columns:1fr;gap:20px}
+  .pftabs{gap:6px}
+  .pft{padding:7px 13px;font-size:.72rem}
+  .rev-card{padding:20px}
+  .rev-text{font-size:.86rem}
+  .rev-nav{gap:12px;margin-top:22px}
+  .fcard{padding:24px 18px}
+  .fgrid{gap:26px}
+  .finfo-item{padding:13px 14px}
+  .fguarantees{padding:18px 16px}
   footer .fi{flex-direction:column;text-align:center;gap:8px}
 }
 </style>
@@ -407,7 +403,6 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div></div>
 <div class="noise"></div>
 <div id="bar"></div>
-<div id="cur"></div>
 <button id="totop" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
@@ -878,16 +873,6 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 </footer>
 
 <script>
-// CURSOR with inertia
-const cur=document.getElementById('cur');
-let mx=0,my=0,cx=0,cy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function ac(){cx+=(mx-cx)*.12;cy+=(my-cy)*.12;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(ac)})();
-document.querySelectorAll('a,button,.sch,.pstep').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cur.classList.add('big'));
-  el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
-});
-
 // PROGRESS BAR
 const bar=document.getElementById('bar');
 const totop=document.getElementById('totop');
