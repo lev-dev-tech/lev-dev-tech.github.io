@@ -59,8 +59,9 @@ nav.s{padding:12px 0;background:rgba(6,6,8,.92);backdrop-filter:blur(20px);borde
 .badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(249,115,22,.25);padding:5px 14px;border-radius:20px;margin:0 auto 32px;width:fit-content}
 .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero-title{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:900;line-height:1.02;letter-spacing:-.04em;margin-bottom:12px;animation:hglitch 9s infinite}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:900;line-height:1.02;letter-spacing:-.04em;margin-bottom:12px;animation:hglitch 9s infinite;min-height:2.05em}
 .hero-title .ac{color:var(--accent)}
+.hcur{color:var(--accent);font-weight:900;animation:blink .8s infinite;margin-left:.04em}
 @keyframes hglitch{0%,86%,100%{transform:none;filter:none}87%{transform:translate(-3px,1px);filter:hue-rotate(25deg)}88%{transform:translate(3px,-2px)}89%{transform:translate(-1px,0);filter:none}90%{transform:none}}
 .typed-wrap{font-family:var(--mono);font-size:clamp(.9rem,1.8vw,1.15rem);color:var(--muted);margin-bottom:44px;min-height:2.2em}
 .tcursor{color:var(--accent);animation:blink .8s infinite}
@@ -393,7 +394,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 <section class="hero">
   <div class="wrap">
     <div class="badge"><div class="dot"></div>Открыт к заказам</div>
-    <h1 class="hero-title">Технический<br><span class="ac">специалист</span></h1>
+    <h1 class="hero-title"><span id="hl1">Технический</span><br><span id="hl2" class="ac">специалист</span><span id="hcur" class="hcur">█</span></h1>
     <div class="typed-wrap"><span id="tspan"></span><span class="tcursor">█</span></div>
     <div class="hero-btns">
       <a href="#projects" class="bp">Смотреть проекты →</a>
@@ -856,6 +857,30 @@ window.addEventListener('scroll',()=>{
 // NAV
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('s',window.scrollY>50),{passive:true});
+
+// HERO TITLE CYCLE (type/erase)
+(function(){
+  const HP=[['Технический','специалист'],['Telegram','dev'],['lev','dev']];
+  const hl1=document.getElementById('hl1'),hl2=document.getElementById('hl2'),hcur=document.getElementById('hcur');
+  if(!hl1||!hl2||!hcur)return;
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  const cur=el=>el.insertAdjacentElement('afterend',hcur);
+  async function type(el,str){for(let i=1;i<=str.length;i++){el.textContent=str.slice(0,i);await sleep(72+Math.random()*40)}}
+  async function erase(el){let s=el.textContent;for(let i=s.length;i>=0;i--){el.textContent=s.slice(0,i);await sleep(34)}}
+  (async function loop(){
+    let i=0; // phrase 0 already rendered in HTML
+    while(true){
+      await sleep(2300);
+      cur(hl2);await erase(hl2);
+      cur(hl1);await erase(hl1);
+      await sleep(260);
+      i=(i+1)%HP.length;
+      const[a,b]=HP[i];
+      cur(hl1);await type(hl1,a);
+      cur(hl2);await type(hl2,b);
+    }
+  })();
+})();
 
 // TYPING
 const phrases=['Пишу ботов, которые работают →','Mini Apps внутри Telegram →','Парсеры, рассылки, автоматизация →','FastAPI + aiogram + Telethon →'];
