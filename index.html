@@ -659,23 +659,21 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
         <div class="pf"><div class="pfd" style="background:#f472b6"></div><div>Адаптивная вёрстка, IntersectionObserver-анимации</div></div>
       </div>
       <div class="pstack"><span class="sp">HTML5</span><span class="sp">CSS3</span><span class="sp">Vanilla JS</span><span class="sp">Google Fonts</span></div>
+      <div class="plinks">
+        <button type="button" class="plink plink--primary" data-blob="luminaSrc">Открыть в новой вкладке ↗</button>
+        <button type="button" class="plink plink--ghost" data-preview="srcdoc:luminaSrc" data-title="Lumina — AI для дизайнеров">⌕ Полистать превью</button>
+      </div>
     </div>
     <div class="pvisual rv">
-      <div class="bmock">
+      <div class="bmock bmock--live" data-preview="srcdoc:luminaSrc" data-title="Lumina — AI для дизайнеров" role="button" tabindex="0" aria-label="Открыть превью лендинга Lumina">
         <div class="bchrome">
           <div class="bdots"><span class="bdt r"></span><span class="bdt y"></span><span class="bdt g"></span></div>
           <div class="burl">🔒 &nbsp;lumina.design</div>
         </div>
-        <div class="bcontent">
-          <div class="mht">Lumina<br>для дизайнеров</div>
-          <div class="mhs">AI-инструмент нового поколения</div>
-          <div class="mbtns"><span class="mb p">Начать бесплатно →</span><span class="mb g">Демо</span></div>
-          <div class="mcards">
-            <div class="mcard"><span class="mci">⚡</span><span class="mct">AI-генерация</span>За секунды</div>
-            <div class="mcard"><span class="mci">🎨</span><span class="mct">Стили</span>100+ шаб.</div>
-            <div class="mcard"><span class="mci">🔗</span><span class="mct">Экспорт</span>Figma, SVG</div>
-          </div>
+        <div class="bframe">
+          <iframe class="lumina-frame" title="Превью лендинга Lumina" tabindex="-1" aria-hidden="true"></iframe>
         </div>
+        <span class="bmock__hint">⌕ &nbsp;Полистать превью</span>
       </div>
     </div>
   </div>
@@ -895,6 +893,1006 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <span>© 2025 <span class="ac">Лев</span> — Технический специалист</span>
   </div>
 </footer>
+
+<template id="luminaSrc">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina — AI-инструмент для дизайнеров</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    section[id] { scroll-margin-top: 90px; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0a0a0f;
+      color: #e2e2f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --purple: #7c3aed;
+      --violet: #a855f7;
+      --pink: #ec4899;
+      --grad: linear-gradient(135deg, #7c3aed, #ec4899);
+      --grad-text: linear-gradient(135deg, #a855f7, #f472b6);
+      --card-bg: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .grad-text {
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--grad);
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(124,58,237,.4);
+    }
+    .btn-primary:hover { box-shadow: 0 12px 40px rgba(124,58,237,.6); }
+    .btn-ghost {
+      background: transparent;
+      color: #e2e2f0;
+      border: 1.5px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--violet); color: var(--violet); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 0;
+      transition: background .3s, backdrop-filter .3s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,15,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.5rem; font-weight: 800; letter-spacing: -.5px;
+    }
+    .nav-links { display: flex; gap: 36px; }
+    .nav-links a {
+      font-size: .95rem; color: #a0a0b8;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,58,237,.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(236,72,153,.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124,58,237,.15);
+      border: 1px solid rgba(124,58,237,.4);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: .85rem; color: var(--violet);
+      margin-bottom: 32px;
+    }
+    .hero-badge span { width: 8px; height: 8px; background: var(--violet); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #9090aa;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-img {
+      margin-top: 80px;
+      width: 100%; max-width: 900px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06);
+    }
+    .mock-toolbar {
+      height: 44px; background: rgba(255,255,255,.04);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 16px; gap: 8px;
+    }
+    .mock-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .mock-canvas {
+      height: 320px;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,.015) 0px, rgba(255,255,255,.015) 1px,
+        transparent 1px, transparent 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,.015) 0px, rgba(255,255,255,.015) 1px,
+        transparent 1px, transparent 40px
+      );
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      gap: 20px;
+    }
+    .mock-shape {
+      position: absolute;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: var(--grad);
+      filter: blur(60px);
+      opacity: .35;
+      animation: float 4s ease-in-out infinite;
+      left: 30%; top: 20%;
+    }
+    .mock-shape2 {
+      position: absolute; right: 15%; bottom: 10%;
+      width: 120px; height: 120px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      filter: blur(50px); opacity: .3;
+      animation: float 5s ease-in-out infinite reverse;
+    }
+    .mc-card {
+      position: relative; z-index: 2;
+      background: rgba(18,18,30,.85);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      flex-shrink: 0;
+    }
+    .mc-preview {
+      width: 230px; padding: 16px;
+      --c1: #7c3aed;
+      --c2: #ec4899;
+    }
+    .mc-stage {
+      position: relative;
+      height: 150px; border-radius: 12px;
+      margin-bottom: 12px; overflow: hidden;
+      background: #0c0c14;
+      isolation: isolate;
+    }
+    .mcl { transition: opacity .35s, box-shadow .25s, transform .35s, filter .35s; }
+    .mcl.lhidden { opacity: 0 !important; pointer-events: none; }
+    .mcl.lsel { box-shadow: 0 0 0 1.5px #fff, 0 0 0 4px rgba(124,58,237,.5); border-radius: 4px; z-index: 5; }
+
+    .mcl-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(140deg, var(--c1), var(--c2));
+      opacity: .9;
+    }
+    .mcl-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 1px, transparent 1px 14px);
+    }
+    .mcl-glow {
+      position: absolute; z-index: 1;
+      width: 90px; height: 90px; right: -10px; bottom: -20px;
+      border-radius: 50%;
+      background: var(--c2);
+      filter: blur(26px); opacity: .75;
+      animation: float 5s ease-in-out infinite;
+    }
+    .mcl-headline {
+      position: absolute; z-index: 2; left: 14px; top: 30px; right: 40px;
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .mcl-headline .ln {
+      height: 9px; border-radius: 4px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 1px 4px rgba(0,0,0,.25);
+    }
+    .mcl-headline .ln.short { width: 55%; height: 7px; background: rgba(255,255,255,.6); }
+    .mcl-cta {
+      position: absolute; z-index: 3; left: 14px; bottom: 16px;
+      padding: 7px 16px; border-radius: 20px;
+      font-size: .62rem; font-weight: 700; color: #fff;
+      background: rgba(0,0,0,.45);
+      border: 1.5px solid rgba(255,255,255,.85);
+      backdrop-filter: blur(4px);
+    }
+
+    .mc-preview-title {
+      font-size: .85rem; font-weight: 700; color: #e0e0f0; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .mc-preview-title .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #10b981; box-shadow: 0 0 8px #10b981;
+      animation: pulse 2s infinite;
+    }
+    .mc-preview-sub {
+      font-size: .72rem; color: #7070a0;
+    }
+
+    .mc-palette { width: 160px; padding: 16px; }
+    .mc-palette-title { font-size: .72rem; color: #7070a0; margin-bottom: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+    .mc-swatches { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .mc-swatch {
+      width: 28px; height: 28px; border-radius: 8px;
+      cursor: pointer; transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 0 0 transparent;
+    }
+    .mc-swatch:hover { transform: scale(1.15); }
+    .mc-swatch.selected {
+      box-shadow: 0 0 0 2px #0a0a0f, 0 0 0 4px #fff;
+      transform: scale(1.1);
+    }
+    .mc-palette-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; transition: opacity .2s; }
+    .mc-palette-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .mc-palette-hex { font-size: .7rem; font-family: monospace; color: #8080a0; }
+
+    .mc-layers { width: 170px; padding: 14px; }
+    .mc-layers-title { font-size: .72rem; color: #7070a0; margin-bottom: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+    .mc-layer-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 8px; border-radius: 8px;
+      margin-bottom: 4px; font-size: .78rem; color: #c0c0d8;
+      cursor: pointer; transition: background .2s;
+    }
+    .mc-layer-item:hover, .mc-layer-item.active { background: rgba(124,58,237,.2); }
+    .mc-layer-item.hidden { opacity: .35; }
+    .mc-layer-icon { font-size: .85rem; }
+    .mc-layer-name { flex: 1; }
+    .mc-layer-eye { font-size: .7rem; color: #50506a; cursor: pointer; padding: 2px 4px; border-radius: 4px; }
+    .mc-layer-eye:hover { color: #c0c0d8; }
+
+    .logos { padding: 48px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .logos p { text-align: center; font-size: .85rem; color: #55556a; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 28px; }
+    .logos-row { display: flex; gap: 48px; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .logo-item { font-size: 1.2rem; font-weight: 700; color: #33334a; letter-spacing: -.02em; }
+
+    .features { padding: 120px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: .8rem; font-weight: 600;
+      color: var(--violet); text-transform: uppercase; letter-spacing: .15em;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; line-height: 1.15; letter-spacing: -.03em;
+      margin-bottom: 16px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 64px;
+    }
+    .feature-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px 32px 30px;
+      overflow: hidden;
+      transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .4s;
+      isolation: isolate;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute; inset: 0; z-index: -1;
+      border-radius: inherit;
+      background: radial-gradient(
+        260px circle at var(--mx, 50%) var(--my, 0%),
+        rgba(168,85,247,.18), transparent 65%
+      );
+      opacity: 0; transition: opacity .4s;
+    }
+    .feature-card::after {
+      content: '';
+      position: absolute; inset: 0; z-index: -1;
+      border-radius: inherit; padding: 1px;
+      background: linear-gradient(140deg, rgba(168,85,247,.6), rgba(236,72,153,.3) 40%, transparent 70%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      opacity: 0; transition: opacity .4s;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px -20px rgba(124,58,237,.45);
+    }
+    .feature-card:hover::before,
+    .feature-card:hover::after { opacity: 1; }
+    .feature-card:hover .feature-icon {
+      transform: translateY(-2px) rotate(-6deg) scale(1.06);
+    }
+    .feature-card:hover .feature-more { opacity: 1; transform: translateX(0); }
+
+    .feature-index {
+      position: absolute; top: 26px; right: 30px;
+      font-size: 2.4rem; font-weight: 900; line-height: 1;
+      letter-spacing: -.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.08);
+      pointer-events: none; user-select: none;
+    }
+    .feature-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+      background: linear-gradient(140deg, rgba(168,85,247,.18), rgba(236,72,153,.08));
+      border: 1px solid rgba(168,85,247,.22);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    .feature-icon svg { width: 26px; height: 26px; display: block; }
+    .feature-card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -.01em; }
+    .feature-card p { color: #8888a8; font-size: .94rem; }
+    .feature-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 18px; font-size: .85rem; font-weight: 600;
+      color: var(--violet);
+      opacity: 0; transform: translateX(-8px);
+      transition: opacity .35s, transform .35s;
+    }
+
+    .how { padding: 80px 0 120px; }
+    .how-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    @media (max-width: 768px) { .how-inner { grid-template-columns: 1fr; } }
+    .steps { display: flex; flex-direction: column; gap: 32px; }
+    .step { display: flex; gap: 20px; align-items: flex-start; }
+    .step-num {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 50%; background: var(--grad);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 700;
+    }
+    .step-text h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .step-text p { color: #7070a0; font-size: .9rem; }
+    .how-visual {
+      border-radius: 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      height: 400px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .how-visual::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,.25) 0%, transparent 70%);
+    }
+    .prompt-box {
+      background: rgba(0,0,0,.5); border: 1px solid rgba(168,85,247,.3);
+      border-radius: 12px; padding: 16px 20px;
+      font-family: monospace; font-size: .85rem; color: #c0c0e0;
+      max-width: 280px; position: relative; z-index: 1;
+    }
+    .prompt-cursor { display: inline-block; width: 2px; height: 14px; background: var(--violet); animation: blink 1s infinite; vertical-align: middle; margin-left: 2px; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .pricing { padding: 80px 0 120px; text-align: center; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 64px; text-align: left;
+    }
+    .price-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 24px; padding: 40px 32px;
+      transition: transform .3s;
+    }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-card.popular {
+      background: linear-gradient(135deg, rgba(124,58,237,.15), rgba(236,72,153,.1));
+      border-color: rgba(168,85,247,.5);
+    }
+    .popular-badge {
+      display: inline-block; background: var(--grad);
+      border-radius: 50px; padding: 4px 14px;
+      font-size: .75rem; font-weight: 700; color: #fff;
+      margin-bottom: 20px;
+    }
+    .price-name { font-size: 1rem; font-weight: 600; color: #9090b0; margin-bottom: 12px; }
+    .price-amount { font-size: 3rem; font-weight: 900; letter-spacing: -.04em; line-height: 1; }
+    .price-amount span { font-size: 1.2rem; font-weight: 500; color: #7070a0; }
+    .price-per { font-size: .85rem; color: #7070a0; margin-bottom: 28px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .price-features li { font-size: .9rem; color: #c0c0d8; display: flex; gap: 10px; }
+    .price-features li::before { content: '✓'; color: var(--violet); font-weight: 700; }
+
+    .testimonials { padding: 80px 0 120px; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 64px;
+    }
+    .testi-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+    }
+    .stars { color: #f59e0b; font-size: .9rem; margin-bottom: 14px; }
+    .testi-card p { font-size: .95rem; color: #c0c0d8; margin-bottom: 20px; line-height: 1.7; }
+    .testi-author { display: flex; gap: 12px; align-items: center; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .9rem; color: #fff;
+    }
+    .testi-name { font-size: .9rem; font-weight: 600; }
+    .testi-role { font-size: .8rem; color: #7070a0; }
+
+    .cta-section {
+      padding: 80px 0 140px;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(124,58,237,.2), rgba(236,72,153,.15));
+      border: 1px solid rgba(168,85,247,.3);
+      border-radius: 32px; padding: 80px 40px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+      width: 500px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900; letter-spacing: -.04em; margin-bottom: 16px;
+    }
+    .cta-box p { font-size: 1.1rem; color: #9090b0; margin-bottom: 40px; }
+    .cta-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-form input {
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--border);
+      border-radius: 50px; padding: 14px 24px;
+      color: #fff; font-size: 1rem; width: 320px;
+      outline: none; transition: border-color .2s;
+    }
+    .cta-form input::placeholder { color: #55556a; }
+    .cta-form input:focus { border-color: var(--violet); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-size: 1.2rem; font-weight: 800; }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a { font-size: .85rem; color: #55556a; transition: color .2s; }
+    .footer-links a:hover { color: #e2e2f0; }
+    .footer-copy { font-size: .8rem; color: #33334a; }
+
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="iconGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<nav id="navbar">
+  <div class="container nav-inner">
+    <div class="logo grad-text">Lumina</div>
+    <div class="nav-links">
+      <a href="#features">Возможности</a>
+      <a href="#how">Как работает</a>
+      <a href="#pricing">Цены</a>
+    </div>
+    <a href="#cta" class="btn btn-primary" style="padding:10px 24px;font-size:.9rem;">Попробовать бесплатно</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div style="position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;">
+    <div class="hero-badge">
+      <span></span> Теперь с GPT-Vision 4.1
+    </div>
+    <h1>
+      Дизайн на скорости<br/>
+      <span class="grad-text">мысли</span>
+    </h1>
+    <p>Lumina превращает текстовые идеи в готовые дизайны за секунды. Просто опишите — AI сделает остальное.</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn btn-primary">Начать бесплатно →</a>
+      <a href="#how" class="btn btn-ghost">Смотреть демо</a>
+    </div>
+    <div class="hero-img container">
+      <div class="mock-toolbar">
+        <div class="mock-dot" style="background:#ff5f57"></div>
+        <div class="mock-dot" style="background:#febc2e"></div>
+        <div class="mock-dot" style="background:#28c840"></div>
+      </div>
+      <div class="mock-canvas">
+        <div class="mock-shape"></div>
+        <div class="mock-shape2"></div>
+
+        <div class="mc-card mc-preview" id="mcPreview">
+          <div class="mc-stage">
+            <div class="mcl mcl-bg"       data-layer="Hero BG"></div>
+            <div class="mcl mcl-glow"     data-layer="Glow Shape"></div>
+            <div class="mcl mcl-headline" data-layer="Headline">
+              <div class="ln"></div>
+              <div class="ln short"></div>
+            </div>
+            <div class="mcl mcl-cta"      data-layer="Button CTA">Начать →</div>
+          </div>
+          <div class="mc-preview-title"><span class="dot"></span><span id="mcPreviewTitle">Hero Section</span></div>
+          <div class="mc-preview-sub" id="mcPreviewSub">4 слоя · live preview</div>
+        </div>
+
+        <div class="mc-card mc-palette">
+          <div class="mc-palette-title">Palette</div>
+          <div class="mc-swatches" id="mcSwatches">
+            <div class="mc-swatch selected" style="background:#7c3aed" data-hex="#7C3AED"></div>
+            <div class="mc-swatch" style="background:#ec4899" data-hex="#EC4899"></div>
+            <div class="mc-swatch" style="background:#06b6d4" data-hex="#06B6D4"></div>
+            <div class="mc-swatch" style="background:#f59e0b" data-hex="#F59E0B"></div>
+            <div class="mc-swatch" style="background:#10b981" data-hex="#10B981"></div>
+            <div class="mc-swatch" style="background:#0a0a0f; border:1px solid rgba(255,255,255,.15)" data-hex="#0A0A0F"></div>
+          </div>
+          <div class="mc-palette-row">
+            <div class="mc-palette-dot" id="mcDotPrimary" style="background:#7c3aed"></div>
+            <span class="mc-palette-hex" id="mcHexPrimary">#7C3AED</span>
+          </div>
+          <div class="mc-palette-row">
+            <div class="mc-palette-dot" id="mcDotSecondary" style="background:#ec4899"></div>
+            <span class="mc-palette-hex" id="mcHexSecondary">#EC4899</span>
+          </div>
+        </div>
+
+        <div class="mc-card mc-layers" id="mcLayers">
+          <div class="mc-layers-title">Layers</div>
+          <div class="mc-layer-item active" data-name="Hero BG">
+            <span class="mc-layer-icon">▭</span>
+            <span class="mc-layer-name">Hero BG</span>
+            <span class="mc-layer-eye">👁</span>
+          </div>
+          <div class="mc-layer-item" data-name="Headline">
+            <span class="mc-layer-icon">T</span>
+            <span class="mc-layer-name">Headline</span>
+            <span class="mc-layer-eye">👁</span>
+          </div>
+          <div class="mc-layer-item" data-name="Button CTA">
+            <span class="mc-layer-icon">⬡</span>
+            <span class="mc-layer-name">Button CTA</span>
+            <span class="mc-layer-eye">👁</span>
+          </div>
+          <div class="mc-layer-item" data-name="Glow Shape">
+            <span class="mc-layer-icon">◎</span>
+            <span class="mc-layer-name">Glow Shape</span>
+            <span class="mc-layer-eye">👁</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logos">
+  <div class="container">
+    <p>Доверяют команды из</p>
+    <div class="logos-row">
+      <div class="logo-item">Figma</div>
+      <div class="logo-item">Notion</div>
+      <div class="logo-item">Vercel</div>
+      <div class="logo-item">Linear</div>
+      <div class="logo-item">Stripe</div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;">
+      <span class="section-label">Возможности</span>
+      <h2 class="section-title">Всё что нужно<br/><span class="grad-text">дизайнеру</span></h2>
+      <p style="color:#7070a0;max-width:480px;margin:0 auto;">Один инструмент вместо десяти. От идеи до готового макета без лишних шагов.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <span class="feature-index">01</span>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>
+          </svg>
+        </div>
+        <h3>Генерация за секунды</h3>
+        <p>Опишите концепцию текстом — Lumina создаст полноценный макет с типографикой, цветами и компонентами.</p>
+        <a href="#how" class="feature-more">Как это работает →</a>
+      </div>
+      <div class="feature-card fade-up">
+        <span class="feature-index">02</span>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.8 1.5-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.1 0-.9.7-1.5 1.6-1.5H16a5 5 0 0 0 5-5c0-4-4-7.5-9-7.5Z"/>
+            <circle cx="7.5" cy="11" r="1.1" fill="url(#iconGrad)" stroke="none"/>
+            <circle cx="12" cy="8" r="1.1" fill="url(#iconGrad)" stroke="none"/>
+            <circle cx="16.5" cy="11" r="1.1" fill="url(#iconGrad)" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Стилевые пресеты</h3>
+        <p>Библиотека из 200+ визуальных стилей: минимализм, glassmorphism, ретро, 3D — применяется одним кликом.</p>
+        <a href="#pricing" class="feature-more">Смотреть тарифы →</a>
+      </div>
+      <div class="feature-card fade-up">
+        <span class="feature-index">03</span>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
+            <path d="m3 13 9 5 9-5"/>
+          </svg>
+        </div>
+        <h3>Экспорт в Figma</h3>
+        <p>Готовый результат отправляется прямо в ваш Figma-файл с сохранением всех слоёв и компонентов.</p>
+        <a href="#cta" class="feature-more">Подключить →</a>
+      </div>
+      <div class="feature-card fade-up">
+        <span class="feature-index">04</span>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3"/>
+            <path d="M3.5 20a5.5 5.5 0 0 1 11 0"/>
+            <path d="M16 5.5a3 3 0 0 1 0 5.7"/>
+            <path d="M17.5 14.3A5.5 5.5 0 0 1 20.5 19"/>
+          </svg>
+        </div>
+        <h3>Совместная работа</h3>
+        <p>Работайте в реальном времени с командой. Комментарии, история версий, роли и права доступа.</p>
+        <a href="#cta" class="feature-more">Пригласить команду →</a>
+      </div>
+      <div class="feature-card fade-up">
+        <span class="feature-index">05</span>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+          </svg>
+        </div>
+        <h3>Умная сетка</h3>
+        <p>AI автоматически выравнивает элементы, соблюдает отступы и строит иерархию по правилам хорошего дизайна.</p>
+        <a href="#how" class="feature-more">Узнать больше →</a>
+      </div>
+      <div class="feature-card fade-up">
+        <span class="feature-index">06</span>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.5 7.5c-2.5 0-4 1.9-4 4.5s1.5 4.5 4 4.5c3.5 0 4.5-9 11-9 2.5 0 4 1.9 4 4.5s-1.5 4.5-4 4.5c-3.5 0-4.5-9-11-9Z"/>
+          </svg>
+        </div>
+        <h3>Безлимитные итерации</h3>
+        <p>Пробуйте сколько угодно вариантов. Каждая итерация сохраняется и доступна для сравнения.</p>
+        <a href="#pricing" class="feature-more">Открыть Pro →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="container how-inner">
+    <div class="fade-up">
+      <span class="section-label">Как работает</span>
+      <h2 class="section-title" style="margin-bottom:48px;">Три шага<br/><span class="grad-text">до результата</span></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Опишите идею</h4>
+            <p>Введите промпт: «Лендинг для SaaS в тёмном стиле с фиолетовым акцентом»</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Lumina генерирует</h4>
+            <p>AI строит макет, подбирает шрифты, цвета и компонует блоки по законам UX</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Уточните и экспортируйте</h4>
+            <p>Подкорректируйте детали в редакторе и отправьте в Figma или скачайте как HTML</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="how-visual fade-up">
+      <div class="prompt-box">
+        <div style="color:#7070a0;margin-bottom:8px;font-size:.75rem;">// промпт</div>
+        "Создай hero-секцию для<br/>фитнес-приложения.<br/>Тёмный фон, неон,<br/>энергетика и движение"<div class="prompt-cursor"></div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);color:#7070a0;font-size:.75rem;">✓ Генерирую макет...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="fade-up">
+      <span class="section-label">Цены</span>
+      <h2 class="section-title">Простые и<br/><span class="grad-text">честные цены</span></h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card fade-up">
+        <div class="price-name">Starter</div>
+        <div class="price-amount">₽0 <span>/мес</span></div>
+        <div class="price-per">Навсегда бесплатно</div>
+        <ul class="price-features">
+          <li>50 генераций в месяц</li>
+          <li>10 активных проектов</li>
+          <li>Экспорт в PNG</li>
+          <li>Базовые стили</li>
+        </ul>
+        <a href="#cta" class="btn btn-ghost" style="width:100%;justify-content:center;">Начать бесплатно</a>
+      </div>
+      <div class="price-card popular fade-up">
+        <div class="popular-badge">Популярный</div>
+        <div class="price-name">Pro</div>
+        <div class="price-amount">₽1 490 <span>/мес</span></div>
+        <div class="price-per">или ₽14 900 в год (−17%)</div>
+        <ul class="price-features">
+          <li>Безлимитные генерации</li>
+          <li>Неограниченные проекты</li>
+          <li>Экспорт в Figma и HTML</li>
+          <li>Все 200+ стилей</li>
+          <li>Приоритетная поддержка</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary" style="width:100%;justify-content:center;">Попробовать Pro →</a>
+      </div>
+      <div class="price-card fade-up">
+        <div class="price-name">Team</div>
+        <div class="price-amount">₽3 990 <span>/мес</span></div>
+        <div class="price-per">до 10 участников</div>
+        <ul class="price-features">
+          <li>Всё из Pro</li>
+          <li>Совместная работа</li>
+          <li>Брендбук и токены</li>
+          <li>Admin-панель</li>
+          <li>SSO и безопасность</li>
+        </ul>
+        <a href="#cta" class="btn btn-ghost" style="width:100%;justify-content:center;">Связаться с нами</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;">
+      <span class="section-label">Отзывы</span>
+      <h2 class="section-title">Что говорят<br/><span class="grad-text">пользователи</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p>«Lumina сократила наш цикл дизайна с недели до одного дня. Я не могу представить работу без неё теперь.»</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#7c3aed,#ec4899);">А</div>
+          <div>
+            <div class="testi-name">Алина Морозова</div>
+            <div class="testi-role">Lead Designer, Ozon</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p>«Наконец-то инструмент, который понимает контекст. Prompt → готовый макет за 30 секунд. Магия.»</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#06b6d4,#3b82f6);">К</div>
+          <div>
+            <div class="testi-name">Кирилл Петров</div>
+            <div class="testi-role">Product Manager, Tinkoff</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★☆</div>
+        <p>«Использую для быстрых прототипов перед питчами. Клиенты думают, что это финальный дизайн — это комплимент!»</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">М</div>
+          <div>
+            <div class="testi-name">Мария Соколова</div>
+            <div class="testi-role">Freelance UI Designer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-box fade-up">
+      <h2>Готов создавать<br/><span class="grad-text">быстрее?</span></h2>
+      <p>Зарегистрируйтесь — первые 50 генераций бесплатно, карта не нужна.</p>
+      <div class="cta-form">
+        <input type="email" placeholder="your@email.com" />
+        <button class="btn btn-primary">Начать бесплатно →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo grad-text">Lumina</div>
+    <div class="footer-links">
+      <a href="#">Продукт</a>
+      <a href="#">Блог</a>
+      <a href="#">Документация</a>
+      <a href="#">Контакты</a>
+    </div>
+    <div class="footer-copy">© 2026 Lumina Inc.</div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+      if (id === '#' || id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', id);
+    });
+  });
+
+  document.querySelectorAll('.feature-card').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      card.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
+
+  function debounceClick(fn) {
+    let locked = false;
+    return (e) => {
+      if (locked) return;
+      locked = true;
+      fn(e);
+      setTimeout(() => { locked = false; }, 50);
+    };
+  }
+
+  const preview      = document.getElementById('mcPreview');
+  const stage        = preview.querySelector('.mc-stage');
+  const previewTitle = document.getElementById('mcPreviewTitle');
+  const previewSub   = document.getElementById('mcPreviewSub');
+
+  const swatches     = document.querySelectorAll('#mcSwatches .mc-swatch');
+  const dotPrimary   = document.getElementById('mcDotPrimary');
+  const hexPrimary   = document.getElementById('mcHexPrimary');
+  const dotSecondary = document.getElementById('mcDotSecondary');
+  const hexSecondary = document.getElementById('mcHexSecondary');
+
+  swatches.forEach(swatch => {
+    swatch.addEventListener('click', debounceClick(() => {
+      if (swatch.classList.contains('selected')) return;
+
+      swatches.forEach(s => s.classList.remove('selected'));
+      swatch.classList.add('selected');
+
+      const newHex = swatch.dataset.hex;
+      const newBg  = swatch.style.background;
+      const prevBg  = dotPrimary.style.background;
+      const prevHex = hexPrimary.textContent;
+
+      dotSecondary.style.background = prevBg;
+      hexSecondary.textContent      = prevHex;
+      dotPrimary.style.background    = newBg;
+      hexPrimary.textContent         = newHex;
+
+      preview.style.setProperty('--c1', newHex);
+      preview.style.setProperty('--c2', prevHex);
+
+      stage.animate(
+        [{ filter: 'brightness(1.6)' }, { filter: 'brightness(1)' }],
+        { duration: 320, easing: 'ease-out' }
+      );
+    }));
+  });
+
+  const layers     = document.querySelectorAll('#mcLayers .mc-layer-item');
+  const stageLayer = name => stage.querySelector(`.mcl[data-layer="${name}"]`);
+
+  layers.forEach(layer => {
+    const eye  = layer.querySelector('.mc-layer-eye');
+    const name = layer.dataset.name;
+    const el   = stageLayer(name);
+
+    layer.addEventListener('click', debounceClick(() => {
+      if (layer.classList.contains('active')) return;
+      layers.forEach(l => l.classList.remove('active'));
+      layer.classList.add('active');
+
+      stage.querySelectorAll('.mcl').forEach(m => m.classList.remove('lsel'));
+      if (el && !el.classList.contains('lhidden')) el.classList.add('lsel');
+
+      previewTitle.textContent = name;
+      previewSub.textContent   = 'выбран слой · ред.';
+    }));
+
+    eye.addEventListener('click', debounceClick(e => {
+      e.stopPropagation();
+      const hidden = layer.classList.toggle('hidden');
+      eye.textContent = hidden ? '🚫' : '👁';
+      if (el) {
+        el.classList.toggle('lhidden', hidden);
+        if (hidden) el.classList.remove('lsel');
+      }
+      const visible = [...layers].filter(l => !l.classList.contains('hidden')).length;
+      previewSub.textContent = `${visible} ${visible === 1 ? 'слой' : visible < 5 ? 'слоя' : 'слоёв'} · live preview`;
+    }));
+  });
+</script>
+</body>
+</html>
+</template>
 
 <div class="pvmodal" id="pvModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Превью лендинга">
   <div class="pvmodal__ov" data-pvclose></div>
@@ -1123,22 +2121,34 @@ document.getElementById('fSubmit').addEventListener('click',function(){
   const frame=document.getElementById('pvFrame');
   const title=document.getElementById('pvTitle');
   const openLink=document.getElementById('pvOpen');
-  let lastFocus=null;
-  function open(url,t){
+  let lastFocus=null, blobUrl=null;
+  function tplHTML(id){const t=document.getElementById(id);return t?t.innerHTML:''}
+  function toBlob(html){if(blobUrl)URL.revokeObjectURL(blobUrl);blobUrl=URL.createObjectURL(new Blob([html],{type:'text/html'}));return blobUrl}
+  function open(target,t){
     lastFocus=document.activeElement;
-    frame.src=url; title.textContent=t||'Превью'; openLink.href=url;
+    title.textContent=t||'Превью';
+    if(target.indexOf('srcdoc:')===0){
+      const html=tplHTML(target.slice(7));
+      frame.removeAttribute('src'); frame.srcdoc=html; openLink.href=toBlob(html);
+    }else{
+      frame.removeAttribute('srcdoc'); frame.src=target; openLink.href=target;
+    }
     modal.classList.add('on'); modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
   }
   function close(){
     modal.classList.remove('on'); modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow=''; frame.src='about:blank';
+    document.body.style.overflow=''; frame.removeAttribute('srcdoc'); frame.src='about:blank';
     if(lastFocus&&lastFocus.focus)lastFocus.focus();
   }
   document.querySelectorAll('[data-preview]').forEach(el=>{
     el.addEventListener('click',()=>open(el.dataset.preview,el.dataset.title));
     el.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&el.getAttribute('role')==='button'){e.preventDefault();open(el.dataset.preview,el.dataset.title)}});
   });
+  document.querySelectorAll('[data-blob]').forEach(el=>{
+    el.addEventListener('click',()=>window.open(toBlob(tplHTML(el.dataset.blob)),'_blank'));
+  });
+  document.querySelectorAll('.lumina-frame').forEach(f=>{f.srcdoc=tplHTML('luminaSrc')});
   modal.querySelectorAll('[data-pvclose]').forEach(el=>el.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('on'))close()});
 })();
