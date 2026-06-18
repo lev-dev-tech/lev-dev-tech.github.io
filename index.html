@@ -366,6 +366,36 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   .fguarantees{padding:18px 16px}
   footer .fi{flex-direction:column;text-align:center;gap:8px}
 }
+.plinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.plink{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:9px;font-size:.85rem;font-weight:600;font-family:inherit;cursor:pointer;transition:transform .2s,opacity .2s,border-color .2s,background .2s,color .2s}
+.plink--primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.plink--primary:hover{transform:translateY(-2px);opacity:.9}
+.plink--ghost{background:rgba(var(--tint),.03);border:1px solid var(--border);color:var(--text)}
+.plink--ghost:hover{border-color:rgba(249,115,22,.45);color:var(--accent);transform:translateY(-2px)}
+.bmock--live{position:relative;cursor:pointer;outline:none}
+.bmock--live .bframe{position:relative;width:100%;height:300px;overflow:hidden;background:#0c0c0e}
+.bmock--live .bframe iframe{position:absolute;top:0;left:0;width:1200px;height:920px;border:0;transform:scale(.42);transform-origin:top left;pointer-events:none}
+.bmock__hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.82rem;font-weight:600;color:#fff;background:rgba(12,12,14,0);opacity:0;transition:opacity .25s,background .25s;z-index:2;pointer-events:none}
+.bmock--live:hover .bmock__hint,.bmock--live:focus-visible .bmock__hint{opacity:1;background:rgba(12,12,14,.5)}
+.pvmodal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px}
+.pvmodal.on{display:flex}
+.pvmodal__ov{position:absolute;inset:0;background:rgba(0,0,0,.74);backdrop-filter:blur(6px)}
+.pvmodal__panel{position:relative;width:min(1120px,100%);height:min(86vh,880px);display:flex;flex-direction:column;background:#0c0c0e;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+.pvmodal__bar{display:flex;align-items:center;gap:12px;padding:11px 15px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.pvmodal__dots{display:flex;gap:6px;flex-shrink:0}
+.pvmodal__dots span{width:11px;height:11px;border-radius:50%}
+.pvmodal__title{font-family:var(--mono);font-size:.76rem;color:#f0f0ef;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pvmodal__open{margin-left:auto;font-family:var(--mono);font-size:.72rem;color:#7da0ff;white-space:nowrap;transition:color .2s}
+.pvmodal__open:hover{color:#fff}
+.pvmodal__close{width:30px;height:30px;border-radius:8px;border:1px solid rgba(255,255,255,.14);background:transparent;color:#f0f0ef;font-size:1rem;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.pvmodal__close:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
+.pvmodal__frame{flex:1;position:relative;background:#fff}
+.pvmodal__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media(max-width:600px){
+  .pvmodal{padding:0}
+  .pvmodal__panel{width:100%;height:100%;border-radius:0;border:none}
+  .plink{flex:1;justify-content:center}
+}
 </style>
 <script>(function(){try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}})();</script>
 </head>
@@ -409,7 +439,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <a href="#contact" class="bg">Обсудить задачу</a>
     </div>
     <div class="hstats">
-      <div class="hst"><span class="hsc" data-count="5">0</span><span class="hsl">проектов</span></div>
+      <div class="hst"><span class="hsc" data-count="6">0</span><span class="hsl">проектов</span></div>
       <div class="hst"><span class="hsc" data-count="5" data-post="★">0</span><span class="hsl">отзывов</span></div>
       <div class="hst"><span class="hsc" data-text="<1ч">—</span><span class="hsl">ответ</span></div>
       <div class="hst"><span class="hsc" data-count="2" data-post="+">0</span><span class="hsl">года опыта</span></div>
@@ -437,7 +467,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap">
     <div class="slabel">Портфолио</div>
     <h2 class="stitle rv">Избранные проекты</h2>
-    <p class="ssub rv">Пять реальных инструментов. Каждый — под конкретную задачу.</p>
+    <p class="ssub rv">Шесть реальных инструментов. Каждый — под конкретную задачу.</p>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
       <button class="pft" data-filter="miniapp">📱 Mini App</button>
@@ -452,7 +482,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 05</div>
+      <div class="pnl">01 / 06</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">📱 Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Полноценная edu-платформа прямо в Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает — без перехода на сторонний сайт.</p>
@@ -495,7 +525,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 05</div>
+      <div class="pnl">02 / 06</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.06)">⚡ Бот / Воронка продаж</div>
       <h3 class="ptitle">ONETRADE —<br>бот-воронка</h3>
       <p class="pdesc">Автоматическая воронка прогрева для трейдинг-проекта. Бот ведёт пользователя через серию касаний, реактивирует «спящих» и ведёт аналитику базы.</p>
@@ -549,7 +579,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 05</div>
+      <div class="pnl">03 / 06</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">📤 Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ —<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -587,7 +617,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 05</div>
+      <div class="pnl">04 / 06</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06)">🔍 Парсер / Автоматизация</div>
       <h3 class="ptitle">Парсер вакансий<br>из Telegram</h3>
       <p class="pdesc">Умный парсер Telegram-чатов: обходит всю папку диалогов, отфильтровывает вакансии от рекламы и дублей, выгружает в стилизованный Excel с гиперссылками.</p>
@@ -618,7 +648,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 05</div>
+      <div class="pnl">05 / 06</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">🌐 Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров — анимации, тарифы, отзывы.</p>
@@ -646,6 +676,41 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
             <div class="mcard"><span class="mci">🔗</span><span class="mct">Экспорт</span>Figma, SVG</div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ps flip" data-category="landing">
+  <div class="psbg">06</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">06 / 06</div>
+      <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">🌐 Веб / Лендинг · live</div>
+      <h3 class="ptitle">ВОЛЬТ —<br>магазин электроники</h3>
+      <p class="pdesc">Концепт-лендинг магазина электроники «по-человечески». Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков — и он реально работает по ссылке.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#3b5bff"></div><div>5 акцентных палитр, переключаются на лету</div></div>
+        <div class="pf"><div class="pfd" style="background:#3b5bff"></div><div>Тема light / dark с сохранением выбора</div></div>
+        <div class="pf"><div class="pfd" style="background:#3b5bff"></div><div>Корзина в drawer-е + живой поиск по товарам</div></div>
+        <div class="pf"><div class="pfd" style="background:#3b5bff"></div><div>Reveal-анимации, параллакс, счётчики, marquee</div></div>
+      </div>
+      <div class="pstack"><span class="sp">HTML5</span><span class="sp">CSS3</span><span class="sp">Vanilla JS</span><span class="sp">Unbounded</span><span class="sp">Inter</span></div>
+      <div class="plinks">
+        <a href="https://piwhip.github.io/volt-landing/" target="_blank" rel="noopener" class="plink plink--primary">Открыть лендинг ↗</a>
+        <button type="button" class="plink plink--ghost" data-preview="https://piwhip.github.io/volt-landing/" data-title="ВОЛЬТ — лендинг электроники">⌕ Полистать превью</button>
+      </div>
+    </div>
+    <div class="pvisual rv">
+      <div class="bmock bmock--live" data-preview="https://piwhip.github.io/volt-landing/" data-title="ВОЛЬТ — лендинг электроники" role="button" tabindex="0" aria-label="Открыть превью лендинга ВОЛЬТ">
+        <div class="bchrome">
+          <div class="bdots"><span class="bdt r"></span><span class="bdt y"></span><span class="bdt g"></span></div>
+          <div class="burl">🔒 &nbsp;piwhip.github.io/volt-landing</div>
+        </div>
+        <div class="bframe">
+          <iframe src="https://piwhip.github.io/volt-landing/" title="Превью лендинга ВОЛЬТ" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        </div>
+        <span class="bmock__hint">⌕ &nbsp;Полистать превью</span>
       </div>
     </div>
   </div>
@@ -830,6 +895,19 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <span>© 2025 <span class="ac">Лев</span> — Технический специалист</span>
   </div>
 </footer>
+
+<div class="pvmodal" id="pvModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Превью лендинга">
+  <div class="pvmodal__ov" data-pvclose></div>
+  <div class="pvmodal__panel">
+    <div class="pvmodal__bar">
+      <div class="pvmodal__dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+      <span class="pvmodal__title" id="pvTitle">Превью</span>
+      <a class="pvmodal__open" id="pvOpen" target="_blank" rel="noopener">Открыть в новой вкладке ↗</a>
+      <button class="pvmodal__close" id="pvClose" aria-label="Закрыть превью" data-pvclose>✕</button>
+    </div>
+    <div class="pvmodal__frame"><iframe id="pvFrame" title="Превью лендинга"></iframe></div>
+  </div>
+</div>
 
 <script>
 const bar=document.getElementById('bar');
@@ -1038,6 +1116,32 @@ document.getElementById('fSubmit').addEventListener('click',function(){
   document.getElementById('fFormWrap').classList.add('hide');
   document.getElementById('fSuccess').classList.add('show');
 });
+
+(function(){
+  const modal=document.getElementById('pvModal');
+  if(!modal)return;
+  const frame=document.getElementById('pvFrame');
+  const title=document.getElementById('pvTitle');
+  const openLink=document.getElementById('pvOpen');
+  let lastFocus=null;
+  function open(url,t){
+    lastFocus=document.activeElement;
+    frame.src=url; title.textContent=t||'Превью'; openLink.href=url;
+    modal.classList.add('on'); modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    modal.classList.remove('on'); modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow=''; frame.src='about:blank';
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  document.querySelectorAll('[data-preview]').forEach(el=>{
+    el.addEventListener('click',()=>open(el.dataset.preview,el.dataset.title));
+    el.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&el.getAttribute('role')==='button'){e.preventDefault();open(el.dataset.preview,el.dataset.title)}});
+  });
+  modal.querySelectorAll('[data-pvclose]').forEach(el=>el.addEventListener('click',close));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('on'))close()});
+})();
 </script>
 </body>
 </html>
