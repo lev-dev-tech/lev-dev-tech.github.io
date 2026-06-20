@@ -7,7 +7,7 @@
 [![Portfolio](https://img.shields.io/badge/🌐_Портфолио-piwhip.github.io-f97316?style=for-the-badge)](https://piwhip.github.io)
 [![Telegram](https://img.shields.io/badge/Telegram-@piwhip-229ED9?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/piwhip)
 [![Kwork](https://img.shields.io/badge/Kwork-Профиль-00b341?style=for-the-badge)](https://kwork.ru/user/piwhip)
-[![Email](https://img.shields.io/badge/Email-leon2324830@gmail.com-f97316?style=for-the-badge&logo=gmail&logoColor=white)](mailto:leon2324830@gmail.com)
+[![Email](https://img.shields.io/badge/Email-lev__dev@inbox.ru-f97316?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lev_dev@inbox.ru)
 
 </div>
 
@@ -58,7 +58,7 @@
 |--|--|
 | ✈️ **Telegram** | [@piwhip](https://t.me/piwhip) |
 | 💼 **Kwork** | [kwork.ru/user/piwhip](https://kwork.ru/user/piwhip) |
-| 📧 **Email** | [leon2324830@gmail.com](mailto:leon2324830@gmail.com) |
+| 📧 **Email** | [lev_dev@inbox.ru](mailto:lev_dev@inbox.ru) |
 | 🕐 **Ответ** | < 1 часа |
 | 🌍 **Часовой пояс** | МСК (UTC+3) |
 
