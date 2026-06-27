@@ -393,13 +393,45 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 .pvmodal__close:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
 .pvmodal__frame{flex:1;position:relative;background:#fff}
 .pvmodal__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.tmock--lr .th,.tmock--lr .tr{grid-template-columns:22px 1fr 72px 78px;align-items:center}
-.lch{font-family:var(--mono);font-weight:600;font-size:.62rem}
-.lch.bx{color:#38bdf8}.lch.amo{color:#a78bfa}.lch.em{color:#fbbf24}
-.lst{font-family:var(--mono);font-size:.56rem;font-weight:600;padding:2px 6px;border-radius:5px;text-align:center;white-space:nowrap;justify-self:start}
-.lst.ok{color:#34d399;background:rgba(52,211,153,.14)}
-.lst.q{color:#fbbf24;background:rgba(251,191,36,.14)}
-.lst.d{color:var(--muted);background:rgba(var(--tint),.07)}
+.lrp{width:100%;background:#0f1115;border:1px solid #2a2f3a;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;color:#e7eaf0}
+.lrp__bar{display:flex;align-items:center;gap:9px;padding:11px 14px;border-bottom:1px solid #2a2f3a;background:rgba(23,26,33,.7)}
+.lrp__logo{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#4f7cff,#9b6bff);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;color:#fff;flex-shrink:0}
+.lrp__brand{font-weight:700;font-size:.84rem}
+.lrp__live{display:inline-flex;align-items:center;gap:5px;font-size:.58rem;color:#2ecc71;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.lrp__live i{width:6px;height:6px;border-radius:50%;background:#2ecc71;animation:lrpulse 1.8s infinite}
+@keyframes lrpulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(46,204,113,.5)}50%{opacity:.45;box-shadow:0 0 0 4px rgba(46,204,113,0)}}
+.lrp__sp{flex:1}
+.lrp__user{font-size:.64rem;color:#8b93a4}
+.lrp__body{padding:14px}
+.lrp__stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.lrp__stat{background:#171a21;border:1px solid #2a2f3a;border-radius:10px;padding:9px 10px}
+.lrp__stat b{display:block;font-size:1.15rem;font-weight:700;line-height:1}
+.lrp__stat span{font-size:.54rem;color:#8b93a4;margin-top:3px;display:block}
+.lrp__stat.qd b{color:#f5a623}
+.lrp__card{background:#171a21;border:1px solid #2a2f3a;border-radius:12px;padding:12px 14px}
+.lrp__h{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:600;margin-bottom:9px}
+.lrp__cnt{margin-left:auto;font-size:.56rem;color:#8b93a4;font-weight:500}
+.lrp table{width:100%;border-collapse:collapse;font-size:.64rem}
+.lrp th{text-align:left;color:#8b93a4;font-weight:600;font-size:.54rem;padding:0 6px 7px;text-transform:uppercase;letter-spacing:.04em}
+.lrp td{padding:7px 6px;border-top:1px solid #21262f;vertical-align:middle}
+.lrp .nm{font-weight:600;color:#e7eaf0}
+.lrp .ph{color:#8b93a4;font-size:.56rem;margin-top:1px}
+.lrp__badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:999px;font-size:.56rem;font-weight:600;border:1px solid #2a2f3a;white-space:nowrap}
+.lrp__badge.bx{color:#4ab3ff;border-color:#2b5e80}
+.lrp__badge.amo{color:#56d39a;border-color:#2f6b52}
+.lrp__badge.em{color:#f5a623;border-color:#7a5b1e}
+.lrp__tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.55rem;font-weight:700;white-space:nowrap}
+.lrp__tag.sent{background:#1f3b2c;color:#7be0a5}
+.lrp__tag.queued{background:#2b3450;color:#9db4ff}
+.lrp__tag.dup{background:#3a3320;color:#f0cd7a}
+.lrp .tm{color:#8b93a4;font-size:.56rem;text-align:right;white-space:nowrap}
+.lrp__new td{animation:lrnew 6s ease-in-out infinite}
+.lrp__new td:first-child{box-shadow:inset 2px 0 0 #4f7cff}
+@keyframes lrnew{0%,14%{background:rgba(79,124,255,.16)}30%,100%{background:transparent}}
+.lrp__throttle{margin-top:11px;height:3px;border-radius:2px;background:#21262f;overflow:hidden}
+.lrp__throttle i{display:block;height:100%;width:34%;border-radius:2px;background:linear-gradient(90deg,#4f7cff,#6c8bff);animation:lrthr 2.4s ease-in-out infinite}
+@keyframes lrthr{0%{transform:translateX(-110%)}100%{transform:translateX(420%)}}
+@media(prefers-reduced-motion:reduce){.lrp__live i,.lrp__new td,.lrp__throttle i{animation:none}}
 @media(max-width:600px){
   .pvmodal{padding:0}
   .pvmodal__panel{width:100%;height:100%;border-radius:0;border:none}
@@ -782,14 +814,59 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <div class="pstack"><span class="sp">Node.js</span><span class="sp">Express</span><span class="sp">SQLite</span><span class="sp">REST API</span><span class="sp">Bitrix24 API</span><span class="sp">amoCRM API</span><span class="sp">SMTP</span><span class="sp">Docker</span><span class="sp">Nginx</span></div>
     </div>
     <div class="pvisual rv">
-      <div class="tmock tmock--lr">
-        <div class="th"><span>#</span><span>Клиент</span><span>Канал</span><span>Статус</span></div>
-        <div class="tr"><span>1</span><span>ООО Ромашка</span><span class="lch bx">Bitrix24</span><span class="lst ok">ушёл</span></div>
-        <div class="tr"><span>2</span><span>Иван П.</span><span class="lch amo">amoCRM</span><span class="lst ok">ушёл</span></div>
-        <div class="tr"><span>3</span><span>Магазин&nbsp;52</span><span class="lch em">E-mail</span><span class="lst q">очередь</span></div>
-        <div class="tr"><span>4</span><span>+7&nbsp;999&nbsp;…</span><span class="lch bx">Bitrix24</span><span class="lst d">дубль</span></div>
-        <div class="tr"><span>5</span><span>Студия&nbsp;Лайт</span><span class="lch amo">amoCRM</span><span class="lst ok">ушёл</span></div>
-        <div class="tfoot">Сегодня: <b>184</b> лида · ушло <b>176</b> · дублей <b>8</b> · троттлинг ≤10/мин</div>
+      <div class="lrp" aria-hidden="true">
+        <div class="lrp__bar">
+          <div class="lrp__logo">L</div>
+          <div class="lrp__brand">Lead Router</div>
+          <span class="lrp__live"><i></i>online</span>
+          <div class="lrp__sp"></div>
+          <span class="lrp__user">admin@leads</span>
+        </div>
+        <div class="lrp__body">
+          <div class="lrp__stats">
+            <div class="lrp__stat"><b>184</b><span>сегодня</span></div>
+            <div class="lrp__stat"><b>176</b><span>отправлено</span></div>
+            <div class="lrp__stat qd"><b>6</b><span>в очереди</span></div>
+            <div class="lrp__stat"><b>8</b><span>дублей</span></div>
+          </div>
+          <div class="lrp__card">
+            <div class="lrp__h">Журнал лидов<span class="lrp__cnt">обновлено только что</span></div>
+            <table>
+              <tr><th>Лид</th><th>Канал</th><th>Статус</th><th></th></tr>
+              <tr class="lrp__new">
+                <td><div class="nm">Анна Котова</div><div class="ph">+7 921 338-12-…</div></td>
+                <td><span class="lrp__badge bx">Bitrix24</span></td>
+                <td><span class="lrp__tag sent">отправлен</span></td>
+                <td class="tm">14:32</td>
+              </tr>
+              <tr>
+                <td><div class="nm">ООО «Ромашка»</div><div class="ph">+7 495 771-04-…</div></td>
+                <td><span class="lrp__badge amo">amoCRM</span></td>
+                <td><span class="lrp__tag sent">отправлен</span></td>
+                <td class="tm">14:30</td>
+              </tr>
+              <tr>
+                <td><div class="nm">Иван П.</div><div class="ph">+7 999 210-88-…</div></td>
+                <td><span class="lrp__badge em">E-mail</span></td>
+                <td><span class="lrp__tag queued">в очереди</span></td>
+                <td class="tm">14:29</td>
+              </tr>
+              <tr>
+                <td><div class="nm">Магазин 52</div><div class="ph">+7 812 555-19-…</div></td>
+                <td><span class="lrp__badge bx">Bitrix24</span></td>
+                <td><span class="lrp__tag dup">дубль</span></td>
+                <td class="tm">14:27</td>
+              </tr>
+              <tr>
+                <td><div class="nm">Студия Лайт</div><div class="ph">+7 343 200-77-…</div></td>
+                <td><span class="lrp__badge amo">amoCRM</span></td>
+                <td><span class="lrp__tag sent">отправлен</span></td>
+                <td class="tm">14:25</td>
+              </tr>
+            </table>
+            <div class="lrp__throttle" title="очередь · ≤10/мин"><i></i></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
