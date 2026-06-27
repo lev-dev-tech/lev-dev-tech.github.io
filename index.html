@@ -393,6 +393,13 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 .pvmodal__close:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
 .pvmodal__frame{flex:1;position:relative;background:#fff}
 .pvmodal__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tmock--lr .th,.tmock--lr .tr{grid-template-columns:22px 1fr 72px 78px;align-items:center}
+.lch{font-family:var(--mono);font-weight:600;font-size:.62rem}
+.lch.bx{color:#38bdf8}.lch.amo{color:#a78bfa}.lch.em{color:#fbbf24}
+.lst{font-family:var(--mono);font-size:.56rem;font-weight:600;padding:2px 6px;border-radius:5px;text-align:center;white-space:nowrap;justify-self:start}
+.lst.ok{color:#34d399;background:rgba(52,211,153,.14)}
+.lst.q{color:#fbbf24;background:rgba(251,191,36,.14)}
+.lst.d{color:var(--muted);background:rgba(var(--tint),.07)}
 @media(max-width:600px){
   .pvmodal{padding:0}
   .pvmodal__panel{width:100%;height:100%;border-radius:0;border:none}
@@ -441,8 +448,8 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <a href="#contact" class="bg">Обсудить задачу</a>
     </div>
     <div class="hstats">
-      <div class="hst"><span class="hsc" data-count="7">0</span><span class="hsl">проектов</span></div>
-      <div class="hst"><span class="hsc" data-count="6" data-post="★">0</span><span class="hsl">отзывов</span></div>
+      <div class="hst"><span class="hsc" data-count="8">0</span><span class="hsl">проектов</span></div>
+      <div class="hst"><span class="hsc" data-count="7" data-post="★">0</span><span class="hsl">отзывов</span></div>
       <div class="hst"><span class="hsc" data-text="<1ч">—</span><span class="hsl">ответ</span></div>
       <div class="hst"><span class="hsc" data-count="2" data-post="+">0</span><span class="hsl">года опыта</span></div>
     </div>
@@ -469,7 +476,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap">
     <div class="slabel">Портфолио</div>
     <h2 class="stitle rv">Избранные проекты</h2>
-    <p class="ssub rv">Семь реальных проектов. Каждый — под конкретную задачу.</p>
+    <p class="ssub rv">Восемь реальных проектов. Каждый — под конкретную задачу.</p>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
       <button class="pft" data-filter="miniapp">📱 Mini App</button>
@@ -485,7 +492,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 07</div>
+      <div class="pnl">01 / 08</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">📱 Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Полноценная edu-платформа прямо в Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает — без перехода на сторонний сайт.</p>
@@ -528,7 +535,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 07</div>
+      <div class="pnl">02 / 08</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.06)">⚡ Бот / Воронка продаж</div>
       <h3 class="ptitle">ONETRADE —<br>бот-воронка</h3>
       <p class="pdesc">Автоматическая воронка прогрева для трейдинг-проекта. Бот ведёт пользователя через серию касаний, реактивирует «спящих» и ведёт аналитику базы.</p>
@@ -582,7 +589,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 07</div>
+      <div class="pnl">03 / 08</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">📤 Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ —<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -620,7 +627,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 07</div>
+      <div class="pnl">04 / 08</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06)">🔍 Парсер / Автоматизация</div>
       <h3 class="ptitle">Парсер вакансий<br>из Telegram</h3>
       <p class="pdesc">Умный парсер Telegram-чатов: обходит всю папку диалогов, отфильтровывает вакансии от рекламы и дублей, выгружает в стилизованный Excel с гиперссылками.</p>
@@ -651,7 +658,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 07</div>
+      <div class="pnl">05 / 08</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">🌐 Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров — анимации, тарифы, отзывы.</p>
@@ -686,7 +693,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 07</div>
+      <div class="pnl">06 / 08</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">🌐 Веб / Лендинг · live</div>
       <h3 class="ptitle">ВОЛЬТ —<br>магазин электроники</h3>
       <p class="pdesc">Концепт-лендинг магазина электроники «по-человечески». Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков — и он реально работает по ссылке.</p>
@@ -721,7 +728,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 07</div>
+      <div class="pnl">07 / 08</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">🛠 1С-Битрикс / Сервер · перенос</div>
       <h3 class="ptitle">Перенос и аудит<br>магазина на Битрикс</h3>
       <p class="pdesc">Перенос интернет-магазина мебели (~11 000 товаров) на облачный VPS и полный аудит после переезда. По ходу нашёл и устранил скрытую блокировку записи из-за переполнения диска и конфликт модулей, ронявший каталог в ошибку 500.</p>
@@ -752,6 +759,37 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div><span class="tok">[+]</span> <span class="tinf">Найдено по логам, устранено ✓</span></div>
           <div><span class="tok">[+]</span> <span class="tinf">Сайт стабилен · холодный кэш: <span class="tnum">200</span> <span class="tcur"></span></span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ps flip" data-category="server">
+  <div class="psbg">08</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">08 / 08</div>
+      <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">🛠 Веб-сервис / Интеграция CRM</div>
+      <h3 class="ptitle">Lead Router —<br>лиды в CRM и почту</h3>
+      <p class="pdesc">Веб-панель приёма и маршрутизации лидов: каждый лид уходит в нужный канал клиента — Bitrix24, amoCRM или e-mail. Приём из формы и по API, дедуп по телефону, очередь с троттлингом и ретраями, журнал со статусами. На Node.js + SQLite — работает даже на самом дешёвом VPS.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Маршрутизация в Bitrix24, amoCRM или e-mail — свой канал на клиента</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Приём лидов из веб-формы и по REST API (ключ приёма на клиента)</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Дедупликация по телефону — дубли отсекаются автоматически</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Очередь с троттлингом (≤N/мин) и ретраи при сбое канала</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Журнал лидов со статусами, фильтрами и повтором проваленных</div></div>
+      </div>
+      <div class="pstack"><span class="sp">Node.js</span><span class="sp">Express</span><span class="sp">SQLite</span><span class="sp">REST API</span><span class="sp">Bitrix24 API</span><span class="sp">amoCRM API</span><span class="sp">SMTP</span><span class="sp">Docker</span><span class="sp">Nginx</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="tmock tmock--lr">
+        <div class="th"><span>#</span><span>Клиент</span><span>Канал</span><span>Статус</span></div>
+        <div class="tr"><span>1</span><span>ООО Ромашка</span><span class="lch bx">Bitrix24</span><span class="lst ok">ушёл</span></div>
+        <div class="tr"><span>2</span><span>Иван П.</span><span class="lch amo">amoCRM</span><span class="lst ok">ушёл</span></div>
+        <div class="tr"><span>3</span><span>Магазин&nbsp;52</span><span class="lch em">E-mail</span><span class="lst q">очередь</span></div>
+        <div class="tr"><span>4</span><span>+7&nbsp;999&nbsp;…</span><span class="lch bx">Bitrix24</span><span class="lst d">дубль</span></div>
+        <div class="tr"><span>5</span><span>Студия&nbsp;Лайт</span><span class="lch amo">amoCRM</span><span class="lst ok">ушёл</span></div>
+        <div class="tfoot">Сегодня: <b>184</b> лида · ушло <b>176</b> · дублей <b>8</b> · троттлинг ≤10/мин</div>
       </div>
     </div>
   </div>
@@ -790,7 +828,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap">
     <div class="slabel">Отзывы с Kwork</div>
     <h2 class="stitle rv">Что говорят клиенты</h2>
-    <p class="ssub rv">6 положительных отзывов · 0 отрицательных</p>
+    <p class="ssub rv">7 положительных отзывов · 0 отрицательных</p>
     <div class="rev-overflow">
       <div class="rev-slider" id="revSlider">
 
@@ -802,6 +840,17 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           </div>
           <div class="rev-badge">Настройка работы сайта</div>
           <p class="rev-text">«Лев, отличный исполнитель! Возникла необходимость перенести сайт на облачный сервер, так как на старом закончилось место. Лев, быстро и качественно всё настроил, проверил работу сайта и всего административного функционала. Всё работает отлично. Рекомендую!»</p>
+          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+        </div></div>
+
+        <div class="rev-slide"><div class="rev-card">
+          <div class="rev-top">
+            <div class="rev-av" style="background:rgba(34,211,238,.15);color:#22d3ee">P</div>
+            <div class="rev-info"><div class="rev-name">pirat-ps</div><div class="rev-date">2 дня назад</div></div>
+            <div class="rev-stars">★★★★★</div>
+          </div>
+          <div class="rev-badge">Передача лидов в Bitrix24 / amoCRM / e-mail</div>
+          <p class="rev-text">«Безупречный исполнитель. Правило трёх „О“: оперативно выполняет заказ, очень вежливо и грамотно общается, передавая суть всех технических деталей. Отлично сделанная работа. Если хотите, чтобы заказ был выполнен в срок и вас понимали с полуслова — обращаться только к piwhip!»</p>
           <div class="rev-src">Проверенный отзыв · kwork.ru</div>
         </div></div>
 
@@ -865,7 +914,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="rev-nav">
       <button class="rev-arrow" id="revPrev" aria-label="Назад"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
       <div class="rev-dots" id="revDots"></div>
-      <span class="rev-counter" id="revCounter">1 / 6</span>
+      <span class="rev-counter" id="revCounter">1 / 7</span>
       <button class="rev-arrow" id="revNext" aria-label="Вперёд"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
     </div>
     <div style="text-align:center;margin-top:28px">
