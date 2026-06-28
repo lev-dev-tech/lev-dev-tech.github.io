@@ -99,6 +99,8 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .bp:hover{transform:translateY(-2px);opacity:.88}
 .bg{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;border-radius:10px;border:1px solid var(--border);color:var(--muted);font-weight:600;font-size:.95rem;transition:all .2s}
 .bg:hover{border-color:rgba(249,115,22,.4);color:var(--text);transform:translateY(-2px)}
+.bg.bform{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.45);color:var(--accent)}
+.bg.bform:hover{background:rgba(249,115,22,.18);color:var(--accent);border-color:rgba(249,115,22,.6)}
 
 .ticker-wrap{overflow:hidden;position:relative;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:11px 0}
 .ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
@@ -111,7 +113,13 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 .sh{padding:100px 0 60px}
-.slabel{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.slabel{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.slabel::before{content:'';width:18px;height:2px;background:var(--accent);border-radius:2px;opacity:.85}
+.feature-head{position:relative;background:linear-gradient(135deg,rgba(249,115,22,.13),rgba(249,115,22,.03) 55%,transparent);border:1px solid rgba(249,115,22,.25);border-radius:22px;padding:34px 40px;overflow:hidden}
+.feature-head::after{content:'';position:absolute;top:-90px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(249,115,22,.18),transparent 70%);border-radius:50%;pointer-events:none}
+.feature-head>*{position:relative}
+.feature-head .ssub{max-width:520px}
+@media(max-width:600px){.feature-head{padding:24px 20px;border-radius:18px}}
 .stitle{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-.035em;line-height:1.1}
 .ssub{font-size:.95rem;color:var(--muted);margin-top:10px;max-width:420px}
 
@@ -477,7 +485,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="typed-wrap"><span id="tspan"></span><span class="tcursor">█</span></div>
     <div class="hero-btns">
       <a href="#projects" class="bp">Смотреть проекты →</a>
-      <a href="#contact" class="bg">Обсудить задачу</a>
+      <a href="#contact" class="bg bform">✍ Оставить заявку</a>
     </div>
     <div class="hstats">
       <div class="hst"><span class="hsc" data-count="9">0</span><span class="hsl">проектов</span></div>
@@ -506,9 +514,11 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 
 <section class="sh" id="projects">
   <div class="wrap">
-    <div class="slabel">Портфолио</div>
-    <h2 class="stitle rv">Избранные проекты</h2>
-    <p class="ssub rv">Девять реальных проектов. Каждый — под конкретную задачу.</p>
+    <div class="feature-head rv">
+      <div class="slabel">Портфолио</div>
+      <h2 class="stitle">Избранные проекты</h2>
+      <p class="ssub">Девять реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
+    </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
       <button class="pft" data-filter="miniapp">📱 Mini App</button>
@@ -924,6 +934,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap">
     <div class="slabel">Технологии</div>
     <h2 class="stitle rv">Мой стек</h2>
+    <p class="ssub rv">С чем работаю каждый день — от Telegram-ботов до серверов, CRM и веба.</p>
     <div class="schips">
       <div class="sch">Python 3.11+</div><div class="sch">aiogram 3.x</div><div class="sch">Telethon</div>
       <div class="sch">FastAPI</div><div class="sch">SQLite / aiosqlite</div><div class="sch">APScheduler</div>
