@@ -4,7 +4,7 @@
 
 ### Telegram-разработчик · Python · Боты · Mini Apps · Автоматизация
 
-[![Portfolio](https://img.shields.io/badge/🌐_Портфолио-piwhip.github.io-f97316?style=for-the-badge)](https://piwhip.github.io)
+[![Portfolio](https://img.shields.io/badge/🌐_Портфолио-lev--dev--tech.github.io-f97316?style=for-the-badge)](https://lev-dev-tech.github.io)
 [![Telegram](https://img.shields.io/badge/Telegram-@levv__ddev-229ED9?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/levv_ddev)
 [![Kwork](https://img.shields.io/badge/Kwork-Профиль-00b341?style=for-the-badge)](https://kwork.ru/user/lev_dev)
 [![Email](https://img.shields.io/badge/Email-lev__dev@inbox.ru-f97316?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lev_dev@inbox.ru)
