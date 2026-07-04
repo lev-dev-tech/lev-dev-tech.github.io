@@ -121,6 +121,7 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .feature-head .ssub{max-width:520px}
 @media(max-width:600px){.feature-head{padding:24px 20px;border-radius:18px}}
 .stitle{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.ptitle .t1c{font-family:'DM Sans',sans-serif;font-weight:800;letter-spacing:.01em}
 .ssub{font-size:.95rem;color:var(--muted);margin-top:10px;max-width:420px}
 
 .ps{padding:80px 0;border-top:1px solid var(--border);overflow:hidden}
@@ -507,7 +508,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     </div>
     <div class="hstats">
       <div class="hst"><span class="hsc" data-count="10">0</span><span class="hsl">проектов</span></div>
-      <div class="hst"><span class="hsc" data-count="8" data-post="★">0</span><span class="hsl">отзывов</span></div>
+      <div class="hst"><span class="hsc" data-count="9" data-post="★">0</span><span class="hsl">отзывов</span></div>
       <div class="hst"><span class="hsc" data-text="<1ч">—</span><span class="hsl">ответ</span></div>
       <div class="hst"><span class="hsc" data-count="2" data-post="+">0</span><span class="hsl">года опыта</span></div>
     </div>
@@ -941,7 +942,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="rv">
       <div class="pnl">10 / 10</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">🛠 Данные · 1С → PostgreSQL</div>
-      <h3 class="ptitle">Выгрузка 1С:Розница<br>в PostgreSQL</h3>
+      <h3 class="ptitle">Выгрузка <span class="t1c">1С</span>:Розница<br>в PostgreSQL</h3>
       <p class="pdesc">Пайплайн переноса данных из 1С:Розница на кассе в PostgreSQL на втором ПК. Программа читает базу 1С прямо из файла — в фоне, не мешая кассиру и не требуя закрывать 1С, — чистит данные в готовые таблицы и раз в день сама шлёт свежий пакет по почте. Всё портативно: Python и PostgreSQL уже внутри, устанавливать ничего не нужно.</p>
       <div class="pfeats">
         <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Чтение базы 1С (1Cv8.1CD) в фоне — касса работает как обычно</div></div>
@@ -1011,9 +1012,20 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap">
     <div class="slabel">Отзывы с Kwork</div>
     <h2 class="stitle rv">Что говорят клиенты</h2>
-    <p class="ssub rv">8 положительных отзывов · 0 отрицательных</p>
+    <p class="ssub rv">9 положительных отзывов · 0 отрицательных</p>
     <div class="rev-overflow">
       <div class="rev-slider" id="revSlider">
+
+        <div class="rev-slide"><div class="rev-card">
+          <div class="rev-top">
+            <div class="rev-av" style="background:rgba(96,165,250,.15);color:#60a5fa">S</div>
+            <div class="rev-info"><div class="rev-name">Sadovnik2008</div></div>
+            <div class="rev-stars">★★★★★</div>
+          </div>
+          <div class="rev-badge">Настройка миграции данных из 1С в PostgreSQL</div>
+          <p class="rev-text">«Делали связку для забора данных из 1С:Розницы в PostgreSQL, чтобы отцепиться от монопольной зависимости. Всё прошло непросто, но главное — в итоге всё получилось. Рекомендую исполнителя как ответственного и грамотного.»</p>
+          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+        </div></div>
 
         <div class="rev-slide"><div class="rev-card">
           <div class="rev-top">
@@ -1108,7 +1120,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="rev-nav">
       <button class="rev-arrow" id="revPrev" aria-label="Назад"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
       <div class="rev-dots" id="revDots"></div>
-      <span class="rev-counter" id="revCounter">1 / 8</span>
+      <span class="rev-counter" id="revCounter">1 / 9</span>
       <button class="rev-arrow" id="revNext" aria-label="Вперёд"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
     </div>
     <div style="text-align:center;margin-top:28px">
