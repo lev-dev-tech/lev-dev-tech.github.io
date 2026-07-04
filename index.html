@@ -440,6 +440,24 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 .lrp__throttle i{display:block;height:100%;width:34%;border-radius:2px;background:linear-gradient(90deg,#4f7cff,#6c8bff);animation:lrthr 2.4s ease-in-out infinite}
 @keyframes lrthr{0%{transform:translateX(-110%)}100%{transform:translateX(420%)}}
 @media(prefers-reduced-motion:reduce){.lrp__live i,.lrp__new td,.lrp__throttle i{animation:none}}
+.dpipe{width:100%;background:#0a0a0f;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.dnode{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px 14px}
+.dnode__ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0}
+.dnode__ic.ic1c{background:rgba(234,179,8,.14);color:#eab308;border:1px solid rgba(234,179,8,.32)}
+.dnode__ic.icpg{background:rgba(56,189,248,.14);color:#38bdf8;border:1px solid rgba(56,189,248,.32);font-size:1.15rem}
+.dnode__tx{display:flex;flex-direction:column;min-width:0}
+.dnode__tx b{font-size:.82rem;color:#f0f0ef;font-weight:700}
+.dnode__tx span{font-family:var(--mono);font-size:.6rem;color:#8b93a4;margin-top:2px}
+.dpipe__link{position:relative;height:42px;margin-left:33px;border-left:2px dashed rgba(255,255,255,.14)}
+.dpipe__lbl{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.6rem;color:#8b93a4;white-space:nowrap}
+.dpkt{position:absolute;left:-5px;top:0;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(249,115,22,.8);animation:dpktmove 2.6s ease-in-out infinite}
+@keyframes dpktmove{0%{top:0;opacity:0}14%{opacity:1}86%{opacity:1}100%{top:42px;opacity:0}}
+.dpipe__tables{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dpipe__th{width:100%;font-family:var(--mono);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:#8b93a4;margin-bottom:5px}
+.dtag{font-family:var(--mono);font-size:.6rem;color:#c2c2cf;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:3px 8px}
+.dpipe__foot{display:flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--mono);font-size:.6rem;color:#8b93a4}
+.ddot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.15);animation:pulse 2s infinite;flex-shrink:0}
+@media(prefers-reduced-motion:reduce){.dpkt,.ddot{animation:none}}
 @media(max-width:600px){
   .pvmodal{padding:0}
   .pvmodal__panel{width:100%;height:100%;border-radius:0;border:none}
@@ -488,7 +506,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <a href="#contact" class="bg bform">Оставить заявку</a>
     </div>
     <div class="hstats">
-      <div class="hst"><span class="hsc" data-count="9">0</span><span class="hsl">проектов</span></div>
+      <div class="hst"><span class="hsc" data-count="10">0</span><span class="hsl">проектов</span></div>
       <div class="hst"><span class="hsc" data-count="8" data-post="★">0</span><span class="hsl">отзывов</span></div>
       <div class="hst"><span class="hsc" data-text="<1ч">—</span><span class="hsl">ответ</span></div>
       <div class="hst"><span class="hsc" data-count="2" data-post="+">0</span><span class="hsl">года опыта</span></div>
@@ -517,7 +535,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="feature-head rv">
       <div class="slabel">Портфолио</div>
       <h2 class="stitle">Избранные проекты</h2>
-      <p class="ssub">Девять реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
+      <p class="ssub">Десять реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
@@ -525,7 +543,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <button class="pft" data-filter="bot">🤖 Боты</button>
       <button class="pft" data-filter="parser">🔍 Парсеры</button>
       <button class="pft" data-filter="landing">🌐 Лендинги</button>
-      <button class="pft" data-filter="server">🛠 Битрикс / Сервер</button>
+      <button class="pft" data-filter="server">🛠 Сервер / Данные</button>
     </div>
   </div>
 </section>
@@ -534,7 +552,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 09</div>
+      <div class="pnl">01 / 10</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">📱 Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Полноценная edu-платформа прямо в Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает — без перехода на сторонний сайт.</p>
@@ -577,7 +595,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 09</div>
+      <div class="pnl">02 / 10</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.06)">⚡ Бот / Воронка продаж</div>
       <h3 class="ptitle">ONETRADE —<br>бот-воронка</h3>
       <p class="pdesc">Автоматическая воронка прогрева для трейдинг-проекта. Бот ведёт пользователя через серию касаний, реактивирует «спящих» и ведёт аналитику базы.</p>
@@ -631,7 +649,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 09</div>
+      <div class="pnl">03 / 10</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">📤 Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ —<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -669,7 +687,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 09</div>
+      <div class="pnl">04 / 10</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06)">🔍 Парсер / Автоматизация</div>
       <h3 class="ptitle">Парсер вакансий<br>из Telegram</h3>
       <p class="pdesc">Умный парсер Telegram-чатов: обходит всю папку диалогов, отфильтровывает вакансии от рекламы и дублей, выгружает в стилизованный Excel с гиперссылками.</p>
@@ -700,7 +718,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 09</div>
+      <div class="pnl">05 / 10</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">🌐 Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров — анимации, тарифы, отзывы.</p>
@@ -735,7 +753,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 09</div>
+      <div class="pnl">06 / 10</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">🌐 Веб / Лендинг · live</div>
       <h3 class="ptitle">ВОЛЬТ —<br>магазин электроники</h3>
       <p class="pdesc">Концепт-лендинг магазина электроники «по-человечески». Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков — и он реально работает по ссылке.</p>
@@ -770,7 +788,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 09</div>
+      <div class="pnl">07 / 10</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">🛠 1С-Битрикс / Сервер · перенос</div>
       <h3 class="ptitle">Перенос и аудит<br>магазина на Битрикс</h3>
       <p class="pdesc">Перенос интернет-магазина мебели (~11 000 товаров) на облачный VPS и полный аудит после переезда. По ходу нашёл и устранил скрытую блокировку записи из-за переполнения диска и конфликт модулей, ронявший каталог в ошибку 500.</p>
@@ -810,7 +828,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">08</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">08 / 09</div>
+      <div class="pnl">08 / 10</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">🛠 Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router —<br>лиды в CRM и почту</h3>
       <p class="pdesc">Веб-панель приёма и маршрутизации лидов: каждый лид уходит в нужный канал клиента — Bitrix24, amoCRM или e-mail. Приём из формы и по API, дедуп по телефону, очередь с троттлингом и ретраями, журнал со статусами. На Node.js + SQLite — работает даже на самом дешёвом VPS.</p>
@@ -886,7 +904,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">09</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">09 / 09</div>
+      <div class="pnl">09 / 10</div>
       <div class="ptag" style="color:#e879f9;border-color:rgba(232,121,249,.32);background:rgba(232,121,249,.07)">🌐 Веб / Лендинг · портфолио</div>
       <h3 class="ptitle">Илья Громов —<br>портфолио дизайнера</h3>
       <p class="pdesc">Лендинг-портфолио для бренд- и визуал-дизайнера: секция кейсов с работами, бренд-кит для соцсетей, отзывы клиентов и блок контактов. Тёмная и светлая тема, плавные анимации появления, полный адаптив. Чистый HTML / CSS / JS.</p>
@@ -912,6 +930,48 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <iframe src="gromov.html" title="Превью лендинга Ильи Громова" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
         </div>
         <span class="bmock__hint">⌕ &nbsp;Полистать превью</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ps flip" data-category="server">
+  <div class="psbg">10</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">10 / 10</div>
+      <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">🛠 Данные · 1С → PostgreSQL</div>
+      <h3 class="ptitle">Выгрузка 1С:Розница<br>в PostgreSQL</h3>
+      <p class="pdesc">Пайплайн переноса данных из 1С:Розница на кассе в PostgreSQL на втором ПК. Программа читает базу 1С прямо из файла — в фоне, не мешая кассиру и не требуя закрывать 1С, — чистит данные в готовые таблицы и раз в день сама шлёт свежий пакет по почте. Всё портативно: Python и PostgreSQL уже внутри, устанавливать ничего не нужно.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Чтение базы 1С (1Cv8.1CD) в фоне — касса работает как обычно</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>ETL: сырые данные → чистые таблицы (клиенты, товары, продажи, чеки)</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Автозапуск по расписанию: каждый день в 20:30 пакет уходит по почте</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Второй ПК: PostgreSQL принимает .dump в один клик, данные в DBeaver/Excel</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Витрина «клиент → сумма покупок → ассортимент» для аналитики</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Портативная сборка: Python + PostgreSQL в комплекте, ноль установки</div></div>
+      </div>
+      <div class="pstack"><span class="sp">Python</span><span class="sp">onec_dtools</span><span class="sp">PostgreSQL</span><span class="sp">psycopg</span><span class="sp">SQL</span><span class="sp">Планировщик Windows</span><span class="sp">SMTP</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="dpipe">
+        <div class="dnode">
+          <div class="dnode__ic ic1c">1С</div>
+          <div class="dnode__tx"><b>Касса · 1С:Розница</b><span>читает базу 1Cv8.1CD в фоне</span></div>
+        </div>
+        <div class="dpipe__link">
+          <span class="dpkt"></span>
+          <span class="dpipe__lbl">✉ .dump по почте · 20:30 ежедневно</span>
+        </div>
+        <div class="dnode">
+          <div class="dnode__ic icpg">🐘</div>
+          <div class="dnode__tx"><b>2й ПК · PostgreSQL</b><span>база roznica · порт 5433</span></div>
+        </div>
+        <div class="dpipe__tables">
+          <div class="dpipe__th">Готовые таблицы</div>
+          <span class="dtag">Клиенты</span><span class="dtag">Товары</span><span class="dtag">Продажи</span><span class="dtag">Чеки</span><span class="dtag">Отчёты</span><span class="dtag">Клиент → сумма → ассортимент</span>
+        </div>
+        <div class="dpipe__foot"><span class="ddot"></span>Портативно · Python + PostgreSQL внутри · без установки</div>
       </div>
     </div>
   </div>
