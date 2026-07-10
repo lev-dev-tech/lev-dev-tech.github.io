@@ -34,7 +34,6 @@ body,nav,.stack-sec,.proc-bg,.fcard,.ccard,.rev-card,.finput,.ftarea,.finfo,.fgu
   color:var(--text);
 }
 :root[data-theme="light"] .funnel{
-  background:#0c0c12;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px 22px 2px;color:#f0f0ef;
   box-shadow:0 24px 60px rgba(0,0,0,.18);
 }
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
@@ -141,35 +140,64 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .pstack{display:flex;flex-wrap:wrap;gap:7px}
 .sp{font-family:var(--mono);font-size:.68rem;padding:4px 10px;border-radius:6px;background:rgba(var(--tint),.03);border:1px solid var(--border);color:var(--muted)}
 .pvisual{display:flex;align-items:center;justify-content:center}
+.pv-toggle{display:none}
+@keyframes pvin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 
 .phone-wrap{position:relative}
-.phone-glow{position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(50px);top:-60px;right:-80px;pointer-events:none}
-.phone{width:238px;height:460px;background:#08080d;border-radius:40px;border:1.5px solid rgba(var(--tint),.12);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 6px rgba(var(--tint),.03)}
-.pnotch{width:88px;height:24px;background:#060608;border-radius:0 0 14px 14px;margin:0 auto}
-.pappbar{padding:10px 14px 8px;border-bottom:1px solid rgba(var(--tint),.06);font-size:.72rem;font-weight:600;display:flex;align-items:center;gap:6px}
-.pback{color:var(--accent);font-size:.68rem}
-.pcourses{padding:10px;display:flex;flex-direction:column;gap:8px}
-.pc{background:rgba(var(--tint),.035);border:1px solid rgba(var(--tint),.07);border-radius:11px;padding:10px 12px}
-.pc.on{border-color:rgba(41,182,246,.4);background:rgba(41,182,246,.06)}
-.pc.lk{opacity:.45}
-.pcn{font-size:.68rem;font-weight:600;margin-bottom:7px}
-.pb{height:2.5px;background:rgba(var(--tint),.08);border-radius:2px;overflow:hidden;margin-bottom:4px}
-.pbf{height:100%;background:var(--accent);border-radius:2px}
-.pc.on .pbf{background:#29b6f6}
-.pcm{font-size:.58rem;color:var(--muted)}
-.pcp{font-size:.6rem;color:#fbbf24;margin-top:3px}
+.phone-glow{position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(60px);top:-70px;right:-90px;pointer-events:none;background:radial-gradient(circle,rgba(41,182,246,.3),transparent 70%)}
+.phone-glow.warm{background:radial-gradient(circle,rgba(249,115,22,.15),transparent 70%);top:auto;bottom:-50px;right:auto;left:-70px;width:230px;height:230px}
+.phone{position:relative;width:248px;height:498px;background:linear-gradient(180deg,#0e1626 0%,#0a0e18 55%,#080a12 100%);border-radius:42px;border:1.5px solid rgba(255,255,255,.14);overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,.65),0 0 0 6px rgba(255,255,255,.03),inset 0 1px 0 rgba(255,255,255,.07);display:flex;flex-direction:column}
+.pstatus{display:flex;align-items:center;justify-content:space-between;padding:10px 20px 5px;font-family:var(--mono);font-size:.56rem;color:rgba(255,255,255,.72);letter-spacing:.02em}
+.pisland{width:62px;height:16px;background:#04060b;border-radius:11px;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.pappbar{display:flex;align-items:center;gap:8px;padding:9px 15px 10px;background:linear-gradient(180deg,rgba(41,182,246,.13),rgba(41,182,246,0));border-bottom:1px solid rgba(255,255,255,.07);font-size:.74rem;font-weight:600}
+.pback{color:#4fc3f7;font-size:.72rem;font-weight:600}
+.pav{margin-left:auto;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#29b6f6,#7c4dff);display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:#fff}
+.phead{padding:13px 15px 5px}
+.phead h4{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:900;margin-bottom:2px}
+.phead p{font-size:.6rem;color:rgba(255,255,255,.5)}
+.pcourses{padding:10px 12px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pc{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:13px;padding:11px 13px}
+.pc.on{border-color:rgba(41,182,246,.55);background:linear-gradient(135deg,rgba(41,182,246,.14),rgba(41,182,246,.04));box-shadow:0 0 0 1px rgba(41,182,246,.15),0 10px 26px rgba(41,182,246,.15)}
+.pc.lk{opacity:.85;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pcn{font-size:.72rem;font-weight:600;margin-bottom:8px}
+.pc.lk .pcn{margin-bottom:0;color:rgba(255,255,255,.72)}
+.pb{height:5px;background:rgba(255,255,255,.09);border-radius:4px;overflow:hidden;margin-bottom:5px}
+.pbf{height:100%;background:var(--accent);border-radius:4px}
+.pc.on .pbf{background:linear-gradient(90deg,#29b6f6,#4fc3f7);box-shadow:0 0 10px rgba(41,182,246,.6)}
+.pcm{font-size:.58rem;color:rgba(255,255,255,.5);font-family:var(--mono)}
+.pcp{flex-shrink:0;font-size:.62rem;font-weight:700;color:#1a1206;background:linear-gradient(135deg,#fbbf24,#f59e0b);padding:5px 11px;border-radius:9px;white-space:nowrap}
+.pcta{margin:2px 12px 15px;padding:12px;text-align:center;border-radius:14px;background:linear-gradient(135deg,#29b6f6,#1e88e5);color:#fff;font-size:.74rem;font-weight:700;box-shadow:0 10px 26px rgba(41,182,246,.4)}
 
-.funnel{display:flex;flex-direction:column}
-.fs{display:flex;align-items:flex-start;gap:16px}
-.fsl{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
-.fc{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;font-weight:600;flex-shrink:0;z-index:1}
-.fl{width:1.5px;height:44px;background:linear-gradient(180deg,rgba(167,139,250,.3),rgba(167,139,250,.05));margin:0 auto}
-.fbody{padding:6px 0 40px}
-.fday{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;margin-bottom:6px}
-.fmsg{border-radius:10px;padding:11px 14px;font-size:.78rem;line-height:1.5;max-width:230px}
-.fst{display:flex;gap:14px;margin-top:6px}
-.fss{font-family:var(--mono);font-size:.62rem;color:var(--muted)}
-.fss b{color:#a78bfa}
+.funnel{background:linear-gradient(180deg,#0f1215,#0a0b0d);border:1px solid rgba(45,212,191,.16);border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05);width:100%;max-width:360px}
+.otb-top{display:flex;align-items:center;gap:11px;padding:13px 16px;background:linear-gradient(180deg,rgba(45,212,191,.12),rgba(45,212,191,0));border-bottom:1px solid rgba(255,255,255,.06)}
+.otb-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#0d3b3a,#062326);border:1px solid rgba(45,212,191,.4);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:900;font-size:1.1rem;color:#2dd4bf;box-shadow:0 0 16px rgba(45,212,191,.3);flex-shrink:0}
+.otb-i{flex:1;min-width:0}
+.otb-n{font-weight:700;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.otb-s{font-size:.62rem;color:#34d399;display:flex;align-items:center;gap:5px;font-family:var(--mono)}
+.otb-s::before{content:'';width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;flex-shrink:0}
+.otb-chat{padding:14px}
+.otbanner{position:relative;border-radius:14px;overflow:hidden;padding:24px 18px 20px;background:radial-gradient(120% 130% at 78% 15%,rgba(45,212,191,.2),transparent 55%),linear-gradient(135deg,#0a2124 0%,#08181b 45%,#0a1315 100%);border:1px solid rgba(45,212,191,.18);min-height:148px}
+.otbanner::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(45,212,191,.05) 0 1px,transparent 1px 24px),repeating-linear-gradient(0deg,rgba(45,212,191,.045) 0 1px,transparent 1px 24px);opacity:.55;pointer-events:none}
+.otbanner-logo{position:relative;font-family:'Syne',sans-serif;font-weight:900;font-size:2.7rem;line-height:1;letter-spacing:-.06em;background:linear-gradient(135deg,#7dede0,#2dd4bf 42%,#0d7d70);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 16px rgba(45,212,191,.45));margin-bottom:14px}
+.otbanner-w{position:relative;font-family:var(--mono);font-size:.58rem;letter-spacing:.34em;color:rgba(255,255,255,.55);margin-bottom:4px}
+.otbanner-t{position:relative;font-family:'Syne',sans-serif;font-weight:900;font-size:1.55rem;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 22px rgba(45,212,191,.4)}
+.otbanner-coins{position:absolute;top:16px;right:16px;display:flex}
+.otcoin{width:27px;height:27px;border-radius:50%;background:linear-gradient(135deg,#fcd34d,#d97706);border:1.5px solid rgba(255,255,255,.28);box-shadow:0 3px 10px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font-size:.72rem}
+.otcoin+.otcoin{margin-left:-9px}
+.otcoin.s{background:linear-gradient(135deg,#e2e8f0,#8fa2b8)}
+.otmsg{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:4px 14px 14px 14px;padding:12px 14px;margin-top:12px;font-size:.75rem;line-height:1.55;color:#e7ebe9}
+.otmsg-h{font-weight:700;margin-bottom:6px}
+.otmsg p{color:rgba(255,255,255,.68);margin-bottom:6px}
+.otmsg-pick{color:#5eead4;font-weight:600;margin-bottom:0}
+.ottime{display:block;text-align:right;font-family:var(--mono);font-size:.54rem;color:rgba(255,255,255,.4);margin-top:6px}
+.otkb{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}
+.otbtn{font-size:.68rem;font-weight:600;color:#d7f5ef;background:rgba(45,212,191,.09);border:1px solid rgba(45,212,191,.22);border-radius:9px;padding:9px 8px;cursor:pointer;transition:background .2s,border-color .2s,transform .1s;display:flex;align-items:center;justify-content:center;gap:5px;text-align:center;line-height:1.2}
+.otbtn:hover{background:rgba(45,212,191,.16);border-color:rgba(45,212,191,.45);transform:translateY(-1px)}
+.otbtn.wide{grid-column:1 / -1}
+.otbtn.back{color:rgba(255,255,255,.62);background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.09)}
+.otbtn.back:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16)}
+.pdesc-link{color:#2dd4bf;font-weight:600;white-space:nowrap;border-bottom:1px solid rgba(45,212,191,.4);transition:color .2s,border-color .2s}
+.pdesc-link:hover{color:#5eead4;border-color:#5eead4}
 
 .term{background:#0a0a0f;border:1px solid rgba(var(--tint),.08);border-radius:14px;overflow:hidden;font-family:var(--mono);font-size:.76rem;box-shadow:0 24px 60px rgba(0,0,0,.5);width:100%}
 .tbar{display:flex;align-items:center;gap:7px;padding:11px 15px;background:rgba(var(--tint),.025);border-bottom:1px solid rgba(var(--tint),.06)}
@@ -363,6 +391,11 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   .ptitle{font-size:clamp(1.45rem,6vw,2rem)}
   .pdesc{font-size:.9rem}
   .pvisual{display:none}
+  .pvisual.show{display:flex;margin-top:16px;opacity:1;transform:none;animation:pvin .4s ease}
+  .pv-toggle{display:inline-flex;align-items:center;gap:9px;margin-top:8px;padding:11px 18px;border-radius:10px;background:rgba(var(--tint),.04);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:.8rem;font-weight:600;cursor:pointer;transition:border-color .2s,background .2s,color .2s;-webkit-tap-highlight-color:transparent}
+  .pv-toggle[aria-expanded="true"]{border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.06);color:var(--accent)}
+  .pv-toggle .pv-ico{transition:transform .3s;font-size:.7rem}
+  .pv-toggle[aria-expanded="true"] .pv-ico{transform:rotate(180deg)}
   .pgrid{grid-template-columns:1fr;gap:20px}
   .pftabs{gap:6px}
   .pft{padding:7px 13px;font-size:.72rem}
@@ -568,10 +601,12 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     </div>
     <div class="pvisual rv">
       <div class="phone-wrap">
-        <div class="phone-glow" style="background:radial-gradient(circle,rgba(41,182,246,.2),transparent 70%)"></div>
+        <div class="phone-glow"></div>
+        <div class="phone-glow warm"></div>
         <div class="phone">
-          <div class="pnotch"></div>
-          <div class="pappbar"><span class="pback">← Назад</span><span>📚 EduApp</span></div>
+          <div class="pstatus"><span>9:41</span><span class="pisland"></span><span>📶 🔋</span></div>
+          <div class="pappbar"><span class="pback">‹ Назад</span><span>📚 EduApp</span><span class="pav">Л</span></div>
+          <div class="phead"><h4>Мои курсы</h4><p>Продолжайте с того места, где остановились</p></div>
           <div class="pcourses">
             <div class="pc on">
               <div class="pcn">Трейдинг с нуля</div>
@@ -583,9 +618,10 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
               <div class="pb"><div class="pbf" style="width:30%"></div></div>
               <div class="pcm">30% · Урок 3 из 10</div>
             </div>
-            <div class="pc lk"><div class="pcn">🔒 Продвинутый курс</div><div class="pcp">299 ⭐ Купить</div></div>
-            <div class="pc lk"><div class="pcn">🔒 Мастер-класс PRO</div><div class="pcp">499 ⭐ Купить</div></div>
+            <div class="pc lk"><div class="pcn">🔒 Продвинутый курс</div><div class="pcp">299 ⭐</div></div>
+            <div class="pc lk"><div class="pcn">🔒 Мастер-класс PRO</div><div class="pcp">499 ⭐</div></div>
           </div>
+          <div class="pcta">▶ Продолжить урок 7</div>
         </div>
       </div>
     </div>
@@ -597,48 +633,49 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap pi">
     <div class="rv">
       <div class="pnl">02 / 10</div>
-      <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.06)">⚡ Бот / Воронка продаж</div>
-      <h3 class="ptitle">ONETRADE —<br>бот-воронка</h3>
-      <p class="pdesc">Автоматическая воронка прогрева для трейдинг-проекта. Бот ведёт пользователя через серию касаний, реактивирует «спящих» и ведёт аналитику базы.</p>
+      <div class="ptag" style="color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.06)">🤝 Telegram INFO-бот</div>
+      <h3 class="ptitle">ONETRADE —<br>партнёрский бот</h3>
+      <p class="pdesc">Информационный бот партнёрской экосистемы OneTrade: реферальная структура, кэшбэк, ранги и личный кабинет — всё в одном меню. <a class="pdesc-link" href="https://t.me/OneTradeINFO_bot" target="_blank" rel="noopener">@OneTradeINFO_bot →</a></p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Последовательные сообщения с задержками в часах</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Детекция «спящих» + автоматическая реактивация в 09:00</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>APScheduler: проверка воронки каждые 5 минут</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Статусы: active / sleeping / finished + история</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Деплой-скрипты и bat-файл для сервера</div></div>
+        <div class="pf"><div class="pfd" style="background:#2dd4bf"></div><div>Учёт лично приглашённых и вознаграждений за них</div></div>
+        <div class="pf"><div class="pfd" style="background:#2dd4bf"></div><div>Многоуровневая реферальная структура</div></div>
+        <div class="pf"><div class="pfd" style="background:#2dd4bf"></div><div>Начисление кэшбэка и ранговая система</div></div>
+        <div class="pf"><div class="pfd" style="background:#2dd4bf"></div><div>Регистрация и личный кабинет прямо в боте</div></div>
+        <div class="pf"><div class="pfd" style="background:#2dd4bf"></div><div>Inline-меню с разделами и справкой по программе</div></div>
       </div>
-      <div class="pstack"><span class="sp">Python</span><span class="sp">aiogram 3</span><span class="sp">APScheduler</span><span class="sp">SQLite</span><span class="sp">aiosqlite</span></div>
+      <div class="pstack"><span class="sp">Python</span><span class="sp">aiogram 3</span><span class="sp">SQLite</span><span class="sp">FSM</span><span class="sp">Inline-меню</span></div>
     </div>
     <div class="pvisual rv">
       <div class="funnel">
-        <div class="fs">
-          <div class="fsl"><div class="fc" style="background:rgba(167,139,250,.12);border:1.5px solid rgba(167,139,250,.4);color:#a78bfa">1</div><div class="fl"></div></div>
-          <div class="fbody">
-            <div class="fday" style="color:#a78bfa">День 0 — сразу</div>
-            <div class="fmsg" style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2)">👋 Добро пожаловать в OneTrade! Здесь торгуют умом…</div>
+        <div class="otb-top">
+          <div class="otb-av">7</div>
+          <div class="otb-i">
+            <div class="otb-n">One Trade | INFO BOT</div>
+            <div class="otb-s">@OneTradeINFO_bot · bot</div>
           </div>
         </div>
-        <div class="fs">
-          <div class="fsl"><div class="fc" style="background:rgba(167,139,250,.12);border:1.5px solid rgba(167,139,250,.4);color:#a78bfa">2</div><div class="fl"></div></div>
-          <div class="fbody">
-            <div class="fday" style="color:#a78bfa">День 1 — +24ч</div>
-            <div class="fmsg" style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2)">📈 Вчера рынок снова удивил. Показываем как это читать...</div>
-            <div class="fst"><span class="fss">Открыто: <b>847</b></span><span class="fss">CTR: <b>68%</b></span></div>
+        <div class="otb-chat">
+          <div class="otbanner">
+            <div class="otbanner-coins"><div class="otcoin">$</div><div class="otcoin s">◇</div></div>
+            <div class="otbanner-logo">7</div>
+            <div class="otbanner-w">WELCOME TO</div>
+            <div class="otbanner-t">ONE TRADE</div>
           </div>
-        </div>
-        <div class="fs">
-          <div class="fsl"><div class="fc" style="background:rgba(167,139,250,.12);border:1.5px solid rgba(167,139,250,.4);color:#a78bfa">3</div><div class="fl"></div></div>
-          <div class="fbody">
-            <div class="fday" style="color:#a78bfa">День 3 — +72ч</div>
-            <div class="fmsg" style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2)">🎯 Закрытый сигнал: +340%. Хочешь в следующий?</div>
-            <div class="fst"><span class="fss">Конверсия: <b>12%</b></span></div>
+          <div class="otmsg">
+            <div class="otmsg-h">🤝 Партнёру — OneTrade INFO</div>
+            <p>Партнёрская экосистема: вознаграждения за приглашённых, структура и уровни, кэшбэк и ранги.</p>
+            <p class="otmsg-pick">Выберите интересующий раздел ниже 👇</p>
+            <span class="ottime">22:03</span>
           </div>
-        </div>
-        <div class="fs">
-          <div class="fsl"><div class="fc" style="background:rgba(249,115,22,.12);border:1.5px solid rgba(249,115,22,.5);color:var(--accent)">✓</div></div>
-          <div class="fbody" style="padding-bottom:0">
-            <div class="fday" style="color:var(--accent)">Продажа</div>
-            <div class="fmsg" style="background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.3)">💰 Подписка оформлена</div>
+          <div class="otkb">
+            <div class="otbtn">👥 Лично приглашённые</div>
+            <div class="otbtn">🚩 Структура</div>
+            <div class="otbtn">💰 Кэшбэк</div>
+            <div class="otbtn">🏆 Ранговая система</div>
+            <div class="otbtn">📊 О платформе</div>
+            <div class="otbtn">📝 Регистрация</div>
+            <div class="otbtn wide">👤 Личный кабинет</div>
+            <div class="otbtn wide back">⬅️ Назад</div>
           </div>
         </div>
       </div>
@@ -2338,6 +2375,24 @@ const ro=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),80)});
 },{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// Mobile: expandable project previews (button injected before each mockup)
+document.querySelectorAll('.ps .pi').forEach(pi=>{
+  const pv=pi.querySelector('.pvisual');
+  if(!pv)return;
+  const btn=document.createElement('button');
+  btn.type='button';
+  btn.className='pv-toggle';
+  btn.setAttribute('aria-expanded','false');
+  btn.innerHTML='<span class="pv-lbl">Показать превью</span><span class="pv-ico">▾</span>';
+  pv.parentNode.insertBefore(btn,pv);
+  btn.addEventListener('click',()=>{
+    const open=pv.classList.toggle('show');
+    if(open)pv.classList.add('in');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.querySelector('.pv-lbl').textContent=open?'Скрыть превью':'Показать превью';
+  });
+});
 
 const so=new IntersectionObserver(es=>{
   es.forEach(e=>{
