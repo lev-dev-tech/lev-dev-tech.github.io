@@ -869,15 +869,16 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <div class="pnl">08 / 10</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">🛠 Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router —<br>лиды в CRM и почту</h3>
-      <p class="pdesc">Веб-панель приёма и маршрутизации лидов: каждый лид уходит в нужный канал клиента — Bitrix24, amoCRM или e-mail. Приём из формы и по API, дедуп по телефону, очередь с троттлингом и ретраями, журнал со статусами. На Node.js + SQLite — работает даже на самом дешёвом VPS.</p>
+      <p class="pdesc">Веб-панель приёма и маршрутизации лидов. Источники-поставщики шлют лиды по вебхуку, почте или публичной форме — те попадают в ящик входящих, где админ вручную решает, какому клиенту переслать каждый. Дальше лид уходит в нужный канал — Bitrix24, amoCRM или e-mail. Дедуп по телефону, очередь с троттлингом и ретраями, автоочистка журнала. На Node.js + SQLite, работает даже на самом дешёвом VPS.</p>
       <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Поставщики: приём лидов по вебхуку, почте или публичной форме</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Ящик входящих с ручной модерацией — админ выбирает клиента для пересылки</div></div>
         <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Маршрутизация в Bitrix24, amoCRM или e-mail — свой канал на клиента</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Приём лидов из веб-формы и по REST API (ключ приёма на клиента)</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Дедупликация по телефону — дубли отсекаются автоматически</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Очередь с троттлингом (≤N/мин) и ретраи при сбое канала</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Журнал лидов со статусами, фильтрами и повтором проваленных</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Запись звонка прикреплена к лиду — видна админу, клиенту не уходит</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Дедупликация по телефону + очередь с троттлингом и ретраями</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Журнал со статусами и фильтрами, автоочистка по сроку хранения</div></div>
       </div>
-      <div class="pstack"><span class="sp">Node.js</span><span class="sp">Express</span><span class="sp">SQLite</span><span class="sp">REST API</span><span class="sp">Bitrix24 API</span><span class="sp">amoCRM API</span><span class="sp">SMTP</span><span class="sp">Docker</span><span class="sp">Nginx</span></div>
+      <div class="pstack"><span class="sp">Node.js</span><span class="sp">Express</span><span class="sp">SQLite</span><span class="sp">REST API</span><span class="sp">Webhooks</span><span class="sp">Bitrix24 API</span><span class="sp">amoCRM API</span><span class="sp">SMTP</span><span class="sp">Docker</span><span class="sp">Nginx</span></div>
     </div>
     <div class="pvisual rv">
       <div class="lrp" aria-hidden="true">
