@@ -1340,7 +1340,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 
 <footer>
   <div class="wrap fi">
-    <span>© 2025 <span class="ac">Лев</span> — Технический специалист</span>
+    <span>© <span id="fyear">2026</span> <span class="ac">Лев</span> — Технический специалист</span>
   </div>
 </footer>
 
@@ -2370,6 +2370,7 @@ function onScroll(){
 }
 window.addEventListener('scroll',onScroll,{passive:true});
 onScroll();
+(function(){const y=document.getElementById('fyear');if(y)y.textContent=new Date().getFullYear()})();
 
 (function(){
   const tgl=document.getElementById('tgl');if(!tgl)return;
