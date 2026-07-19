@@ -2363,7 +2363,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('s',window.scrollY>50)
   (async function loop(){
     let i=0;
     while(true){
-      await sleep(2300);
+      await sleep(9000);
       cur(hl2);await erase(hl2);
       cur(hl1);await erase(hl1);
       await sleep(260);
@@ -2382,12 +2382,12 @@ function tstep(){
   const p=phrases[pi];
   if(!del){
     ci++;tel.textContent=p.slice(0,ci);
-    if(ci>=p.length){del=true;setTimeout(tstep,1800);return}
-    setTimeout(tstep,45+Math.random()*35);
+    if(ci>=p.length){del=true;setTimeout(tstep,4500);return}
+    setTimeout(tstep,55+Math.random()*35);
   }else{
     ci--;tel.textContent=p.slice(0,ci);
-    if(ci<=0){del=false;pi=(pi+1)%phrases.length;setTimeout(tstep,350);return}
-    setTimeout(tstep,22);
+    if(ci<=0){del=false;pi=(pi+1)%phrases.length;setTimeout(tstep,600);return}
+    setTimeout(tstep,28);
   }
 }
 setTimeout(tstep,600);
