@@ -54,7 +54,7 @@ a{text-decoration:none;color:inherit}
 .noise{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.025;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:180px}
-#bar{position:fixed;top:0;left:0;height:2px;z-index:500;background:linear-gradient(90deg,var(--accent),#fb923c);width:0;transition:width .05s}
+#bar{position:fixed;top:0;left:0;height:2px;z-index:500;background:linear-gradient(90deg,var(--accent),#fb923c);width:100%;transform:scaleX(0);transform-origin:0 50%}
 #totop{position:fixed;left:28px;bottom:36px;z-index:400;width:44px;height:44px;border-radius:50%;background:var(--navbg);border:1px solid rgba(249,115,22,.35);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s,border-color .2s,background .2s;backdrop-filter:blur(12px)}
 #totop.vis{opacity:1;pointer-events:auto;transform:translateY(0)}
 #totop:hover{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.6)}
@@ -249,6 +249,13 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
   .tmock.gs .tr,.gs-toast,.gtab.on{animation:none;opacity:1}
   .gs-toast{display:none}
   .term.anim .tbody>div{opacity:1;transform:none}
+  .blob,.ticker,.hero-title{animation:none}
+}
+@media(max-width:600px){
+  .blob{filter:blur(60px)}
+  .b1{width:380px;height:380px}
+  .b2{width:280px;height:280px}
+  .mglow{width:280px;height:220px;filter:blur(55px)}
 }
 
 .bmock{background:#0a0a0f;border:1px solid rgba(var(--tint),.08);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
@@ -814,7 +821,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div class="burl">🔒 &nbsp;lumina.design</div>
         </div>
         <div class="bframe">
-          <iframe class="lumina-frame" title="Превью лендинга Lumina" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+          <iframe class="lumina-frame" data-tpl="luminaSrc" title="Превью лендинга Lumina" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
         </div>
         <span class="bmock__hint">⌕ &nbsp;Полистать превью</span>
       </div>
@@ -849,7 +856,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div class="burl">🔒 &nbsp;lev-dev-tech.github.io/volt-landing</div>
         </div>
         <div class="bframe">
-          <iframe src="https://lev-dev-tech.github.io/volt-landing/" title="Превью лендинга ВОЛЬТ" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+          <iframe data-src="https://lev-dev-tech.github.io/volt-landing/" title="Превью лендинга ВОЛЬТ" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
         </div>
         <span class="bmock__hint">⌕ &nbsp;Полистать превью</span>
       </div>
@@ -1003,7 +1010,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div class="burl">🔒 &nbsp;ggikesgg-oss.github.io/ilya-gromov-portfolio</div>
         </div>
         <div class="bframe">
-          <iframe src="https://ggikesgg-oss.github.io/ilya-gromov-portfolio/" title="Превью лендинга Ильи Громова" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+          <iframe data-src="https://ggikesgg-oss.github.io/ilya-gromov-portfolio/" title="Превью лендинга Ильи Громова" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
         </div>
         <span class="bmock__hint">⌕ &nbsp;Полистать превью</span>
       </div>
@@ -2353,14 +2360,16 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 <script>
 const bar=document.getElementById('bar');
 const totop=document.getElementById('totop');
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  bar.style.width=(y/(document.body.scrollHeight-window.innerHeight)*100)+'%';
-  totop.classList.toggle('vis',y>400);
-},{passive:true});
-
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('s',window.scrollY>50),{passive:true});
+function onScroll(){
+  const y=window.scrollY;
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  bar.style.transform='scaleX('+(max>0?y/max:0)+')';
+  totop.classList.toggle('vis',y>400);
+  nav.classList.toggle('s',y>50);
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
 
 (function(){
   const tgl=document.getElementById('tgl');if(!tgl)return;
@@ -2464,22 +2473,32 @@ const tokens=['def ','async ','await ','import ','return ','class ','@dp.','bot'
 let W,H,parts=[];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
 resize();window.addEventListener('resize',resize);
-function mkp(){return{x:Math.random()*W,y:H+Math.random()*300,speed:.25+Math.random()*.6,op:.03+Math.random()*.07,tok:tokens[Math.floor(Math.random()*tokens.length)],sz:10+Math.random()*5,drift:(Math.random()-.5)*.25}}
-for(let i=0;i<65;i++){const p=mkp();p.y=Math.random()*H;parts.push(p)}
-function draw(){
+function mkp(){const sz=10+Math.random()*5;return{x:Math.random()*W,y:H+Math.random()*300,speed:.25+Math.random()*.6,op:.03+Math.random()*.07,tok:tokens[Math.floor(Math.random()*tokens.length)],font:`500 ${sz}px 'JetBrains Mono',monospace`,drift:(Math.random()-.5)*.25}}
+const NP=window.innerWidth<760?26:65;
+for(let i=0;i<NP;i++){const p=mkp();p.y=Math.random()*H;parts.push(p)}
+const bgStatic=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lastT=0;
+function paint(){
   ctx.clearRect(0,0,W,H);
   parts.forEach(p=>{
     ctx.globalAlpha=p.op;
     ctx.fillStyle='#f97316';
-    ctx.font=`500 ${p.sz}px 'JetBrains Mono',monospace`;
+    ctx.font=p.font;
     ctx.fillText(p.tok,p.x,p.y);
+  });
+  ctx.globalAlpha=1;
+}
+function draw(ts){
+  if(!window._stopDraw)requestAnimationFrame(draw);
+  if(ts-lastT<33)return;
+  lastT=ts;
+  parts.forEach(p=>{
     p.y-=p.speed;p.x+=p.drift;
     if(p.y<-30)Object.assign(p,mkp());
   });
-  ctx.globalAlpha=1;
-  if(!window._stopDraw) requestAnimationFrame(draw);
+  paint();
 }
-document.fonts.ready.then(draw);
+document.fonts.ready.then(()=>{if(bgStatic)paint();else requestAnimationFrame(draw)});
 
 document.querySelectorAll('.pft').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -2643,7 +2662,25 @@ document.getElementById('fSubmit').addEventListener('click',function(){
   document.querySelectorAll('[data-blob]').forEach(el=>{
     el.addEventListener('click',()=>window.open(toBlob(tplHTML(el.dataset.blob)),'_blank'));
   });
-  document.querySelectorAll('.lumina-frame').forEach(f=>{f.srcdoc=tplHTML('luminaSrc')});
+  const lazyIO='IntersectionObserver' in window?new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      const f=e.target,on=e.isIntersecting;
+      if(on===f.__on)return;
+      f.__on=on;
+      if(on){
+        if(f.dataset.tpl)f.srcdoc=tplHTML(f.dataset.tpl);
+        else f.src=f.dataset.src;
+      }else{
+        f.removeAttribute('srcdoc');
+        f.src='about:blank';
+      }
+    });
+  },{rootMargin:'600px 0px'}):null;
+  document.querySelectorAll('iframe[data-src],iframe[data-tpl]').forEach(f=>{
+    if(lazyIO)lazyIO.observe(f);
+    else if(f.dataset.tpl)f.srcdoc=tplHTML(f.dataset.tpl);
+    else f.src=f.dataset.src;
+  });
   const LW=1280;
   function fit(f){
     const box=f.parentElement; const w=box.clientWidth, h=box.clientHeight;
