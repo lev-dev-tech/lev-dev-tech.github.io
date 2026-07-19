@@ -43,6 +43,7 @@
 | 08 | **Lead Router — лиды в CRM и почту** | Веб-сервис / Интеграция CRM | Node.js, Express, SQLite, Bitrix24 API, amoCRM API |
 | 09 | **Илья Громов — портфолио дизайнера** | Портфолио-лендинг · live | HTML, CSS, Vanilla JS |
 | 10 | **Выгрузка 1С:Розница в PostgreSQL** | Данные / ETL-пайплайн | Python, onec_dtools, PostgreSQL, psycopg |
+| 11 | **Планировщик рассылки в Google Таблицах** | Автоматизация / Apps Script | Google Apps Script, JavaScript, Google Sheets |
 
 ---
 
