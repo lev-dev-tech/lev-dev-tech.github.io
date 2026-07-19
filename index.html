@@ -2442,6 +2442,7 @@ document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 document.querySelectorAll('.ps .pi').forEach(pi=>{
   const pv=pi.querySelector('.pvisual');
   if(!pv)return;
+  if(pi.querySelector('.plinks [data-preview]'))return;
   const btn=document.createElement('button');
   btn.type='button';
   btn.className='pv-toggle';
