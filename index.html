@@ -220,7 +220,36 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .tmock.gs .tfoot b{color:#4ade80}
 .gtabs{display:flex;gap:4px;padding:9px 12px 0;font-family:var(--mono);font-size:.6rem;color:var(--muted);border-bottom:1px solid rgba(var(--tint),.06)}
 .gtab{padding:4px 10px;border-radius:6px 6px 0 0;background:rgba(var(--tint),.04)}
-.gtab.on{background:rgba(34,197,94,.16);color:#4ade80;font-weight:700}
+.gtab.on{background:rgba(34,197,94,.16);color:#4ade80;font-weight:700;animation:gtabglow 7.5s infinite}
+@keyframes gtabglow{0%,6%{box-shadow:0 0 0 0 rgba(74,222,128,0)}10%{box-shadow:0 0 0 5px rgba(74,222,128,.16)}18%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+
+.pvisual{position:relative}
+.mglow{position:absolute;width:440px;height:340px;border-radius:50%;filter:blur(80px);background:radial-gradient(circle,var(--g,rgba(249,115,22,.14)),transparent 70%);pointer-events:none;z-index:0}
+.term,.tmock{position:relative;z-index:1;background:linear-gradient(180deg,#0f0f16,#090910);border-color:rgba(var(--tint),.12)}
+
+.term.anim .tbody>div{opacity:0;transform:translateX(-10px);transition:opacity .35s ease,transform .35s ease}
+.term.anim .tbody>div.on{opacity:1;transform:none}
+
+.dbar,.sbar{display:inline-block;width:66px;height:5px;border-radius:3px;background:rgba(var(--tint),.1);overflow:hidden;vertical-align:middle;margin-left:9px}
+.dbar i{display:block;height:100%;width:88%;border-radius:3px;background:#f87171;transition:width 1.5s cubic-bezier(.6,.05,.3,1) .4s,background 1.5s ease .4s}
+.tbody>div.on .dbar i{width:43%;background:#4ade80}
+.sbar i{display:block;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,#34d399,#22d3ee);transition:width 2.4s ease .4s}
+.tbody>div.on .sbar i{width:62%}
+
+.tmock.gs .tr{opacity:0;animation:gsrow 7.5s infinite}
+.tmock.gs .tr:nth-child(3){animation-delay:.7s}
+.tmock.gs .tr:nth-child(4){animation-delay:1.05s}
+.tmock.gs .tr:nth-child(5){animation-delay:1.4s}
+.tmock.gs .tr:nth-child(6){animation-delay:1.75s}
+.tmock.gs .tr:nth-child(7){animation-delay:2.1s}
+@keyframes gsrow{0%{opacity:0;transform:translateY(8px)}5%,88%{opacity:1;transform:none}94%,100%{opacity:0}}
+.gs-toast{position:absolute;right:12px;bottom:46px;display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:9px;background:rgba(10,14,11,.94);border:1px solid rgba(74,222,128,.4);color:#4ade80;font-family:var(--mono);font-size:.66rem;font-weight:600;box-shadow:0 12px 32px rgba(0,0,0,.5);opacity:0;animation:gstoast 7.5s infinite;z-index:2}
+@keyframes gstoast{0%,40%{opacity:0;transform:translateY(10px) scale(.94)}48%,86%{opacity:1;transform:none}93%,100%{opacity:0;transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){
+  .tmock.gs .tr,.gs-toast,.gtab.on{animation:none;opacity:1}
+  .gs-toast{display:none}
+  .term.anim .tbody>div{opacity:1;transform:none}
+}
 
 .bmock{background:#0a0a0f;border:1px solid rgba(var(--tint),.08);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
 .bchrome{padding:11px 14px;background:rgba(var(--tint),.025);border-bottom:1px solid rgba(var(--tint),.06);display:flex;align-items:center;gap:10px}
@@ -706,6 +735,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <div class="pstack"><span class="sp">Python</span><span class="sp">Telethon</span><span class="sp">asyncio</span><span class="sp">CSV logging</span></div>
     </div>
     <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(52,211,153,.16)"></div>
       <div class="term">
         <div class="tbar"><span class="td r"></span><span class="td y"></span><span class="td g"></span><span class="ttitle">bot.py</span></div>
         <div class="tbody">
@@ -717,7 +747,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div><span class="tinf">&nbsp;&nbsp;&nbsp;&nbsp;@trade_kz_public → <span class="tnum">156</span> чел.</span></div>
           <div><span class="tinf">&nbsp;&nbsp;&nbsp;&nbsp;@dev_almaty_bot &nbsp;→ <span class="tnum">&nbsp;89</span> чел.</span></div><br>
           <div><span class="tok">[+]</span> <span class="tinf">В очереди: <span class="tnum">479</span> чел.</span></div>
-          <div><span class="tok">[→]</span> <span class="tinf">Отправлено: <span class="tnum">47</span> &nbsp;✓ Ответили: <span class="tnum">12</span></span></div>
+          <div><span class="tok">[→]</span> <span class="tinf">Отправлено: <span class="tnum">47</span> &nbsp;✓ Ответили: <span class="tnum">12</span></span><span class="sbar"><i></i></span></div>
           <div><span class="twarn">[⌛]</span> <span class="tinf">FloodWait — пауза <span class="tnum">34</span>с</span></div>
           <div><span class="tok">[→]</span> <span class="tinf">Отправлено: <span class="tnum">48</span> <span class="tcur"></span></span></div>
         </div>
@@ -848,6 +878,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       </div>
     </div>
     <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(34,211,238,.14)"></div>
       <div class="term">
         <div class="tbar"><span class="td r"></span><span class="td y"></span><span class="td g"></span><span class="ttitle">audit.sh</span></div>
         <div class="tbody">
@@ -857,7 +888,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div><span class="tok">[+]</span> <span class="tinf">Импорт прайса: <span class="tnum">2125</span> товаров ✓</span></div><br>
           <div><span class="twarn">[!]</span> <span class="tinf">Disk quota exceeded — запись не идёт</span></div>
           <div><span class="tok">[→]</span> <span class="tinf">Чищу кэш... освобождено <span class="tnum">32</span> ГБ</span></div>
-          <div><span class="tok">[+]</span> <span class="tinf">Диск: <span class="tnum">88</span>% → <span class="tnum">43</span>% · запись ✓</span></div><br>
+          <div><span class="tok">[+]</span> <span class="tinf">Диск: <span class="tnum">88</span>% → <span class="tnum">43</span>% · запись ✓</span><span class="dbar"><i></i></span></div><br>
           <div><span class="twarn">[!]</span> <span class="tinf">Каталог: <span class="tnum">500</span> — конфликт модулей</span></div>
           <div><span class="tok">[+]</span> <span class="tinf">Найдено по логам, устранено ✓</span></div>
           <div><span class="tok">[+]</span> <span class="tinf">Сайт стабилен · холодный кэш: <span class="tnum">200</span> <span class="tcur"></span></span></div>
@@ -1041,7 +1072,9 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <div class="pstack"><span class="sp">Google Apps Script</span><span class="sp">JavaScript</span><span class="sp">Google Sheets</span><span class="sp">SpreadsheetApp</span></div>
     </div>
     <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(74,222,128,.15)"></div>
       <div class="tmock gs">
+        <div class="gs-toast">✓ План готов · 360 писем</div>
         <div class="gtabs"><span class="gtab">leads</span><span class="gtab">texts</span><span class="gtab">Настройки</span><span class="gtab on">План</span></div>
         <div class="th"><span>#</span><span>Email</span><span>Тема</span><span>День</span></div>
         <div class="tr"><span>1</span><span class="tbl">sales@stroytech.kz</span><span>Письмо 1 · КП</span><span>1</span></div>
@@ -2391,6 +2424,39 @@ function tstep(){
   }
 }
 setTimeout(tstep,600);
+
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.querySelectorAll('.term').forEach(term=>{
+    const lines=Array.from(term.querySelectorAll('.tbody>div'));
+    if(lines.length<4)return;
+    term.querySelectorAll('.tbody .tcur').forEach(e=>e.remove());
+    term.classList.add('anim');
+    const cur=document.createElement('span');
+    cur.className='tcur';
+    cur.style.marginLeft='6px';
+    const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+    let started=false;
+    async function play(){
+      lines[0].classList.add('on');
+      while(true){
+        lines.forEach((l,i)=>{if(i)l.classList.remove('on')});
+        lines[0].appendChild(cur);
+        await sleep(900);
+        for(const l of lines.slice(1)){
+          l.classList.add('on');
+          l.appendChild(cur);
+          const warn=l.querySelector('.twarn');
+          await sleep((l.textContent.trim()?430:170)+(warn?750:0)+Math.random()*130);
+        }
+        await sleep(4600);
+      }
+    }
+    new IntersectionObserver((es,o)=>{
+      if(es[0].isIntersecting){o.disconnect();if(!started){started=true;play()}}
+    },{threshold:.35}).observe(term);
+  });
+})();
 
 const canvas=document.getElementById('code-bg');
 const ctx=canvas.getContext('2d');
