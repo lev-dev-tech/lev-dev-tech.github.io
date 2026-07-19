@@ -124,8 +124,8 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .ssub{font-size:.95rem;color:var(--muted);margin-top:10px;max-width:420px}
 
 .ps{padding:80px 0;border-top:1px solid var(--border);overflow:hidden}
-.psbg{position:absolute;top:50%;right:-20px;transform:translateY(-50%);font-family:'Syne',sans-serif;font-size:20rem;font-weight:900;line-height:1;color:rgba(249,115,22,.09);pointer-events:none;user-select:none;z-index:0}
-.ps.flip .psbg{right:auto;left:-20px}
+.psbg{position:absolute;top:50%;left:1.5%;transform:translateY(-50%);font-family:'Syne',sans-serif;font-size:clamp(11rem,17vw,17rem);font-weight:900;line-height:1;color:rgba(249,115,22,.1);pointer-events:none;user-select:none;z-index:0}
+.ps.flip .psbg{left:auto;right:1.5%}
 .pi{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1}
 .ps.flip .pvisual{order:-1}
 
@@ -2600,12 +2600,14 @@ document.querySelectorAll('.pgrid,.schips').forEach(el=>so.observe(el));
     document.querySelectorAll('.rev-dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
     if(counter)counter.textContent=(cur+1)+' / '+total;
     clearInterval(timer);
-    timer=setInterval(()=>go(cur+1),5000);
+    timer=setInterval(()=>go(cur+1),9000);
   }
 
   document.getElementById('revPrev').addEventListener('click',()=>go(cur-1));
   document.getElementById('revNext').addEventListener('click',()=>go(cur+1));
-  timer=setInterval(()=>go(cur+1),5000);
+  timer=setInterval(()=>go(cur+1),9000);
+  slider.addEventListener('mouseenter',()=>clearInterval(timer));
+  slider.addEventListener('mouseleave',()=>{clearInterval(timer);timer=setInterval(()=>go(cur+1),9000)});
 
   let tx=0;
   slider.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
