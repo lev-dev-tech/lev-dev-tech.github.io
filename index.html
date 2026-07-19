@@ -47,8 +47,8 @@ a{text-decoration:none;color:inherit}
 #code-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 .blobs{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .blob{position:absolute;border-radius:50%;filter:blur(100px)}
-.b1{width:700px;height:700px;background:radial-gradient(circle,rgba(249,115,22,.1),transparent 70%);top:-200px;left:-150px;animation:d1 22s ease-in-out infinite alternate}
-.b2{width:500px;height:500px;background:radial-gradient(circle,rgba(251,146,60,.07),transparent 70%);bottom:0;right:-80px;animation:d2 26s ease-in-out infinite alternate}
+.b1{width:700px;height:700px;background:radial-gradient(circle,rgba(249,115,22,.17),transparent 70%);top:-200px;left:-150px;animation:d1 22s ease-in-out infinite alternate}
+.b2{width:500px;height:500px;background:radial-gradient(circle,rgba(251,146,60,.13),transparent 70%);bottom:0;right:-80px;animation:d2 26s ease-in-out infinite alternate}
 @keyframes d1{from{transform:translate(0,0)}to{transform:translate(100px,80px)}}
 @keyframes d2{from{transform:translate(0,0)}to{transform:translate(-80px,-100px)}}
 .noise{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.025;
@@ -124,7 +124,7 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .ssub{font-size:.95rem;color:var(--muted);margin-top:10px;max-width:420px}
 
 .ps{padding:80px 0;border-top:1px solid var(--border);overflow:hidden}
-.psbg{position:absolute;top:50%;right:-20px;transform:translateY(-50%);font-family:'Syne',sans-serif;font-size:20rem;font-weight:900;line-height:1;color:rgba(249,115,22,.022);pointer-events:none;user-select:none;z-index:0}
+.psbg{position:absolute;top:50%;right:-20px;transform:translateY(-50%);font-family:'Syne',sans-serif;font-size:20rem;font-weight:900;line-height:1;color:rgba(249,115,22,.09);pointer-events:none;user-select:none;z-index:0}
 .ps.flip .psbg{right:auto;left:-20px}
 .pi{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1}
 .ps.flip .pvisual{order:-1}
@@ -2473,7 +2473,7 @@ const tokens=['def ','async ','await ','import ','return ','class ','@dp.','bot'
 let W,H,parts=[];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
 resize();window.addEventListener('resize',resize);
-function mkp(){const sz=10+Math.random()*5;return{x:Math.random()*W,y:H+Math.random()*300,speed:.25+Math.random()*.6,op:.03+Math.random()*.07,tok:tokens[Math.floor(Math.random()*tokens.length)],font:`500 ${sz}px 'JetBrains Mono',monospace`,drift:(Math.random()-.5)*.25}}
+function mkp(){const sz=10+Math.random()*5;return{x:Math.random()*W,y:H+Math.random()*300,speed:.25+Math.random()*.6,op:.07+Math.random()*.13,tok:tokens[Math.floor(Math.random()*tokens.length)],font:`500 ${sz}px 'JetBrains Mono',monospace`,drift:(Math.random()-.5)*.25}}
 const NP=window.innerWidth<760?26:65;
 for(let i=0;i<NP;i++){const p=mkp();p.y=Math.random()*H;parts.push(p)}
 const bgStatic=matchMedia('(prefers-reduced-motion: reduce)').matches;
