@@ -36,7 +36,7 @@
 | 01 | **Платформа онлайн-курсов** | Telegram Mini App | Python, FastAPI, SQLite, TMA SDK |
 | 02 | **ONETRADE — партнёрский бот** | Telegram INFO-бот | Python, aiogram 3, SQLite |
 | 03 | **Рассылка KZ** | Userbot / Аутрич | Python, Telethon, asyncio |
-| 04 | **Парсер вакансий из Telegram** | Парсер / Автоматизация | Python, Telethon, openpyxl |
+| 04 | **Lead Radar — радар заказов** | Автоматизация / Парсер + сайт | Python, Telethon, Claude API, GitHub Actions, GitHub Pages |
 | 05 | **Продуктовые лендинги** | Веб / Landing page | HTML, CSS, Vanilla JS |
 | 06 | **ВОЛЬТ — магазин электроники** | Веб / Лендинг · live | HTML, CSS, Vanilla JS |
 | 07 | **Перенос и аудит магазина на Битрикс** | 1С-Битрикс / Сервер | 1С-Битрикс, PHP 8.2, MySQL, Nginx |

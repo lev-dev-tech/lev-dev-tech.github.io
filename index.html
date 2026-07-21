@@ -245,11 +245,41 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 @keyframes gsrow{0%{opacity:0;transform:translateY(8px)}5%,88%{opacity:1;transform:none}94%,100%{opacity:0}}
 .gs-toast{position:absolute;right:12px;bottom:46px;display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:9px;background:rgba(10,14,11,.94);border:1px solid rgba(74,222,128,.4);color:#4ade80;font-family:var(--mono);font-size:.66rem;font-weight:600;box-shadow:0 12px 32px rgba(0,0,0,.5);opacity:0;animation:gstoast 7.5s infinite;z-index:2}
 @keyframes gstoast{0%,40%{opacity:0;transform:translateY(10px) scale(.94)}48%,86%{opacity:1;transform:none}93%,100%{opacity:0;transform:translateY(-4px)}}
+.lrd{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#131109,#0a0a08);border:1px solid rgba(251,191,36,.16);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
+.lrd__bar{display:flex;align-items:center;gap:10px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(251,191,36,.05)}
+.lrd__radar{position:relative;width:26px;height:26px;border-radius:50%;border:1px solid rgba(251,191,36,.4);overflow:hidden;flex-shrink:0;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 70%)}
+.lrd__radar::before{content:'';position:absolute;inset:-25%;background:conic-gradient(from 0deg,rgba(251,191,36,.55),rgba(251,191,36,0) 55%);animation:lrdsweep 3.2s linear infinite}
+.lrd__radar i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fbbf24;top:7px;right:6px;box-shadow:0 0 5px rgba(251,191,36,.9);animation:lrdblip 3.2s ease-in-out infinite}
+@keyframes lrdsweep{to{transform:rotate(360deg)}}
+@keyframes lrdblip{0%,55%{opacity:0}62%{opacity:1}100%{opacity:0}}
+.lrd__ttl{font-weight:700;font-size:.85rem;letter-spacing:-.01em}
+.lrd__upd{margin-left:auto;font-family:var(--mono);font-size:.62rem;color:#6f6f86;display:flex;align-items:center;gap:5px}
+.lrd__upd b{width:5px;height:5px;border-radius:50%;background:#34d399;animation:pulse 2s infinite}
+.lrd__tabs{display:flex;gap:7px;padding:12px 15px 0}
+.lrd__tab{display:flex;align-items:center;gap:6px;padding:6px 13px;border-radius:8px 8px 0 0;background:rgba(255,255,255,.035);font-size:.72rem;font-weight:600;color:#6f6f86}
+.lrd__tab.on{background:rgba(251,191,36,.14);color:#fbbf24}
+.lrd__pill{min-width:17px;height:17px;padding:0 5px;border-radius:9px;background:#ef4444;color:#fff;font-size:.6rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.lrd__list{padding:13px 15px 0;display:flex;flex-direction:column;gap:9px}
+.lrd__lead{padding:10px 12px;border-radius:11px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);opacity:0;animation:lrdin 10s ease-in-out infinite}
+.lrd__lead:nth-child(2){animation-delay:.75s}
+.lrd__lead:nth-child(3){animation-delay:1.5s}
+@keyframes lrdin{0%{opacity:0;transform:translateY(10px)}6%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+.lrd__lead.new{border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.07)}
+.lrd__top{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.lrd__cat{font-family:var(--mono);font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:5px;background:rgba(251,191,36,.16);color:#fbbf24}
+.lrd__src{font-family:var(--mono);font-size:.58rem;color:#6f6f86;margin-left:auto}
+.lrd__txt{font-size:.72rem;line-height:1.5;color:rgba(240,240,239,.82)}
+.lrd__rep{display:flex;align-items:center;gap:6px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.06);font-size:.65rem;color:#34d399}
+.lrd__copy{margin-left:auto;padding:3px 9px;border-radius:6px;background:rgba(255,255,255,.06);color:#a8a8bd;font-family:var(--mono);font-size:.58rem}
+.lrd__foot{margin-top:12px;padding:10px 15px;border-top:1px solid rgba(255,255,255,.06);font-family:var(--mono);font-size:.6rem;color:#6f6f86;display:flex;align-items:center;gap:7px}
+.lrd__foot span{margin-left:auto;color:#fbbf24}
 @media(prefers-reduced-motion:reduce){
   .tmock.gs .tr,.gs-toast,.gtab.on{animation:none;opacity:1}
   .gs-toast{display:none}
   .term.anim .tbody>div{opacity:1;transform:none}
   .blob,.ticker,.hero-title{animation:none}
+  .lrd__radar::before,.lrd__radar i,.lrd__upd b{animation:none}
+  .lrd__lead{animation:none;opacity:1}
 }
 @media(max-width:600px){
   .blob{filter:blur(60px)}
@@ -768,27 +798,50 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap pi">
     <div class="rv">
       <div class="pnl">04 / 11</div>
-      <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06)">🔍 Парсер / Автоматизация</div>
-      <h3 class="ptitle">Парсер вакансий<br>из Telegram</h3>
-      <p class="pdesc">Умный парсер Telegram-чатов: обходит всю папку диалогов, отфильтровывает вакансии от рекламы и дублей, выгружает в стилизованный Excel с гиперссылками.</p>
+      <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">🛰 Радар заказов · автопилот</div>
+      <h3 class="ptitle">Lead Radar —<br>радар заказов</h3>
+      <p class="pdesc">Система, которая каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, оставляет только подходящие под мой стек, пишет готовый отклик под каждый и выкладывает всё на закрытый сайт. Работает в облаке — компьютер выключен, а лиды собираются.</p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Читает всю папку Telegram-диалогов за N дней</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Многофакторный фильтр: хэштеги, ключевые слова, исключения</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Дедупликация по MD5-отпечатку нормализованного текста</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Извлечение контактов: @username, t.me, телефоны из текста</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Excel с гиперссылками, заморозкой шапки и цветовой шапкой</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Многоступенчатый фильтр: отсев конкурентов, «серых» тем и занятых заказов</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Разбор по 8 категориям: боты, Mini App, GetCourse, CRM, парсеры, вебинары, AI, сайты</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Готовый отклик под каждый заказ — генерирует Claude, есть шаблонный фолбэк</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Закрытый сайт-дашборд: вкладки «Заказы» и «Ответы», поиск, копирование в клик</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Входящие ЛС с счётчиком непрочитанных — ни один ответ не теряется</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Пуш в Telegram перед каждым обновлением, дедуп повторов между запусками</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Автозапуск в GitHub Actions по расписанию — без своего сервера и включённого ПК</div></div>
       </div>
-      <div class="pstack"><span class="sp">Python</span><span class="sp">Telethon</span><span class="sp">openpyxl</span><span class="sp">hashlib</span><span class="sp">regex</span></div>
+      <div class="pstack"><span class="sp">Python</span><span class="sp">Telethon</span><span class="sp">Claude API</span><span class="sp">GitHub Actions</span><span class="sp">GitHub Pages</span><span class="sp">HTML / JS</span><span class="sp">openpyxl</span></div>
     </div>
     <div class="pvisual rv">
-      <div class="tmock">
-        <div class="th"><span>#</span><span>Контакт</span><span>Чат</span><span>Дата</span></div>
-        <div class="tr"><span>1</span><span class="tbl">@dev_hire_kz</span><span>Python Jobs KZ</span><span>16.06</span></div>
-        <div class="tr"><span>2</span><span class="tbl">@it_recruit</span><span>IT Вакансии</span><span>16.06</span></div>
-        <div class="tr"><span>3</span><span class="tbl">+7 700 123 45</span><span>Работа Алматы</span><span>15.06</span></div>
-        <div class="tr"><span>4</span><span class="tbl">@fullstack_cto</span><span>TG Dev Chat</span><span>15.06</span></div>
-        <div class="tr"><span>5</span><span class="tbl">@backend_lead</span><span>Python Jobs KZ</span><span>14.06</span></div>
-        <div class="tfoot">Найдено: <b>47</b> вакансий из 2 840 сообщений · Дублей отсеяно: <b>13</b></div>
+      <div class="mglow" style="--g:rgba(251,191,36,.15)"></div>
+      <div class="lrd">
+        <div class="lrd__bar">
+          <div class="lrd__radar"><i></i></div>
+          <div class="lrd__ttl">Лиды — Lev Dev</div>
+          <div class="lrd__upd"><b></b>обновлено 11:07</div>
+        </div>
+        <div class="lrd__tabs">
+          <div class="lrd__tab on">Заказы<span class="lrd__pill">12</span></div>
+          <div class="lrd__tab">Ответы<span class="lrd__pill">3</span></div>
+        </div>
+        <div class="lrd__list">
+          <div class="lrd__lead new">
+            <div class="lrd__top"><span class="lrd__cat">Бот</span><span class="lrd__src">@freelance_it · 10:58</span></div>
+            <div class="lrd__txt">Нужен Telegram-бот для записи клиентов: календарь, напоминания, оплата.</div>
+            <div class="lrd__rep">✓ отклик готов<span class="lrd__copy">копировать</span></div>
+          </div>
+          <div class="lrd__lead">
+            <div class="lrd__top"><span class="lrd__cat">CRM</span><span class="lrd__src">@work_chat · 09:41</span></div>
+            <div class="lrd__txt">Ищу спеца — связать сайт с Bitrix24, чтобы заявки падали в воронку.</div>
+            <div class="lrd__rep">✓ отклик готов<span class="lrd__copy">копировать</span></div>
+          </div>
+          <div class="lrd__lead">
+            <div class="lrd__top"><span class="lrd__cat">Парсер</span><span class="lrd__src">@zakazy_dev · 08:15</span></div>
+            <div class="lrd__txt">Требуется парсер каталога в таблицу, обновление раз в сутки.</div>
+            <div class="lrd__rep">✓ отклик готов<span class="lrd__copy">копировать</span></div>
+          </div>
+        </div>
+        <div class="lrd__foot">⟳ авто-обновление каждые 3 часа<span>GitHub Actions</span></div>
       </div>
     </div>
   </div>
