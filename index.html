@@ -245,6 +245,47 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 @keyframes gsrow{0%{opacity:0;transform:translateY(8px)}5%,88%{opacity:1;transform:none}94%,100%{opacity:0}}
 .gs-toast{position:absolute;right:12px;bottom:46px;display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:9px;background:rgba(10,14,11,.94);border:1px solid rgba(74,222,128,.4);color:#4ade80;font-family:var(--mono);font-size:.66rem;font-weight:600;box-shadow:0 12px 32px rgba(0,0,0,.5);opacity:0;animation:gstoast 7.5s infinite;z-index:2}
 @keyframes gstoast{0%,40%{opacity:0;transform:translateY(10px) scale(.94)}48%,86%{opacity:1;transform:none}93%,100%{opacity:0;transform:translateY(-4px)}}
+
+/* Excel-мокап (проект 12: отчёты для учредителя из 1С) */
+.xls{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#0e130f,#080b09);border:1px solid rgba(34,197,94,.18);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
+.xls__bar{display:flex;align-items:center;gap:9px;padding:9px 13px;background:linear-gradient(180deg,#227a4b,#1c6b43);border-bottom:1px solid rgba(0,0,0,.28)}
+.xls__ic{width:22px;height:22px;border-radius:5px;background:#fff;color:#1c6b43;font-family:'Syne',sans-serif;font-weight:900;font-size:.86rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.xls__file{font-size:.76rem;font-weight:600;color:#eafff2;letter-spacing:-.01em}
+.xls__file b{opacity:.6;font-weight:500}
+.xls__dots{margin-left:auto;display:flex;gap:6px}
+.xls__dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.32)}
+.xls__fx{display:flex;align-items:center;gap:9px;padding:6px 13px;background:rgba(255,255,255,.028);border-bottom:1px solid rgba(255,255,255,.05);font-family:var(--mono);font-size:.6rem;color:#7fae93}
+.xls__cell{padding:2px 9px;border-radius:4px;background:rgba(255,255,255,.05);color:#bfe0cd;letter-spacing:.02em}
+.xls__hd{padding:12px 14px 8px}
+.xls__hd b{font-family:'Syne',sans-serif;font-size:.98rem;font-weight:900;letter-spacing:-.01em}
+.xls__hd span{display:block;margin-top:4px;font-family:var(--mono);font-size:.57rem;color:#7fae93;line-height:1.5}
+.xls__r{display:grid;grid-template-columns:60px 1fr 88px 88px 96px;align-items:center;padding:6px 14px;border-bottom:1px solid rgba(255,255,255,.035)}
+.xls__r>span:nth-child(n+3){text-align:right;font-family:var(--mono);font-size:.66rem;letter-spacing:-.01em}
+.xls__hr{background:rgba(34,197,94,.13);font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#5fd88a}
+.xls__hr>span{color:#5fd88a}
+.xls__day{font-family:var(--mono);font-size:.62rem;color:#8fb8a0}
+.xls__lbl{font-size:.71rem;color:rgba(240,240,239,.74)}
+.xls__in{color:#4ade80}
+.xls__out{color:#f28b82}
+.xls__res{color:rgba(240,240,239,.86);font-weight:600}
+.xls__total{background:rgba(34,197,94,.09);border-bottom:1px solid rgba(34,197,94,.2)}
+.xls__total .xls__lbl{color:#f0f0ef;font-weight:700;font-size:.72rem}
+.xls__total span{font-weight:700}
+.xls__r.an{opacity:0;animation:xlsrow 8.5s infinite}
+.xls__r.an:nth-of-type(2){animation-delay:.5s}
+.xls__r.an:nth-of-type(3){animation-delay:.75s}
+.xls__r.an:nth-of-type(4){animation-delay:1s}
+.xls__r.an:nth-of-type(5){animation-delay:1.25s}
+.xls__r.an:nth-of-type(6){animation-delay:1.5s}
+@keyframes xlsrow{0%{opacity:0;transform:translateY(7px)}5%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+.xls__note{padding:8px 14px;font-family:var(--mono);font-size:.56rem;color:#7a8a80;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.xls__note b{color:#f28b82;font-weight:700}
+.xls__note em{color:#5fd88a;font-style:normal}
+.xls__tabs{display:flex;gap:0;padding:0 8px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.06)}
+.xls__tab{padding:7px 13px;font-size:.63rem;color:#7a8a80;border-right:1px solid rgba(255,255,255,.04)}
+.xls__tab.on{color:#4ade80;background:#0e130f;border-top:2px solid #22c55e;margin-top:-1px;font-weight:700}
+.xls-toast{position:absolute;right:14px;top:66px;display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:9px;background:rgba(8,14,10,.95);border:1px solid rgba(74,222,128,.42);color:#4ade80;font-family:var(--mono);font-size:.64rem;font-weight:600;box-shadow:0 12px 32px rgba(0,0,0,.55);opacity:0;animation:xlstoast 8.5s infinite;z-index:3}
+@keyframes xlstoast{0%,44%{opacity:0;transform:translateY(9px) scale(.94)}52%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:translateY(-4px)}}
 .lrd{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#131109,#0a0a08);border:1px solid rgba(251,191,36,.16);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
 .lrd__bar{display:flex;align-items:center;gap:10px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(251,191,36,.05)}
 .lrd__radar{position:relative;width:26px;height:26px;border-radius:50%;border:1px solid rgba(251,191,36,.4);overflow:hidden;flex-shrink:0;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 70%)}
@@ -276,6 +317,8 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 @media(prefers-reduced-motion:reduce){
   .tmock.gs .tr,.gs-toast,.gtab.on{animation:none;opacity:1}
   .gs-toast{display:none}
+  .xls__r.an{animation:none;opacity:1}
+  .xls-toast{display:none}
   .term.anim .tbody>div{opacity:1;transform:none}
   .blob,.ticker,.hero-title{animation:none}
   .lrd__radar::before,.lrd__radar i,.lrd__upd b{animation:none}
@@ -611,7 +654,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <a href="#contact" class="bg bform">Оставить заявку</a>
     </div>
     <div class="hstats">
-      <div class="hst"><span class="hsc" data-count="11">0</span><span class="hsl">проектов</span></div>
+      <div class="hst"><span class="hsc" data-count="12">0</span><span class="hsl">проектов</span></div>
       <div class="hst"><span class="hsc" data-count="11" data-post="★">0</span><span class="hsl">отзывов</span></div>
       <div class="hst"><span class="hsc" data-text="<1ч">—</span><span class="hsl">ответ</span></div>
       <div class="hst"><span class="hsc" data-count="2" data-post="+">0</span><span class="hsl">года опыта</span></div>
@@ -640,7 +683,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="feature-head rv">
       <div class="slabel">Портфолио</div>
       <h2 class="stitle">Избранные проекты</h2>
-      <p class="ssub">Одиннадцать реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
+      <p class="ssub">Двенадцать реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
@@ -657,7 +700,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 11</div>
+      <div class="pnl">01 / 12</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">📱 Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Полноценная edu-платформа прямо в Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает — без перехода на сторонний сайт.</p>
@@ -703,7 +746,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 11</div>
+      <div class="pnl">02 / 12</div>
       <div class="ptag" style="color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.06)">🤝 Telegram INFO-бот</div>
       <h3 class="ptitle">ONETRADE —<br>партнёрский бот</h3>
       <p class="pdesc">Информационный бот партнёрской экосистемы OneTrade: реферальная структура, кэшбэк, ранги и личный кабинет — всё в одном меню. <a class="pdesc-link" href="https://t.me/OneTradeINFO_bot" target="_blank" rel="noopener">@OneTradeINFO_bot →</a></p>
@@ -758,7 +801,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 11</div>
+      <div class="pnl">03 / 12</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">📤 Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ —<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -797,7 +840,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 11</div>
+      <div class="pnl">04 / 12</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">🛰 Радар заказов · автопилот</div>
       <h3 class="ptitle">Lead Radar —<br>радар заказов</h3>
       <p class="pdesc">Система, которая каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, оставляет только подходящие под мой стек, пишет готовый отклик под каждый и выкладывает всё на закрытый сайт. Работает в облаке — компьютер выключен, а лиды собираются.</p>
@@ -851,7 +894,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 11</div>
+      <div class="pnl">05 / 12</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">🌐 Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров — анимации, тарифы, отзывы.</p>
@@ -886,7 +929,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 11</div>
+      <div class="pnl">06 / 12</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">🌐 Веб / Лендинг · live</div>
       <h3 class="ptitle">ВОЛЬТ —<br>магазин электроники</h3>
       <p class="pdesc">Концепт-лендинг магазина электроники «по-человечески». Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков — и он реально работает по ссылке.</p>
@@ -921,7 +964,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 11</div>
+      <div class="pnl">07 / 12</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">🛠 1С-Битрикс / Сервер · перенос</div>
       <h3 class="ptitle">Перенос и аудит<br>магазина на Битрикс</h3>
       <p class="pdesc">Перенос интернет-магазина мебели (~11 000 товаров) на облачный VPS и полный аудит после переезда. По ходу нашёл и устранил скрытую блокировку записи из-за переполнения диска и конфликт модулей, ронявший каталог в ошибку 500.</p>
@@ -962,7 +1005,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">08</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">08 / 11</div>
+      <div class="pnl">08 / 12</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">🛠 Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router —<br>лиды в CRM и почту</h3>
       <p class="pdesc">Веб-панель приёма и маршрутизации лидов. Источники-поставщики шлют лиды по вебхуку, почте или публичной форме — те попадают в ящик входящих, где админ вручную решает, какому клиенту переслать каждый. Дальше лид уходит в нужный канал — Bitrix24, amoCRM или e-mail. Дедуп по телефону, очередь с троттлингом и ретраями, автоочистка журнала. На Node.js + SQLite, работает даже на самом дешёвом VPS.</p>
@@ -1039,7 +1082,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">09</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">09 / 11</div>
+      <div class="pnl">09 / 12</div>
       <div class="ptag" style="color:#e879f9;border-color:rgba(232,121,249,.32);background:rgba(232,121,249,.07)">🌐 Портфолио-лендинг · live</div>
       <h3 class="ptitle">Илья Громов —<br>портфолио дизайнера</h3>
       <p class="pdesc">Лендинг-портфолио для бренд- и визуал-дизайнера: секция кейсов с работами, бренд-кит для соцсетей, отзывы клиентов и блок контактов. Тёмная и светлая тема, плавные анимации появления, полный адаптив. Чистый HTML / CSS / JS — сдан и развёрнут, работает по ссылке.</p>
@@ -1075,7 +1118,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">10</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">10 / 11</div>
+      <div class="pnl">10 / 12</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">🛠 Данные · 1С → PostgreSQL</div>
       <h3 class="ptitle">Выгрузка <span class="t1c">1С</span>:Розница<br>в PostgreSQL</h3>
       <p class="pdesc">Пайплайн переноса данных из 1С:Розница на кассе в PostgreSQL на втором ПК. Программа читает базу 1С прямо из файла — в фоне, не мешая кассиру и не требуя закрывать 1С, — чистит данные в готовые таблицы и раз в день сама шлёт свежий пакет по почте. Всё портативно: Python и PostgreSQL уже внутри, устанавливать ничего не нужно.</p>
@@ -1117,7 +1160,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">11</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">11 / 11</div>
+      <div class="pnl">11 / 12</div>
       <div class="ptag" style="color:#4ade80;border-color:rgba(74,222,128,.32);background:rgba(74,222,128,.07)">📊 Google Таблицы / Apps Script</div>
       <h3 class="ptitle">Планировщик рассылки<br>в Google Таблицах</h3>
       <p class="pdesc">Скрипт для Google Таблиц, который превращает список лидов в готовый план email-рассылки: цепочки писем по компаниям, ротация текстов, разбивка по дням и партиям. Запускается из меню прямо в таблице — без кода и внешних сервисов.</p>
@@ -1143,6 +1186,51 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
         <div class="tr"><span>4</span><span class="tbl">sales@stroytech.kz</span><span>Письмо 2 · напоминание</span><span>6</span></div>
         <div class="tr"><span>5</span><span class="tbl">info@alfagroup.ru</span><span>Письмо 2 · напоминание</span><span>6</span></div>
         <div class="tfoot">План: <b>120</b> компаний × 3 письма = <b>360</b> писем · <b>36</b> дней рассылки</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ps flip" data-category="server">
+  <div class="psbg">12</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">12 / 12</div>
+      <div class="ptag" style="color:#22c55e;border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.07)">📊 Excel · Автоматизация отчётности <span class="t1c">1С</span></div>
+      <h3 class="ptitle">Отчёты учредителю<br>из <span class="t1c">1С</span> в один клик</h3>
+      <p class="pdesc">Два управленческих отчёта в Excel — ДДС (движение денег по дням) и ККМ (выручка нал/карта + номенклатура), — которые 1С Fresh не умеет собрать одним отчётом. Заказчица сохраняет выгрузки из 1С и кликает по .bat: через пару секунд готовые таблицы в её точном формате сами открываются в Excel. Ноль ручной сборки, сходимость до копейки.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Сшивает отчёт из двух источников 1С: проводки (нал/карта, счета 50.01 / 57.03) + номенклатура из «Отчёта о розничных продажах»</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Сам находит нужные выгрузки по содержимому — читает xlsx как zip, без запуска Excel — на рабочем столе, в загрузках и документах</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Точный формат заказчицы: цвета, русский числовой формат, шапка с остатками — сверка с эталоном до копейки</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Восстанавливает скрытую комиссию эквайринга: банк удерживает её при зачислении — считает нетто/брутто по дням</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Словарь из 34 статей + fallback по ключевым словам: новая статья сама ложится в нужную колонку, ниже — красная пометка</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Самодостаточный .bat (base64 → certutil → PowerShell + Excel COM): без Python и установки, ~2 секунды на отчёт</div></div>
+      </div>
+      <div class="pstack"><span class="sp">PowerShell</span><span class="sp">Excel COM</span><span class="sp">1С</span><span class="sp">OpenXML / xlsx</span><span class="sp">base64 · certutil</span><span class="sp">.bat</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(34,197,94,.15)"></div>
+      <div class="xls">
+        <div class="xls__bar">
+          <div class="xls__ic">X</div>
+          <div class="xls__file">ДДС_2026_06.xlsx <b>— Excel</b></div>
+          <div class="xls__dots"><i></i><i></i><i></i></div>
+        </div>
+        <div class="xls__fx"><span class="xls__cell">E31</span><span>fx&nbsp;&nbsp;=Приход − Расход</span></div>
+        <div class="xls__hd">
+          <b>ДДС по дням · для учредителя</b>
+          <span>Остаток на начало: р/с 5 387 457,41 · касса — · переводы —<br>Финансирование и Дивиденды — отдельно, в результат не входят</span>
+        </div>
+        <div class="xls__r xls__hr"><span>Дата</span><span>Статья</span><span>Приход</span><span>Расход</span><span>Результат</span></div>
+        <div class="xls__r an"><span class="xls__day">02.06</span><span class="xls__lbl">Розница · Хостел</span><span class="xls__in">512 300,00</span><span class="xls__out">208 940,00</span><span class="xls__res">303 360,00</span></div>
+        <div class="xls__r an"><span class="xls__day">09.06</span><span class="xls__lbl">Розница · Стоянка</span><span class="xls__in">486 150,00</span><span class="xls__out">176 500,00</span><span class="xls__res">309 650,00</span></div>
+        <div class="xls__r an"><span class="xls__day">18.06</span><span class="xls__lbl">Услуги регистрации</span><span class="xls__in">468 720,00</span><span class="xls__out">241 380,00</span><span class="xls__res">227 340,00</span></div>
+        <div class="xls__r an"><span class="xls__day">27.06</span><span class="xls__lbl">Розница · Пропуска</span><span class="xls__in">503 940,00</span><span class="xls__out">198 610,00</span><span class="xls__res">305 330,00</span></div>
+        <div class="xls__r an xls__total"><span class="xls__day">Σ</span><span class="xls__lbl">ИТОГО за июнь</span><span class="xls__in">14 255 441,00</span><span class="xls__out">7 929 732,70</span><span class="xls__res">6 325 708,30</span></div>
+        <div class="xls__note"><em>Банк. комиссия 66 063,90</em> · эквайринг <b>25 220,34</b> восстановлен из зачислений</div>
+        <div class="xls__tabs"><span class="xls__tab on">ДДС</span><span class="xls__tab">ККМ</span><span class="xls__tab">Проверка</span></div>
+        <div class="xls-toast">▶ клик по .bat · собрано за 2,4 с</div>
       </div>
     </div>
   </div>
