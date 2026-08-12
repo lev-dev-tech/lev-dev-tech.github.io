@@ -297,6 +297,39 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
   .xls__fx,.xls__tab{font-size:.62rem}
   .xls-toast{font-size:.64rem;right:10px}
 }
+
+/* Telegram-мокап (проект 13: AI-ассистент продаж) */
+.tgc{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#0f1620,#0a0e14);border:1px solid rgba(139,92,246,.2);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
+.tgc__bar{display:flex;align-items:center;gap:11px;padding:12px 15px;background:linear-gradient(180deg,#2aabee,#229ed9)}
+.tgc__av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff;flex-shrink:0}
+.tgc__who{display:flex;flex-direction:column;min-width:0}
+.tgc__who b{font-size:.86rem;font-weight:700;color:#fff;letter-spacing:-.01em}
+.tgc__who span{font-size:.62rem;color:rgba(255,255,255,.82);display:flex;align-items:center;gap:5px;margin-top:1px}
+.tgc__who span i{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.9)}
+.tgc__ai{margin-left:auto;font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:6px;background:rgba(255,255,255,.16);color:#fff;display:flex;align-items:center;gap:5px}
+.tgc__body{padding:16px 15px 12px;display:flex;flex-direction:column;gap:9px;background:radial-gradient(circle at 30% 10%,rgba(139,92,246,.06),transparent 60%)}
+.tgc__m{max-width:80%;padding:9px 13px;font-size:.8rem;line-height:1.5;position:relative;opacity:0;animation:tgcin 9s ease-in-out infinite}
+.tgc__m.in{align-self:flex-start;background:#1c2733;border-radius:3px 14px 14px 14px;color:rgba(240,240,239,.9)}
+.tgc__m.out{align-self:flex-end;background:linear-gradient(135deg,#2aabee,#229ed9);border-radius:14px 3px 14px 14px;color:#fff}
+.tgc__m t{display:block;font-family:var(--mono);font-size:.54rem;margin-top:5px;opacity:.6;text-align:right}
+.tgc__m:nth-of-type(1){animation-delay:0s}
+.tgc__m:nth-of-type(2){animation-delay:.6s}
+.tgc__m:nth-of-type(3){animation-delay:1.3s}
+.tgc__m:nth-of-type(4){animation-delay:2s}
+@keyframes tgcin{0%{opacity:0;transform:translateY(8px)}4%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
+.tgc__foot{display:flex;flex-direction:column;gap:7px;padding:11px 15px;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.2)}
+.tgc__act{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.62rem;color:#a8b3c4}
+.tgc__act b{width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.66rem;flex-shrink:0}
+.tgc__act .bx{background:rgba(41,182,246,.16);color:#38bdf8}
+.tgc__act .esc{background:rgba(251,146,60,.16);color:#fb923c}
+.tgc__act em{font-style:normal;color:#e6e9ef;font-weight:600}
+@media(max-width:640px){
+  .tgc__m{font-size:.74rem;max-width:85%}
+  .tgc__act{font-size:.58rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .tgc__m{animation:none;opacity:1}
+}
 .lrd{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#131109,#0a0a08);border:1px solid rgba(251,191,36,.16);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
 .lrd__bar{display:flex;align-items:center;gap:10px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(251,191,36,.05)}
 .lrd__radar{position:relative;width:26px;height:26px;border-radius:50%;border:1px solid rgba(251,191,36,.4);overflow:hidden;flex-shrink:0;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 70%)}
@@ -665,7 +698,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <a href="#contact" class="bg bform">Оставить заявку</a>
     </div>
     <div class="hstats">
-      <div class="hst"><span class="hsc" data-count="12">0</span><span class="hsl">проектов</span></div>
+      <div class="hst"><span class="hsc" data-count="13">0</span><span class="hsl">проектов</span></div>
       <div class="hst"><span class="hsc" data-count="12" data-post="★">0</span><span class="hsl">отзывов</span></div>
       <div class="hst"><span class="hsc" data-text="<1ч">—</span><span class="hsl">ответ</span></div>
       <div class="hst"><span class="hsc" data-count="2" data-post="+">0</span><span class="hsl">года опыта</span></div>
@@ -694,7 +727,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="feature-head rv">
       <div class="slabel">Портфолио</div>
       <h2 class="stitle">Избранные проекты</h2>
-      <p class="ssub">Двенадцать реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
+      <p class="ssub">Тринадцать реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
@@ -711,7 +744,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 12</div>
+      <div class="pnl">01 / 13</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">📱 Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Полноценная edu-платформа прямо в Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает — без перехода на сторонний сайт.</p>
@@ -757,7 +790,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 12</div>
+      <div class="pnl">02 / 13</div>
       <div class="ptag" style="color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.06)">🤝 Telegram INFO-бот</div>
       <h3 class="ptitle">ONETRADE —<br>партнёрский бот</h3>
       <p class="pdesc">Информационный бот партнёрской экосистемы OneTrade: реферальная структура, кэшбэк, ранги и личный кабинет — всё в одном меню. <a class="pdesc-link" href="https://t.me/OneTradeINFO_bot" target="_blank" rel="noopener">@OneTradeINFO_bot →</a></p>
@@ -812,7 +845,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 12</div>
+      <div class="pnl">03 / 13</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">📤 Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ —<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -851,7 +884,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 12</div>
+      <div class="pnl">04 / 13</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">🛰 Радар заказов · автопилот</div>
       <h3 class="ptitle">Lead Radar —<br>радар заказов</h3>
       <p class="pdesc">Система, которая каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, оставляет только подходящие под мой стек, пишет готовый отклик под каждый и выкладывает всё на закрытый сайт. Работает в облаке — компьютер выключен, а лиды собираются.</p>
@@ -905,7 +938,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 12</div>
+      <div class="pnl">05 / 13</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">🌐 Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров — анимации, тарифы, отзывы.</p>
@@ -940,7 +973,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 12</div>
+      <div class="pnl">06 / 13</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">🌐 Веб / Лендинг · live</div>
       <h3 class="ptitle">ВОЛЬТ —<br>магазин электроники</h3>
       <p class="pdesc">Концепт-лендинг магазина электроники «по-человечески». Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков — и он реально работает по ссылке.</p>
@@ -975,7 +1008,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 12</div>
+      <div class="pnl">07 / 13</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">🛠 1С-Битрикс / Сервер · перенос</div>
       <h3 class="ptitle">Перенос и аудит<br>магазина на Битрикс</h3>
       <p class="pdesc">Перенос интернет-магазина мебели (~11 000 товаров) на облачный VPS и полный аудит после переезда. По ходу нашёл и устранил скрытую блокировку записи из-за переполнения диска и конфликт модулей, ронявший каталог в ошибку 500.</p>
@@ -1016,7 +1049,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">08</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">08 / 12</div>
+      <div class="pnl">08 / 13</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">🛠 Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router —<br>лиды в CRM и почту</h3>
       <p class="pdesc">Веб-панель приёма и маршрутизации лидов. Источники-поставщики шлют лиды по вебхуку, почте или публичной форме — те попадают в ящик входящих, где админ вручную решает, какому клиенту переслать каждый. Дальше лид уходит в нужный канал — Bitrix24, amoCRM или e-mail. Дедуп по телефону, очередь с троттлингом и ретраями, автоочистка журнала. На Node.js + SQLite, работает даже на самом дешёвом VPS.</p>
@@ -1093,7 +1126,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">09</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">09 / 12</div>
+      <div class="pnl">09 / 13</div>
       <div class="ptag" style="color:#e879f9;border-color:rgba(232,121,249,.32);background:rgba(232,121,249,.07)">🌐 Портфолио-лендинг · live</div>
       <h3 class="ptitle">Илья Громов —<br>портфолио дизайнера</h3>
       <p class="pdesc">Лендинг-портфолио для бренд- и визуал-дизайнера: секция кейсов с работами, бренд-кит для соцсетей, отзывы клиентов и блок контактов. Тёмная и светлая тема, плавные анимации появления, полный адаптив. Чистый HTML / CSS / JS — сдан и развёрнут, работает по ссылке.</p>
@@ -1129,7 +1162,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">10</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">10 / 12</div>
+      <div class="pnl">10 / 13</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">🛠 Данные · 1С → PostgreSQL</div>
       <h3 class="ptitle">Выгрузка <span class="t1c">1С</span>:Розница<br>в PostgreSQL</h3>
       <p class="pdesc">Пайплайн переноса данных из 1С:Розница на кассе в PostgreSQL на втором ПК. Программа читает базу 1С прямо из файла — в фоне, не мешая кассиру и не требуя закрывать 1С, — чистит данные в готовые таблицы и раз в день сама шлёт свежий пакет по почте. Всё портативно: Python и PostgreSQL уже внутри, устанавливать ничего не нужно.</p>
@@ -1171,7 +1204,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">11</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">11 / 12</div>
+      <div class="pnl">11 / 13</div>
       <div class="ptag" style="color:#4ade80;border-color:rgba(74,222,128,.32);background:rgba(74,222,128,.07)">📊 Google Таблицы / Apps Script</div>
       <h3 class="ptitle">Планировщик рассылки<br>в Google Таблицах</h3>
       <p class="pdesc">Скрипт для Google Таблиц, который превращает список лидов в готовый план email-рассылки: цепочки писем по компаниям, ротация текстов, разбивка по дням и партиям. Запускается из меню прямо в таблице — без кода и внешних сервисов.</p>
@@ -1206,7 +1239,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">12</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">12 / 12</div>
+      <div class="pnl">12 / 13</div>
       <div class="ptag" style="color:#22c55e;border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.07)">📊 Excel · Автоматизация отчётности <span class="t1c">1С</span></div>
       <h3 class="ptitle">Отчёты учредителю<br>из <span class="t1c">1С</span> в один клик</h3>
       <p class="pdesc">Два управленческих отчёта в Excel — ДДС (движение денег по дням) и ККМ (выручка нал/карта + номенклатура), — которые 1С Fresh не умеет собрать одним отчётом. Заказчица сохраняет выгрузки из 1С и кликает по .bat: через пару секунд готовые таблицы в её точном формате сами открываются в Excel. Ноль ручной сборки, сходимость до копейки.</p>
@@ -1242,6 +1275,47 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
         <div class="xls__note"><em>Банк. комиссия 66 063,90</em> · эквайринг <b>25 220,34</b> восстановлен из зачислений</div>
         <div class="xls__tabs"><span class="xls__tab on">ДДС</span><span class="xls__tab">ККМ</span><span class="xls__tab">Проверка</span></div>
         <div class="xls-toast">▶ клик по .bat · собрано за 2,4 с</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ps" data-category="bot">
+  <div class="psbg">13</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">13 / 13</div>
+      <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.32);background:rgba(167,139,250,.07)">🤖 AI-ассистент продаж</div>
+      <h3 class="ptitle">AI-ассистент<br>продаж в Telegram</h3>
+      <p class="pdesc">Продавец на базе Claude, который переписывается с клиентами прямо с живого аккаунта в Telegram — как настоящий менеджер, без признаков автоматизации. Ведёт диалог по скриптам компании, квалифицирует лида, заводит его в Bitrix24 и передаёт человеку, когда тема выходит за рамки. Работает для B2B-ниши импорта из Китая / ВЭД.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Ответы генерит Claude по базе скриптов + профилю компании: приветствие, FAQ, расчёт, анти-фрод</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Userbot на реальном аккаунте (Telethon, не Bot API) — пишет как человек, дебаунс и «живой» стиль без палева</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Автосоздание лида и комментариев в Bitrix24 CRM прямо из переписки</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Стоп-темы и сложные вопросы — эскалация на живого менеджера, бот молча уступает</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Аналитика по группам/каналам и отчёты по расписанию; распознавание голосовых</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Мониторинг расхода токенов с алертом по USD; деплой на VPS, SQLite-хранилище диалогов</div></div>
+      </div>
+      <div class="pstack"><span class="sp">Python</span><span class="sp">Telethon</span><span class="sp">Claude API</span><span class="sp">Bitrix24 API</span><span class="sp">SQLite</span><span class="sp">APScheduler</span><span class="sp">VPS</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(167,139,250,.16)"></div>
+      <div class="tgc">
+        <div class="tgc__bar">
+          <div class="tgc__av">А</div>
+          <div class="tgc__who"><b>Анна · менеджер</b><span><i></i>онлайн</span></div>
+          <div class="tgc__ai">✦ AI</div>
+        </div>
+        <div class="tgc__body">
+          <div class="tgc__m in">Здравствуйте! Возите товар из Китая? Нужна партия автозапчастей на Wildberries<t>14:02</t></div>
+          <div class="tgc__m out">Здравствуйте! Да, возим — белый импорт с документами под маркетплейсы. Подскажите категорию и примерный объём, посчитаю стоимость под ключ<t>14:02</t></div>
+          <div class="tgc__m in">Тормозные колодки, ~500 кг. А сроки какие?<t>14:05</t></div>
+          <div class="tgc__m out">По такому объёму обычно 25–35 дней с учётом выкупа и доставки. Для точного расчёта нужен инвойс или ссылка на поставщика — скинете?<t>14:05</t></div>
+        </div>
+        <div class="tgc__foot">
+          <div class="tgc__act"><b class="bx">B24</b><em>Лид создан в Bitrix24</em> · «Автозапчасти, WB, ~500 кг»</div>
+          <div class="tgc__act"><b class="esc">↗</b>Стоп-тема «предоплата на физлицо» — <em>эскалация @JuliKhiz</em></div>
+        </div>
       </div>
     </div>
   </div>

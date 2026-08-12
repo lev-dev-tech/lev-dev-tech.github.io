@@ -45,6 +45,7 @@
 | 10 | **Выгрузка 1С:Розница в PostgreSQL** | Данные / ETL-пайплайн | Python, onec_dtools, PostgreSQL, psycopg |
 | 11 | **Планировщик рассылки в Google Таблицах** | Автоматизация / Apps Script | Google Apps Script, JavaScript, Google Sheets |
 | 12 | **Отчёты учредителю из 1С в один клик** | Автоматизация / Отчётность 1С · Excel | PowerShell, Excel COM, 1С, OpenXML, .bat |
+| 13 | **AI-ассистент продаж в Telegram** | Telegram userbot / AI · CRM | Python, Telethon, Claude API, Bitrix24 API, SQLite |
 
 ---
 
