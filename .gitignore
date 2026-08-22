@@ -3,3 +3,8 @@ resume.html
 *.pdf
 _extracted/
 .claude/
+# Тулинг / служебное — только локально
+graphify-out/
+.graphifyignore
+CLAUDE.md
+desktop.ini
