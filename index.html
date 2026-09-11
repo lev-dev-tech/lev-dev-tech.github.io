@@ -434,54 +434,76 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
   .bkc__typing,.bkc__st .tp,.bkc__copy{display:none}
 }
 
-/* Конструктор-мокап (проект 15: аудит/багфикс бота на WatBot) — цикл 13s */
-.wbc{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#171208,#0b0906);border:1px solid rgba(251,146,60,.2);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
+/* Конструктор-мокап (проект 15: аудит/багфикс бота WatBot) — SVG нод-граф, цикл 12s */
+.wbc{position:relative;z-index:1;width:100%;background:radial-gradient(120% 80% at 70% 0%,#1c1409,#0b0906 60%);border:1px solid rgba(251,146,60,.22);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
 .wbc__bar{display:flex;align-items:center;gap:11px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(251,146,60,.06)}
-.wbc__logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#fb923c,#f97316);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:900;font-size:.72rem;color:#1a0f02;flex-shrink:0}
+.wbc__logo{position:relative;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#fb923c,#f97316);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:900;font-size:.72rem;color:#1a0f02;flex-shrink:0;box-shadow:0 0 14px rgba(251,146,60,.4)}
 .wbc__who{display:flex;flex-direction:column;min-width:0}
 .wbc__who b{font-size:.84rem;font-weight:700;letter-spacing:-.01em}
 .wbc__who span{font-family:var(--mono);font-size:.58rem;color:#a88a63;margin-top:1px}
 .wbc__badge{margin-left:auto;font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.04em;padding:4px 9px;border-radius:6px;background:rgba(251,146,60,.14);color:#fdba74;display:flex;align-items:center;gap:5px}
-.wbc__badge i{width:6px;height:6px;border-radius:50%;background:#fb923c;animation:pulse 2s infinite}
-.wbc__flow{position:relative;padding:16px 16px 14px 34px;overflow:hidden}
-.wbc__flow::before{content:'';position:absolute;left:20px;top:22px;bottom:20px;width:2px;background:linear-gradient(180deg,rgba(251,146,60,.55),rgba(52,211,153,.55))}
-.wbc__scan{position:absolute;left:0;right:0;height:54px;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(251,146,60,.14),transparent);animation:wbcscan 13s cubic-bezier(.4,0,.5,1) infinite;z-index:2}
-@keyframes wbcscan{0%{transform:translateY(-60px);opacity:0}6%{opacity:1}82%{transform:translateY(340px);opacity:1}90%,100%{opacity:0}}
-.wbc__node{position:relative;display:flex;align-items:center;gap:10px;padding:9px 12px;margin-bottom:9px;border-radius:11px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);opacity:0;animation:wbcpop 13s ease-out infinite}
-.wbc__node::before{content:'';position:absolute;left:-16px;top:50%;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:#0b0906;border:2px solid #fb923c;box-shadow:0 0 0 3px rgba(11,9,6,1)}
-.wbc__node.fx::before{border-color:#34d399;animation:wbcdot 13s ease-out infinite}
-.wbc__ic{width:26px;height:26px;border-radius:7px;background:rgba(251,146,60,.12);display:flex;align-items:center;justify-content:center;font-size:.86rem;flex-shrink:0}
-.wbc__node.fx .wbc__ic{background:rgba(52,211,153,.12)}
-.wbc__nm{font-size:.8rem;font-weight:600;color:#f0f0ef;flex-shrink:0}
-.wbc__st{position:relative;margin-left:auto;min-width:118px;height:1.35em;font-family:var(--mono);font-size:.58rem;text-align:right}
-.wbc__st b{position:absolute;right:0;top:0;white-space:nowrap;padding:2px 7px;border-radius:5px;font-weight:700}
-.wbc__st .bug{background:rgba(239,68,68,.14);color:#f87171;animation:wbcbug 13s ease-in-out infinite}
-.wbc__st .ok{background:rgba(52,211,153,.14);color:#34d399;animation:wbcok 13s ease-in-out infinite}
-.wbc__node:nth-of-type(1) .wbc__st b,.wbc__node:nth-of-type(1){animation-delay:.3s}
-.wbc__node:nth-of-type(2) .wbc__st b,.wbc__node:nth-of-type(2){animation-delay:1.4s}
-.wbc__node:nth-of-type(3) .wbc__st b,.wbc__node:nth-of-type(3){animation-delay:2.5s}
-.wbc__node:nth-of-type(4) .wbc__st b,.wbc__node:nth-of-type(4){animation-delay:3.6s}
-.wbc__node:nth-of-type(5) .wbc__st b,.wbc__node:nth-of-type(5){animation-delay:4.7s}
-.wbc__node:nth-of-type(6) .wbc__st b,.wbc__node:nth-of-type(6){animation-delay:5.8s}
-@keyframes wbcpop{0%{opacity:0;transform:translateX(-8px)}5%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
-@keyframes wbcdot{0%,10%{border-color:#fb923c}16%,100%{border-color:#34d399}}
-@keyframes wbcbug{0%,10%{opacity:1}17%,100%{opacity:0}}
-@keyframes wbcok{0%,12%{opacity:0;transform:scale(.85)}18%{opacity:1;transform:scale(1.05)}22%,100%{opacity:1;transform:scale(1)}}
+.wbc__badge i{width:11px;height:11px;border-radius:50%;border:1.5px solid rgba(251,146,60,.4);border-top-color:#fb923c;animation:wbcspin .9s linear infinite}
+@keyframes wbcspin{to{transform:rotate(360deg)}}
+.wbc__prog{display:flex;align-items:center;gap:9px;padding:8px 15px;border-bottom:1px solid rgba(255,255,255,.05);font-family:var(--mono);font-size:.56rem;color:#a88a63}
+.wbc__prog .lbl{color:#fdba74;font-weight:700;white-space:nowrap;letter-spacing:.04em}
+.wbc__prog .track{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden}
+.wbc__prog .track i{display:block;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,#fb923c,#facc15,#34d399);box-shadow:0 0 9px rgba(251,146,60,.5);animation:wbcprog 12s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes wbcprog{0%{width:0}60%{width:100%}92%{width:100%}97%,100%{width:0}}
+.wbc__prog .pct{min-width:32px;text-align:right;color:#34d399;font-weight:700}
+.wbc__stage{position:relative;padding:6px 10px 8px;overflow:hidden}
+.wbc__svg{display:block;width:100%;height:auto;overflow:visible}
+.wbc__beam{position:absolute;top:8px;bottom:8px;left:0;width:64px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(251,191,36,.16) 45%,rgba(251,191,36,.28) 50%,rgba(251,191,36,.16) 55%,transparent);filter:blur(1px);animation:wbcbeam 12s cubic-bezier(.5,0,.5,1) infinite;z-index:3}
+.wbc__beam::after{content:'';position:absolute;left:31px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,#fde68a,transparent);box-shadow:0 0 12px 2px rgba(251,191,36,.6)}
+@keyframes wbcbeam{0%{left:-70px;opacity:0}5%{opacity:1}52%{left:100%;opacity:1}60%,100%{opacity:0;left:100%}}
+.wbc__count{position:absolute;top:6px;right:8px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:9px;background:rgba(8,6,3,.82);border:1px solid rgba(251,146,60,.28);font-family:var(--mono);font-size:.6rem;font-weight:700;color:#a88a63;z-index:4;backdrop-filter:blur(3px)}
+.wbc__count .b0{color:#f87171;animation:wbcbugnum 12s ease-in-out infinite}
+.wbc__count .arr{opacity:.5}
+.wbc__count .b1{color:#34d399;animation:wbcoknum 12s ease-out infinite}
+@keyframes wbcbugnum{0%,66%{opacity:1}74%,100%{opacity:.25;text-decoration:line-through}}
+@keyframes wbcoknum{0%,70%{opacity:.3;transform:scale(1)}78%{opacity:1;transform:scale(1.35)}84%,100%{opacity:1;transform:scale(1)}}
+/* SVG: провода */
+.wire{fill:none;stroke-width:2;stroke-linecap:round}
+.wire.base{stroke:rgba(255,255,255,.08)}
+.wire.draw{stroke:url(#wbcgrad);stroke-dasharray:300;stroke-dashoffset:300;animation:wbcdraw 12s ease-out infinite}
+@keyframes wbcdraw{0%{stroke-dashoffset:300}22%{stroke-dashoffset:0}92%{stroke-dashoffset:0}98%,100%{stroke-dashoffset:300}}
+.pkt{fill:#fde68a;filter:drop-shadow(0 0 4px rgba(251,191,36,.9))}
+/* SVG: узлы */
+.wn{opacity:0;transform-box:fill-box;transform-origin:center;animation:wbcnode 12s ease-out infinite;animation-delay:var(--d,0s)}
+.wn .box{fill:rgba(255,255,255,.035);stroke:rgba(255,255,255,.09);stroke-width:1.2;rx:9}
+.wn.fx .box{animation:wbcbox 12s ease-out infinite;animation-delay:var(--d,0s)}
+@keyframes wbcbox{0%,13%{stroke:rgba(239,68,68,.5);fill:rgba(239,68,68,.06)}21%{stroke:rgba(52,211,153,.6);fill:rgba(52,211,153,.09)}100%{stroke:rgba(52,211,153,.35);fill:rgba(52,211,153,.05)}}
+.wn.hub .box{fill:rgba(251,146,60,.08);stroke:rgba(251,146,60,.35)}
+.wn .lbl{fill:#f0f0ef;font-family:'DM Sans',sans-serif;font-size:8.5px;font-weight:700;text-anchor:middle}
+.wn .ico{font-size:11px;text-anchor:middle}
+@keyframes wbcnode{0%{opacity:0;transform:scale(.7)}5%{opacity:1;transform:scale(1.06)}9%,92%{opacity:1;transform:scale(1)}97%,100%{opacity:0}}
+/* SVG: маркеры баг -> фикс */
+.mk{transform-box:fill-box;transform-origin:center}
+.mk .mbug{animation:wbcmbug 12s ease-in-out infinite;animation-delay:var(--d,0s)}
+.mk .mok{opacity:0;animation:wbcmok 12s ease-out infinite;animation-delay:var(--d,0s)}
+.mk .mbug circle{fill:#ef4444}
+.mk .mok circle{fill:#34d399}
+.mk text{fill:#0b0906;font-size:8px;font-weight:900;text-anchor:middle;font-family:'DM Sans',sans-serif}
+@keyframes wbcmbug{0%,13%{opacity:1;transform:scale(1)}16%{transform:scale(1.3)}21%,100%{opacity:0;transform:scale(.6)}}
+@keyframes wbcmok{0%,15%{opacity:0;transform:scale(.5)}23%{opacity:1;transform:scale(1.35)}29%,100%{opacity:1;transform:scale(1)}}
 .wbc__foot{display:flex;align-items:center;gap:8px;padding:11px 15px;border-top:1px solid rgba(255,255,255,.06);background:rgba(52,211,153,.05);font-family:var(--mono);font-size:.62rem;color:#8fb8a0}
 .wbc__foot b{color:#34d399;font-weight:700}
-.wbc__foot .ok2{margin-left:auto;display:flex;align-items:center;gap:6px;color:#34d399;font-weight:700;opacity:0;animation:wbcdone 13s ease-out infinite}
-@keyframes wbcdone{0%,74%{opacity:0;transform:translateY(5px)}80%{opacity:1;transform:none}92%{opacity:1}97%,100%{opacity:0}}
+.wbc__foot .ok2{margin-left:auto;display:flex;align-items:center;gap:6px;color:#34d399;font-weight:700;opacity:0;animation:wbcdone 12s ease-out infinite}
+@keyframes wbcdone{0%,72%{opacity:0;transform:translateY(5px) scale(.9)}80%{opacity:1;transform:none}92%{opacity:1}97%,100%{opacity:0}}
 @media(max-width:640px){
-  .wbc__nm{font-size:.72rem}
-  .wbc__st{min-width:96px;font-size:.53rem}
-  .wbc__foot{font-size:.55rem}
+  .wbc__count{font-size:.54rem;padding:4px 8px;top:4px;right:6px}
+  .wbc__foot{font-size:.54rem;gap:6px}
+  .wbc__prog{font-size:.52rem}
 }
 @media(prefers-reduced-motion:reduce){
-  .wbc__node,.wbc__foot .ok2{animation:none;opacity:1;transform:none}
-  .wbc__scan,.wbc__badge i,.wbc__node.fx::before{animation:none}
-  .wbc__scan{display:none}
-  .wbc__st .bug{display:none}
-  .wbc__st .ok{animation:none;opacity:1;transform:none}
+  .wbc__beam,.wbc__badge i,.wbc .wire.draw,.pkt,.wbc__count .b0,.wbc__count .b1{animation:none}
+  .wbc__beam{display:none}
+  .wn{animation:none;opacity:1}
+  .wn.fx .box{animation:none;stroke:rgba(52,211,153,.35);fill:rgba(52,211,153,.05)}
+  .mk .mbug{display:none}
+  .mk .mok{animation:none;opacity:1;transform:none}
+  .wbc__prog .track i{width:100%}
+  .wbc__foot .ok2{animation:none;opacity:1;transform:none}
+  .pkt{display:none}
 }
 
 .lrd{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#131109,#0a0a08);border:1px solid rgba(251,191,36,.16);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
@@ -1557,19 +1579,50 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <div class="wbc">
         <div class="wbc__bar">
           <div class="wbc__logo">WB</div>
-          <div class="wbc__who"><b>@nutra_track_bot</b><span>WatBot · трекер КБЖУ</span></div>
-          <div class="wbc__badge"><i></i>аудит · багфикс</div>
+          <div class="wbc__who"><b>@nutra_track_bot</b><span>WatBot · холст сценария</span></div>
+          <div class="wbc__badge"><i></i>АУДИТ</div>
         </div>
-        <div class="wbc__flow">
-          <div class="wbc__scan"></div>
-          <div class="wbc__node fx"><div class="wbc__ic">🚀</div><div class="wbc__nm">Старт / опрос</div><div class="wbc__st"><b class="bug">✗ вечный «оплатите»</b><b class="ok">✓ условие инверт.</b></div></div>
-          <div class="wbc__node fx"><div class="wbc__ic">🧠</div><div class="wbc__nm">ИИ: норма КБЖУ</div><div class="wbc__st"><b class="bug">✗ пустой JSON</b><b class="ok">✓ norma_* переменные</b></div></div>
-          <div class="wbc__node fx"><div class="wbc__ic">💧</div><div class="wbc__nm">Трекер воды</div><div class="wbc__st"><b class="bug">✗ л ≠ мл</b><b class="ok">✓ water_target мл</b></div></div>
-          <div class="wbc__node fx"><div class="wbc__ic">📊</div><div class="wbc__nm">Статистика</div><div class="wbc__st"><b class="bug">✗ кир/лат остаток</b><b class="ok">✓ унифицировано</b></div></div>
-          <div class="wbc__node fx"><div class="wbc__ic">💳</div><div class="wbc__nm">Оплата подписки</div><div class="wbc__st"><b class="bug">✗ месяц в мусор</b><b class="ok">✓ active_until</b></div></div>
-          <div class="wbc__node fx"><div class="wbc__ic">🍽️</div><div class="wbc__nm">Меню + разделы</div><div class="wbc__st"><b class="bug">✗ двоилось</b><b class="ok">✓ switch-роутинг</b></div></div>
+        <div class="wbc__prog"><span class="lbl">Проверка логики</span><span class="track"><i></i></span><span class="pct">100%</span></div>
+        <div class="wbc__stage">
+          <div class="wbc__beam"></div>
+          <div class="wbc__count">🐞 <span class="b0">12</span><span class="arr">→</span><span class="b1">0</span></div>
+          <svg class="wbc__svg" viewBox="0 0 380 232" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Схема бота: узлы, в которых найдены и исправлены баги">
+            <defs>
+              <linearGradient id="wbcgrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fb923c"/><stop offset="1" stop-color="#34d399"/>
+              </linearGradient>
+            </defs>
+            <!-- провода -->
+            <path id="w1" class="wire base" d="M46,47 L46,91"/>
+            <path id="w2" class="wire base" d="M78,108 L151,105"/>
+            <path id="w3" class="wire base" d="M64,175 Q120,150 151,120"/>
+            <path id="w4" class="wire base" d="M215,98 Q265,60 298,50"/>
+            <path id="w5" class="wire base" d="M225,111 L298,118"/>
+            <path id="w6" class="wire base" d="M215,120 Q265,165 298,192"/>
+            <path class="wire draw" d="M46,47 L46,91"/>
+            <path class="wire draw" d="M78,108 L151,105"/>
+            <path class="wire draw" d="M64,175 Q120,150 151,120"/>
+            <path class="wire draw" d="M215,98 Q265,60 298,50"/>
+            <path class="wire draw" d="M225,111 L298,118"/>
+            <path class="wire draw" d="M215,120 Q265,165 298,192"/>
+            <!-- пакеты данных -->
+            <circle class="pkt" r="2.3"><animateMotion dur="2.1s" begin="0.4s" repeatCount="indefinite"><mpath xlink:href="#w1"/></animateMotion></circle>
+            <circle class="pkt" r="2.3"><animateMotion dur="1.9s" begin="0.9s" repeatCount="indefinite"><mpath xlink:href="#w2"/></animateMotion></circle>
+            <circle class="pkt" r="2.3"><animateMotion dur="2.4s" begin="1.4s" repeatCount="indefinite"><mpath xlink:href="#w3"/></animateMotion></circle>
+            <circle class="pkt" r="2.3"><animateMotion dur="2.2s" begin="0.6s" repeatCount="indefinite"><mpath xlink:href="#w4"/></animateMotion></circle>
+            <circle class="pkt" r="2.3"><animateMotion dur="1.8s" begin="1.1s" repeatCount="indefinite"><mpath xlink:href="#w5"/></animateMotion></circle>
+            <circle class="pkt" r="2.3"><animateMotion dur="2.3s" begin="1.6s" repeatCount="indefinite"><mpath xlink:href="#w6"/></animateMotion></circle>
+            <!-- узлы -->
+            <g class="wn fx" style="--d:.6s"><rect class="box" x="14" y="13" width="64" height="34"/><text class="ico" x="46" y="29">🚀</text><text class="lbl" x="46" y="41">Старт</text><g class="mk" transform="translate(74,15)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
+            <g class="wn fx" style="--d:1.3s"><rect class="box" x="14" y="91" width="64" height="34"/><text class="ico" x="46" y="107">🧠</text><text class="lbl" x="46" y="119">ИИ КБЖУ</text><g class="mk" transform="translate(74,93)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
+            <g class="wn fx" style="--d:2s"><rect class="box" x="14" y="169" width="64" height="34"/><text class="ico" x="46" y="185">💧</text><text class="lbl" x="46" y="197">Вода</text><g class="mk" transform="translate(74,171)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
+            <g class="wn hub fx" style="--d:3.4s"><rect class="box" x="151" y="88" width="74" height="40" rx="10"/><text class="ico" x="188" y="106">🍽️</text><text class="lbl" x="188" y="119">Меню</text><g class="mk" transform="translate(219,92)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
+            <g class="wn fx" style="--d:4.7s"><rect class="box" x="298" y="27" width="64" height="34"/><text class="ico" x="330" y="43">📊</text><text class="lbl" x="330" y="55">Статы</text><g class="mk" transform="translate(358,29)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
+            <g class="wn fx" style="--d:5.4s"><rect class="box" x="298" y="103" width="64" height="34"/><text class="ico" x="330" y="119">💳</text><text class="lbl" x="330" y="131">Оплата</text><g class="mk" transform="translate(358,105)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
+            <g class="wn" style="--d:6s"><rect class="box" x="298" y="179" width="64" height="34"/><text class="ico" x="330" y="195">🗂️</text><text class="lbl" x="330" y="207">Разделы</text></g>
+          </svg>
         </div>
-        <div class="wbc__foot">4 задачи ТЗ · <b>~90 блоков</b> · 0 тупиков<span class="ok2">✅ принято за 1 день</span></div>
+        <div class="wbc__foot">4 задачи ТЗ · <b>~90 блоков</b> · 0 тупиков<span class="ok2">✅ принято за день</span></div>
       </div>
     </div>
   </div>
