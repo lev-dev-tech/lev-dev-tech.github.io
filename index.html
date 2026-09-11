@@ -435,7 +435,7 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 }
 
 /* Конструктор-мокап (проект 15: аудит/багфикс бота WatBot) — SVG нод-граф, цикл 12s */
-.wbc{position:relative;z-index:1;width:100%;background:radial-gradient(120% 80% at 70% 0%,#1c1409,#0b0906 60%);border:1px solid rgba(251,146,60,.22);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
+.wbc{position:relative;z-index:1;width:100%;background:radial-gradient(130% 90% at 68% -5%,#33260f,#171008 66%);border:1px solid rgba(251,146,60,.26);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
 .wbc__bar{display:flex;align-items:center;gap:11px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(251,146,60,.06)}
 .wbc__who{display:flex;flex-direction:column;min-width:0}
 .wbc__who b{font-size:.86rem;font-weight:700;letter-spacing:-.01em}
@@ -462,16 +462,16 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 @keyframes wbcoknum{0%,70%{opacity:.3;transform:scale(1)}78%{opacity:1;transform:scale(1.35)}84%,100%{opacity:1;transform:scale(1)}}
 /* SVG: провода */
 .wire{fill:none;stroke-width:2;stroke-linecap:round}
-.wire.base{stroke:rgba(255,255,255,.08)}
+.wire.base{stroke:rgba(255,255,255,.18)}
 .wire.draw{stroke:url(#wbcgrad);stroke-dasharray:300;stroke-dashoffset:300;animation:wbcdraw 12s ease-out infinite}
 @keyframes wbcdraw{0%{stroke-dashoffset:300}22%{stroke-dashoffset:0}92%{stroke-dashoffset:0}98%,100%{stroke-dashoffset:300}}
 .pkt{fill:#fde68a;filter:drop-shadow(0 0 4px rgba(251,191,36,.9))}
 /* SVG: узлы */
 .wn{opacity:0;transform-box:fill-box;transform-origin:center;animation:wbcnode 12s ease-out infinite;animation-delay:var(--d,0s)}
-.wn .box{fill:rgba(255,255,255,.035);stroke:rgba(255,255,255,.09);stroke-width:1.2;rx:9}
+.wn .box{fill:rgba(255,255,255,.08);stroke:rgba(255,255,255,.22);stroke-width:1.4;rx:9}
 .wn.fx .box{animation:wbcbox 12s ease-out infinite;animation-delay:var(--d,0s)}
-@keyframes wbcbox{0%,13%{stroke:rgba(239,68,68,.5);fill:rgba(239,68,68,.06)}21%{stroke:rgba(52,211,153,.6);fill:rgba(52,211,153,.09)}100%{stroke:rgba(52,211,153,.35);fill:rgba(52,211,153,.05)}}
-.wn.hub .box{fill:rgba(251,146,60,.08);stroke:rgba(251,146,60,.35)}
+@keyframes wbcbox{0%,13%{stroke:rgba(248,113,113,.85);fill:rgba(239,68,68,.14)}21%{stroke:rgba(52,211,153,.9);fill:rgba(52,211,153,.18)}100%{stroke:rgba(52,211,153,.6);fill:rgba(52,211,153,.12)}}
+.wn.hub .box{fill:rgba(251,146,60,.16);stroke:rgba(251,146,60,.6)}
 .wn .lbl{fill:#f5f5f4;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;text-anchor:middle}
 .wn .ico{font-size:14px;text-anchor:middle}
 @keyframes wbcnode{0%{opacity:0;transform:scale(.7)}5%{opacity:1;transform:scale(1.06)}9%,92%{opacity:1;transform:scale(1)}97%,100%{opacity:0}}
@@ -497,7 +497,7 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
   .wbc__beam,.wbc__badge i,.wbc .wire.draw,.pkt,.wbc__count .b0,.wbc__count .b1{animation:none}
   .wbc__beam{display:none}
   .wn{animation:none;opacity:1}
-  .wn.fx .box{animation:none;stroke:rgba(52,211,153,.35);fill:rgba(52,211,153,.05)}
+  .wn.fx .box{animation:none;stroke:rgba(52,211,153,.6);fill:rgba(52,211,153,.12)}
   .mk .mbug{display:none}
   .mk .mok{animation:none;opacity:1;transform:none}
   .wbc__prog .track i{width:100%}
@@ -1666,8 +1666,8 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
 
         <div class="rev-slide"><div class="rev-card">
           <div class="rev-top">
-            <div class="rev-av" style="background:rgba(251,146,60,.14);color:#fb923c">N</div>
-            <div class="rev-info"><div class="rev-name">Заказчица · бот Nutra</div></div>
+            <div class="rev-av" style="background:rgba(251,146,60,.14);color:#fb923c">А</div>
+            <div class="rev-info"><div class="rev-name">Алиса · бот Nutra</div></div>
             <div class="rev-stars">★★★★★</div>
           </div>
           <div class="rev-badge">Аудит и доработка бота-трекера КБЖУ (WatBot)</div>
