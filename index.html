@@ -434,6 +434,56 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
   .bkc__typing,.bkc__st .tp,.bkc__copy{display:none}
 }
 
+/* Конструктор-мокап (проект 15: аудит/багфикс бота на WatBot) — цикл 13s */
+.wbc{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#171208,#0b0906);border:1px solid rgba(251,146,60,.2);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
+.wbc__bar{display:flex;align-items:center;gap:11px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(251,146,60,.06)}
+.wbc__logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#fb923c,#f97316);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:900;font-size:.72rem;color:#1a0f02;flex-shrink:0}
+.wbc__who{display:flex;flex-direction:column;min-width:0}
+.wbc__who b{font-size:.84rem;font-weight:700;letter-spacing:-.01em}
+.wbc__who span{font-family:var(--mono);font-size:.58rem;color:#a88a63;margin-top:1px}
+.wbc__badge{margin-left:auto;font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.04em;padding:4px 9px;border-radius:6px;background:rgba(251,146,60,.14);color:#fdba74;display:flex;align-items:center;gap:5px}
+.wbc__badge i{width:6px;height:6px;border-radius:50%;background:#fb923c;animation:pulse 2s infinite}
+.wbc__flow{position:relative;padding:16px 16px 14px 34px;overflow:hidden}
+.wbc__flow::before{content:'';position:absolute;left:20px;top:22px;bottom:20px;width:2px;background:linear-gradient(180deg,rgba(251,146,60,.55),rgba(52,211,153,.55))}
+.wbc__scan{position:absolute;left:0;right:0;height:54px;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(251,146,60,.14),transparent);animation:wbcscan 13s cubic-bezier(.4,0,.5,1) infinite;z-index:2}
+@keyframes wbcscan{0%{transform:translateY(-60px);opacity:0}6%{opacity:1}82%{transform:translateY(340px);opacity:1}90%,100%{opacity:0}}
+.wbc__node{position:relative;display:flex;align-items:center;gap:10px;padding:9px 12px;margin-bottom:9px;border-radius:11px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);opacity:0;animation:wbcpop 13s ease-out infinite}
+.wbc__node::before{content:'';position:absolute;left:-16px;top:50%;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:#0b0906;border:2px solid #fb923c;box-shadow:0 0 0 3px rgba(11,9,6,1)}
+.wbc__node.fx::before{border-color:#34d399;animation:wbcdot 13s ease-out infinite}
+.wbc__ic{width:26px;height:26px;border-radius:7px;background:rgba(251,146,60,.12);display:flex;align-items:center;justify-content:center;font-size:.86rem;flex-shrink:0}
+.wbc__node.fx .wbc__ic{background:rgba(52,211,153,.12)}
+.wbc__nm{font-size:.8rem;font-weight:600;color:#f0f0ef;flex-shrink:0}
+.wbc__st{position:relative;margin-left:auto;min-width:118px;height:1.35em;font-family:var(--mono);font-size:.58rem;text-align:right}
+.wbc__st b{position:absolute;right:0;top:0;white-space:nowrap;padding:2px 7px;border-radius:5px;font-weight:700}
+.wbc__st .bug{background:rgba(239,68,68,.14);color:#f87171;animation:wbcbug 13s ease-in-out infinite}
+.wbc__st .ok{background:rgba(52,211,153,.14);color:#34d399;animation:wbcok 13s ease-in-out infinite}
+.wbc__node:nth-of-type(1) .wbc__st b,.wbc__node:nth-of-type(1){animation-delay:.3s}
+.wbc__node:nth-of-type(2) .wbc__st b,.wbc__node:nth-of-type(2){animation-delay:1.4s}
+.wbc__node:nth-of-type(3) .wbc__st b,.wbc__node:nth-of-type(3){animation-delay:2.5s}
+.wbc__node:nth-of-type(4) .wbc__st b,.wbc__node:nth-of-type(4){animation-delay:3.6s}
+.wbc__node:nth-of-type(5) .wbc__st b,.wbc__node:nth-of-type(5){animation-delay:4.7s}
+.wbc__node:nth-of-type(6) .wbc__st b,.wbc__node:nth-of-type(6){animation-delay:5.8s}
+@keyframes wbcpop{0%{opacity:0;transform:translateX(-8px)}5%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes wbcdot{0%,10%{border-color:#fb923c}16%,100%{border-color:#34d399}}
+@keyframes wbcbug{0%,10%{opacity:1}17%,100%{opacity:0}}
+@keyframes wbcok{0%,12%{opacity:0;transform:scale(.85)}18%{opacity:1;transform:scale(1.05)}22%,100%{opacity:1;transform:scale(1)}}
+.wbc__foot{display:flex;align-items:center;gap:8px;padding:11px 15px;border-top:1px solid rgba(255,255,255,.06);background:rgba(52,211,153,.05);font-family:var(--mono);font-size:.62rem;color:#8fb8a0}
+.wbc__foot b{color:#34d399;font-weight:700}
+.wbc__foot .ok2{margin-left:auto;display:flex;align-items:center;gap:6px;color:#34d399;font-weight:700;opacity:0;animation:wbcdone 13s ease-out infinite}
+@keyframes wbcdone{0%,74%{opacity:0;transform:translateY(5px)}80%{opacity:1;transform:none}92%{opacity:1}97%,100%{opacity:0}}
+@media(max-width:640px){
+  .wbc__nm{font-size:.72rem}
+  .wbc__st{min-width:96px;font-size:.53rem}
+  .wbc__foot{font-size:.55rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .wbc__node,.wbc__foot .ok2{animation:none;opacity:1;transform:none}
+  .wbc__scan,.wbc__badge i,.wbc__node.fx::before{animation:none}
+  .wbc__scan{display:none}
+  .wbc__st .bug{display:none}
+  .wbc__st .ok{animation:none;opacity:1;transform:none}
+}
+
 .lrd{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#131109,#0a0a08);border:1px solid rgba(251,191,36,.16);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef}
 .lrd__bar{display:flex;align-items:center;gap:10px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(251,191,36,.05)}
 .lrd__radar{position:relative;width:26px;height:26px;border-radius:50%;border:1px solid rgba(251,191,36,.4);overflow:hidden;flex-shrink:0;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 70%)}
@@ -802,8 +852,8 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <a href="#contact" class="bg bform">Оставить заявку</a>
     </div>
     <div class="hstats">
-      <div class="hst"><span class="hsc" data-count="14">0</span><span class="hsl">проектов</span></div>
-      <div class="hst"><span class="hsc" data-count="13" data-post="★">0</span><span class="hsl">отзывов</span></div>
+      <div class="hst"><span class="hsc" data-count="15">0</span><span class="hsl">проектов</span></div>
+      <div class="hst"><span class="hsc" data-count="14" data-post="★">0</span><span class="hsl">отзывов</span></div>
       <div class="hst"><span class="hsc" data-text="<1ч">—</span><span class="hsl">ответ</span></div>
       <div class="hst"><span class="hsc" data-count="2" data-post="+">0</span><span class="hsl">года опыта</span></div>
     </div>
@@ -831,7 +881,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="feature-head rv">
       <div class="slabel">Портфолио</div>
       <h2 class="stitle">Избранные проекты</h2>
-      <p class="ssub">Четырнадцать реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
+      <p class="ssub">Пятнадцать реальных проектов — каждый под конкретную задачу, с живым превью и разбором деталей.</p>
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
@@ -848,7 +898,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 14</div>
+      <div class="pnl">01 / 15</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">📱 Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Полноценная edu-платформа прямо в Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает — без перехода на сторонний сайт.</p>
@@ -894,7 +944,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 14</div>
+      <div class="pnl">02 / 15</div>
       <div class="ptag" style="color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.06)">🤝 Telegram INFO-бот</div>
       <h3 class="ptitle">ONETRADE —<br>партнёрский бот</h3>
       <p class="pdesc">Информационный бот партнёрской экосистемы OneTrade: реферальная структура, кэшбэк, ранги и личный кабинет — всё в одном меню. <a class="pdesc-link" href="https://t.me/OneTradeINFO_bot" target="_blank" rel="noopener">@OneTradeINFO_bot →</a></p>
@@ -949,7 +999,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 14</div>
+      <div class="pnl">03 / 15</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">📤 Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ —<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -988,7 +1038,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 14</div>
+      <div class="pnl">04 / 15</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">🛰 Радар заказов · автопилот</div>
       <h3 class="ptitle">Lead Radar —<br>радар заказов</h3>
       <p class="pdesc">Система, которая каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, оставляет только подходящие под мой стек, пишет готовый отклик под каждый и выкладывает всё на закрытый сайт. Работает в облаке — компьютер выключен, а лиды собираются.</p>
@@ -1042,7 +1092,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 14</div>
+      <div class="pnl">05 / 15</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">🌐 Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров — анимации, тарифы, отзывы.</p>
@@ -1077,7 +1127,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 14</div>
+      <div class="pnl">06 / 15</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">🌐 Веб / Лендинг · live</div>
       <h3 class="ptitle">ВОЛЬТ —<br>магазин электроники</h3>
       <p class="pdesc">Концепт-лендинг магазина электроники «по-человечески». Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков — и он реально работает по ссылке.</p>
@@ -1112,7 +1162,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 14</div>
+      <div class="pnl">07 / 15</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">🛠 1С-Битрикс / Сервер · перенос</div>
       <h3 class="ptitle">Перенос и аудит<br>магазина на Битрикс</h3>
       <p class="pdesc">Перенос интернет-магазина мебели (~11 000 товаров) на облачный VPS и полный аудит после переезда. По ходу нашёл и устранил скрытую блокировку записи из-за переполнения диска и конфликт модулей, ронявший каталог в ошибку 500.</p>
@@ -1153,7 +1203,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">08</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">08 / 14</div>
+      <div class="pnl">08 / 15</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">🛠 Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router —<br>лиды в CRM и почту</h3>
       <p class="pdesc">Веб-панель приёма и маршрутизации лидов. Источники-поставщики шлют лиды по вебхуку, почте или публичной форме — те попадают в ящик входящих, где админ вручную решает, какому клиенту переслать каждый. Дальше лид уходит в нужный канал — Bitrix24, amoCRM или e-mail. Дедуп по телефону, очередь с троттлингом и ретраями, автоочистка журнала. На Node.js + SQLite, работает даже на самом дешёвом VPS.</p>
@@ -1230,7 +1280,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">09</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">09 / 14</div>
+      <div class="pnl">09 / 15</div>
       <div class="ptag" style="color:#e879f9;border-color:rgba(232,121,249,.32);background:rgba(232,121,249,.07)">🌐 Портфолио-лендинг · live</div>
       <h3 class="ptitle">Илья Громов —<br>портфолио дизайнера</h3>
       <p class="pdesc">Лендинг-портфолио для бренд- и визуал-дизайнера: секция кейсов с работами, бренд-кит для соцсетей, отзывы клиентов и блок контактов. Тёмная и светлая тема, плавные анимации появления, полный адаптив. Чистый HTML / CSS / JS — сдан и развёрнут, работает по ссылке.</p>
@@ -1266,7 +1316,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">10</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">10 / 14</div>
+      <div class="pnl">10 / 15</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">🛠 Данные · 1С → PostgreSQL</div>
       <h3 class="ptitle">Выгрузка <span class="t1c">1С</span>:Розница<br>в PostgreSQL</h3>
       <p class="pdesc">Пайплайн переноса данных из 1С:Розница на кассе в PostgreSQL на втором ПК. Программа читает базу 1С прямо из файла — в фоне, не мешая кассиру и не требуя закрывать 1С, — чистит данные в готовые таблицы и раз в день сама шлёт свежий пакет по почте. Всё портативно: Python и PostgreSQL уже внутри, устанавливать ничего не нужно.</p>
@@ -1308,7 +1358,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">11</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">11 / 14</div>
+      <div class="pnl">11 / 15</div>
       <div class="ptag" style="color:#4ade80;border-color:rgba(74,222,128,.32);background:rgba(74,222,128,.07)">📊 Google Таблицы / Apps Script</div>
       <h3 class="ptitle">Планировщик рассылки<br>в Google Таблицах</h3>
       <p class="pdesc">Скрипт для Google Таблиц, который превращает список лидов в готовый план email-рассылки: цепочки писем по компаниям, ротация текстов, разбивка по дням и партиям. Запускается из меню прямо в таблице — без кода и внешних сервисов.</p>
@@ -1343,7 +1393,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">12</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">12 / 14</div>
+      <div class="pnl">12 / 15</div>
       <div class="ptag" style="color:#22c55e;border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.07)">📊 Excel · Автоматизация отчётности <span class="t1c">1С</span></div>
       <h3 class="ptitle">Отчёты учредителю<br>из <span class="t1c">1С</span> в один клик</h3>
       <p class="pdesc">Два управленческих отчёта в Excel — ДДС (движение денег по дням) и ККМ (выручка нал/карта + номенклатура), — которые 1С Fresh не умеет собрать одним отчётом. Заказчица сохраняет выгрузки из 1С и кликает по .bat: через пару секунд готовые таблицы в её точном формате сами открываются в Excel. Ноль ручной сборки, сходимость до копейки.</p>
@@ -1388,7 +1438,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">13</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">13 / 14</div>
+      <div class="pnl">13 / 15</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.32);background:rgba(167,139,250,.07)">🤖 AI-ассистент продаж</div>
       <h3 class="ptitle">AI-ассистент<br>продаж в Telegram</h3>
       <p class="pdesc">Продавец на базе Claude, который переписывается с клиентами прямо с живого аккаунта в Telegram — как настоящий менеджер, без признаков автоматизации. Ведёт диалог по скриптам компании, квалифицирует лида, заводит его в Bitrix24 и передаёт человеку, когда тема выходит за рамки. Работает для B2B-ниши импорта из Китая / ВЭД.</p>
@@ -1430,7 +1480,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="psbg">14</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">14 / 14</div>
+      <div class="pnl">14 / 15</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.32);background:rgba(52,211,153,.07)">📅 Бот записи и лояльности</div>
       <h3 class="ptitle">Универсальный бот<br>для локального бизнеса</h3>
       <p class="pdesc">Один бот-шаблон под любой локальный бизнес: салон, клиника, кафе, цветы. На старте клиент выбирает нишу — и меню подстраивается само. Внутри: онлайн-запись со слотами, каталог с корзиной и доставкой, бонусы с реферальной системой и авто-напоминания. Демо для витрины — данные тестовые, логика реальная: под клиента цепляется БД и планировщик.</p>
@@ -1484,6 +1534,47 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   </div>
 </section>
 
+<section class="ps" data-category="bot">
+  <div class="psbg">15</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">15 / 15</div>
+      <div class="ptag" style="color:#fb923c;border-color:rgba(251,146,60,.32);background:rgba(251,146,60,.07)">🔧 Аудит и багфикс бота · WatBot</div>
+      <h3 class="ptitle">Реанимация бота-<br>трекера питания</h3>
+      <p class="pdesc">Взял чужого бота-трекера КБЖУ (норма калорий, вода, подписка) на конструкторе WatBot — клиентка месяц не могла заставить его работать. За день провёл аудит, нашёл и починил критичные баги логики, пересобрал меню и допилил напоминания. Бот принят: ~90 блоков, ноль тупиков. Без своего сервера — всё внутри конструктора через его REST API.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Критичный баг данных: статистика писала остатки латиницей, читала кириллицей — КБЖУ не сходилось; унифицировал</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Баг старта: условие всегда упирало нового юзера в «оплатите», опрос был недостижим — инвертировал</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Переписал 2 ИИ-блока (норма КБЖУ и разбор еды по фото/тексту) — корректные переменные вместо нерабочего JSON</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Пересобрал нижнее меню через switch-роутинг: хаб, разделы, сброс дня, смена параметров — один вход, ноль двоений</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Напоминание за 2 дня до конца подписки: автоворонки + теги (месяц / 3 мес / год) — параллельных веток конструктор не держит</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Тонкости WatBot: синтаксис <code>{{ $var }}</code>, арифметика через «Мат. выражение 2.0», smart-delay для асинхронных ИИ-блоков</div></div>
+      </div>
+      <div class="pstack"><span class="sp">WatBot</span><span class="sp">REST API</span><span class="sp">ИИ-блоки (LLM)</span><span class="sp">Промпт-инжиниринг</span><span class="sp">Автоворонки</span><span class="sp">No-code</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(251,146,60,.16)"></div>
+      <div class="wbc">
+        <div class="wbc__bar">
+          <div class="wbc__logo">WB</div>
+          <div class="wbc__who"><b>@nutra_track_bot</b><span>WatBot · трекер КБЖУ</span></div>
+          <div class="wbc__badge"><i></i>аудит · багфикс</div>
+        </div>
+        <div class="wbc__flow">
+          <div class="wbc__scan"></div>
+          <div class="wbc__node fx"><div class="wbc__ic">🚀</div><div class="wbc__nm">Старт / опрос</div><div class="wbc__st"><b class="bug">✗ вечный «оплатите»</b><b class="ok">✓ условие инверт.</b></div></div>
+          <div class="wbc__node fx"><div class="wbc__ic">🧠</div><div class="wbc__nm">ИИ: норма КБЖУ</div><div class="wbc__st"><b class="bug">✗ пустой JSON</b><b class="ok">✓ norma_* переменные</b></div></div>
+          <div class="wbc__node fx"><div class="wbc__ic">💧</div><div class="wbc__nm">Трекер воды</div><div class="wbc__st"><b class="bug">✗ л ≠ мл</b><b class="ok">✓ water_target мл</b></div></div>
+          <div class="wbc__node fx"><div class="wbc__ic">📊</div><div class="wbc__nm">Статистика</div><div class="wbc__st"><b class="bug">✗ кир/лат остаток</b><b class="ok">✓ унифицировано</b></div></div>
+          <div class="wbc__node fx"><div class="wbc__ic">💳</div><div class="wbc__nm">Оплата подписки</div><div class="wbc__st"><b class="bug">✗ месяц в мусор</b><b class="ok">✓ active_until</b></div></div>
+          <div class="wbc__node fx"><div class="wbc__ic">🍽️</div><div class="wbc__nm">Меню + разделы</div><div class="wbc__st"><b class="bug">✗ двоилось</b><b class="ok">✓ switch-роутинг</b></div></div>
+        </div>
+        <div class="wbc__foot">4 задачи ТЗ · <b>~90 блоков</b> · 0 тупиков<span class="ok2">✅ принято за 1 день</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sh proc-bg" id="process">
   <div class="wrap">
     <div class="slabel">Как работаю</div>
@@ -1518,9 +1609,20 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap">
     <div class="slabel">Отзывы с Kwork</div>
     <h2 class="stitle rv">Что говорят клиенты</h2>
-    <p class="ssub rv">13 положительных отзывов · 0 отрицательных</p>
+    <p class="ssub rv">14 положительных отзывов · 0 отрицательных</p>
     <div class="rev-overflow">
       <div class="rev-slider" id="revSlider">
+
+        <div class="rev-slide"><div class="rev-card">
+          <div class="rev-top">
+            <div class="rev-av" style="background:rgba(251,146,60,.14);color:#fb923c">N</div>
+            <div class="rev-info"><div class="rev-name">Заказчица · бот Nutra</div></div>
+            <div class="rev-stars">★★★★★</div>
+          </div>
+          <div class="rev-badge">Аудит и доработка бота-трекера КБЖУ (WatBot)</div>
+          <p class="rev-text">«Работает! Вы гений информатики, такую красоту сделали) За день починили то, что я не могла сделать месяц. Спасибо вам огромное!»</p>
+          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+        </div></div>
 
         <div class="rev-slide"><div class="rev-card">
           <div class="rev-top">

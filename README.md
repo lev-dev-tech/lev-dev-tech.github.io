@@ -46,6 +46,8 @@
 | 11 | **Планировщик рассылки в Google Таблицах** | Автоматизация / Apps Script | Google Apps Script, JavaScript, Google Sheets |
 | 12 | **Отчёты учредителю из 1С в один клик** | Автоматизация / Отчётность 1С · Excel | PowerShell, Excel COM, 1С, OpenXML, .bat |
 | 13 | **AI-ассистент продаж в Telegram** | Telegram userbot / AI · CRM | Python, Telethon, Claude API, Bitrix24 API, SQLite |
+| 14 | **Универсальный бот для локального бизнеса** | Telegram-бот / Запись · Лояльность | Python, aiogram 3, FSM, SQLite, APScheduler |
+| 15 | **Аудит и багфикс бота-трекера КБЖУ** | Доработка бота / No-code · WatBot | WatBot, REST API, ИИ-блоки, промпт-инжиниринг, автоворонки |
 
 ---
 
