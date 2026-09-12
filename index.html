@@ -463,27 +463,27 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 /* SVG: провода */
 .wire{fill:none;stroke-width:2;stroke-linecap:round}
 .wire.base{stroke:rgba(255,255,255,.26)}
-.wire.draw{stroke:url(#wbcgrad);stroke-dasharray:300;stroke-dashoffset:300;animation:wbcdraw 12s ease-out infinite}
+.wire.draw{stroke:url(#wg);stroke-dasharray:300;stroke-dashoffset:300;animation:wbcdraw 12s ease-out infinite}
 @keyframes wbcdraw{0%{stroke-dashoffset:300}22%{stroke-dashoffset:0}92%{stroke-dashoffset:0}98%,100%{stroke-dashoffset:300}}
 .pkt{fill:#fde68a;filter:drop-shadow(0 0 4px rgba(251,191,36,.9))}
 /* SVG: узлы */
 .wn{opacity:0;transform-box:fill-box;transform-origin:center;animation:wbcnode 12s ease-out infinite;animation-delay:var(--d,0s)}
-.wn .box{fill:#241a11;stroke:rgba(255,255,255,.28);stroke-width:1.4;rx:9}
+.wn .box{fill:url(#boxg);stroke:rgba(255,255,255,.14);stroke-width:1.2}
 .wn.fx .box{animation:wbcbox 12s ease-out infinite;animation-delay:var(--d,0s)}
-@keyframes wbcbox{0%,13%{stroke:#f87171;fill:#3a1a17}21%{stroke:#34d399;fill:#123326}100%{stroke:rgba(52,211,153,.75);fill:#15271e}}
-.wn.hub .box{fill:#3a2a12;stroke:rgba(251,146,60,.75)}
-.wn .lbl{fill:#ffffff;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;text-anchor:middle}
-.wn .ico{font-size:15px;text-anchor:middle}
+@keyframes wbcbox{0%,13%{stroke:rgba(248,113,113,.65);fill:#2a1614}21%{stroke:rgba(52,211,153,.85)}100%{fill:url(#boxgok);stroke:rgba(52,211,153,.5)}}
+.wn.hub .box{fill:#33260f;stroke:rgba(251,191,36,.55)}
+.wn .lbl{fill:#f6f4f0;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1px;text-anchor:middle}
+.wn .ic{color:#f4d9b0}
+.wn.hub .ic{color:#fcd34d}
 @keyframes wbcnode{0%{opacity:0;transform:scale(.7)}5%{opacity:1;transform:scale(1.06)}9%,92%{opacity:1;transform:scale(1)}97%,100%{opacity:0}}
-/* SVG: маркеры баг -> фикс */
+/* SVG: бейдж баг -> фикс (рисующийся чек) */
 .mk{transform-box:fill-box;transform-origin:center}
-.mk .mbug{animation:wbcmbug 12s ease-in-out infinite;animation-delay:var(--d,0s)}
-.mk .mok{opacity:0;animation:wbcmok 12s ease-out infinite;animation-delay:var(--d,0s)}
-.mk .mbug circle{fill:#ef4444}
-.mk .mok circle{fill:#34d399}
-.mk text{fill:#0b0906;font-size:8px;font-weight:900;text-anchor:middle;font-family:'DM Sans',sans-serif}
-@keyframes wbcmbug{0%,13%{opacity:1;transform:scale(1)}16%{transform:scale(1.3)}21%,100%{opacity:0;transform:scale(.6)}}
-@keyframes wbcmok{0%,15%{opacity:0;transform:scale(.5)}23%{opacity:1;transform:scale(1.35)}29%,100%{opacity:1;transform:scale(1)}}
+.mk .bdg{fill:#0d0b07;stroke-width:1.6;stroke:#f87171;animation:mbdg 12s ease-out infinite;animation-delay:var(--d,0s)}
+.mk .cross line{stroke:#fca5a5;stroke-width:1.7;stroke-linecap:round;animation:mcross 12s ease-out infinite;animation-delay:var(--d,0s)}
+.mk .chk{fill:none;stroke:#34d399;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:11;stroke-dashoffset:11;animation:mchk 12s ease-out infinite;animation-delay:var(--d,0s)}
+@keyframes mbdg{0%,13%{stroke:#f87171}20%{stroke:#34d399}100%{stroke:#34d399}}
+@keyframes mcross{0%,12%{opacity:1}17%,100%{opacity:0}}
+@keyframes mchk{0%,15%{stroke-dashoffset:11}26%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
 .wbc__foot{display:flex;align-items:center;gap:8px;padding:11px 15px;border-top:1px solid rgba(255,255,255,.06);background:rgba(52,211,153,.05);font-family:var(--mono);font-size:.62rem;color:#8fb8a0}
 .wbc__foot b{color:#34d399;font-weight:700}
 .wbc__foot .ok2{margin-left:auto;display:flex;align-items:center;gap:6px;color:#34d399;font-weight:700;opacity:0;animation:wbcdone 12s ease-out infinite}
@@ -497,9 +497,10 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
   .wbc__beam,.wbc__badge i,.wbc .wire.draw,.pkt,.wbc__count .wbcn0,.wbc__count .wbcn1{animation:none}
   .wbc__beam{display:none}
   .wn{animation:none;opacity:1}
-  .wn.fx .box{animation:none;stroke:rgba(52,211,153,.75);fill:#15271e}
-  .mk .mbug{display:none}
-  .mk .mok{animation:none;opacity:1;transform:none}
+  .wn.fx .box{animation:none;stroke:rgba(52,211,153,.5);fill:url(#boxgok)}
+  .mk .cross{display:none}
+  .mk .bdg{animation:none;stroke:#34d399}
+  .mk .chk{animation:none;stroke-dashoffset:0}
   .wbc__prog .track i{width:100%}
   .wbc__foot .ok2{animation:none;opacity:1;transform:none}
   .pkt{display:none}
@@ -1586,38 +1587,29 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
           <div class="wbc__count">🐞 <span class="wbcn0">12</span><span class="arr">→</span><span class="wbcn1">0</span></div>
           <svg class="wbc__svg" viewBox="0 0 380 232" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Схема бота: узлы, в которых найдены и исправлены баги">
             <defs>
-              <linearGradient id="wbcgrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#fb923c"/><stop offset="1" stop-color="#34d399"/>
-              </linearGradient>
+              <linearGradient id="wg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+              <linearGradient id="boxg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2013"/><stop offset="1" stop-color="#1b140c"/></linearGradient>
+              <linearGradient id="boxgok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#173026"/><stop offset="1" stop-color="#0f2019"/></linearGradient>
+              <filter id="wsh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#000" flood-opacity="0.5"/></filter>
             </defs>
             <!-- провода -->
-            <path id="w1" class="wire base" d="M46,47 L46,91"/>
-            <path id="w2" class="wire base" d="M78,108 L151,105"/>
-            <path id="w3" class="wire base" d="M64,175 Q120,150 151,120"/>
-            <path id="w4" class="wire base" d="M215,98 Q265,60 298,50"/>
-            <path id="w5" class="wire base" d="M225,111 L298,118"/>
-            <path id="w6" class="wire base" d="M215,120 Q265,165 298,192"/>
-            <path class="wire draw" d="M46,47 L46,91"/>
-            <path class="wire draw" d="M78,108 L151,105"/>
-            <path class="wire draw" d="M64,175 Q120,150 151,120"/>
-            <path class="wire draw" d="M215,98 Q265,60 298,50"/>
-            <path class="wire draw" d="M225,111 L298,118"/>
-            <path class="wire draw" d="M215,120 Q265,165 298,192"/>
+            <path id="ww0" class="wire base" d="M46,47 L46,91"/><path id="ww1" class="wire base" d="M78,108 L151,105"/><path id="ww2" class="wire base" d="M64,175 Q120,150 151,120"/><path id="ww3" class="wire base" d="M215,98 Q265,60 298,50"/><path id="ww4" class="wire base" d="M225,111 L298,118"/><path id="ww5" class="wire base" d="M215,120 Q265,165 298,192"/>
+            <path class="wire draw" d="M46,47 L46,91"/><path class="wire draw" d="M78,108 L151,105"/><path class="wire draw" d="M64,175 Q120,150 151,120"/><path class="wire draw" d="M215,98 Q265,60 298,50"/><path class="wire draw" d="M225,111 L298,118"/><path class="wire draw" d="M215,120 Q265,165 298,192"/>
             <!-- пакеты данных -->
-            <circle class="pkt" r="2.3"><animateMotion dur="2.1s" begin="0.4s" repeatCount="indefinite"><mpath xlink:href="#w1"/></animateMotion></circle>
-            <circle class="pkt" r="2.3"><animateMotion dur="1.9s" begin="0.9s" repeatCount="indefinite"><mpath xlink:href="#w2"/></animateMotion></circle>
-            <circle class="pkt" r="2.3"><animateMotion dur="2.4s" begin="1.4s" repeatCount="indefinite"><mpath xlink:href="#w3"/></animateMotion></circle>
-            <circle class="pkt" r="2.3"><animateMotion dur="2.2s" begin="0.6s" repeatCount="indefinite"><mpath xlink:href="#w4"/></animateMotion></circle>
-            <circle class="pkt" r="2.3"><animateMotion dur="1.8s" begin="1.1s" repeatCount="indefinite"><mpath xlink:href="#w5"/></animateMotion></circle>
-            <circle class="pkt" r="2.3"><animateMotion dur="2.3s" begin="1.6s" repeatCount="indefinite"><mpath xlink:href="#w6"/></animateMotion></circle>
+            <circle class="pkt" r="2.2"><animateMotion dur="1.8s" begin="0.4s" repeatCount="indefinite"><mpath xlink:href="#ww0"/></animateMotion></circle>
+            <circle class="pkt" r="2.2"><animateMotion dur="1.9s" begin="0.6s" repeatCount="indefinite"><mpath xlink:href="#ww1"/></animateMotion></circle>
+            <circle class="pkt" r="2.2"><animateMotion dur="2.1s" begin="0.8s" repeatCount="indefinite"><mpath xlink:href="#ww2"/></animateMotion></circle>
+            <circle class="pkt" r="2.2"><animateMotion dur="2.2s" begin="1.0s" repeatCount="indefinite"><mpath xlink:href="#ww3"/></animateMotion></circle>
+            <circle class="pkt" r="2.2"><animateMotion dur="2.0s" begin="1.2s" repeatCount="indefinite"><mpath xlink:href="#ww4"/></animateMotion></circle>
+            <circle class="pkt" r="2.2"><animateMotion dur="2.3s" begin="1.4s" repeatCount="indefinite"><mpath xlink:href="#ww5"/></animateMotion></circle>
             <!-- узлы -->
-            <g class="wn fx" style="--d:.6s"><rect class="box" x="14" y="13" width="64" height="34"/><text class="ico" x="46" y="29">🚀</text><text class="lbl" x="46" y="41">Старт</text><g class="mk" transform="translate(74,15)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
-            <g class="wn fx" style="--d:1.3s"><rect class="box" x="14" y="91" width="64" height="34"/><text class="ico" x="46" y="107">🧠</text><text class="lbl" x="46" y="119">ИИ КБЖУ</text><g class="mk" transform="translate(74,93)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
-            <g class="wn fx" style="--d:2s"><rect class="box" x="14" y="169" width="64" height="34"/><text class="ico" x="46" y="185">💧</text><text class="lbl" x="46" y="197">Вода</text><g class="mk" transform="translate(74,171)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
-            <g class="wn hub fx" style="--d:3.4s"><rect class="box" x="151" y="88" width="74" height="40" rx="10"/><text class="ico" x="188" y="106">🍽️</text><text class="lbl" x="188" y="119">Меню</text><g class="mk" transform="translate(219,92)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
-            <g class="wn fx" style="--d:4.7s"><rect class="box" x="298" y="27" width="64" height="34"/><text class="ico" x="330" y="43">📊</text><text class="lbl" x="330" y="55">Статы</text><g class="mk" transform="translate(358,29)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
-            <g class="wn fx" style="--d:5.4s"><rect class="box" x="298" y="103" width="64" height="34"/><text class="ico" x="330" y="119">💳</text><text class="lbl" x="330" y="131">Оплата</text><g class="mk" transform="translate(358,105)"><g class="mbug"><circle r="7"/><text y="3">✗</text></g><g class="mok"><circle r="7"/><text y="3">✓</text></g></g></g>
-            <g class="wn" style="--d:6s"><rect class="box" x="298" y="179" width="64" height="34"/><text class="ico" x="330" y="195">🗂️</text><text class="lbl" x="330" y="207">Разделы</text></g>
+            <g class="wn fx" style="--d:.6s"><rect class="box" x="14" y="13" width="64" height="34" rx="11" filter="url(#wsh)"/><g class="ic" transform="translate(46,26)"><path d="M-3,-5 L5,0 L-3,5 Z" fill="currentColor"/></g><text class="lbl" x="46" y="43">Старт</text><g class="mk" transform="translate(74,16)"><circle class="bdg" r="7.5"/><g class="cross"><line x1="-2.6" y1="-2.6" x2="2.6" y2="2.6"/><line x1="2.6" y1="-2.6" x2="-2.6" y2="2.6"/></g><path class="chk" d="M-3.4,0.3 L-1,2.7 L3.6,-2.6"/></g></g>
+            <g class="wn fx" style="--d:1.3s"><rect class="box" x="14" y="91" width="64" height="34" rx="11" filter="url(#wsh)"/><g class="ic" transform="translate(46,104)"><path d="M0,-6 L1.5,-1.5 L6,0 L1.5,1.5 L0,6 L-1.5,1.5 L-6,0 L-1.5,-1.5 Z" fill="currentColor"/></g><text class="lbl" x="46" y="121">ИИ · КБЖУ</text><g class="mk" transform="translate(74,94)"><circle class="bdg" r="7.5"/><g class="cross"><line x1="-2.6" y1="-2.6" x2="2.6" y2="2.6"/><line x1="2.6" y1="-2.6" x2="-2.6" y2="2.6"/></g><path class="chk" d="M-3.4,0.3 L-1,2.7 L3.6,-2.6"/></g></g>
+            <g class="wn fx" style="--d:2s"><rect class="box" x="14" y="169" width="64" height="34" rx="11" filter="url(#wsh)"/><g class="ic" transform="translate(46,182)"><path d="M0,-6 C3.4,-1.6 5,0.6 5,3 A5,5 0 1 1 -5,3 C-5,0.6 -3.4,-1.6 0,-6 Z" fill="none" stroke="currentColor" stroke-width="1.6"/></g><text class="lbl" x="46" y="199">Вода</text><g class="mk" transform="translate(74,172)"><circle class="bdg" r="7.5"/><g class="cross"><line x1="-2.6" y1="-2.6" x2="2.6" y2="2.6"/><line x1="2.6" y1="-2.6" x2="-2.6" y2="2.6"/></g><path class="chk" d="M-3.4,0.3 L-1,2.7 L3.6,-2.6"/></g></g>
+            <g class="wn hub fx" style="--d:3.4s"><rect class="box" x="151" y="88" width="74" height="40" rx="12" filter="url(#wsh)"/><g class="ic" transform="translate(188,103)"><g fill="currentColor"><rect x="-5" y="-5" width="4" height="4" rx="1"/><rect x="1" y="-5" width="4" height="4" rx="1"/><rect x="-5" y="1" width="4" height="4" rx="1"/><rect x="1" y="1" width="4" height="4" rx="1"/></g></g><text class="lbl" x="188" y="121">Меню</text><g class="mk" transform="translate(221,91)"><circle class="bdg" r="7.5"/><g class="cross"><line x1="-2.6" y1="-2.6" x2="2.6" y2="2.6"/><line x1="2.6" y1="-2.6" x2="-2.6" y2="2.6"/></g><path class="chk" d="M-3.4,0.3 L-1,2.7 L3.6,-2.6"/></g></g>
+            <g class="wn fx" style="--d:4.6s"><rect class="box" x="298" y="27" width="64" height="34" rx="11" filter="url(#wsh)"/><g class="ic" transform="translate(330,40)"><g stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><line x1="-4" y1="4" x2="-4" y2="0.5"/><line x1="0" y1="4" x2="0" y2="-2.5"/><line x1="4" y1="4" x2="4" y2="-5"/></g></g><text class="lbl" x="330" y="57">Статы</text><g class="mk" transform="translate(358,30)"><circle class="bdg" r="7.5"/><g class="cross"><line x1="-2.6" y1="-2.6" x2="2.6" y2="2.6"/><line x1="2.6" y1="-2.6" x2="-2.6" y2="2.6"/></g><path class="chk" d="M-3.4,0.3 L-1,2.7 L3.6,-2.6"/></g></g>
+            <g class="wn fx" style="--d:5.2s"><rect class="box" x="298" y="103" width="64" height="34" rx="11" filter="url(#wsh)"/><g class="ic" transform="translate(330,116)"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="-6.5" y="-4.5" width="13" height="9" rx="2"/><line x1="-6.5" y1="-1" x2="6.5" y2="-1"/></g></g><text class="lbl" x="330" y="133">Оплата</text><g class="mk" transform="translate(358,106)"><circle class="bdg" r="7.5"/><g class="cross"><line x1="-2.6" y1="-2.6" x2="2.6" y2="2.6"/><line x1="2.6" y1="-2.6" x2="-2.6" y2="2.6"/></g><path class="chk" d="M-3.4,0.3 L-1,2.7 L3.6,-2.6"/></g></g>
+            <g class="wn" style="--d:5.8s"><rect class="box" x="298" y="179" width="64" height="34" rx="11" filter="url(#wsh)"/><g class="ic" transform="translate(330,192)"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M0,-5.5 L6.5,-1.8 L0,2 L-6.5,-1.8 Z"/><path d="M-6.5,1.6 L0,5.3 L6.5,1.6"/></g></g><text class="lbl" x="330" y="209">Разделы</text></g>
           </svg>
         </div>
         <div class="wbc__foot">4 задачи ТЗ · <b>~90 блоков</b> · 0 тупиков<span class="ok2">✅ принято за день</span></div>
