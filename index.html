@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Лев — Технический специалист</title>
+<title>Лев — Telegram-боты, автоматизация, WatBot / BotHelp / SaleBot</title>
+<meta name="description" content="Telegram-боты и Mini Apps, автоматизация, интеграции с 1С и CRM, настройка ботов на WatBot, BotHelp и SaleBot. Работаю как самозанятый — чек на каждую оплату.">
+<meta name="theme-color" content="#060608">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230d0d12'/%3E%3Crect x='34' y='26' width='13' height='50' rx='3' fill='%23f0f0ef'/%3E%3Crect x='34' y='63' width='31' height='13' rx='3' fill='%23f0f0ef'/%3E%3Ccircle cx='74' cy='70' r='7.5' fill='%23f97316'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -831,6 +833,239 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   .pvmodal__panel{width:100%;height:100%;border-radius:0;border:none}
   .plink{flex:1;justify-content:center}
 }
+
+/* ================= РЕДИЗАЙН 2026: общий слой ================= */
+:root{--muted:#8d8ea6;--ease:cubic-bezier(.16,1,.3,1)}
+.rv{transition:opacity .7s var(--ease),transform .7s var(--ease)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.ico{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* nav — стеклянная «пилюля» после скролла */
+nav{padding:18px 0}
+nav .ni{transition:background .35s var(--ease),border-color .35s,box-shadow .35s,padding .35s var(--ease),max-width .35s var(--ease)}
+nav.s{padding:10px 0;background:transparent;backdrop-filter:none;border-bottom:1px solid transparent}
+nav.s .ni{max-width:1100px;width:calc(100% - 32px);margin:0 auto;padding:8px 10px 8px 20px;background:var(--navbg);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.28)}
+.nl{gap:4px}
+.nl a{padding:7px 13px;border-radius:9px;transition:color .2s,background .2s}
+.nl a:hover{background:rgba(var(--tint),.06)}
+
+/* ================= HERO ================= */
+.hx{align-items:stretch;text-align:left;padding-top:118px;overflow:hidden}
+.hx>.wrap{width:100%}
+.hx-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center;flex:1}
+.hx-copy{position:relative;z-index:2}
+.hx-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.hx-badges .badge{margin:0}
+.hx-chip{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:5px 13px 5px 10px;border-radius:20px;color:#34d399;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.28)}
+.hx-chip .ico{width:14px;height:14px;stroke-width:2}
+.hx .hero-title{font-size:clamp(2.4rem,4.3vw,4.15rem);margin-bottom:14px}
+.hx .typed-wrap{margin-bottom:18px}
+.hx-lead{font-size:1.08rem;line-height:1.7;color:rgba(var(--txt),.78);max-width:540px;margin-bottom:30px}
+.hx-lead b{color:var(--text);font-weight:600}
+.hx .hero-btns{justify-content:flex-start;margin-bottom:34px}
+.hx .bp{box-shadow:0 10px 30px rgba(249,115,22,.28);transition:transform .25s var(--ease),box-shadow .25s,opacity .2s}
+.hx .bp:hover{box-shadow:0 16px 40px rgba(249,115,22,.4)}
+.hx .bp:active,.hx .bg:active{transform:scale(.97)}
+.hx-plat{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.hx-plat-l{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.hx-pl{font-family:var(--mono);font-size:.74rem;padding:5px 11px;border-radius:8px;background:rgba(var(--tint),.04);border:1px solid var(--border);color:rgba(var(--txt),.85);display:inline-flex;align-items:center;gap:6px;transition:border-color .2s,color .2s,transform .25s var(--ease)}
+.hx-pl i{width:6px;height:6px;border-radius:50%;background:var(--c,#f97316);box-shadow:0 0 8px var(--c,#f97316)}
+.hx-pl:hover{border-color:var(--c,#f97316);transform:translateY(-2px)}
+.hx .hstats{margin:54px 0 46px;max-width:none}
+.hx .hst+.hst::before{content:'';position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--border)}
+
+/* hero-визуал: живой коллаж результатов */
+.hx-vis{position:relative;height:500px;--px:0;--py:0}
+.hx-glow{position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.22),rgba(249,115,22,.05) 45%,transparent 70%);filter:blur(10px);animation:hxbreath 7s ease-in-out infinite}
+@keyframes hxbreath{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+.hx-orbit{--r:180px;position:absolute;left:50%;top:50%;width:calc(var(--r)*2);height:calc(var(--r)*2);margin:calc(var(--r)*-1) 0 0 calc(var(--r)*-1);border-radius:50%;border:1px dashed rgba(249,115,22,.22);animation:hxspin 60s linear infinite}
+.hx-orbit::after{content:'';position:absolute;inset:48px;border-radius:50%;border:1px solid rgba(var(--tint),.05)}
+.hx-o{position:absolute;left:50%;top:50%;transform:rotate(var(--a)) translate(var(--r)) rotate(calc(var(--a)*-1))}
+.hx-o span{display:block;transform:translate(-50%,-50%);animation:hxcounter 60s linear infinite;font-family:var(--mono);font-size:.64rem;font-weight:600;white-space:nowrap;padding:5px 10px;border-radius:20px;background:rgba(14,12,10,.92);border:1px solid rgba(255,255,255,.1);color:#e7e5e0;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.hx-o span b{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:1px}
+@keyframes hxspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes hxcounter{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.hx-card{position:absolute;z-index:2;border-radius:16px;background:linear-gradient(180deg,rgba(24,22,30,.94),rgba(13,12,17,.94));border:1px solid rgba(255,255,255,.1);box-shadow:0 24px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);color:#f0f0ef;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:translate(calc(var(--px)*var(--dp,10px)),calc(var(--py)*var(--dp,10px)));transition:transform .5s var(--ease)}
+.hx-card>div{animation:hxfloat 7s ease-in-out infinite;animation-delay:var(--fd,0s)}
+@keyframes hxfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.hx-cap{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:#8b8a9c;margin-bottom:10px}
+.hx-cap i{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.18);animation:pulse 2s infinite}
+/* карточка: чат бота */
+.hx-chat{left:0;top:18px;width:258px;padding:14px;--dp:14px}
+.hx-msg{font-size:.76rem;line-height:1.45;padding:8px 11px;border-radius:12px;margin-top:7px;max-width:88%;opacity:0;animation:hxmsg 9s var(--ease) infinite}
+.hx-msg.u{background:rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.hx-msg.b{margin-left:auto;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;border-bottom-right-radius:4px}
+.hx-msg:nth-child(2){animation-delay:.3s}.hx-msg:nth-child(3){animation-delay:1.4s}.hx-msg:nth-child(4){animation-delay:2.6s}
+@keyframes hxmsg{0%{opacity:0;transform:translateY(8px) scale(.96)}6%,88%{opacity:1;transform:none}95%,100%{opacity:0}}
+/* карточка: лид в CRM */
+.hx-crm{right:0;top:120px;width:236px;padding:14px 15px;--dp:22px;--fd:-2s}
+.hx-crm-n{font-weight:700;font-size:.92rem;margin-bottom:2px}
+.hx-crm-s{font-family:var(--mono);font-size:.64rem;color:#8b8a9c;margin-bottom:11px}
+.hx-crm-r{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;padding:6px 0;border-top:1px solid rgba(255,255,255,.06);color:#c9c7cf}
+.hx-crm-r b{font-weight:600;color:#f0f0ef}
+.hx-pill{font-family:var(--mono);font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:6px;background:rgba(52,211,153,.14);color:#34d399}
+/* карточка: терминал */
+.hx-term{left:26px;bottom:26px;width:268px;padding:13px 15px;font-family:var(--mono);font-size:.7rem;line-height:1.8;--dp:18px;--fd:-4s}
+.hx-term .p{color:#34d399}.hx-term .m{color:#8b8a9c}.hx-term .o{color:#fbbf24}
+.hx-term div{white-space:nowrap}
+.hx-caret{display:inline-block;width:6px;height:12px;background:#34d399;vertical-align:-2px;animation:blink .9s infinite}
+/* карточка: метрика */
+.hx-met{right:18px;bottom:52px;width:184px;padding:13px 15px;--dp:26px;--fd:-1s}
+.hx-met-v{font-family:'Syne',sans-serif;font-weight:900;font-size:1.7rem;letter-spacing:-.03em;line-height:1}
+.hx-met-v small{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;color:#8b8a9c;margin-left:3px}
+.hx-met svg{display:block;width:100%;height:34px;margin-top:8px}
+.hx-met path.l{fill:none;stroke:#f97316;stroke-width:2;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:220;animation:hxline 6s var(--ease) infinite}
+@keyframes hxline{0%{stroke-dashoffset:220}35%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:-220}}
+
+/* ================= УСЛУГИ (bento) ================= */
+.svc{padding-bottom:40px}
+.svc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.svc-head .ssub{max-width:440px}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(210px,auto);gap:14px}
+.svc-t{position:relative;overflow:hidden;border-radius:22px;padding:26px;background:rgba(var(--tint),.028);border:1px solid var(--border);display:flex;flex-direction:column;gap:10px;isolation:isolate;transition:transform .45s var(--ease),border-color .3s,background .3s}
+.svc-t::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(249,115,22,.13),transparent 45%);opacity:0;transition:opacity .35s}
+.svc-t:hover{transform:translateY(-4px);border-color:rgba(249,115,22,.32)}
+.svc-t:hover::before{opacity:1}
+.svc-ic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.22);color:var(--accent);margin-bottom:6px;transition:transform .45s var(--ease)}
+.svc-ic .ico{width:21px;height:21px}
+.svc-t:hover .svc-ic{transform:rotate(-6deg) scale(1.06)}
+.svc-t h3{font-family:'Syne',sans-serif;font-size:1.22rem;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.svc-t p{font-size:.92rem;line-height:1.6;color:rgba(var(--txt),.7)}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.svc-tags span{font-family:var(--mono);font-size:.66rem;padding:4px 9px;border-radius:7px;background:rgba(var(--tint),.05);border:1px solid var(--border);color:rgba(var(--txt),.72)}
+.svc-t--lg{grid-column:1/3;grid-row:1/3;padding:32px}
+.svc-t--lg h3{font-size:1.75rem}
+.svc-t--lg p{font-size:1rem;max-width:420px}
+.svc-t--nc{grid-column:3/5}
+.svc-t--self{grid-column:3/5;background:linear-gradient(135deg,rgba(52,211,153,.1),rgba(52,211,153,.02) 60%);border-color:rgba(52,211,153,.26)}
+.svc-t--self::before{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(52,211,153,.14),transparent 45%)}
+.svc-t--self:hover{border-color:rgba(52,211,153,.45)}
+.svc-t--self .svc-ic{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.3);color:#34d399}
+.svc-list{display:grid;gap:7px;margin-top:4px}
+.svc-list li{list-style:none;display:flex;gap:9px;font-size:.88rem;line-height:1.5;color:rgba(var(--txt),.8)}
+.svc-list li::before{content:'';flex-shrink:0;width:16px;height:16px;margin-top:2px;border-radius:50%;background:rgba(52,211,153,.15) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%2334d399' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.svc-row{display:flex;gap:18px;align-items:flex-start}
+.svc-row>.svc-ic{flex:none}
+.svc-row>div:not(.svc-ic){flex:1;min-width:0}
+.svc-t--self h3{margin-bottom:10px}
+/* платформы-конструкторы */
+.svc-plats{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 2px}
+.svc-plat{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:rgba(var(--tint),.05);border:1px solid var(--border);font-weight:700;font-size:.92rem;letter-spacing:-.01em;transition:border-color .25s,transform .35s var(--ease)}
+.svc-plat i{width:9px;height:9px;border-radius:3px;background:var(--c);box-shadow:0 0 12px var(--c)}
+.svc-plat:hover{border-color:var(--c);transform:translateY(-2px)}
+.svc-link{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;font-weight:600;color:var(--accent);margin-top:auto;width:fit-content;transition:gap .25s var(--ease)}
+.svc-link:hover{gap:10px}
+/* мини-чат в большой плитке */
+.svc-demo{margin-top:auto;display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:16px;background:rgba(0,0,0,.22);border:1px solid var(--border)}
+:root[data-theme="light"] .svc-demo{background:rgba(255,255,255,.6)}
+.svc-bub{font-size:.82rem;line-height:1.45;padding:9px 13px;border-radius:13px;max-width:80%;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.svc-bub.u{background:rgba(var(--tint),.07);border-bottom-left-radius:4px}
+.svc-bub.b{margin-left:auto;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;border-bottom-right-radius:4px}
+.svc-bub .kb{display:flex;gap:6px;margin-top:8px}
+.svc-bub .kb span{flex:1;text-align:center;font-size:.72rem;padding:5px 6px;border-radius:8px;background:rgba(255,255,255,.18)}
+.svc-t.in .svc-bub{opacity:1;transform:none}
+.svc-t.in .svc-bub:nth-child(2){transition-delay:.5s}.svc-t.in .svc-bub:nth-child(3){transition-delay:1.1s}
+
+/* ================= СТЕК (группы) ================= */
+.stk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.stk-g{position:relative;overflow:hidden;border-radius:20px;padding:22px;background:rgba(var(--tint),.025);border:1px solid var(--border);isolation:isolate;transition:border-color .3s,transform .45s var(--ease)}
+.stk-g::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(249,115,22,.1),transparent 45%);opacity:0;transition:opacity .35s}
+.stk-g:hover{border-color:rgba(249,115,22,.28);transform:translateY(-3px)}
+.stk-g:hover::before{opacity:1}
+.stk-h{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.02rem;margin-bottom:14px}
+.stk-h .ico{color:var(--accent);width:20px;height:20px}
+.stk-h small{margin-left:auto;font-family:var(--mono);font-size:.64rem;font-weight:500;color:var(--muted)}
+.stk-c{display:flex;flex-wrap:wrap;gap:7px}
+.stk-c span{font-family:var(--mono);font-size:.74rem;padding:6px 11px;border-radius:8px;background:rgba(var(--tint),.04);border:1px solid var(--border);color:rgba(var(--txt),.82);transition:border-color .2s,color .2s}
+.stk-c span:hover{border-color:rgba(249,115,22,.45);color:var(--accent)}
+.stk-g--nc{border-color:rgba(249,115,22,.28);background:linear-gradient(160deg,rgba(249,115,22,.09),rgba(var(--tint),.02) 60%)}
+.stk-g--nc .stk-c span{border-color:rgba(249,115,22,.3);color:var(--text)}
+
+/* ================= ПРОЦЕСС ================= */
+.pgrid{gap:14px}
+.pgrid::before{top:46px;transform:scaleX(0);transform-origin:0 50%;transition:transform 1.6s var(--ease)}
+.pgrid.go::before{transform:scaleX(1)}
+.pstep{padding:20px 18px 24px;border-radius:20px;background:rgba(var(--tint),.02);border:1px solid var(--border);transition:border-color .3s,transform .45s var(--ease)}
+.pstep:hover{border-color:rgba(249,115,22,.3);transform:translateY(-3px)}
+.pnum{box-shadow:0 0 0 6px var(--bg2),0 0 24px rgba(249,115,22,.25)}
+.ptit{font-size:1.08rem}
+.pdsc{font-size:.88rem;color:rgba(var(--txt),.68)}
+
+.pft{display:inline-flex;align-items:center;gap:7px}
+.pft .ico{width:15px;height:15px}
+
+/* ================= КОНТАКТ: иконки ================= */
+.fii{color:var(--text)}
+.fii .ico{width:18px;height:18px}
+.fsbtn .ico{width:17px;height:17px}
+.fsuccess-icon{display:flex;justify-content:center}
+.fsuccess-icon .ico{width:54px;height:54px;color:#34d399;stroke-width:1.6}
+
+/* ================= ФУТЕР ================= */
+.ft2{padding:0 0 26px;border-top:none}
+.ft2-cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:44px 48px;margin-bottom:54px;border-radius:26px;background:linear-gradient(120deg,rgba(249,115,22,.16),rgba(249,115,22,.04) 55%,rgba(var(--tint),.02));border:1px solid rgba(249,115,22,.28)}
+.ft2-cta::after{content:'';position:absolute;right:-80px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.22),transparent 70%);pointer-events:none}
+.ft2-cta h3{position:relative;font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.035em;line-height:1.08}
+.ft2-cta h3 span{color:var(--accent)}
+.ft2-cta .bp{position:relative;box-shadow:0 12px 34px rgba(249,115,22,.32)}
+.ft2-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;padding-bottom:34px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.ft2-cols h4{font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.ft2-cols a,.ft2-cols .ft2-t{display:block;font-size:.9rem;color:rgba(var(--txt),.78);margin-bottom:9px;transition:color .2s}
+.ft2-cols a:hover{color:var(--accent)}
+.ft2-about p{font-size:.88rem;line-height:1.65;color:rgba(var(--txt),.66);margin-top:12px;max-width:280px}
+.ft2-badge{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:.74rem;font-weight:700;padding:6px 12px;border-radius:10px;color:#34d399;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.26)}
+.ft2-badge .ico{width:14px;height:14px}
+.ft2-plats{display:flex;flex-wrap:wrap;gap:6px}
+.ft2-plats span{font-family:var(--mono);font-size:.68rem;padding:4px 9px;border-radius:7px;border:1px solid var(--border);color:rgba(var(--txt),.75)}
+
+/* ================= адаптив редизайна ================= */
+@media(max-width:1080px){
+  .hx-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .hx-vis{transform:scale(.9);transform-origin:center}
+}
+@media(max-width:900px){
+  nav.s .ni{width:calc(100% - 20px);padding:7px 8px 7px 16px}
+  .hx{padding-top:100px}
+  .hx-grid{grid-template-columns:1fr;gap:10px}
+  .hx-vis{height:430px;max-width:520px;width:100%;margin:0 auto;transform:none}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc-t--lg{grid-column:1/3;grid-row:auto}
+  .svc-t--nc,.svc-t--self{grid-column:1/3}
+  .stk-grid{grid-template-columns:1fr 1fr}
+  .ft2-cols{grid-template-columns:1fr 1fr}
+  .ft2-cta{padding:34px 30px}
+  .pgrid::before{display:none}
+}
+@media(max-width:600px){
+  .hx .hero-title{font-size:clamp(2.3rem,10vw,3.2rem)}
+  .hx-lead{font-size:.98rem}
+  .hx .hero-btns{align-items:stretch}
+  .hx .bp,.hx .bg{max-width:none}
+  .hx-vis{height:470px;overflow:hidden;border-radius:20px}
+  .hx-orbit{--r:140px}
+  .hx-chat{width:232px;left:0;top:4px}
+  .hx-crm{width:198px;top:186px;right:0}
+  .hx-term{width:236px;left:0;bottom:6px;font-size:.64rem}
+  .hx-met{display:none}
+  .hx .hstats{margin:28px 0 34px}
+  .svc-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+  .svc-t--lg,.svc-t--nc,.svc-t--self{grid-column:auto}
+  .svc-t,.svc-t--lg{padding:22px}
+  .svc-t--lg h3{font-size:1.4rem}
+  .svc-row{flex-direction:column;gap:8px}
+  .stk-grid{grid-template-columns:1fr}
+  .ft2-cols{grid-template-columns:1fr;gap:26px}
+  .ft2-cta{padding:28px 22px;border-radius:20px}
+  .ft2-cta .bp{width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .hx-glow,.hx-orbit,.hx-o span,.hx-card>div,.hx-msg,.hx-met path.l,.hx-caret{animation:none}
+  .hx-msg{opacity:1}
+  .hx-met path.l{stroke-dashoffset:0}
+  .hx-card{transform:none}
+  .svc-bub{opacity:1;transform:none}
+  .pgrid::before{transform:none;transition:none}
+}
 </style>
 <script>(function(){try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}})();</script>
 </head>
@@ -848,6 +1083,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap ni">
     <div class="logo">lev<em>.</em>dev</div>
     <div class="nl">
+      <a href="#services">Услуги</a>
       <a href="#projects">Проекты</a>
       <a href="#process">Процесс</a>
       <a href="#stack">Стек</a>
@@ -864,15 +1100,67 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   </div>
 </nav>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="badge"><div class="dot"></div>Открыт к заказам</div>
-    <h1 class="hero-title"><span id="hl1">Технический</span><br><span id="hl2" class="ac">специалист</span><span id="hcur" class="hcur"></span></h1>
-    <div class="typed-wrap"><span id="tspan"></span><span class="tcursor">█</span></div>
-    <div class="hero-btns">
-      <a href="#projects" class="bp">Смотреть проекты →</a>
-      <a href="#contact" class="bg bform">Оставить заявку</a>
+<section class="hero hx">
+  <div class="wrap hx-grid">
+    <div class="hx-copy">
+      <div class="hx-badges">
+        <div class="badge"><div class="dot"></div>Открыт к заказам</div>
+        <span class="hx-chip"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Самозанятый · договор и чек</span>
+      </div>
+      <h1 class="hero-title"><span id="hl1">Боты, которые</span><br><span id="hl2" class="ac">работают</span><span id="hcur" class="hcur"></span></h1>
+      <div class="typed-wrap"><span id="tspan"></span><span class="tcursor">█</span></div>
+      <p class="hx-lead">Делаю <b>Telegram-ботов</b> и Mini Apps, автоматизирую рутину, связываю <b>1С и CRM</b>, настраиваю и чиню ботов на <b>WatBot, BotHelp и SaleBot</b>. Под ключ — от задачи до поддержки.</p>
+      <div class="hero-btns">
+        <a href="#services" class="bp">Что я делаю →</a>
+        <a href="#contact" class="bg bform">Оставить заявку</a>
+      </div>
+      <div class="hx-plat">
+        <span class="hx-plat-l">Работаю с</span>
+        <span class="hx-pl" style="--c:#29b6f6"><i></i>Telegram</span>
+        <span class="hx-pl" style="--c:#fb923c"><i></i>WatBot</span>
+        <span class="hx-pl" style="--c:#60a5fa"><i></i>BotHelp</span>
+        <span class="hx-pl" style="--c:#a78bfa"><i></i>SaleBot</span>
+        <span class="hx-pl" style="--c:#fbbf24"><i></i>1С</span>
+        <span class="hx-pl" style="--c:#2dd4bf"><i></i>Bitrix24</span>
+      </div>
     </div>
+    <div class="hx-vis" aria-hidden="true">
+      <div class="hx-glow"></div>
+      <div class="hx-orbit">
+        <div class="hx-o" style="--a:-90deg"><span><b style="--c:#fb923c"></b>WatBot</span></div>
+        <div class="hx-o" style="--a:-30deg"><span><b style="--c:#3776ab"></b>Python</span></div>
+        <div class="hx-o" style="--a:30deg"><span><b style="--c:#60a5fa"></b>BotHelp</span></div>
+        <div class="hx-o" style="--a:90deg"><span><b style="--c:#fbbf24"></b>1С</span></div>
+        <div class="hx-o" style="--a:150deg"><span><b style="--c:#a78bfa"></b>SaleBot</span></div>
+        <div class="hx-o" style="--a:210deg"><span><b style="--c:#29b6f6"></b>aiogram</span></div>
+      </div>
+      <div class="hx-card hx-chat"><div>
+        <div class="hx-cap"><i></i>@delivery_bot · онлайн</div>
+        <div class="hx-msg u">Сколько стоит доставка 500 кг из Китая?</div>
+        <div class="hx-msg b">Посчитал: ~25–35 дней. Передаю менеджеру — заявка №248</div>
+        <div class="hx-msg u">Супер, жду 👍</div>
+      </div></div>
+      <div class="hx-card hx-crm"><div>
+        <div class="hx-cap"><i></i>Bitrix24 · новый лид</div>
+        <div class="hx-crm-n">Заявка №248</div>
+        <div class="hx-crm-s">источник: Telegram-бот</div>
+        <div class="hx-crm-r"><span>Груз</span><b>500 кг</b></div>
+        <div class="hx-crm-r"><span>Статус</span><span class="hx-pill">в работе</span></div>
+      </div></div>
+      <div class="hx-card hx-term"><div>
+        <div><span class="p">$</span> python radar.py</div>
+        <div class="m">сканирую 42 чата…</div>
+        <div><span class="o">+37</span> новых заказов</div>
+        <div><span class="p">✓</span> отправлено в Telegram <span class="hx-caret"></span></div>
+      </div></div>
+      <div class="hx-card hx-met"><div>
+        <div class="hx-cap">Отчёт из 1С</div>
+        <div class="hx-met-v">2,4<small>сек</small></div>
+        <svg viewBox="0 0 150 34" preserveAspectRatio="none"><path class="l" d="M2,28 C18,26 24,18 38,20 S60,8 76,13 S100,4 114,8 S136,2 148,4"/></svg>
+      </div></div>
+    </div>
+  </div>
+  <div class="wrap">
     <div class="hstats">
       <div class="hst"><span class="hsc" data-count="15">0</span><span class="hsl">проектов</span></div>
       <div class="hst"><span class="hsc" data-count="14" data-post="★">0</span><span class="hsl">отзывов</span></div>
@@ -884,16 +1172,89 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     <div class="ticker">
       <div class="ti">
         <span>Python</span><span>aiogram</span><span>Telethon</span><span>FastAPI</span>
-        <span>Mini App</span><span>Парсинг</span><span>Воронки продаж</span><span>APScheduler</span>
-        <span>SQLite</span><span>HTML / CSS</span><span>openpyxl</span><span>Автоматизация</span>
-        <span>Userbot</span><span>REST API</span><span>Лендинги</span>
+        <span>WatBot</span><span>BotHelp</span><span>SaleBot</span><span>Mini App</span>
+        <span>Воронки продаж</span><span>1С</span><span>Bitrix24</span><span>amoCRM</span>
+        <span>Парсинг</span><span>Автоматизация</span><span>REST API</span><span>Лендинги</span>
       </div>
       <div class="ti">
         <span>Python</span><span>aiogram</span><span>Telethon</span><span>FastAPI</span>
-        <span>Mini App</span><span>Парсинг</span><span>Воронки продаж</span><span>APScheduler</span>
-        <span>SQLite</span><span>HTML / CSS</span><span>openpyxl</span><span>Автоматизация</span>
-        <span>Userbot</span><span>REST API</span><span>Лендинги</span>
+        <span>WatBot</span><span>BotHelp</span><span>SaleBot</span><span>Mini App</span>
+        <span>Воронки продаж</span><span>1С</span><span>Bitrix24</span><span>amoCRM</span>
+        <span>Парсинг</span><span>Автоматизация</span><span>REST API</span><span>Лендинги</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sh svc" id="services">
+  <div class="wrap">
+    <div class="svc-head">
+      <div>
+        <div class="slabel">Услуги</div>
+        <h2 class="stitle rv">Что я делаю</h2>
+      </div>
+      <p class="ssub rv">От Telegram-бота под ключ до починки чужой воронки на конструкторе. Беру задачу целиком — от ТЗ до поддержки.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-t svc-t--lg rv">
+        <div class="svc-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div>
+        <h3>Telegram-боты и Mini Apps</h3>
+        <p>Боты для продаж, записи, поддержки и внутренней кухни компании. Оплата через Telegram Stars, админки, рассылки, Mini Apps с интерфейсом как у приложения.</p>
+        <div class="svc-demo" aria-hidden="true">
+          <div class="svc-bub u">Хочу записаться на маникюр</div>
+          <div class="svc-bub b">Свободно сегодня в 15:00 и 18:30<div class="kb"><span>15:00</span><span>18:30</span></div></div>
+          <div class="svc-bub b">✓ Записал! Напомню за 2 часа</div>
+        </div>
+        <div class="svc-tags"><span>aiogram 3</span><span>FastAPI</span><span>Mini Apps</span><span>Telegram Stars</span><span>Userbot</span></div>
+      </article>
+      <article class="svc-t svc-t--nc rv" style="transition-delay:.06s">
+        <div class="svc-ic"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
+        <h3>Боты на конструкторах</h3>
+        <div class="svc-plats">
+          <span class="svc-plat" style="--c:#fb923c"><i></i>WatBot</span>
+          <span class="svc-plat" style="--c:#60a5fa"><i></i>BotHelp</span>
+          <span class="svc-plat" style="--c:#a78bfa"><i></i>SaleBot</span>
+        </div>
+        <p>Настраиваю, дорабатываю и чиню ботов на no-code платформах: воронки, автоворонки, оплаты, ИИ-блоки, интеграции. Беру и чужих ботов, которые «не работают».</p>
+        <a class="svc-link" href="#case-watbot">Кейс: реанимация бота на WatBot за день →</a>
+      </article>
+      <article class="svc-t rv" style="transition-delay:.12s">
+        <div class="svc-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <h3>Автоматизация и парсинг</h3>
+        <p>Парсеры заказов и лидов, рассылки, отчёты по расписанию — чтобы рутина делалась сама.</p>
+        <div class="svc-tags"><span>Telethon</span><span>Парсинг</span><span>Cron</span></div>
+      </article>
+      <article class="svc-t rv" style="transition-delay:.18s">
+        <div class="svc-ic"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>1С и данные</h3>
+        <p>Выгрузки из 1С, отчёты для руководителя в Excel, перенос данных в PostgreSQL.</p>
+        <div class="svc-tags"><span>1С</span><span>PostgreSQL</span><span>Excel</span></div>
+      </article>
+      <article class="svc-t rv" style="transition-delay:.06s">
+        <div class="svc-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></div>
+        <h3>Интеграции с CRM</h3>
+        <p>Лиды с сайтов и ботов — сразу в Bitrix24, amoCRM или почту. Без ручного копирования.</p>
+        <div class="svc-tags"><span>Bitrix24</span><span>amoCRM</span><span>REST API</span></div>
+      </article>
+      <article class="svc-t rv" style="transition-delay:.12s">
+        <div class="svc-ic"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Лендинги и сайты</h3>
+        <p>Быстрые адаптивные лендинги на чистом коде — с анимацией и заявками прямо в Telegram.</p>
+        <div class="svc-tags"><span>HTML / CSS</span><span>JS</span><span>Адаптив</span></div>
+      </article>
+      <article class="svc-t svc-t--self rv" style="transition-delay:.18s">
+        <div class="svc-row">
+          <div class="svc-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+          <div>
+            <h3>Работаю официально — самозанятый</h3>
+            <ul class="svc-list">
+              <li>Чек из «Мой налог» на каждую оплату</li>
+              <li>Договор на работу — по запросу</li>
+              <li>Компаниям и ИП удобно: без НДФЛ и страховых взносов</li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -907,11 +1268,11 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
-      <button class="pft" data-filter="miniapp">📱 Mini App</button>
-      <button class="pft" data-filter="bot">🤖 Боты</button>
-      <button class="pft" data-filter="parser">🔍 Парсеры</button>
-      <button class="pft" data-filter="landing">🌐 Лендинги</button>
-      <button class="pft" data-filter="server">🛠 Сервер / Данные</button>
+      <button class="pft" data-filter="miniapp"><svg class="ico" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>Mini App</button>
+      <button class="pft" data-filter="bot"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 13v1M15 13v1"/></svg>Боты</button>
+      <button class="pft" data-filter="parser"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Парсеры</button>
+      <button class="pft" data-filter="landing"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Лендинги</button>
+      <button class="pft" data-filter="server"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>Сервер / Данные</button>
     </div>
   </div>
 </section>
@@ -1556,7 +1917,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   </div>
 </section>
 
-<section class="ps" data-category="bot">
+<section class="ps" data-category="bot" id="case-watbot">
   <div class="psbg">15</div>
   <div class="wrap pi">
     <div class="rv">
@@ -1626,7 +1987,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
       <div class="pstep rv"><div class="pnum">01</div><div class="ptit">Обсуждение</div><p class="pdsc">Выясняю задачу, стек и сроки. Без воды — сразу по делу.</p></div>
       <div class="pstep rv"><div class="pnum">02</div><div class="ptit">Разработка</div><p class="pdsc">Пишу чистый, рабочий код. Промежуточные демо по желанию.</p></div>
       <div class="pstep rv"><div class="pnum">03</div><div class="ptit">Тест и правки</div><p class="pdsc">Проверяю сам, отдаю на тест. Правки без доплат за мелочи.</p></div>
-      <div class="pstep rv"><div class="pnum">04</div><div class="ptit">Сдача</div><p class="pdsc">Деплой, код, инструкция. Поддержка после — если что-то пойдёт не так.</p></div>
+      <div class="pstep rv"><div class="pnum">04</div><div class="ptit">Сдача</div><p class="pdsc">Деплой, код, инструкция и чек самозанятого. Поддержка после — если что-то пойдёт не так.</p></div>
     </div>
   </div>
 </section>
@@ -1635,15 +1996,32 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   <div class="wrap">
     <div class="slabel">Технологии</div>
     <h2 class="stitle rv">Мой стек</h2>
-    <p class="ssub rv">С чем работаю каждый день — от Telegram-ботов до серверов, CRM и веба.</p>
-    <div class="schips">
-      <div class="sch">Python 3.11+</div><div class="sch">aiogram 3.x</div><div class="sch">Telethon</div>
-      <div class="sch">FastAPI</div><div class="sch">SQLite / aiosqlite</div><div class="sch">APScheduler</div>
-      <div class="sch">Telegram Bot API</div><div class="sch">Telegram Mini App</div><div class="sch">openpyxl</div>
-      <div class="sch">HTML5 / CSS3</div><div class="sch">Vanilla JS</div><div class="sch">Cloudflare Tunnel</div>
-      <div class="sch">Git / GitHub</div><div class="sch">Linux / VPS</div><div class="sch">Pydantic</div><div class="sch">httpx</div>
-      <div class="sch">1С</div><div class="sch">1С-Битрикс</div>
-      <div class="sch">Java</div><div class="sch">Spring / Spring Boot</div><div class="sch">Maven / Gradle</div><div class="sch">Hibernate / JPA</div>
+    <p class="ssub rv">С чем работаю каждый день — от Telegram-ботов и конструкторов до серверов, 1С и CRM.</p>
+    <div class="stk-grid">
+      <div class="stk-g rv">
+        <div class="stk-h"><svg class="ico" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>Telegram<small>6</small></div>
+        <div class="stk-c"><span>aiogram 3</span><span>Telethon</span><span>Bot API</span><span>Mini Apps</span><span>Telegram Stars</span><span>Userbot</span></div>
+      </div>
+      <div class="stk-g stk-g--nc rv" style="transition-delay:.06s">
+        <div class="stk-h"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg>Конструкторы ботов<small>no-code</small></div>
+        <div class="stk-c"><span>WatBot</span><span>BotHelp</span><span>SaleBot</span><span>Автоворонки</span><span>ИИ-блоки</span></div>
+      </div>
+      <div class="stk-g rv" style="transition-delay:.12s">
+        <div class="stk-h"><svg class="ico" viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>Бэкенд<small>8</small></div>
+        <div class="stk-c"><span>Python 3.11+</span><span>FastAPI</span><span>Pydantic</span><span>httpx</span><span>APScheduler</span><span>Java</span><span>Spring Boot</span><span>Hibernate</span></div>
+      </div>
+      <div class="stk-g rv">
+        <div class="stk-h"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>Данные и 1С<small>6</small></div>
+        <div class="stk-c"><span>1С</span><span>PostgreSQL</span><span>SQLite</span><span>openpyxl</span><span>Excel COM</span><span>PowerShell</span></div>
+      </div>
+      <div class="stk-g rv" style="transition-delay:.06s">
+        <div class="stk-h"><svg class="ico" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>CRM и интеграции<small>5</small></div>
+        <div class="stk-c"><span>Bitrix24 API</span><span>amoCRM API</span><span>1С-Битрикс</span><span>Google Apps Script</span><span>Claude API</span></div>
+      </div>
+      <div class="stk-g rv" style="transition-delay:.12s">
+        <div class="stk-h"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Веб и DevOps<small>6</small></div>
+        <div class="stk-c"><span>HTML / CSS / JS</span><span>Linux / VPS</span><span>Nginx</span><span>Cloudflare Tunnel</span><span>Git / GitHub</span><span>GitHub Actions</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1845,11 +2223,11 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
               <label class="flabel" for="fMsg">Сообщение</label>
               <textarea class="ftarea" id="fMsg" placeholder="Нужен бот для рассылки, который умеет..."></textarea>
             </div>
-            <button class="fsbtn" id="fSubmit">✈️ Отправить в Telegram</button>
+            <button class="fsbtn" id="fSubmit"><svg class="ico" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>Отправить в Telegram</button>
             <p class="fhint">Откроется Telegram с готовым сообщением</p>
           </div>
           <div class="fsuccess" id="fSuccess">
-            <span class="fsuccess-icon">🚀</span>
+            <span class="fsuccess-icon"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg></span>
             <h3>Сообщение готово!</h3>
             <p>Telegram открылся с вашим сообщением.<br>Жду вас там!</p>
             <button onclick="document.getElementById('fSuccess').classList.remove('show');document.getElementById('fFormWrap').classList.remove('hide')" style="margin-top:20px;padding:10px 24px;border-radius:8px;background:rgba(var(--tint),.05);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:.85rem">Отправить ещё</button>
@@ -1858,27 +2236,27 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
         <div class="fright">
           <div class="finfo">
             <a href="https://t.me/levv_ddev" target="_blank" class="finfo-item finfo-link">
-              <div class="fii" style="background:rgba(41,182,246,.1)">✈️</div>
+              <div class="fii" style="background:rgba(41,182,246,.12);color:#29b6f6"><svg class="ico" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div>
               <div class="finfo-tx"><span class="fit">Telegram</span><span class="fiv">@levv_ddev</span></div>
               <svg class="finfo-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
             <a href="mailto:lev_dev@inbox.ru" class="finfo-item finfo-link">
-              <div class="fii" style="background:rgba(249,115,22,.1)">✉️</div>
+              <div class="fii" style="background:rgba(249,115,22,.12);color:#f97316"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="M3 6l9 7 9-7"/></svg></div>
               <div class="finfo-tx"><span class="fit">Email</span><span class="fiv">lev_dev@inbox.ru</span></div>
               <svg class="finfo-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
             <a href="https://kwork.ru/user/lev_dev" target="_blank" class="finfo-item finfo-link">
-              <div class="fii" style="background:rgba(52,211,153,.1)">💼</div>
+              <div class="fii" style="background:rgba(52,211,153,.12);color:#34d399"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div>
               <div class="finfo-tx"><span class="fit">Kwork</span><span class="fiv">kwork.ru/user/lev_dev</span></div>
               <svg class="finfo-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
             <div class="finfo-item">
-              <div class="fii" style="background:rgba(251,191,36,.1)">⚡</div>
+              <div class="fii" style="background:rgba(251,191,36,.12);color:#fbbf24"><svg class="ico" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
               <div class="finfo-tx"><span class="fit">Скорость ответа</span><span class="fiv">Обычно &lt; 1 часа</span></div>
             </div>
             <div class="finfo-item">
-              <div class="fii" style="background:rgba(167,139,250,.1)">🌍</div>
-              <div class="finfo-tx"><span class="fit">Часовой пояс</span><span class="fiv">МСК (UTC+3)</span></div>
+              <div class="fii" style="background:rgba(52,211,153,.12);color:#34d399"><svg class="ico" viewBox="0 0 24 24"><path d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+              <div class="finfo-tx"><span class="fit">Статус</span><span class="fiv">Самозанятый · МСК (UTC+3)</span></div>
             </div>
           </div>
           <div class="fguarantees">
@@ -1886,6 +2264,7 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
             <div class="fg">Отвечаю в течение часа в рабочее время</div>
             <div class="fg">Бесплатная консультация по задаче</div>
             <div class="fg">Фиксированная стоимость без скрытых доплат</div>
+            <div class="fg">Официально: самозанятый, чек на каждую оплату</div>
             <div class="fg">Поддержка после сдачи проекта</div>
           </div>
         </div>
@@ -1894,9 +2273,37 @@ footer{padding:26px 0;border-top:1px solid var(--border);position:relative;z-ind
   </div>
 </section>
 
-<footer>
-  <div class="wrap fi">
-    <span>© <span id="fyear">2026</span> <span class="ac">Лев</span> — Технический специалист</span>
+<footer class="ft2">
+  <div class="wrap">
+    <div class="ft2-cta rv">
+      <h3>Есть задача?<br><span>Давайте обсудим.</span></h3>
+      <a href="https://t.me/levv_ddev" target="_blank" rel="noopener" class="bp">Написать в Telegram →</a>
+    </div>
+    <div class="ft2-cols">
+      <div class="ft2-about">
+        <div class="logo">lev<em>.</em>dev</div>
+        <p>Telegram-боты, автоматизация, интеграции с 1С и CRM. Отвечаю в течение часа.</p>
+        <span class="ft2-badge"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Самозанятый (НПД)</span>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <a href="#services">Услуги</a><a href="#projects">Проекты</a><a href="#process">Процесс</a><a href="#reviews">Отзывы</a>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <a href="https://t.me/levv_ddev" target="_blank" rel="noopener">Telegram · @levv_ddev</a>
+        <a href="mailto:lev_dev@inbox.ru">lev_dev@inbox.ru</a>
+        <a href="https://kwork.ru/user/lev_dev" target="_blank" rel="noopener">Kwork · lev_dev</a>
+      </div>
+      <div>
+        <h4>Платформы</h4>
+        <div class="ft2-plats"><span>Telegram</span><span>WatBot</span><span>BotHelp</span><span>SaleBot</span><span>1С</span><span>Bitrix24</span><span>amoCRM</span></div>
+      </div>
+    </div>
+    <div class="fi">
+      <span>© <span id="fyear">2026</span> <span class="ac">Лев</span> — Telegram-боты и автоматизация</span>
+      <span>Работаю официально · чек на каждую оплату</span>
+    </div>
   </div>
 </footer>
 
@@ -2952,7 +3359,7 @@ onScroll();
 })();
 
 (function(){
-  const HP=[['Технический','специалист'],['Telegram','dev'],['lev','dev']];
+  const HP=[['Боты, которые','работают'],['Автоматизация','без рутины'],['Telegram','под ключ']];
   const hl1=document.getElementById('hl1'),hl2=document.getElementById('hl2'),hcur=document.getElementById('hcur');
   if(!hl1||!hl2||!hcur)return;
   const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -2974,7 +3381,7 @@ onScroll();
   })();
 })();
 
-const phrases=['Пишу ботов, которые работают →','Mini Apps внутри Telegram →','Парсеры, рассылки, автоматизация →','FastAPI + aiogram + Telethon →'];
+const phrases=['aiogram + FastAPI + Telethon →','WatBot · BotHelp · SaleBot →','1С и CRM без ручной работы →','Mini Apps внутри Telegram →'];
 let pi=0,ci=0,del=false;
 const tel=document.getElementById('tspan');
 function tstep(){
@@ -3108,7 +3515,37 @@ const so=new IntersectionObserver(es=>{
     }
   });
 },{threshold:.1});
-document.querySelectorAll('.pgrid,.schips').forEach(el=>so.observe(el));
+document.querySelectorAll('.pgrid').forEach(el=>so.observe(el));
+new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('go');o.unobserve(e.target)}})},{threshold:.3}).observe(document.querySelector('.pgrid')||document.body);
+
+// Spotlight за курсором на bento-плитках
+(function(){
+  if(!matchMedia('(hover:hover)').matches)return;
+  document.querySelectorAll('.svc-t,.stk-g').forEach(el=>{
+    el.addEventListener('pointermove',e=>{
+      const r=el.getBoundingClientRect();
+      el.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      el.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+})();
+
+// Параллакс карточек в hero
+(function(){
+  const hx=document.querySelector('.hx'),vis=document.querySelector('.hx-vis');
+  if(!hx||!vis)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(hover:hover)').matches)return;
+  let raf=0;
+  hx.addEventListener('pointermove',e=>{
+    if(raf)return;
+    raf=requestAnimationFrame(()=>{
+      raf=0;
+      vis.style.setProperty('--px',((e.clientX/innerWidth)-.5)*2);
+      vis.style.setProperty('--py',((e.clientY/innerHeight)-.5)*2);
+    });
+  });
+  hx.addEventListener('pointerleave',()=>{vis.style.setProperty('--px',0);vis.style.setProperty('--py',0)});
+})();
 
 (function(){
   const els=document.querySelectorAll('.hsc[data-count]');
