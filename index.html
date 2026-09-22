@@ -889,10 +889,10 @@ nav.s .ni{max-width:1100px;width:calc(100% - 32px);margin:0 auto;padding:8px 10p
 .hx-pl i{width:6px;height:6px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
 .hx-pl:hover{border-color:var(--c);transform:translateY(-2px)}
 /* сцена справа: отзыв + карточки реальных проектов */
-.hx-stage{position:relative;height:540px;--px:0;--py:0}
+.hx-stage{position:relative;height:600px;--px:0;--py:0}
 .hx-glow{position:absolute;left:50%;top:50%;width:440px;height:440px;margin:-220px 0 0 -220px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.2),rgba(249,115,22,.05) 45%,transparent 70%);filter:blur(12px);animation:hxbreath 7s ease-in-out infinite;pointer-events:none}
 @keyframes hxbreath{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.08);opacity:1}}
-.hx-stage .hx-proof{position:absolute;left:50%;top:78px;width:min(400px,92%);margin-left:max(-200px,-46%);z-index:2}
+.hx-stage .hx-proof{position:absolute;left:50%;top:84px;width:min(400px,92%);margin-left:max(-200px,-46%);z-index:2}
 .hx-fc{position:absolute;z-index:3;display:flex;flex-direction:column;gap:4px;padding:13px 15px;border-radius:16px;background:linear-gradient(180deg,rgba(26,24,32,.96),rgba(14,13,18,.96));border:1px solid rgba(255,255,255,.1);box-shadow:0 22px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);color:#f0f0ef;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;animation:hxw .9s var(--ease) forwards,hxfl 7s ease-in-out infinite;animation-delay:var(--in,.9s),var(--fd,0s);translate:calc(var(--px)*var(--dp,12px)) calc(var(--py)*var(--dp,12px));transition:translate .5s var(--ease),border-color .25s,box-shadow .25s}
 .hx-fc:hover{border-color:rgba(249,115,22,.55);box-shadow:0 26px 60px rgba(0,0,0,.55),0 0 0 4px rgba(249,115,22,.12)}
 @keyframes hxfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -907,8 +907,8 @@ nav.s .ni{max-width:1100px;width:calc(100% - 32px);margin:0 auto;padding:8px 10p
 .hx-fc svg path{fill:none;stroke:#f97316;stroke-width:2;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:220;animation:hxline 6s var(--ease) infinite}
 @keyframes hxline{0%{stroke-dashoffset:220}35%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:-220}}
 .hx-fc--a{right:-6px;top:6px;--in:.9s}
-.hx-fc--b{left:-18px;top:432px;--in:1.05s}
-.hx-fc--c{right:10px;top:448px;--in:1.2s}
+.hx-fc--b{left:-18px;top:476px;--in:1.05s}
+.hx-fc--c{right:10px;top:490px;--in:1.2s}
 @media(max-width:1080px){.hx-fc--b{left:0}.hx-fc--a{right:0}}
 @media(max-width:900px){
   .hx-stage{height:auto;display:flex;flex-direction:column;gap:12px}
@@ -922,6 +922,36 @@ nav.s .ni{max-width:1100px;width:calc(100% - 32px);margin:0 auto;padding:8px 10p
 }
 @media(max-width:600px){.hx-stage{grid-template-columns:1fr}.hx-fc--c svg{width:100%}}
 @media(prefers-reduced-motion:reduce){.hx-fc,.hx-plat,.hx-glow,.hx-fc svg path{animation:none;opacity:1;transform:none;stroke-dashoffset:0}}
+/* фон сцены: точечная сетка + тёплая подсветка */
+.hx-stage::before{content:'';position:absolute;inset:-60px -40px;background-image:radial-gradient(rgba(var(--tint),.16) 1px,transparent 1.3px);background-size:22px 22px;-webkit-mask:radial-gradient(closest-side,#000 25%,transparent 78%);mask:radial-gradient(closest-side,#000 25%,transparent 78%);pointer-events:none}
+.hx-glow{width:520px;height:520px;margin:-260px 0 0 -260px;background:radial-gradient(circle,rgba(249,115,22,.28),rgba(249,115,22,.07) 45%,transparent 70%)}
+/* орбита — лёгкая */
+.hx-orbit{--r:246px;position:absolute;left:50%;top:50%;width:calc(var(--r)*2);height:calc(var(--r)*2);margin:calc(var(--r)*-1) 0 0 calc(var(--r)*-1);border-radius:50%;border:1px dashed rgba(249,115,22,.16);animation:hxspin 90s linear infinite;pointer-events:none}
+.hx-o{position:absolute;left:50%;top:50%;transform:rotate(var(--a)) translate(var(--r)) rotate(calc(var(--a)*-1))}
+.hx-o span{display:block;transform:translate(-50%,-50%);animation:hxcounter 90s linear infinite;font-family:var(--mono);font-size:.62rem;font-weight:600;white-space:nowrap;padding:4px 9px;border-radius:20px;background:rgba(18,16,20,.78);border:1px solid rgba(255,255,255,.08);color:rgba(240,240,239,.72)}
+.hx-o span b{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:1px}
+@keyframes hxspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes hxcounter{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+/* ротация отзывов */
+.hx-revs{display:grid}
+.hx-rev{grid-area:1/1;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .6s var(--ease);pointer-events:none}
+.hx-rev.on{opacity:1;transform:none;pointer-events:auto}
+.hx-dots{display:flex;gap:6px;margin-top:16px}
+.hx-dots button{width:7px;height:7px;padding:0;border:none;border-radius:4px;background:rgba(var(--tint),.18);cursor:pointer;transition:width .35s var(--ease),background .3s}
+.hx-dots button.on{width:22px;background:var(--accent)}
+.hx-dots button:hover{background:rgba(249,115,22,.6)}
+/* светлая тема hero */
+:root[data-theme="light"] .hx-proof{background:#fff;box-shadow:0 24px 60px rgba(18,20,32,.1)}
+:root[data-theme="light"] .hx-fc{background:#fff;border-color:rgba(18,20,32,.09);color:#16181f;box-shadow:0 18px 44px rgba(18,20,32,.13)}
+:root[data-theme="light"] .hx-fc:hover{border-color:rgba(234,88,12,.5);box-shadow:0 22px 50px rgba(18,20,32,.16),0 0 0 4px rgba(234,88,12,.1)}
+:root[data-theme="light"] .hx-fc-k,:root[data-theme="light"] .hx-fc-v small{color:#6b7080}
+:root[data-theme="light"] .hx-fc-s{color:#4b5060}
+:root[data-theme="light"] .hx-fc-ok{color:#059669}
+:root[data-theme="light"] .hx-glow{background:radial-gradient(circle,rgba(249,115,22,.16),rgba(249,115,22,.04) 45%,transparent 70%)}
+:root[data-theme="light"] .hx-orbit{border-color:rgba(234,88,12,.2)}
+:root[data-theme="light"] .hx-o span{background:rgba(255,255,255,.9);color:#3a3d4a;border-color:rgba(18,20,32,.1)}
+@media(max-width:900px){.hx-orbit,.hx-stage::before{display:none}}
+@media(prefers-reduced-motion:reduce){.hx-orbit,.hx-o span{animation:none}.hx-rev{transition:none}}
 
 /* ================= УСЛУГИ (bento) ================= */
 .svc{padding-bottom:40px}
@@ -1012,12 +1042,12 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 .fsuccess-icon .ico{width:54px;height:54px;color:#34d399;stroke-width:1.6}
 
 /* ================= ФУТЕР ================= */
-.ft2{padding:0 0 26px;border-top:none}
-.ft2-cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:44px 48px;margin-bottom:54px;border-radius:26px;background:linear-gradient(120deg,rgba(249,115,22,.16),rgba(249,115,22,.04) 55%,rgba(var(--tint),.02));border:1px solid rgba(249,115,22,.28)}
-.ft2-cta::after{content:'';position:absolute;right:-80px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.22),transparent 70%);pointer-events:none}
+.ft2{padding:96px 0 26px;border-top:none}
+.ft2-cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:44px 48px;margin-bottom:54px;border-radius:26px;background:linear-gradient(120deg,rgba(249,115,22,.085),rgba(249,115,22,.02) 55%,rgba(var(--tint),.015));border:1px solid rgba(249,115,22,.18)}
+.ft2-cta::after{content:'';position:absolute;right:-80px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.1),transparent 70%);pointer-events:none}
 .ft2-cta h3{position:relative;font-family:'Onest',sans-serif;font-weight:900;font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.035em;line-height:1.08}
-.ft2-cta h3 span{color:var(--accent)}
-.ft2-cta .bp{position:relative;box-shadow:0 12px 34px rgba(249,115,22,.32)}
+.ft2-cta h3 span{color:rgba(var(--txt),.55)}
+.ft2-cta .bp{position:relative;box-shadow:0 8px 22px rgba(249,115,22,.2)}
 .ft2-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;padding-bottom:34px;border-bottom:1px solid var(--border);margin-bottom:22px}
 .ft2-cols h4{font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .ft2-cols a,.ft2-cols .ft2-t{display:block;font-size:.9rem;color:rgba(var(--txt),.78);margin-bottom:9px;transition:color .2s}
@@ -1126,10 +1156,22 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
     </div>
     <div class="hx-stage">
       <div class="hx-glow" aria-hidden="true"></div>
+      <div class="hx-orbit" aria-hidden="true">
+        <div class="hx-o" style="--a:-135deg"><span><b style="--c:#fb923c"></b>WatBot</span></div>
+        <div class="hx-o" style="--a:-45deg"><span><b style="--c:#60a5fa"></b>BotHelp</span></div>
+        <div class="hx-o" style="--a:45deg"><span><b style="--c:#a78bfa"></b>SaleBot</span></div>
+        <div class="hx-o" style="--a:135deg"><span><b style="--c:#3b82f6"></b>Python</span></div>
+      </div>
       <aside class="hx-proof" aria-label="Отзыв клиента и цифры">
         <div class="hx-rate"><span class="st">★★★★★</span><span>14 отзывов, все положительные</span></div>
-        <p class="hx-q">"Работает! За день починили то, что я не могла сделать месяц."</p>
-        <div class="hx-cite"><i>А</i><span>Алиса, бот-трекер питания на WatBot</span><a href="#p15">Кейс →</a></div>
+        <div class="hx-revs" aria-live="polite">
+          <div class="hx-rev on"><p class="hx-q">"Работает! За день починили то, что я не могла сделать месяц."</p><div class="hx-cite"><i>А</i><span>Алиса, бот-трекер питания на WatBot</span><a href="#p15">Кейс →</a></div></div>
+          <div class="hx-rev"><p class="hx-q">"Всё сделал очень быстро, качественно и внимательно к нашим задачам."</p><div class="hx-cite"><i>Е</i><span>Екатерина, ИИ-ассистент продаж</span><a href="#p13">Кейс →</a></div></div>
+          <div class="hx-rev"><p class="hx-q">"Нужно было срочно сделать бота в Telegram - человек сделал всё за 3 часа, всё работает."</p><div class="hx-cite"><i>G</i><span>gainutdinovarsla, бот в Telegram</span><a href="#reviews">Отзывы →</a></div></div>
+          <div class="hx-rev"><p class="hx-q">"Всё прошло непросто, но главное - в итоге всё получилось."</p><div class="hx-cite"><i>S</i><span>Sadovnik2008, выгрузка 1С в PostgreSQL</span><a href="#p10">Кейс →</a></div></div>
+          <div class="hx-rev"><p class="hx-q">"Всё сделано точно в срок и ровно так, как и договаривались по ТЗ."</p><div class="hx-cite"><i>P</i><span>pirat-ps, передача лидов в Bitrix24</span><a href="#p08">Кейс →</a></div></div>
+        </div>
+        <div class="hx-dots"><button type="button" aria-label="Отзыв 1" class="on"></button><button type="button" aria-label="Отзыв 2"></button><button type="button" aria-label="Отзыв 3"></button><button type="button" aria-label="Отзыв 4"></button><button type="button" aria-label="Отзыв 5"></button></div>
         <div class="hx-nums">
           <div><span class="hsc" data-count="15">0</span><span class="l">проектов в портфолио</span></div>
           <div><span class="hsc" data-text="<1ч">·</span><span class="l">ответ в Telegram</span></div>
@@ -3468,7 +3510,24 @@ document.querySelectorAll('.pft').forEach(btn=>{
   document.body.appendChild(bar);
   const orig=f=>tabsWrap.querySelector('.pft[data-filter="'+f+'"]');
   const setOn=f=>document.querySelectorAll('.pft').forEach(b=>b.classList.toggle('on',b.dataset.filter===f));
-  const go=(f,scroll)=>{const b=orig(f);if(b)b.click();setOn(f);if(scroll)document.getElementById('projects').scrollIntoView({behavior:'smooth'})};
+  const ease=t=>1-Math.pow(1-t,3);
+  let anim=0;
+  const glide=y=>{
+    cancelAnimationFrame(anim);
+    const html=document.documentElement,s0=scrollY,d=y-s0;
+    if(Math.abs(d)<2)return;
+    const D=Math.min(1000,380+Math.abs(d)*.18),t0=performance.now();
+    html.style.scrollBehavior='auto';
+    const stop=()=>{cancelAnimationFrame(anim);html.style.scrollBehavior='';removeEventListener('wheel',stop);removeEventListener('touchstart',stop)};
+    addEventListener('wheel',stop,{passive:true});addEventListener('touchstart',stop,{passive:true});
+    const step=t=>{const k=Math.min(1,(t-t0)/D);scrollTo(0,s0+d*ease(k));if(k<1)anim=requestAnimationFrame(step);else stop()};
+    anim=requestAnimationFrame(step);
+  };
+  const go=(f,scroll)=>{
+    const b=orig(f);if(b)b.click();setOn(f);
+    secs.forEach(x=>{if(f!=='all'&&x.dataset.category!==f)x.style.display='none'});
+    if(scroll)glide(tabsWrap.getBoundingClientRect().top+scrollY-96);
+  };
   bar.addEventListener('click',e=>{const b=e.target.closest('.pft');if(b)go(b.dataset.filter,true)});
   tabsWrap.addEventListener('click',e=>{const b=e.target.closest('.pft');if(b)setOn(b.dataset.filter)});
   const start=document.getElementById('projects'),end=document.getElementById('process');
@@ -3533,6 +3592,20 @@ new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){e.target.c
       el.style.setProperty('--my',(e.clientY-r.top)+'px');
     });
   });
+})();
+
+// Ротация отзывов в hero
+(function(){
+  const box=document.querySelector('.hx-proof');if(!box)return;
+  const items=[...box.querySelectorAll('.hx-rev')],dots=[...box.querySelectorAll('.hx-dots button')];
+  if(items.length<2)return;
+  let i=0,timer=0,paused=false;
+  const show=n=>{i=(n+items.length)%items.length;items.forEach((x,k)=>x.classList.toggle('on',k===i));dots.forEach((d,k)=>d.classList.toggle('on',k===i))};
+  const start=()=>{clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>{if(!paused)show(i+1)},6000)};
+  dots.forEach((d,k)=>d.addEventListener('click',()=>{show(k);start()}));
+  box.addEventListener('pointerenter',()=>paused=true);
+  box.addEventListener('pointerleave',()=>paused=false);
+  start();
 })();
 
 // Параллакс карточек в hero
