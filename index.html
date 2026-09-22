@@ -879,6 +879,49 @@ nav.s .ni{max-width:1100px;width:calc(100% - 32px);margin:0 auto;padding:8px 10p
 .hx-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;padding-top:22px;border-top:1px solid var(--border)}
 .hx-nums .hsc{font-size:1.9rem}
 .hx-nums .l{display:block;font-size:.76rem;color:var(--muted);margin-top:7px;line-height:1.35}
+.hx{padding-bottom:0}
+.hx-grid{margin-bottom:72px}
+.hx-tick{margin-top:auto}
+/* платформы */
+.hx-plat{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:30px;opacity:0;transform:translateY(12px);animation:hxw .9s var(--ease) .8s forwards}
+.hx-plat-l{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.hx-pl{font-family:var(--mono);font-size:.72rem;padding:5px 9px;border-radius:8px;background:rgba(var(--tint),.04);border:1px solid var(--border);color:rgba(var(--txt),.85);display:inline-flex;align-items:center;gap:6px;transition:border-color .2s,transform .25s var(--ease)}
+.hx-pl i{width:6px;height:6px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+.hx-pl:hover{border-color:var(--c);transform:translateY(-2px)}
+/* сцена справа: отзыв + карточки реальных проектов */
+.hx-stage{position:relative;height:540px;--px:0;--py:0}
+.hx-glow{position:absolute;left:50%;top:50%;width:440px;height:440px;margin:-220px 0 0 -220px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.2),rgba(249,115,22,.05) 45%,transparent 70%);filter:blur(12px);animation:hxbreath 7s ease-in-out infinite;pointer-events:none}
+@keyframes hxbreath{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.08);opacity:1}}
+.hx-stage .hx-proof{position:absolute;left:50%;top:78px;width:min(400px,92%);margin-left:max(-200px,-46%);z-index:2}
+.hx-fc{position:absolute;z-index:3;display:flex;flex-direction:column;gap:4px;padding:13px 15px;border-radius:16px;background:linear-gradient(180deg,rgba(26,24,32,.96),rgba(14,13,18,.96));border:1px solid rgba(255,255,255,.1);box-shadow:0 22px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);color:#f0f0ef;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;animation:hxw .9s var(--ease) forwards,hxfl 7s ease-in-out infinite;animation-delay:var(--in,.9s),var(--fd,0s);translate:calc(var(--px)*var(--dp,12px)) calc(var(--py)*var(--dp,12px));transition:translate .5s var(--ease),border-color .25s,box-shadow .25s}
+.hx-fc:hover{border-color:rgba(249,115,22,.55);box-shadow:0 26px 60px rgba(0,0,0,.55),0 0 0 4px rgba(249,115,22,.12)}
+@keyframes hxfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hx-fc-k{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:#8b8a9c}
+.hx-fc-ok{font-weight:800;font-size:1rem;color:#34d399}
+.hx-fc-s{font-size:.74rem;color:#b9b7c2}
+.hx-fc-row{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem}
+.hx-fc-row i{width:8px;height:8px;border-radius:50%;background:#2dd4bf;box-shadow:0 0 0 3px rgba(45,212,191,.2);animation:pulse 2s infinite}
+.hx-fc-v{font-weight:800;font-size:1.6rem;letter-spacing:-.03em;line-height:1}
+.hx-fc-v small{font-size:.78rem;font-weight:600;color:#8b8a9c;margin-left:4px}
+.hx-fc svg{width:150px;height:28px;margin-top:2px}
+.hx-fc svg path{fill:none;stroke:#f97316;stroke-width:2;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:220;animation:hxline 6s var(--ease) infinite}
+@keyframes hxline{0%{stroke-dashoffset:220}35%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:-220}}
+.hx-fc--a{right:-6px;top:6px;--in:.9s}
+.hx-fc--b{left:-18px;top:432px;--in:1.05s}
+.hx-fc--c{right:10px;top:448px;--in:1.2s}
+@media(max-width:1080px){.hx-fc--b{left:0}.hx-fc--a{right:0}}
+@media(max-width:900px){
+  .hx-stage{height:auto;display:flex;flex-direction:column;gap:12px}
+  .hx-glow{display:none}
+  .hx-stage .hx-proof{position:relative;left:auto;top:auto;width:100%;margin:0}
+  .hx-fc{position:relative;left:auto!important;right:auto!important;top:auto!important;translate:none;animation:hxw .9s var(--ease) forwards;animation-delay:var(--in,.9s)}
+  .hx-stage{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hx-stage .hx-proof{grid-column:1/-1}
+  .hx-fc--c{grid-column:1/-1}
+  .hx-grid{margin-bottom:48px}
+}
+@media(max-width:600px){.hx-stage{grid-template-columns:1fr}.hx-fc--c svg{width:100%}}
+@media(prefers-reduced-motion:reduce){.hx-fc,.hx-plat,.hx-glow,.hx-fc svg path{animation:none;opacity:1;transform:none;stroke-dashoffset:0}}
 
 /* ================= УСЛУГИ (bento) ================= */
 .svc{padding-bottom:40px}
@@ -1071,17 +1114,50 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
         <a href="https://t.me/levv_ddev" target="_blank" rel="noopener" class="bp">Обсудить задачу <span class="arr">→</span></a>
         <a href="#projects" class="bg">Смотреть проекты</a>
       </div>
-    </div>
-    <aside class="hx-proof" aria-label="Отзыв клиента и цифры">
-      <div class="hx-rate"><span class="st">★★★★★</span><span>14 отзывов, все положительные</span></div>
-      <p class="hx-q">"Работает! За день починили то, что я не могла сделать месяц."</p>
-      <div class="hx-cite"><i>А</i><span>Алиса, бот-трекер питания на WatBot</span><a href="#p15">Кейс →</a></div>
-      <div class="hx-nums">
-        <div><span class="hsc" data-count="15">0</span><span class="l">проектов в портфолио</span></div>
-        <div><span class="hsc" data-text="<1ч">·</span><span class="l">ответ в Telegram</span></div>
-        <div><span class="hsc" data-count="2" data-post="+">0</span><span class="l">года опыта</span></div>
+      <div class="hx-plat">
+        <span class="hx-plat-l">Работаю с</span>
+        <span class="hx-pl" style="--c:#29b6f6"><i></i>Telegram</span>
+        <span class="hx-pl" style="--c:#fb923c"><i></i>WatBot</span>
+        <span class="hx-pl" style="--c:#60a5fa"><i></i>BotHelp</span>
+        <span class="hx-pl" style="--c:#a78bfa"><i></i>SaleBot</span>
+        <span class="hx-pl" style="--c:#fbbf24"><i></i>1С</span>
+        <span class="hx-pl" style="--c:#2dd4bf"><i></i>Bitrix24</span>
       </div>
+    </div>
+    <div class="hx-stage">
+      <div class="hx-glow" aria-hidden="true"></div>
+      <aside class="hx-proof" aria-label="Отзыв клиента и цифры">
+        <div class="hx-rate"><span class="st">★★★★★</span><span>14 отзывов, все положительные</span></div>
+        <p class="hx-q">"Работает! За день починили то, что я не могла сделать месяц."</p>
+        <div class="hx-cite"><i>А</i><span>Алиса, бот-трекер питания на WatBot</span><a href="#p15">Кейс →</a></div>
+        <div class="hx-nums">
+          <div><span class="hsc" data-count="15">0</span><span class="l">проектов в портфолио</span></div>
+          <div><span class="hsc" data-text="<1ч">·</span><span class="l">ответ в Telegram</span></div>
+          <div><span class="hsc" data-count="2" data-post="+">0</span><span class="l">года опыта</span></div>
+        </div>
     </aside>
+      <a class="hx-fc hx-fc--a" href="#p14" style="--dp:16px;--fd:0s">
+        <span class="hx-fc-k">Проект 14 · бот записи</span>
+        <span class="hx-fc-ok">✓ Вы записаны!</span>
+        <span class="hx-fc-s">Маникюр · Пн, 15:00 · +150 баллов</span>
+      </a>
+      <a class="hx-fc hx-fc--b" href="#p13" style="--dp:22px;--fd:-2.5s">
+        <span class="hx-fc-k">Проект 13 · AI-ассистент</span>
+        <span class="hx-fc-row"><i></i>Новый лид в Bitrix24</span>
+        <span class="hx-fc-s">из Telegram · статус: в работе</span>
+      </a>
+      <a class="hx-fc hx-fc--c" href="#p12" style="--dp:12px;--fd:-4.5s">
+        <span class="hx-fc-k">Проект 12 · отчёт из 1С</span>
+        <span class="hx-fc-v">2,4<small>сек</small></span>
+        <svg viewBox="0 0 150 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2,26 C18,24 24,16 38,18 S60,7 76,11 S100,3 114,7 S136,2 148,3"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="ticker-wrap hx-tick" aria-hidden="true">
+    <div class="ticker">
+      <div class="ti"><span>Python</span><span>aiogram</span><span>Telethon</span><span>FastAPI</span><span>WatBot</span><span>BotHelp</span><span>SaleBot</span><span>Mini Apps</span><span>Telegram Stars</span><span>1С</span><span>Bitrix24</span><span>amoCRM</span><span>PostgreSQL</span><span>Парсинг</span><span>Лендинги</span></div>
+      <div class="ti"><span>Python</span><span>aiogram</span><span>Telethon</span><span>FastAPI</span><span>WatBot</span><span>BotHelp</span><span>SaleBot</span><span>Mini Apps</span><span>Telegram Stars</span><span>1С</span><span>Bitrix24</span><span>amoCRM</span><span>PostgreSQL</span><span>Парсинг</span><span>Лендинги</span></div>
+    </div>
   </div>
 </section>
 
@@ -3461,7 +3537,7 @@ new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){e.target.c
 
 // Параллакс карточек в hero
 (function(){
-  const hx=document.querySelector('.hx'),vis=document.querySelector('.hx-vis');
+  const hx=document.querySelector('.hx'),vis=document.querySelector('.hx-stage');
   if(!hx||!vis)return;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(hover:hover)').matches)return;
   let raf=0;
