@@ -192,8 +192,8 @@ nav.s{padding:12px 0;background:var(--navbg);backdrop-filter:blur(20px);border-b
 .otbtn.wide{grid-column:1 / -1}
 .otbtn.back{color:rgba(255,255,255,.62);background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.09)}
 .otbtn.back:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16)}
-.pdesc-link{color:#2dd4bf;font-weight:600;white-space:nowrap;border-bottom:1px solid rgba(45,212,191,.4);transition:color .2s,border-color .2s}
-.pdesc-link:hover{color:#5eead4;border-color:#5eead4}
+.pdesc-link{--lc:#2dd4bf;color:var(--lc);font-weight:600;white-space:nowrap;border-bottom:1px solid color-mix(in srgb,var(--lc) 40%,transparent);transition:border-color .2s,opacity .2s}
+.pdesc-link:hover{border-color:var(--lc);opacity:.85}
 
 .term{background:#0a0a0f;border:1px solid rgba(var(--tint),.08);border-radius:14px;overflow:hidden;font-family:var(--mono);font-size:.76rem;box-shadow:0 24px 60px rgba(0,0,0,.5);width:100%}
 .tbar{display:flex;align-items:center;gap:7px;padding:11px 15px;background:rgba(var(--tint),.025);border-bottom:1px solid rgba(var(--tint),.06)}
@@ -1420,15 +1420,13 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div class="pnl">04 / 15</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">Радар заказов · автопилот</div>
       <h3 class="ptitle">Lead Radar -<br>радар заказов</h3>
-      <p class="pdesc">Система, которая каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, оставляет только подходящие под мой стек, пишет готовый отклик под каждый и выкладывает всё на закрытый сайт. Работает в облаке - компьютер выключен, а лиды собираются.</p>
+      <p class="pdesc">Каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, пишет отклик под каждый подходящий заказ и выкладывает всё на закрытый сайт. Работает в облаке, даже когда компьютер выключен.</p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Многоступенчатый фильтр: отсев конкурентов, "серых" тем и занятых заказов</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Разбор по 8 категориям: боты, Mini App, GetCourse, CRM, парсеры, вебинары, AI, сайты</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Готовый отклик под каждый заказ - генерирует Claude, есть шаблонный фолбэк</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Закрытый сайт-дашборд: вкладки "Заказы" и "Ответы", поиск, копирование в клик</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Входящие ЛС с счётчиком непрочитанных - ни один ответ не теряется</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Пуш в Telegram перед каждым обновлением, дедуп повторов между запусками</div></div>
-        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Автозапуск в GitHub Actions по расписанию - без своего сервера и включённого ПК</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Фильтр: отсев конкурентов, "серых" тем и занятых заказов</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>8 категорий: боты, Mini App, CRM, парсеры, AI, сайты</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Готовый отклик под каждый заказ через Claude</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Закрытый дашборд с поиском и копированием в клик</div></div>
+        <div class="pf"><div class="pfd" style="background:#fbbf24"></div><div>Запуск в GitHub Actions по расписанию, без сервера</div></div>
       </div>
       <div class="pstack"><span class="sp">Python</span><span class="sp">Telethon</span><span class="sp">Claude API</span><span class="sp">GitHub Actions</span><span class="sp">GitHub Pages</span><span class="sp">HTML / JS</span><span class="sp">openpyxl</span></div>
     </div>
@@ -1585,14 +1583,13 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div class="pnl">08 / 15</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router -<br>лиды в CRM и почту</h3>
-      <p class="pdesc">Веб-панель приёма и маршрутизации лидов. Источники-поставщики шлют лиды по вебхуку, почте или публичной форме - те попадают в ящик входящих, где админ вручную решает, какому клиенту переслать каждый. Дальше лид уходит в нужный канал - Bitrix24, amoCRM или e-mail. Дедуп по телефону, очередь с троттлингом и ретраями, автоочистка журнала. На Node.js + SQLite, работает даже на самом дешёвом VPS.</p>
+      <p class="pdesc">Веб-панель, которая принимает лиды от поставщиков и раздаёт их клиентам. Админ решает, кому отдать заявку, и она уходит в Bitrix24, amoCRM или на почту. Node.js и SQLite, работает даже на самом дешёвом VPS.</p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Поставщики: приём лидов по вебхуку, почте или публичной форме</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Ящик входящих с ручной модерацией - админ выбирает клиента для пересылки</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Маршрутизация в Bitrix24, amoCRM или e-mail - свой канал на клиента</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Запись звонка прикреплена к лиду - видна админу, клиенту не уходит</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Дедупликация по телефону + очередь с троттлингом и ретраями</div></div>
-        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Журнал со статусами и фильтрами, автоочистка по сроку хранения</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Приём лидов по вебхуку, почте или публичной форме</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Ящик входящих: админ выбирает, кому переслать лид</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Свой канал на клиента: Bitrix24, amoCRM или e-mail</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Дедупликация по телефону, очередь с ретраями</div></div>
+        <div class="pf"><div class="pfd" style="background:#818cf8"></div><div>Журнал со статусами, фильтрами и автоочисткой</div></div>
       </div>
       <div class="pstack"><span class="sp">Node.js</span><span class="sp">Express</span><span class="sp">SQLite</span><span class="sp">REST API</span><span class="sp">Webhooks</span><span class="sp">Bitrix24 API</span><span class="sp">amoCRM API</span><span class="sp">SMTP</span><span class="sp">Docker</span><span class="sp">Nginx</span></div>
     </div>
@@ -1698,14 +1695,13 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div class="pnl">10 / 15</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">Данные · 1С → PostgreSQL</div>
       <h3 class="ptitle">Выгрузка <span class="t1c">1С</span>:Розница<br>в PostgreSQL</h3>
-      <p class="pdesc">Пайплайн переноса данных из 1С:Розница на кассе в PostgreSQL на втором ПК. Программа читает базу 1С прямо из файла - в фоне, не мешая кассиру и не требуя закрывать 1С, - чистит данные в готовые таблицы и раз в день сама шлёт свежий пакет по почте. Всё портативно: Python и PostgreSQL уже внутри, устанавливать ничего не нужно.</p>
+      <p class="pdesc">Переносит данные из 1С:Розница на кассе в PostgreSQL на втором ПК. Читает базу прямо из файла в фоне, не мешая кассиру, чистит данные и раз в день сама шлёт свежий пакет по почте.</p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Чтение базы 1С (1Cv8.1CD) в фоне - касса работает как обычно</div></div>
-        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>ETL: сырые данные → чистые таблицы (клиенты, товары, продажи, чеки)</div></div>
-        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Автозапуск по расписанию: каждый день в 20:30 пакет уходит по почте</div></div>
-        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Второй ПК: PostgreSQL принимает .dump в один клик, данные в DBeaver/Excel</div></div>
-        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Витрина "клиент → сумма покупок → ассортимент" для аналитики</div></div>
-        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Портативная сборка: Python + PostgreSQL в комплекте, ноль установки</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Чтение базы 1С в фоне - касса работает как обычно</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Чистые таблицы: клиенты, товары, продажи, чеки</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Каждый день в 20:30 пакет уходит по почте</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>На втором ПК загрузка в PostgreSQL в один клик</div></div>
+        <div class="pf"><div class="pfd" style="background:#eab308"></div><div>Python и PostgreSQL внутри, ничего не нужно ставить</div></div>
       </div>
       <div class="pstack"><span class="sp">Python</span><span class="sp">onec_dtools</span><span class="sp">PostgreSQL</span><span class="sp">psycopg</span><span class="sp">SQL</span><span class="sp">Планировщик Windows</span><span class="sp">SMTP</span></div>
     </div>
@@ -1775,14 +1771,13 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div class="pnl">12 / 15</div>
       <div class="ptag" style="color:#22c55e;border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.07)">Excel · Автоматизация отчётности <span class="t1c">1С</span></div>
       <h3 class="ptitle">Отчёты учредителю<br>из <span class="t1c">1С</span> в один клик</h3>
-      <p class="pdesc">Два управленческих отчёта в Excel - ДДС (движение денег по дням) и ККМ (выручка нал/карта + номенклатура), - которые 1С Fresh не умеет собрать одним отчётом. Заказчица сохраняет выгрузки из 1С и кликает по .bat: через пару секунд готовые таблицы в её точном формате сами открываются в Excel. Ноль ручной сборки, сходимость до копейки.</p>
+      <p class="pdesc">Два отчёта в Excel, которые 1С Fresh не собирает сама: движение денег по дням и выручка по кассе с номенклатурой. Заказчица сохраняет выгрузки и кликает по .bat - через пару секунд таблицы открываются в Excel.</p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Сшивает отчёт из двух источников 1С: проводки (нал/карта, счета 50.01 / 57.03) + номенклатура из "Отчёта о розничных продажах"</div></div>
-        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Сам находит нужные выгрузки по содержимому - читает xlsx как zip, без запуска Excel - на рабочем столе, в загрузках и документах</div></div>
-        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Точный формат заказчицы: цвета, русский числовой формат, шапка с остатками - сверка с эталоном до копейки</div></div>
-        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Восстанавливает скрытую комиссию эквайринга: банк удерживает её при зачислении - считает нетто/брутто по дням</div></div>
-        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Словарь из 34 статей + fallback по ключевым словам: новая статья сама ложится в нужную колонку, ниже - красная пометка</div></div>
-        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Самодостаточный .bat (base64 → certutil → PowerShell + Excel COM): без Python и установки, ~2 секунды на отчёт</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Сшивает проводки и номенклатуру из двух выгрузок 1С</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Сам находит нужные файлы на рабочем столе и в загрузках</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Формат заказчицы и сверка с эталоном до копейки</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Считает скрытую комиссию эквайринга по дням</div></div>
+        <div class="pf"><div class="pfd" style="background:#22c55e"></div><div>Один .bat без Python и установки, ~2 секунды на отчёт</div></div>
       </div>
       <div class="pstack"><span class="sp">PowerShell</span><span class="sp">Excel COM</span><span class="sp">1С</span><span class="sp">OpenXML / xlsx</span><span class="sp">base64 · certutil</span><span class="sp">.bat</span></div>
     </div>
@@ -1820,14 +1815,13 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div class="pnl">13 / 15</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.32);background:rgba(167,139,250,.07)">AI-ассистент продаж</div>
       <h3 class="ptitle">AI-ассистент<br>продаж в Telegram</h3>
-      <p class="pdesc">Продавец на базе Claude, который переписывается с клиентами прямо с живого аккаунта в Telegram - как настоящий менеджер, без признаков автоматизации. Ведёт диалог по скриптам компании, квалифицирует лида, заводит его в Bitrix24 и передаёт человеку, когда тема выходит за рамки. Работает для B2B-ниши импорта из Китая / ВЭД.</p>
+      <p class="pdesc">Продавец на базе Claude, который ведёт переписку с клиентами с живого аккаунта в Telegram. Отвечает по скриптам компании, заводит лида в Bitrix24 и зовёт менеджера, когда вопрос сложный. Ниша - импорт из Китая.</p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Ответы генерит Claude по базе скриптов + профилю компании: приветствие, FAQ, расчёт, анти-фрод</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Userbot на реальном аккаунте (Telethon, не Bot API) - пишет как человек, дебаунс и "живой" стиль без палева</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Автосоздание лида и комментариев в Bitrix24 CRM прямо из переписки</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Стоп-темы и сложные вопросы - эскалация на живого менеджера, бот молча уступает</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Аналитика по группам/каналам и отчёты по расписанию; распознавание голосовых</div></div>
-        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Мониторинг расхода токенов с алертом по USD; деплой на VPS, SQLite-хранилище диалогов</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Ответы по скриптам и профилю компании через Claude</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Живой аккаунт на Telethon, пишет как человек</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Лид и комментарии в Bitrix24 прямо из переписки</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Сложные вопросы уходят живому менеджеру</div></div>
+        <div class="pf"><div class="pfd" style="background:#a78bfa"></div><div>Отчёты по расписанию, голосовые, контроль расходов</div></div>
       </div>
       <div class="pstack"><span class="sp">Python</span><span class="sp">Telethon</span><span class="sp">Claude API</span><span class="sp">Bitrix24 API</span><span class="sp">SQLite</span><span class="sp">APScheduler</span><span class="sp">VPS</span></div>
     </div>
@@ -1862,14 +1856,13 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div class="pnl">14 / 15</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.32);background:rgba(52,211,153,.07)">Бот записи и лояльности</div>
       <h3 class="ptitle">Универсальный бот<br>для локального бизнеса</h3>
-      <p class="pdesc">Один бот-шаблон под любой локальный бизнес: салон, клиника, кафе, цветы. На старте клиент выбирает нишу - и меню подстраивается само. Внутри: онлайн-запись со слотами, каталог с корзиной и доставкой, бонусы с реферальной системой и авто-напоминания. Демо для витрины - данные тестовые, логика реальная: под клиента цепляется БД и планировщик.</p>
+      <p class="pdesc">Бот-шаблон для локального бизнеса: салон, клиника, кафе, цветы. Клиент выбирает нишу, и меню подстраивается само: запись, каталог с корзиной, бонусы, напоминания. Демо с рабочей логикой, под заказ подключается база.</p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Онлайн-запись: услуга → мастер → дата → время → подтверждение; занятые слоты помечены ❌, за визит капают баллы</div></div>
-        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Каталог и заказы: категории, карточки товаров, корзина, доставка или самовывоз, кэшбэк баллами</div></div>
-        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Бонусы и рефералка: приветственные баллы, кэшбэк, ссылка <code>?start=ref_&lt;id&gt;</code> с начислением пригласившему</div></div>
-        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Авто-напоминания: о визите, о важной дате, возврат "потерявшихся" клиентов</div></div>
-        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Мультиниша из коробки: салон, стоматология, кафе, цветы - одно ядро, разные сценарии под режим "запись" или "каталог"</div></div>
-        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>FSM-флоу на aiogram 3 и инлайн-клавиатуры; в боевой версии - SQLite/PostgreSQL + APScheduler для рассылок</div></div>
+        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Запись: услуга, мастер, дата, время, подтверждение</div></div>
+        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Каталог, корзина, доставка или самовывоз</div></div>
+        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Бонусы за визиты и реферальная ссылка</div></div>
+        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>Напоминания о визите и возврат клиентов</div></div>
+        <div class="pf"><div class="pfd" style="background:#34d399"></div><div>aiogram 3, FSM, SQLite и APScheduler</div></div>
       </div>
       <div class="pstack"><span class="sp">Python</span><span class="sp">aiogram 3</span><span class="sp">FSM</span><span class="sp">Inline keyboards</span><span class="sp">SQLite</span><span class="sp">APScheduler</span></div>
     </div>
@@ -1920,19 +1913,15 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div class="pnl">15 / 15</div>
       <div class="ptag" style="color:#fb923c;border-color:rgba(251,146,60,.32);background:rgba(251,146,60,.07)">Аудит и багфикс бота · WatBot</div>
       <h3 class="ptitle">Реанимация бота-<br>трекера питания</h3>
-      <p class="pdesc">Взял чужого бота-трекера КБЖУ (норма калорий, вода, подписка) на конструкторе WatBot - клиентка месяц не могла заставить его работать. За день провёл аудит, нашёл и починил критичные баги логики, пересобрал меню и допилил напоминания. Бот принят: ~90 блоков, ноль тупиков. Без своего сервера - всё внутри конструктора через его REST API.</p>
+      <p class="pdesc">Клиентка месяц не могла запустить бота-трекера калорий на WatBot. За день нашёл и починил баги логики, пересобрал меню и настроил напоминания о подписке. Бот сдан и работает: <a class="pdesc-link" href="https://t.me/nutra_track_bot" target="_blank" rel="noopener" style="--lc:#fb923c">@nutra_track_bot →</a></p>
       <div class="pfeats">
-        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Критичный баг данных: статистика писала остатки латиницей, читала кириллицей - КБЖУ не сходилось; унифицировал</div></div>
-        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Баг старта: условие всегда упирало нового юзера в "оплатите", опрос был недостижим - инвертировал</div></div>
-        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Переписал 2 ИИ-блока (норма КБЖУ и разбор еды по фото/тексту) - корректные переменные вместо нерабочего JSON</div></div>
-        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Пересобрал нижнее меню через switch-роутинг: хаб, разделы, сброс дня, смена параметров - один вход, ноль двоений</div></div>
-        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Напоминание за 2 дня до конца подписки: автоворонки + теги (месяц / 3 мес / год) - параллельных веток конструктор не держит</div></div>
-        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Тонкости WatBot: синтаксис <code>{{ $var }}</code>, арифметика через "Мат. выражение 2.0", smart-delay для асинхронных ИИ-блоков</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Статистика писала данные латиницей, а читала кириллицей</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Новый пользователь застревал на "оплатите" - починил старт</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Переписал 2 ИИ-блока: норма КБЖУ и разбор еды по фото</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Нижнее меню собрал заново, без дублей и тупиков</div></div>
+        <div class="pf"><div class="pfd" style="background:#fb923c"></div><div>Напоминание за 2 дня до конца подписки</div></div>
       </div>
       <div class="pstack"><span class="sp">WatBot</span><span class="sp">REST API</span><span class="sp">ИИ-блоки (LLM)</span><span class="sp">Промпт-инжиниринг</span><span class="sp">Автоворонки</span><span class="sp">No-code</span></div>
-      <div class="plinks">
-        <a href="https://t.me/nutra_track_bot" target="_blank" rel="noopener" class="plink plink--primary">Открыть бота в Telegram ↗</a>
-      </div>
     </div>
     <div class="pvisual rv">
       <div class="mglow" style="--g:rgba(251,146,60,.16)"></div>
