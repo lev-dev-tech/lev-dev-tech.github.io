@@ -848,9 +848,12 @@ nav.s .ni{max-width:1100px;width:calc(100% - 32px);margin:0 auto;padding:8px 10p
 .hx-kick b{color:var(--text);font-weight:500}
 .hx-copy{min-width:0}
 .hx-title{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,5.3vw,4.7rem);line-height:1;letter-spacing:-.015em;min-height:2em;margin-bottom:26px;overflow-wrap:anywhere}
-.hx-roll .s{color:var(--muted);opacity:.6}
-.hx-roll.ac{color:var(--accent)}
-.hx-caret{display:inline-block;width:.1em;height:.78em;background:var(--accent);margin-left:.08em;vertical-align:-.02em;animation:blink 1s steps(1) infinite}
+.hx-roll{color:var(--accent)}
+.hx-roll.mix{color:var(--text)}
+.hx-roll .hl{color:var(--accent)}
+.hx-roll .w{display:inline-block;transition:opacity .7s var(--ease),transform .8s var(--ease),filter .7s var(--ease);transition-delay:calc(var(--i)*80ms)}
+.hx-roll.out .w{opacity:0;transform:translateY(-.14em);filter:blur(6px);transition-duration:.45s}
+.hx-roll.in .w{opacity:0;transform:translateY(.2em);filter:blur(6px);transition:none}
 .hx-lead{font-size:1.1rem;line-height:1.65;color:rgba(var(--txt),.76);max-width:520px;margin-bottom:32px}
 .hx .hero-btns{justify-content:flex-start;margin:0}
 .hx-plat{display:flex;align-items:center;flex-wrap:wrap;gap:6px 16px;margin-top:30px;font-family:var(--mono);font-size:.8rem;color:rgba(var(--txt),.8)}
@@ -1017,7 +1020,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 .hx-sub-t.out{opacity:0;transform:translateY(-6px)}
 .hx-proof{top:50%;translate:0 -50%}
 .hx-radar{position:absolute;left:50%;top:50%;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;background:repeating-radial-gradient(circle,transparent 0 63px,rgba(var(--tint),.075) 63px 64px),linear-gradient(rgba(var(--tint),.07),rgba(var(--tint),.07)) center/100% 1px no-repeat,linear-gradient(rgba(var(--tint),.07),rgba(var(--tint),.07)) center/1px 100% no-repeat;-webkit-mask:radial-gradient(circle,#000 52%,transparent 71%);mask:radial-gradient(circle,#000 52%,transparent 71%)}
-.hx-radar::after{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(249,115,22,.2),rgba(249,115,22,.05) 12%,rgba(249,115,22,0) 26%);animation:hxspin 10s linear infinite}
+.hx-radar::after{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(249,115,22,.07),rgba(249,115,22,.02) 12%,rgba(249,115,22,0) 24%);animation:hxspin 28s linear infinite}
 .hx-fc--b{top:auto;bottom:18px}
 .hx-fc--c{top:auto;bottom:0}
 .lg-r{grid-template-columns:72px minmax(0,1fr) 170px;align-items:start;padding:24px 10px}
@@ -1087,7 +1090,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 @media(hover:none){.lg-pv{display:none}}
 @media(prefers-reduced-motion:reduce){
   .hx-copy>*,.hx-proof,.hx-fc{animation:none;opacity:1;transform:none}
-  .hx-orbit,.hx-o span,.stamp svg,.hx-fc svg path,.pv-i svg path,.hx-caret{animation:none}
+  .hx-orbit,.hx-o span,.stamp svg,.hx-fc svg path,.pv-i svg path{animation:none}
   .hx-fc svg path,.pv-i svg path{stroke-dashoffset:0}
   .hx-rev{transition:none}
   .rl::before{transform:none;transition:none}
@@ -1131,7 +1134,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="wrap hx-grid">
     <div class="hx-copy">
       <p class="hx-kick"><i></i><b>Лев</b>&nbsp;/ lev_dev · беру новые проекты</p>
-      <h1 class="hx-title"><span class="sr">Лев, технический специалист: Telegram-боты, автоматизация и интеграции с 1С и CRM</span><span class="hx-roll" aria-hidden="true" data-phrases="Технический специалист|Привет, я lev_dev|Разработчик Telegram-ботов|Боты на no-code платформах|Интеграции с 1С и CRM|Автоматизация рутины|Парсеры и рассылки|Mini Apps в Telegram" data-captions="беру задачи от бота до сервера|мой ник на Kwork и в Telegram|aiogram 3, FastAPI, оплата в Stars|WatBot, BotHelp, SaleBot|Bitrix24, amoCRM, отчёты в Excel|отчёты и рассылки по расписанию|заказы из Telegram-каналов раз в 3 часа|интерфейс приложения прямо в чате">Технический специалист</span><span class="hx-caret" aria-hidden="true"></span></h1>
+      <h1 class="hx-title"><span class="sr">Лев, технический специалист: Telegram-боты, автоматизация и интеграции с 1С и CRM</span><span class="hx-roll" aria-hidden="true" data-phrases="Технический специалист|Привет, я lev_dev|Разработчик Telegram-ботов|Боты на no-code платформах|Интеграции с 1С и CRM|Автоматизация рутины|Парсеры и рассылки|Mini Apps в Telegram" data-captions="беру задачи от бота до сервера|мой ник на Kwork и в Telegram|aiogram 3, FastAPI, оплата в Stars|WatBot, BotHelp, SaleBot|Bitrix24, amoCRM, отчёты в Excel|отчёты и рассылки по расписанию|заказы из Telegram-каналов раз в 3 часа|интерфейс приложения прямо в чате">Технический специалист</span></h1>
       <p class="hx-sub" aria-hidden="true"><span class="hx-sub-k">//</span> <span class="hx-sub-t">беру задачи от бота до сервера</span></p>
       <p class="hx-lead">Пишу ботов на Python, собираю и чиню воронки на WatBot, BotHelp и SaleBot, подключаю 1С и CRM. Работаю как самозанятый.</p>
       <div class="hero-btns">
@@ -3460,51 +3463,38 @@ document.querySelectorAll('.pft').forEach(btn=>{
   const roll=document.querySelector('.hx-roll');
   if(!roll)return;
   const phrases=roll.dataset.phrases.split('|');
-  const glyphs='абвгдежзиклмнопрстуфхцчшщэюя_/#01*+=';
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const randomGlyph=()=>glyphs[Math.floor(Math.random()*glyphs.length)];
-  let index=0;
   const captions=(roll.dataset.captions||'').split('|');
   const captionText=document.querySelector('.hx-sub-t');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const leaveMs=700;
+  const cycleMs=5200;
+  const nameMark='lev_dev';
+  let index=0;
+  const render=phrase=>{
+    roll.innerHTML=phrase.split(' ').map((word,position)=>'<span class="w'+(word.includes(nameMark)?' hl':'')+'" style="--i:'+position+'">'+word+'</span>').join(' ');
+    roll.classList.toggle('mix',phrase.includes(nameMark));
+  };
   const showCaption=position=>{
     if(!captionText||!captions[position])return;
     captionText.classList.add('out');
-    setTimeout(()=>{captionText.textContent=captions[position];captionText.classList.remove('out')},260);
+    setTimeout(()=>{captionText.textContent=captions[position];captionText.classList.remove('out')},leaveMs/2);
   };
-  const stepMs=70;
-  const scramble=(from,to)=>new Promise(done=>{
-    const letters=[...Array(Math.max(from.length,to.length))].map((_,i)=>{
-      const start=Math.floor(Math.random()*6);
-      return{from:from[i]||'',to:to[i]||'',start,end:start+6+Math.floor(Math.random()*6)+Math.floor(i/3),glyph:randomGlyph()};
-    });
-    let step=0,last=0;
-    const tick=now=>{
-      if(now-last<stepMs){requestAnimationFrame(tick);return}
-      last=now;
-      let html='',settled=0;
-      letters.forEach(letter=>{
-        if(step>=letter.end){settled++;html+=letter.to;return}
-        if(step<letter.start){html+=letter.from;return}
-        if(letter.to===' '||letter.from===' '){html+=' ';return}
-        if(step%2===0)letter.glyph=randomGlyph();
-        html+='<span class="s">'+letter.glyph+'</span>';
-      });
-      roll.innerHTML=html;
-      if(settled===letters.length)return done();
-      step++;
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  });
-  setInterval(async()=>{
-    const current=phrases[index];
+  const enter=phrase=>{
+    roll.classList.add('in');
+    roll.classList.remove('out');
+    render(phrase);
+    void roll.offsetWidth;
+    roll.classList.remove('in');
+  };
+  render(phrases[0]);
+  setInterval(()=>{
     index=(index+1)%phrases.length;
     const target=phrases[index];
-    roll.classList.toggle('ac',target.includes('lev_dev'));
     showCaption(index);
-    if(reduce){roll.textContent=target;return}
-    await scramble(current,target);
-  },5200);
+    if(reduce){render(target);return}
+    roll.classList.add('out');
+    setTimeout(()=>enter(target),leaveMs);
+  },cycleMs);
 })();
 
 (function(){
