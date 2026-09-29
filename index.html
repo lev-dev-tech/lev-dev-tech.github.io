@@ -848,7 +848,7 @@ nav.s .ni{max-width:1100px;width:calc(100% - 32px);margin:0 auto;padding:8px 10p
 .hx-kick b{color:var(--text);font-weight:500}
 .hx-copy{min-width:0}
 .hx-title{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,5.3vw,4.7rem);line-height:1;letter-spacing:-.015em;min-height:2em;margin-bottom:26px;overflow-wrap:anywhere}
-.hx-roll .s{color:var(--accent);opacity:.75}
+.hx-roll .s{color:var(--muted);opacity:.6}
 .hx-roll.ac{color:var(--accent)}
 .hx-caret{display:inline-block;width:.1em;height:.78em;background:var(--accent);margin-left:.08em;vertical-align:-.02em;animation:blink 1s steps(1) infinite}
 .hx-lead{font-size:1.1rem;line-height:1.65;color:rgba(var(--txt),.76);max-width:520px;margin-bottom:32px}
@@ -3441,25 +3441,30 @@ document.querySelectorAll('.pft').forEach(btn=>{
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const randomGlyph=()=>glyphs[Math.floor(Math.random()*glyphs.length)];
   let index=0;
+  const stepMs=70;
   const scramble=(from,to)=>new Promise(done=>{
     const letters=[...Array(Math.max(from.length,to.length))].map((_,i)=>{
-      const start=Math.floor(Math.random()*12);
-      return{from:from[i]||'',to:to[i]||'',start,end:start+12+Math.floor(Math.random()*10)+i};
+      const start=Math.floor(Math.random()*6);
+      return{from:from[i]||'',to:to[i]||'',start,end:start+6+Math.floor(Math.random()*6)+Math.floor(i/3),glyph:randomGlyph()};
     });
-    let frame=0;
-    const tick=()=>{
+    let step=0,last=0;
+    const tick=now=>{
+      if(now-last<stepMs){requestAnimationFrame(tick);return}
+      last=now;
       let html='',settled=0;
       letters.forEach(letter=>{
-        if(frame>=letter.end){settled++;html+=letter.to}
-        else if(frame>=letter.start)html+=letter.to===' '||letter.from===' '?' ':'<span class="s">'+randomGlyph()+'</span>';
-        else html+=letter.from;
+        if(step>=letter.end){settled++;html+=letter.to;return}
+        if(step<letter.start){html+=letter.from;return}
+        if(letter.to===' '||letter.from===' '){html+=' ';return}
+        if(step%2===0)letter.glyph=randomGlyph();
+        html+='<span class="s">'+letter.glyph+'</span>';
       });
       roll.innerHTML=html;
       if(settled===letters.length)return done();
-      frame++;
+      step++;
       requestAnimationFrame(tick);
     };
-    tick();
+    requestAnimationFrame(tick);
   });
   setInterval(async()=>{
     const current=phrases[index];
@@ -3468,7 +3473,7 @@ document.querySelectorAll('.pft').forEach(btn=>{
     roll.classList.toggle('ac',target==='lev_dev');
     if(reduce){roll.textContent=target;return}
     await scramble(current,target);
-  },3800);
+  },5200);
 })();
 
 (function(){
