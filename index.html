@@ -1010,6 +1010,33 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 .ptag::before{content:'#';opacity:.6;margin-right:2px}
 .flabel,.fit,.fgh{font-size:.74rem;letter-spacing:0;text-transform:none}
 .fgh{color:var(--ok)}
+.hx-title{min-height:2em;margin-bottom:12px}
+.hx-sub{font-family:var(--mono);font-size:.86rem;color:var(--muted);margin-bottom:26px;min-height:1.4em}
+.hx-sub-k{color:var(--accent)}
+.hx-sub-t{display:inline-block;transition:opacity .26s ease,transform .26s ease}
+.hx-sub-t.out{opacity:0;transform:translateY(-6px)}
+.hx-proof{top:50%;translate:0 -50%}
+.hx-radar{position:absolute;left:50%;top:50%;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;background:repeating-radial-gradient(circle,transparent 0 63px,rgba(var(--tint),.075) 63px 64px),linear-gradient(rgba(var(--tint),.07),rgba(var(--tint),.07)) center/100% 1px no-repeat,linear-gradient(rgba(var(--tint),.07),rgba(var(--tint),.07)) center/1px 100% no-repeat;-webkit-mask:radial-gradient(circle,#000 52%,transparent 71%);mask:radial-gradient(circle,#000 52%,transparent 71%)}
+.hx-radar::after{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(249,115,22,.2),rgba(249,115,22,.05) 12%,rgba(249,115,22,0) 26%);animation:hxspin 10s linear infinite}
+.hx-fc--b{top:auto;bottom:18px}
+.hx-fc--c{top:auto;bottom:0}
+.lg-r{grid-template-columns:72px minmax(0,1fr) 170px;align-items:start;padding:24px 10px}
+.lg-r::before{background:linear-gradient(90deg,color-mix(in srgb,var(--c) 16%,transparent),transparent 72%)}
+.lg-k{color:var(--c);padding-top:.7em}
+.lg-main{min-width:0}
+.lg-t{display:block;transition:color .35s}
+.lg-r:hover .lg-t,.lg-r:focus-visible .lg-t{color:var(--c)}
+.lg-x{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+.lg-xi{overflow:hidden;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px}
+.lg-r:hover .lg-x,.lg-r:focus-visible .lg-x{grid-template-rows:1fr}
+.lg-d{padding-top:12px;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .5s var(--ease)}
+.lg-tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:12px;opacity:0;transition:opacity .4s .08s}
+.lg-tags i{font-style:normal;font-family:var(--mono);font-size:.72rem;padding:3px 8px;border-radius:4px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);color:var(--c)}
+.lg-r:hover .lg-d,.lg-r:focus-visible .lg-d{opacity:1;transform:none}
+.lg-r:hover .lg-tags,.lg-r:focus-visible .lg-tags{opacity:1}
+.lg-a{padding-top:.2em}
+.lg-r:hover .lg-go,.lg-r:focus-visible .lg-go{background:var(--c);border-color:var(--c)}
+@media(hover:none){.lg-x{grid-template-rows:1fr}.lg-d,.lg-tags{opacity:1;transform:none}}
 @media(max-width:1080px){
   .hx-grid{gap:28px}
   .hx-fc--b{left:0}
@@ -1023,16 +1050,14 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   .hx-stage{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .hx-stage::before,.hx-orbit{display:none}
   .hx-proof{position:relative;left:auto;top:auto;width:100%;margin:0;grid-column:1/-1}
-  .hx-fc{position:relative;left:auto!important;right:auto!important;top:auto!important;translate:none;animation:hxw .9s var(--ease) forwards;animation-delay:var(--in,.9s)}
+  .hx-fc{position:relative;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;translate:none;animation:hxw .9s var(--ease) forwards;animation-delay:var(--in,.9s)}
   .hx-fc--c{grid-column:1/-1}
   .sec-h{align-items:flex-start}
   .stamp{width:104px;height:104px}
   .stamp::after{inset:28px}
-  .lg-r{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"k t a" ". d d";row-gap:10px;padding:22px 6px}
-  .lg-k{grid-area:k}
-  .lg-t{grid-area:t}
-  .lg-d{grid-area:d}
-  .lg-a{grid-area:a}
+  .lg-r{grid-template-columns:48px minmax(0,1fr) auto;padding:22px 6px}
+  .hx-radar{display:none}
+  .hx-proof{translate:none}
   .lg-n{display:none}
   .lg-r:hover,.lg-r:focus-visible{padding-left:6px}
   .rl{grid-template-columns:1fr 1fr;row-gap:36px}
@@ -1106,7 +1131,8 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="wrap hx-grid">
     <div class="hx-copy">
       <p class="hx-kick"><i></i><b>Лев</b>&nbsp;/ lev_dev · беру новые проекты</p>
-      <h1 class="hx-title"><span class="sr">Лев, технический специалист: Telegram-боты, автоматизация и интеграции с 1С и CRM</span><span class="hx-roll" aria-hidden="true" data-phrases="Технический специалист|lev_dev|Разработчик Telegram-ботов|Боты на no-code платформах|Интеграции с 1С и CRM|Автоматизация рутины|Парсеры и рассылки|Mini Apps в Telegram">Технический специалист</span><span class="hx-caret" aria-hidden="true"></span></h1>
+      <h1 class="hx-title"><span class="sr">Лев, технический специалист: Telegram-боты, автоматизация и интеграции с 1С и CRM</span><span class="hx-roll" aria-hidden="true" data-phrases="Технический специалист|Привет, я lev_dev|Разработчик Telegram-ботов|Боты на no-code платформах|Интеграции с 1С и CRM|Автоматизация рутины|Парсеры и рассылки|Mini Apps в Telegram" data-captions="беру задачи от бота до сервера|мой ник на Kwork и в Telegram|aiogram 3, FastAPI, оплата в Stars|WatBot, BotHelp, SaleBot|Bitrix24, amoCRM, отчёты в Excel|отчёты и рассылки по расписанию|заказы из Telegram-каналов раз в 3 часа|интерфейс приложения прямо в чате">Технический специалист</span><span class="hx-caret" aria-hidden="true"></span></h1>
+      <p class="hx-sub" aria-hidden="true"><span class="hx-sub-k">//</span> <span class="hx-sub-t">беру задачи от бота до сервера</span></p>
       <p class="hx-lead">Пишу ботов на Python, собираю и чиню воронки на WatBot, BotHelp и SaleBot, подключаю 1С и CRM. Работаю как самозанятый.</p>
       <div class="hero-btns">
         <a href="https://t.me/levv_ddev" target="_blank" rel="noopener" class="bp">Обсудить задачу <span class="arr">→</span></a>
@@ -1123,7 +1149,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       </div>
     </div>
     <div class="hx-stage">
-      <div class="hx-glow" aria-hidden="true"></div>
+      <div class="hx-radar" aria-hidden="true"></div>
       <div class="hx-orbit" aria-hidden="true">
         <div class="hx-o" style="--a:-135deg"><span><b style="--c:#fb923c"></b>WatBot</span></div>
         <div class="hx-o" style="--a:-45deg"><span><b style="--c:#60a5fa"></b>BotHelp</span></div>
@@ -1175,7 +1201,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       <div>
         <div class="slabel"><b>~/</b>услуги</div>
         <h2 class="stitle rv">Чем могу помочь</h2>
-        <p class="ssub rv">Наведите на строку, чтобы увидеть пример из проекта. Клик откроет проекты по теме.</p>
+        <p class="ssub rv">Наведите на строку: откроются детали и пример из проекта. Клик покажет все проекты по теме.</p>
       </div>
       <div class="stamp rv" role="img" aria-label="Самозанятый: чек на каждую оплату, договор по запросу">
         <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stampPath" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#stampPath" textLength="284" lengthAdjust="spacing">самозанятый · чек на каждую оплату · договор ·</textPath></text></svg>
@@ -1183,40 +1209,34 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
       </div>
     </div>
     <ol class="lg">
-      <li class="lg-r rv" data-filter="bot" data-pv="tg" tabindex="0">
+      <li class="lg-r rv" data-filter="bot" data-pv="tg" style="--c:#38bdf8" tabindex="0">
         <span class="lg-k">tg</span>
-        <span class="lg-t">Telegram-боты и&nbsp;Mini&nbsp;Apps</span>
-        <span class="lg-d">Заявки, запись, приём оплаты через Stars, рассылки и админка. Mini App, когда кнопок мало.</span>
+        <span class="lg-main"><span class="lg-t">Telegram-боты и&nbsp;Mini&nbsp;Apps</span><span class="lg-x"><span class="lg-xi"><span class="lg-d">Заявки, запись, оплата через Stars, рассылки и админка.</span><span class="lg-tags"><i>aiogram 3</i><i>FastAPI</i><i>Telegram Stars</i><i>Mini Apps</i></span></span></span></span>
         <span class="lg-a"><span class="lg-n"></span><span class="lg-go"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </li>
-      <li class="lg-r rv" data-filter="bot" data-pv="nc" data-go="#p15" tabindex="0">
+      <li class="lg-r rv" data-filter="bot" data-pv="nc" data-go="#p15" style="--c:#fb923c" tabindex="0">
         <span class="lg-k">no-code</span>
-        <span class="lg-t">Боты на конструкторах<span class="lg-sub">WatBot · BotHelp · SaleBot</span></span>
-        <span class="lg-d">Собираю воронки, оплаты и ИИ-блоки. Часто чиню чужих ботов, которые перестали работать.</span>
+        <span class="lg-main"><span class="lg-t">Боты на конструкторах</span><span class="lg-x"><span class="lg-xi"><span class="lg-d">Собираю воронки и чиню чужих ботов, которые перестали работать.</span><span class="lg-tags"><i>WatBot</i><i>BotHelp</i><i>SaleBot</i><i>ИИ-блоки</i></span></span></span></span>
         <span class="lg-a"><span class="lg-n">кейс 15</span><span class="lg-go"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </li>
-      <li class="lg-r rv" data-filter="parser" data-pv="auto" tabindex="0">
+      <li class="lg-r rv" data-filter="parser" data-pv="auto" style="--c:#facc15" tabindex="0">
         <span class="lg-k">auto</span>
-        <span class="lg-t">Автоматизация и&nbsp;парсинг</span>
-        <span class="lg-d">Парсеры заказов и лидов из Telegram-каналов, рассылки, отчёты по расписанию.</span>
+        <span class="lg-main"><span class="lg-t">Автоматизация и&nbsp;парсинг</span><span class="lg-x"><span class="lg-xi"><span class="lg-d">Парсеры заказов из Telegram-каналов, рассылки, отчёты по расписанию.</span><span class="lg-tags"><i>Telethon</i><i>cron</i><i>Claude API</i></span></span></span></span>
         <span class="lg-a"><span class="lg-n"></span><span class="lg-go"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </li>
-      <li class="lg-r rv" data-filter="server" data-pv="1c" tabindex="0">
+      <li class="lg-r rv" data-filter="server" data-pv="1c" style="--c:#f59e0b" tabindex="0">
         <span class="lg-k">1с</span>
-        <span class="lg-t">1С и данные</span>
-        <span class="lg-d">Отчёты из 1С в Excel одной кнопкой, перенос данных в PostgreSQL.</span>
+        <span class="lg-main"><span class="lg-t">1С и данные</span><span class="lg-x"><span class="lg-xi"><span class="lg-d">Отчёты из 1С в Excel одной кнопкой, перенос данных в PostgreSQL.</span><span class="lg-tags"><i>1С</i><i>PostgreSQL</i><i>Excel</i><i>PowerShell</i></span></span></span></span>
         <span class="lg-a"><span class="lg-n"></span><span class="lg-go"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </li>
-      <li class="lg-r rv" data-filter="server" data-pv="crm" tabindex="0">
+      <li class="lg-r rv" data-filter="server" data-pv="crm" style="--c:#2dd4bf" tabindex="0">
         <span class="lg-k">crm</span>
-        <span class="lg-t">Интеграции с CRM</span>
-        <span class="lg-d">Заявки с сайта и из бота сразу попадают в Bitrix24 или amoCRM.</span>
+        <span class="lg-main"><span class="lg-t">Интеграции с CRM</span><span class="lg-x"><span class="lg-xi"><span class="lg-d">Заявки с сайта и из бота сразу падают в CRM.</span><span class="lg-tags"><i>Bitrix24</i><i>amoCRM</i><i>вебхуки</i></span></span></span></span>
         <span class="lg-a"><span class="lg-n"></span><span class="lg-go"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </li>
-      <li class="lg-r rv" data-filter="landing" data-pv="web" tabindex="0">
+      <li class="lg-r rv" data-filter="landing" data-pv="web" style="--c:#a78bfa" tabindex="0">
         <span class="lg-k">web</span>
-        <span class="lg-t">Лендинги</span>
-        <span class="lg-d">Адаптивные лендинги на HTML, CSS и JS, заявки с формы приходят в Telegram.</span>
+        <span class="lg-main"><span class="lg-t">Лендинги</span><span class="lg-x"><span class="lg-xi"><span class="lg-d">Адаптивные лендинги, заявки с формы приходят в Telegram.</span><span class="lg-tags"><i>HTML</i><i>CSS</i><i>JS</i></span></span></span></span>
         <span class="lg-a"><span class="lg-n"></span><span class="lg-go"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </li>
     </ol>
@@ -3441,6 +3461,13 @@ document.querySelectorAll('.pft').forEach(btn=>{
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const randomGlyph=()=>glyphs[Math.floor(Math.random()*glyphs.length)];
   let index=0;
+  const captions=(roll.dataset.captions||'').split('|');
+  const captionText=document.querySelector('.hx-sub-t');
+  const showCaption=position=>{
+    if(!captionText||!captions[position])return;
+    captionText.classList.add('out');
+    setTimeout(()=>{captionText.textContent=captions[position];captionText.classList.remove('out')},260);
+  };
   const stepMs=70;
   const scramble=(from,to)=>new Promise(done=>{
     const letters=[...Array(Math.max(from.length,to.length))].map((_,i)=>{
@@ -3470,7 +3497,8 @@ document.querySelectorAll('.pft').forEach(btn=>{
     const current=phrases[index];
     index=(index+1)%phrases.length;
     const target=phrases[index];
-    roll.classList.toggle('ac',target==='lev_dev');
+    roll.classList.toggle('ac',target.includes('lev_dev'));
+    showCaption(index);
     if(reduce){roll.textContent=target;return}
     await scramble(current,target);
   },5200);
