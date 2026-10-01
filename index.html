@@ -1040,6 +1040,46 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 .lg-a{padding-top:.2em}
 .lg-r:hover .lg-go,.lg-r:focus-visible .lg-go{background:var(--c);border-color:var(--c)}
 @media(hover:none){.lg-x{grid-template-rows:1fr}.lg-d,.lg-tags{opacity:1;transform:none}}
+.npc{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#1b1315,#110c0d);border:1px solid rgba(248,113,113,.25);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#f0f0ef;font-size:.82rem}
+.npc__bar{display:flex;align-items:center;gap:11px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06)}
+.npc__av{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;background:#f87171;color:#1b1315;font-weight:800;font-size:.8rem}
+.npc__who{display:flex;flex-direction:column;gap:2px;min-width:0}
+.npc__who b{font-size:.9rem}
+.npc__who span{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.64rem;color:#9b9390}
+.npc__who span i{width:6px;height:6px;border-radius:50%;background:#34d399;animation:pulse 2s infinite}
+.npc__mode{margin-left:auto;font-family:var(--mono);font-size:.62rem;padding:3px 8px;border-radius:5px;border:1px solid rgba(248,113,113,.4);color:#f87171}
+.npc__flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid rgba(255,255,255,.06)}
+.npc__flow div{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-right:1px solid rgba(255,255,255,.06)}
+.npc__flow div:last-child{border-right:0}
+.npc__flow b{font-family:var(--display);font-weight:400;font-size:1.15rem}
+.npc__flow span{font-family:var(--mono);font-size:.6rem;color:#9b9390}
+.npc__flow .hot b{color:#f87171}
+.npc__feed{list-style:none;margin:0;padding:12px 15px;display:flex;flex-direction:column;gap:7px}
+.npc__it{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);opacity:0;animation:npcin 10s var(--ease) infinite;animation-delay:calc(var(--i)*.4s)}
+.npc__it p{flex:1;min-width:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.npc__it em{flex:none;font-style:normal;font-family:var(--mono);font-size:.6rem;color:#9b9390}
+.npc__it.dup{--o:.45}
+.npc__it.dup p{text-decoration:line-through;text-decoration-color:rgba(248,113,113,.6)}
+.npc__it.pick{border-color:rgba(248,113,113,.45);background:rgba(248,113,113,.08)}
+.npc__it.pick em{color:#f87171}
+@keyframes npcin{0%{opacity:0;transform:translateY(6px)}6%,90%{opacity:var(--o,1);transform:none}97%,100%{opacity:0}}
+.npc__out{display:grid;grid-template-columns:minmax(0,1fr) 74px;gap:12px;padding:12px 15px 14px;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.2)}
+.npc__post{display:flex;flex-direction:column;gap:6px;min-width:0}
+.npc__post b{font-size:.84rem;line-height:1.3}
+.npc__post span{font-size:.72rem;line-height:1.4;color:#b8b0ad}
+.npc__pl{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.npc__pl i{font-style:normal;font-family:var(--mono);font-size:.58rem;padding:2px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.12);color:#9b9390}
+.npc__pl i.on{animation:npcon 10s infinite}
+@keyframes npcon{0%,72%{border-color:rgba(255,255,255,.12);color:#9b9390}78%,100%{border-color:rgba(52,211,153,.45);color:#34d399}}
+.npc__vid{position:relative;aspect-ratio:9/16;border-radius:8px;overflow:hidden;background:linear-gradient(160deg,#3a2326,#1a1012);border:1px solid rgba(255,255,255,.08)}
+.npc__vid em{position:absolute;top:6px;left:6px;font-style:normal;font-family:var(--mono);font-size:.52rem;color:#fff;background:rgba(0,0,0,.45);padding:1px 4px;border-radius:3px}
+.npc__vid b{position:absolute;top:50%;left:50%;translate:-40% -50%;border-left:12px solid rgba(255,255,255,.85);border-top:8px solid transparent;border-bottom:8px solid transparent}
+.npc__vid u{position:absolute;left:6px;right:6px;bottom:16px;text-decoration:none;text-align:center;font-size:.5rem;color:#fff;background:rgba(0,0,0,.5);border-radius:3px;padding:1px 0}
+.npc__vid s{position:absolute;left:6px;right:6px;bottom:8px;height:3px;border-radius:2px;background:rgba(255,255,255,.15);overflow:hidden}
+.npc__vid s::after{content:'';position:absolute;inset:0;background:#f87171;transform-origin:left;animation:npcbar 10s linear infinite}
+@keyframes npcbar{0%,30%{transform:scaleX(0)}72%,100%{transform:scaleX(1)}}
+@media(max-width:600px){.npc__flow div{padding:9px 8px}.npc__out{grid-template-columns:minmax(0,1fr) 62px}}
+@media(prefers-reduced-motion:reduce){.npc__it,.npc__pl i.on,.npc__vid s::after{animation:none}.npc__it{opacity:var(--o,1)}.npc__pl i.on{border-color:rgba(52,211,153,.45);color:#34d399}.npc__vid s::after{transform:none}}
 @media(max-width:1080px){
   .hx-grid{gap:28px}
   .hx-fc--b{left:0}
@@ -1164,14 +1204,15 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
         <div class="hx-proof-in">
         <div class="hx-revs" aria-live="polite">
           <div class="hx-rev on"><p class="hx-q">"Работает! За день починили то, что я не могла сделать месяц."</p><div class="hx-cite"><i>А</i><span>Алиса, бот-трекер питания на WatBot</span><a href="#p15">Кейс →</a></div></div>
+          <div class="hx-rev"><p class="hx-q">"Отличный продавец, все супер!"</p><div class="hx-cite"><i>K</i><span>kucheryavchenkomish, ИИ-редактор новостей</span><a href="#p16">Кейс →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Всё сделал очень быстро, качественно и внимательно к нашим задачам."</p><div class="hx-cite"><i>Е</i><span>Екатерина, ИИ-ассистент продаж</span><a href="#p13">Кейс →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Нужно было срочно сделать бота в Telegram - человек сделал всё за 3 часа, всё работает."</p><div class="hx-cite"><i>G</i><span>gainutdinovarsla, бот в Telegram</span><a href="#reviews">Отзывы →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Всё прошло непросто, но главное - в итоге всё получилось."</p><div class="hx-cite"><i>S</i><span>Sadovnik2008, выгрузка 1С в PostgreSQL</span><a href="#p10">Кейс →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Всё сделано точно в срок и ровно так, как и договаривались по ТЗ."</p><div class="hx-cite"><i>P</i><span>pirat-ps, передача лидов в Bitrix24</span><a href="#p08">Кейс →</a></div></div>
         </div>
-        <div class="hx-dots"><button type="button" aria-label="Отзыв 1" class="on"></button><button type="button" aria-label="Отзыв 2"></button><button type="button" aria-label="Отзыв 3"></button><button type="button" aria-label="Отзыв 4"></button><button type="button" aria-label="Отзыв 5"></button></div>
+        <div class="hx-dots"><button type="button" aria-label="Отзыв 1" class="on"></button><button type="button" aria-label="Отзыв 2"></button><button type="button" aria-label="Отзыв 3"></button><button type="button" aria-label="Отзыв 4"></button><button type="button" aria-label="Отзыв 5"></button><button type="button" aria-label="Отзыв 6"></button></div>
         </div>
-        <div class="hx-meta"><span><b>15</b> проектов</span><span><b>14</b> отзывов</span><span>ответ <b>&lt;&nbsp;1&nbsp;ч</b></span></div>
+        <div class="hx-meta"><span><b>16</b> проектов</span><span><b>16</b> отзывов</span><span>ответ <b>&lt;&nbsp;1&nbsp;ч</b></span></div>
       </aside>
       <a class="hx-fc hx-fc--a" href="#p14" style="--dp:16px;--fd:0s">
         <span class="hx-fc-k">Проект 14 · бот записи</span>
@@ -1260,7 +1301,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
     <div class="feature-head rv">
       <div class="slabel"><b>~/</b>проекты</div>
       <h2 class="stitle">Проекты</h2>
-      <p class="ssub">15 проектов для клиентов. В каждом превью и разбор: какая была задача и что сделано.</p>
+      <p class="ssub">16 проектов для клиентов. В каждом превью и разбор: какая была задача и что сделано.</p>
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
@@ -1277,7 +1318,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 15</div>
+      <div class="pnl">01 / 16</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Онлайн-школа внутри Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает - без перехода на сторонний сайт.</p>
@@ -1323,7 +1364,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 15</div>
+      <div class="pnl">02 / 16</div>
       <div class="ptag" style="color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.06)">Telegram INFO-бот</div>
       <h3 class="ptitle">ONETRADE -<br>партнёрский бот</h3>
       <p class="pdesc">Информационный бот партнёрской экосистемы OneTrade: реферальная структура, кэшбэк, ранги и личный кабинет - всё в одном меню. <a class="pdesc-link" href="https://t.me/OneTradeINFO_bot" target="_blank" rel="noopener">@OneTradeINFO_bot →</a></p>
@@ -1378,7 +1419,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 15</div>
+      <div class="pnl">03 / 16</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ -<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -1417,7 +1458,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 15</div>
+      <div class="pnl">04 / 16</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">Радар заказов · автопилот</div>
       <h3 class="ptitle">Lead Radar -<br>радар заказов</h3>
       <p class="pdesc">Каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, пишет отклик под каждый подходящий заказ и выкладывает всё на закрытый сайт. Работает в облаке, даже когда компьютер выключен.</p>
@@ -1469,7 +1510,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 15</div>
+      <div class="pnl">05 / 16</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров - анимации, тарифы, отзывы.</p>
@@ -1504,7 +1545,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 15</div>
+      <div class="pnl">06 / 16</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">Веб / Лендинг · live</div>
       <h3 class="ptitle">ВОЛЬТ -<br>магазин электроники</h3>
       <p class="pdesc">Концепт-лендинг магазина электроники "по-человечески". Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков - и он реально работает по ссылке.</p>
@@ -1539,7 +1580,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 15</div>
+      <div class="pnl">07 / 16</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">1С-Битрикс / Сервер · перенос</div>
       <h3 class="ptitle">Перенос и аудит<br>магазина на Битрикс</h3>
       <p class="pdesc">Перенос интернет-магазина мебели (~11 000 товаров) на облачный VPS и полный аудит после переезда. По ходу нашёл и устранил скрытую блокировку записи из-за переполнения диска и конфликт модулей, ронявший каталог в ошибку 500.</p>
@@ -1580,7 +1621,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">08</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">08 / 15</div>
+      <div class="pnl">08 / 16</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router -<br>лиды в CRM и почту</h3>
       <p class="pdesc">Веб-панель, которая принимает лиды от поставщиков и раздаёт их клиентам. Админ решает, кому отдать заявку, и она уходит в Bitrix24, amoCRM или на почту. Node.js и SQLite, работает даже на самом дешёвом VPS.</p>
@@ -1656,7 +1697,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">09</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">09 / 15</div>
+      <div class="pnl">09 / 16</div>
       <div class="ptag" style="color:#e879f9;border-color:rgba(232,121,249,.32);background:rgba(232,121,249,.07)">Портфолио-лендинг · live</div>
       <h3 class="ptitle">Илья Громов -<br>портфолио дизайнера</h3>
       <p class="pdesc">Лендинг-портфолио для бренд- и визуал-дизайнера: секция кейсов с работами, бренд-кит для соцсетей, отзывы клиентов и блок контактов. Тёмная и светлая тема, плавные анимации появления, полный адаптив. Чистый HTML / CSS / JS - сдан и развёрнут, работает по ссылке.</p>
@@ -1692,7 +1733,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">10</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">10 / 15</div>
+      <div class="pnl">10 / 16</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">Данные · 1С → PostgreSQL</div>
       <h3 class="ptitle">Выгрузка <span class="t1c">1С</span>:Розница<br>в PostgreSQL</h3>
       <p class="pdesc">Переносит данные из 1С:Розница на кассе в PostgreSQL на втором ПК. Читает базу прямо из файла в фоне, не мешая кассиру, чистит данные и раз в день сама шлёт свежий пакет по почте.</p>
@@ -1733,7 +1774,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">11</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">11 / 15</div>
+      <div class="pnl">11 / 16</div>
       <div class="ptag" style="color:#4ade80;border-color:rgba(74,222,128,.32);background:rgba(74,222,128,.07)">Google Таблицы / Apps Script</div>
       <h3 class="ptitle">Планировщик рассылки<br>в Google Таблицах</h3>
       <p class="pdesc">Скрипт для Google Таблиц, который превращает список лидов в готовый план email-рассылки: цепочки писем по компаниям, ротация текстов, разбивка по дням и партиям. Запускается из меню прямо в таблице - без кода и внешних сервисов.</p>
@@ -1768,7 +1809,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">12</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">12 / 15</div>
+      <div class="pnl">12 / 16</div>
       <div class="ptag" style="color:#22c55e;border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.07)">Excel · Автоматизация отчётности <span class="t1c">1С</span></div>
       <h3 class="ptitle">Отчёты учредителю<br>из <span class="t1c">1С</span> в один клик</h3>
       <p class="pdesc">Два отчёта в Excel, которые 1С Fresh не собирает сама: движение денег по дням и выручка по кассе с номенклатурой. Заказчица сохраняет выгрузки и кликает по .bat - через пару секунд таблицы открываются в Excel.</p>
@@ -1812,7 +1853,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">13</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">13 / 15</div>
+      <div class="pnl">13 / 16</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.32);background:rgba(167,139,250,.07)">AI-ассистент продаж</div>
       <h3 class="ptitle">AI-ассистент<br>продаж в Telegram</h3>
       <p class="pdesc">Продавец на базе Claude, который ведёт переписку с клиентами с живого аккаунта в Telegram. Отвечает по скриптам компании, заводит лида в Bitrix24 и зовёт менеджера, когда вопрос сложный. Ниша - импорт из Китая.</p>
@@ -1853,7 +1894,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">14</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">14 / 15</div>
+      <div class="pnl">14 / 16</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.32);background:rgba(52,211,153,.07)">Бот записи и лояльности</div>
       <h3 class="ptitle">Универсальный бот<br>для локального бизнеса</h3>
       <p class="pdesc">Бот-шаблон для локального бизнеса: салон, клиника, кафе, цветы. Клиент выбирает нишу, и меню подстраивается само: запись, каталог с корзиной, бонусы, напоминания. Демо с рабочей логикой, под заказ подключается база.</p>
@@ -1910,7 +1951,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="psbg">15</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">15 / 15</div>
+      <div class="pnl">15 / 16</div>
       <div class="ptag" style="color:#fb923c;border-color:rgba(251,146,60,.32);background:rgba(251,146,60,.07)">Аудит и багфикс бота · WatBot</div>
       <h3 class="ptitle">Реанимация бота-<br>трекера питания</h3>
       <p class="pdesc">Клиентка месяц не могла запустить бота-трекера калорий на WatBot. За день нашёл и починил баги логики, пересобрал меню и настроил напоминания о подписке. Бот сдан и работает: <a class="pdesc-link" href="https://t.me/nutra_track_bot" target="_blank" rel="noopener" style="--lc:#fb923c">@nutra_track_bot →</a></p>
@@ -1967,6 +2008,57 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   </div>
 </section>
 
+<section class="ps flip" data-category="parser" id="p16">
+  <div class="psbg">16</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">16 / 16</div>
+      <div class="ptag" style="color:#f87171;border-color:rgba(248,113,113,.32);background:rgba(248,113,113,.07)">ИИ-агент · новостной канал</div>
+      <h3 class="ptitle">ИИ-редактор<br>новостного канала</h3>
+      <p class="pdesc">Бот сам ведёт новостной Telegram-канал: читает RSS, отсеивает повторы, выбирает главную новость, пишет пост в стиле канала и подбирает фото. Два заказа подряд: снизил расходы на платный ИИ и добавил авто-видео.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#f87171"></div><div>Дедуп на эмбеддингах: ~150 платных вызовов в сутки вместо тысяч</div></div>
+        <div class="pf"><div class="pfd" style="background:#f87171"></div><div>Квоты тем: доля политики в ленте упала с 61% до 33%</div></div>
+        <div class="pf"><div class="pfd" style="background:#f87171"></div><div>Фото к посту: поиск через SearXNG и проверка vision-моделью</div></div>
+        <div class="pf"><div class="pfd" style="background:#f87171"></div><div>Ролик из новости: FFmpeg, субтитры, форматы 16:9 и 9:16</div></div>
+        <div class="pf"><div class="pfd" style="background:#f87171"></div><div>Ролики уходят в Telegram и MAX, готово под VK, YouTube, TikTok</div></div>
+      </div>
+      <div class="pstack"><span class="sp">Python</span><span class="sp">aiogram 3</span><span class="sp">PostgreSQL + pgvector</span><span class="sp">Ollama</span><span class="sp">FFmpeg</span><span class="sp">yt-dlp</span><span class="sp">SearXNG</span><span class="sp">Docker</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(248,113,113,.16)"></div>
+      <div class="npc">
+        <div class="npc__bar">
+          <div class="npc__av">i+</div>
+          <div class="npc__who"><b>INFO+ · новости</b><span><i></i>агент ведёт канал</span></div>
+          <div class="npc__mode">auto</div>
+        </div>
+        <div class="npc__flow">
+          <div><b>214</b><span>из RSS</span></div>
+          <div><b>171</b><span>дубли</span></div>
+          <div><b>43</b><span>в отборе</span></div>
+          <div class="hot"><b>1</b><span>в канал</span></div>
+        </div>
+        <ul class="npc__feed">
+          <li class="npc__it dup" style="--i:0"><p>Курс рубля на открытии торгов</p><em>дубль 0.91</em></li>
+          <li class="npc__it" style="--i:1"><p>Новые правила для самозанятых с 2027 года</p><em>экономика</em></li>
+          <li class="npc__it pick" style="--i:2"><p>Запись к врачу по ОМС теперь через MAX</p><em>выбрано</em></li>
+          <li class="npc__it dup" style="--i:3"><p>Запись к врачу через мессенджер MAX</p><em>дубль 0.86</em></li>
+        </ul>
+        <div class="npc__out">
+          <div class="npc__post">
+            <b>Запись к врачу по ОМС теперь через MAX</b>
+            <span>Пост в стиле канала, 3 фото и ролик на 30 секунд с субтитрами</span>
+            <div class="npc__pl"><i class="on">Telegram</i><i class="on">MAX</i><i>VK</i><i>YouTube</i><i>TikTok</i></div>
+          </div>
+          <div class="npc__vid"><em>9:16</em><b></b><u>субтитры</u><s></s></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="sh proc-bg" id="process">
   <div class="wrap">
     <div class="slabel"><b>~/</b>процесс</div>
@@ -1999,9 +2091,31 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
   <div class="wrap">
     <div class="slabel"><b>~/</b>отзывы</div>
     <h2 class="stitle rv">Отзывы клиентов</h2>
-    <p class="ssub rv">14 положительных отзывов · 0 отрицательных</p>
+    <p class="ssub rv">16 положительных отзывов · 0 отрицательных</p>
     <div class="rev-overflow">
       <div class="rev-slider" id="revSlider">
+
+        <div class="rev-slide"><div class="rev-card">
+          <div class="rev-top">
+            <div class="rev-av" style="background:rgba(248,113,113,.14);color:#f87171">K</div>
+            <div class="rev-info"><div class="rev-name">kucheryavchenkomish · INFO+</div></div>
+            <div class="rev-stars">★★★★★</div>
+          </div>
+          <div class="rev-badge">Авто-видео из новостей + публикация в Telegram/MAX/TikTok/VK/YT</div>
+          <p class="rev-text">"Все супер!"</p>
+          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+        </div></div>
+
+        <div class="rev-slide"><div class="rev-card">
+          <div class="rev-top">
+            <div class="rev-av" style="background:rgba(248,113,113,.14);color:#f87171">K</div>
+            <div class="rev-info"><div class="rev-name">kucheryavchenkomish · INFO+</div></div>
+            <div class="rev-stars">★★★★★</div>
+          </div>
+          <div class="rev-badge">Оптимизация новостного Telegram-бота: дедуп и снижение затрат</div>
+          <p class="rev-text">"Отличный продавец, все супер!"</p>
+          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+        </div></div>
 
         <div class="rev-slide"><div class="rev-card">
           <div class="rev-top">
@@ -2162,7 +2276,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
     <div class="rev-nav">
       <button class="rev-arrow" id="revPrev" aria-label="Назад"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
       <div class="rev-dots" id="revDots"></div>
-      <span class="rev-counter" id="revCounter">1 / 12</span>
+      <span class="rev-counter" id="revCounter">1 / 16</span>
       <button class="rev-arrow" id="revNext" aria-label="Вперёд"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
     </div>
     <div style="text-align:center;margin-top:28px">
@@ -3618,7 +3732,7 @@ new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){e.target.c
 
   document.getElementById('revPrev').addEventListener('click',()=>go(cur-1));
   document.getElementById('revNext').addEventListener('click',()=>go(cur+1));
-  timer=setInterval(()=>go(cur+1),9000);
+  go(0);
   slider.addEventListener('mouseenter',()=>clearInterval(timer));
   slider.addEventListener('mouseleave',()=>{clearInterval(timer);timer=setInterval(()=>go(cur+1),9000)});
 
