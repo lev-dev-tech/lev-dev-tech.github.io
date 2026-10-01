@@ -1040,25 +1040,59 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 .lg-a{padding-top:.2em}
 .lg-r:hover .lg-go,.lg-r:focus-visible .lg-go{background:var(--c);border-color:var(--c)}
 @media(hover:none){.lg-x{grid-template-rows:1fr}.lg-d,.lg-tags{opacity:1;transform:none}}
-.npc{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:minmax(0,1fr) 196px;gap:18px;align-items:center}
-.npc__log{background:#0a1224;border:1px solid rgba(96,165,250,.22);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5);color:#dbe4f3;font-family:var(--mono);font-size:.7rem}
-.npc__hd{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid rgba(96,165,250,.14)}
-.npc__hd span{display:flex;align-items:center;gap:7px}
-.npc__hd i{width:6px;height:6px;border-radius:50%;background:#34d399;animation:pulse 2s infinite}
-.npc__hd em{font-style:normal;color:#8aa0c4}
-.npc__lines{list-style:none;margin:0;padding:12px 14px 16px;display:flex;flex-direction:column;gap:10px}
-.npc__lines li{display:grid;grid-template-columns:38px 50px minmax(0,1fr);gap:8px;opacity:0;animation:npcln 12s var(--ease) infinite;animation-delay:calc(var(--i)*.9s)}
-.npc__lines time{color:#5d7299}
-.npc__lines b{font-weight:500;color:#60a5fa}
-.npc__lines span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.npc__lines .ok b,.npc__lines .ok span{color:#34d399}
-@keyframes npcln{0%{opacity:0;transform:translateX(-4px)}4%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
-.npc__phone{position:relative;aspect-ratio:572/940;border-radius:24px;overflow:hidden;background:#07142e url(media/infoplus.jpg) center/cover;border:3px solid #1c2740;box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 1px rgba(96,165,250,.25)}
-.npc__phone video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.npc__top{position:absolute;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:.56rem;color:#fff}
-.npc__top span{background:rgba(7,20,46,.6);padding:2px 6px;border-radius:4px}
-@media(max-width:600px){.npc{grid-template-columns:minmax(0,1fr) 118px;gap:10px}.npc__log{font-size:.62rem}.npc__lines li{grid-template-columns:44px minmax(0,1fr)}.npc__lines time{display:none}.npc__phone{border-radius:16px;border-width:2px}}
-@media(prefers-reduced-motion:reduce){.npc__lines li{animation:none;opacity:1}}
+.npc{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#0d1730,#080f20);border:1px solid rgba(96,165,250,.22);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#e3eaf6;font-size:.8rem}
+.npc__hd{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(96,165,250,.14)}
+.npc__logo{flex:none;display:flex;align-items:center;justify-content:center;white-space:nowrap;width:52px;height:46px;border-radius:12px;background:radial-gradient(circle at 30% 25%,#2563eb,#0b1d4a);font-family:var(--display);font-size:.7rem;letter-spacing:-.02em;color:#fff}
+.npc__logo b{font-weight:400;color:#ef4444}
+.npc__who{display:flex;flex-direction:column;gap:3px;min-width:0}
+.npc__who b{font-size:.95rem}
+.npc__who span{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.64rem;color:#8ea3c7}
+.npc__who span i{width:6px;height:6px;border-radius:50%;background:#ef4444;animation:pulse 2s infinite}
+.npc__kpi{margin-left:auto;text-align:right}
+.npc__kpi b{display:block;font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1}
+.npc__kpi span{font-family:var(--mono);font-size:.6rem;color:#8ea3c7}
+.npc__sec{display:flex;flex-direction:column;gap:9px;padding:14px 18px;border-bottom:1px solid rgba(96,165,250,.1)}
+.npc__lbl{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.62rem;color:#8ea3c7}
+.npc__lbl em{margin-left:auto;display:flex;align-items:center;gap:6px;font-style:normal}
+.npc__lbl em s{width:12px;height:7px;border:1px dashed rgba(239,68,68,.7);border-radius:2px}
+.npc__lbl em u{width:2px;height:10px;margin-left:6px;background:#fbbf24}
+.npc__row{display:grid;grid-template-columns:96px minmax(0,1fr) 52px;align-items:center;gap:12px}
+.npc__row span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#b9c6dd}
+.npc__row>b{font-family:var(--mono);font-weight:500;font-size:.74rem;text-align:right}
+.npc__bar{position:relative;height:8px;border-radius:2px;background:rgba(255,255,255,.06)}
+.npc__bar i{position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:2px;background:#3b82f6;transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) calc(var(--i)*90ms)}
+.rv.in .npc__bar i{transform:none}
+.npc__row.hot .npc__bar i{background:#ef4444}
+.npc__row.hot>b{color:#ef4444}
+.npc__pol .npc__bar s{position:absolute;left:0;top:-2px;bottom:-2px;width:var(--was);border:1px dashed rgba(239,68,68,.55);border-radius:3px}
+.npc__pol .npc__bar u{position:absolute;top:-4px;bottom:-4px;left:var(--goal);width:2px;background:#fbbf24}
+.npc__row.was .npc__bar i{background:repeating-linear-gradient(135deg,rgba(239,68,68,.55) 0 6px,rgba(239,68,68,.25) 6px 12px)}
+.npc__row.was>b{color:#f87171}
+.npc__row.ok .npc__bar i{background:#34d399}
+.npc__row.ok>b{color:#34d399}
+.npc__ft{display:flex;align-items:center;gap:10px;padding:12px 18px;background:rgba(0,0,0,.22)}
+.npc__ft time{flex:none;font-family:var(--mono);font-size:.64rem;color:#8ea3c7}
+.npc__ft p{flex:1;min-width:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.npc__pl{flex:none;display:flex;gap:5px}
+.npc__pl i{font-style:normal;font-family:var(--mono);font-size:.58rem;padding:2px 6px;border-radius:4px;border:1px solid rgba(52,211,153,.4);color:#34d399}
+@media(max-width:600px){.npc{font-size:.74rem}.npc__hd,.npc__sec,.npc__ft{padding-left:14px;padding-right:14px}.npc__row{grid-template-columns:84px minmax(0,1fr) 46px;gap:8px}.npc__ft{flex-wrap:wrap}.npc__ft p{flex-basis:calc(100% - 50px)}}
+@media(prefers-reduced-motion:reduce){.npc__bar i{transition:none;transform:none}}
+.rev-card[data-case],.rev-card[data-filter]{position:relative;cursor:pointer}
+.rev-card[data-case]::before,.rev-card[data-filter]::before{content:'';position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.rev-card[data-case]:hover::before,.rev-card[data-filter]:hover::before,.rev-card:focus-visible::before{transform:scaleX(1)}
+.rev-src{flex-wrap:wrap;row-gap:10px}
+.rev-case{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:none;font-family:var(--mono);font-size:.72rem;color:var(--text);cursor:pointer;transition:border-color .3s,color .3s}
+.rev-case span{color:var(--muted);transition:color .3s}
+.rev-case .ico{width:14px;height:14px;transition:transform .35s var(--ease)}
+.rev-card:hover .rev-case,.rev-card:focus-visible .rev-case{border-color:var(--accent);color:var(--accent)}
+.rev-card:hover .rev-case .ico,.rev-card:focus-visible .rev-case .ico{transform:translateX(3px)}
+.ps-hit{display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin-bottom:16px;padding:8px 12px;border-radius:6px;border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:color-mix(in srgb,var(--accent) 8%,transparent);font-family:var(--mono);font-size:.72rem;color:var(--text);animation:pshit .6s var(--ease)}
+.ps-hit b{font-weight:400;color:#fbbf24;letter-spacing:.08em}
+.ps-hit button{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer}
+.ps-hit button:hover{text-decoration:underline}
+.ps-hit.out{opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s}
+@keyframes pshit{from{opacity:0;transform:translateY(10px)}}
+@media(max-width:600px){.rev-case span{display:none}}
 @media(max-width:1080px){
   .hx-grid{gap:28px}
   .hx-fc--b{left:0}
@@ -2007,21 +2041,24 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
     <div class="pvisual rv">
       <div class="mglow" style="--g:rgba(59,130,246,.18)"></div>
       <div class="npc">
-        <div class="npc__log">
-          <div class="npc__hd"><span><i></i>news-pilot</span><em>INFO+ · auto</em></div>
-          <ol class="npc__lines">
-            <li style="--i:0"><time>10:30</time><b>rss</b><span>+214 новостей из лент</span></li>
-            <li style="--i:1"><time>10:30</time><b>dedup</b><span>171 повтор, без ИИ</span></li>
-            <li style="--i:2"><time>10:31</time><b>отбор</b><span>ОМС: запись через MAX</span></li>
-            <li style="--i:3"><time>10:31</time><b>пост</b><span>в стиле канала, 3 фото</span></li>
-            <li style="--i:4"><time>10:33</time><b>видео</b><span>30 с, 9:16 и 16:9</span></li>
-            <li class="ok" style="--i:5"><time>10:34</time><b>готово</b><span>Telegram · MAX</span></li>
-          </ol>
+        <div class="npc__hd">
+          <div class="npc__logo">INFO<b>+</b></div>
+          <div class="npc__who"><b>Агент новостей</b><span><i></i>в эфире · 30.09</span></div>
+          <div class="npc__kpi"><b>15</b><span>постов к 13:05</span></div>
         </div>
-        <div class="npc__phone">
-          <video src="media/infoplus.mp4" poster="media/infoplus.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Заставка роликов канала INFO+"></video>
-          <div class="npc__top"><span>Shorts</span><span>INFO+</span></div>
+        <div class="npc__sec">
+          <div class="npc__lbl">отбор за утро</div>
+          <div class="npc__row" style="--i:0;--w:100%"><span>из RSS</span><div class="npc__bar"><i></i></div><b>214</b></div><div class="npc__row" style="--i:1;--w:20%"><span>без повторов</span><div class="npc__bar"><i></i></div><b>43</b></div><div class="npc__row hot" style="--i:2;--w:7%"><span>в канал</span><div class="npc__bar"><i></i></div><b>15</b></div>
         </div>
+        <div class="npc__sec">
+          <div class="npc__lbl">темы за день <em><s></s>было 61% <u></u>цель 25%</em></div>
+          <div class="npc__row npc__pol" style="--i:3;--w:47.1%;--was:87.1%;--goal:35.7%"><span>политика</span><div class="npc__bar"><s></s><i></i><u></u></div><b>33%</b></div><div class="npc__row" style="--i:4;--w:38.6%"><span>происшествия</span><div class="npc__bar"><i></i></div><b>27%</b></div><div class="npc__row" style="--i:5;--w:28.6%"><span>экономика</span><div class="npc__bar"><i></i></div><b>20%</b></div><div class="npc__row" style="--i:6;--w:18.6%"><span>технологии</span><div class="npc__bar"><i></i></div><b>13%</b></div><div class="npc__row" style="--i:7;--w:10.0%"><span>общество</span><div class="npc__bar"><i></i></div><b>7%</b></div>
+        </div>
+        <div class="npc__sec">
+          <div class="npc__lbl">платные запросы к ИИ в сутки</div>
+          <div class="npc__row was" style="--i:8;--w:100%"><span>было</span><div class="npc__bar"><i></i></div><b>тысячи</b></div><div class="npc__row ok" style="--i:9;--w:9%"><span>стало</span><div class="npc__bar"><i></i></div><b>~150</b></div>
+        </div>
+        <div class="npc__ft"><time>13:05</time><p>Запись к врачу по ОМС теперь через MAX</p><span class="npc__pl"><i>TG</i><i>MAX</i><i>ролик 30 с</i></span></div>
       </div>
     </div>
   </div>
@@ -2064,7 +2101,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
     <div class="rev-overflow">
       <div class="rev-slider" id="revSlider">
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p16">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(248,113,113,.14);color:#f87171">K</div>
             <div class="rev-info"><div class="rev-name">kucheryavchenkomish · INFO+</div></div>
@@ -2072,10 +2109,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Авто-видео из новостей + публикация в Telegram/MAX/TikTok/VK/YT</div>
           <p class="rev-text">"Все супер!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p16">Кейс 16<span> · ИИ-редактор новостей</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p16">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(248,113,113,.14);color:#f87171">K</div>
             <div class="rev-info"><div class="rev-name">kucheryavchenkomish · INFO+</div></div>
@@ -2083,10 +2120,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Оптимизация новостного Telegram-бота: дедуп и снижение затрат</div>
           <p class="rev-text">"Отличный продавец, все супер!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p16">Кейс 16<span> · ИИ-редактор новостей</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p15">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(251,146,60,.14);color:#fb923c">А</div>
             <div class="rev-info"><div class="rev-name">Алиса · бот Nutra</div></div>
@@ -2094,10 +2131,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Аудит и доработка бота-трекера КБЖУ (WatBot)</div>
           <p class="rev-text">"Работает! Вы гений информатики, такую красоту сделали) За день починили то, что я не могла сделать месяц. Спасибо вам огромное!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p15">Кейс 15<span> · бот-трекер питания</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p13">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(244,114,182,.14);color:#f472b6">Е</div>
             <div class="rev-info"><div class="rev-name">Екатерина · PlusDelivery</div></div>
@@ -2105,10 +2142,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Настройка ИИ-ассистента продаж в Telegram</div>
           <p class="rev-text">"Очень довольны работой Льва по настройке ИИ-ассистента! Всё сделал очень быстро, качественно и внимательно к нашим задачам. Было действительно приятно работать - всё понятно, оперативно и без лишних сложностей. Спасибо, Лев! Обязательно обратимся ещё раз и будем рекомендовать!"</p>
-          <div class="rev-src">Проверенный отзыв</div>
+          <div class="rev-src">Проверенный отзыв<a class="rev-case" href="#p13">Кейс 13<span> · AI-ассистент продаж</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p10">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(96,165,250,.15);color:#60a5fa">S</div>
             <div class="rev-info"><div class="rev-name">Sadovnik2008</div></div>
@@ -2116,10 +2153,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Развитие базы и отчётов PostgreSQL / 1С</div>
           <p class="rev-text">"Всё прошло отлично! Сложная задача выполнена, рекомендую к сотрудничеству!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p10">Кейс 10<span> · 1С в PostgreSQL</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p11">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(74,222,128,.15);color:#4ade80">I</div>
             <div class="rev-info"><div class="rev-name">igores1990</div></div>
@@ -2127,10 +2164,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Скрипт для Google Таблиц</div>
           <p class="rev-text">"Хороший специалист, оперативно сделал скрипт который был мне нужен!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p11">Кейс 11<span> · рассылка в Google Таблицах</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p08">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(34,211,238,.15);color:#22d3ee">P</div>
             <div class="rev-info"><div class="rev-name">pirat-ps</div></div>
@@ -2138,10 +2175,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Доработка админ-панели · выгрузка данных в AmoCRM / Bitrix</div>
           <p class="rev-text">"И вновь обратился к данному специалисту за решением своей задачи. Всё сделано точно в срок и ровно так, как и договаривались по ТЗ. Благодарю вас!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p08">Кейс 08<span> · Lead Router</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p10">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(96,165,250,.15);color:#60a5fa">S</div>
             <div class="rev-info"><div class="rev-name">Sadovnik2008</div></div>
@@ -2149,10 +2186,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Настройка миграции данных из 1С в PostgreSQL</div>
           <p class="rev-text">"Делали связку для забора данных из 1С:Розницы в PostgreSQL, чтобы отцепиться от монопольной зависимости. Всё прошло непросто, но главное - в итоге всё получилось. Рекомендую исполнителя как ответственного и грамотного."</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p10">Кейс 10<span> · 1С в PostgreSQL</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p09">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(232,121,249,.15);color:#e879f9">И</div>
             <div class="rev-info"><div class="rev-name">Илья Громов</div></div>
@@ -2160,10 +2197,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Лендинг-портфолио для дизайнера</div>
           <p class="rev-text">"Обратился к Льву за сайтом-портфолио. Проект сделал очень оперативно, при этом качество не пострадало - всё выглядит дорого и современно. Приятно работать с профессионалом."</p>
-          <div class="rev-src">Проверенный отзыв</div>
+          <div class="rev-src">Проверенный отзыв<a class="rev-case" href="#p09">Кейс 09<span> · портфолио дизайнера</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p07">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(20,184,166,.15);color:#2dd4bf">J</div>
             <div class="rev-info"><div class="rev-name">JuliaMT</div></div>
@@ -2171,21 +2208,21 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Настройка работы сайта</div>
           <p class="rev-text">"Лев, отличный исполнитель! Возникла необходимость перенести сайт на облачный сервер, так как на старом закончилось место. Лев, быстро и качественно всё настроил, проверил работу сайта и всего административного функционала. Всё работает отлично. Рекомендую!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p07">Кейс 07<span> · перенос магазина</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p08">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(34,211,238,.15);color:#22d3ee">P</div>
             <div class="rev-info"><div class="rev-name">pirat-ps</div></div>
             <div class="rev-stars">★★★★★</div>
           </div>
           <div class="rev-badge">Передача лидов в Bitrix24 / amoCRM / e-mail</div>
-          <p class="rev-text">"Безупречный исполнитель. Правило трёх „О“: оперативно выполняет заказ, очень вежливо и грамотно общается, передавая суть всех технических деталей. Отлично сделанная работа. Если хотите, чтобы заказ был выполнен в срок и вас понимали с полуслова - обращаться только к piwhip!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <p class="rev-text">"Безупречный исполнитель. Правило трёх "О": оперативно выполняет заказ, очень вежливо и грамотно общается, передавая суть всех технических деталей. Отлично сделанная работа. Если хотите, чтобы заказ был выполнен в срок и вас понимали с полуслова - обращаться только к piwhip!"</p>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p08">Кейс 08<span> · Lead Router</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-case="#p02">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(244,114,182,.15);color:#f472b6">P</div>
             <div class="rev-info"><div class="rev-name">PAFFKA</div></div>
@@ -2193,10 +2230,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Разработка бота в Telegram</div>
           <p class="rev-text">"Была задача сделать Инфо-Бота, продавец справился на УРА!! Уловил ход мыслей и разложил всё по полочкам - насмотреться не могу. Однозначно рекомендую Льва как отличного программиста, который превзошёл мои ожидания!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p02">Кейс 02<span> · ONETRADE</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-filter="bot">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(251,191,36,.12);color:#fbbf24">Y</div>
             <div class="rev-info"><div class="rev-name">yoshihatemyself</div></div>
@@ -2204,10 +2241,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Разработка бота в Telegram</div>
           <p class="rev-text">"Всё отлично, продавец вежливый, быстро ответил и сделал работу."</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<button type="button" class="rev-case">Похожие проекты<span> · боты</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-filter="bot">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(52,211,153,.12);color:#34d399">G</div>
             <div class="rev-info"><div class="rev-name">gainutdinovarsla</div></div>
@@ -2215,10 +2252,10 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Создание ТГ бота</div>
           <p class="rev-text">"Нужно было сделать срочно бота в Telegram - человек сделал всё за 3 часа, всё работает. Советую!"</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<button type="button" class="rev-case">Похожие проекты<span> · боты</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
         </div></div>
 
-        <div class="rev-slide"><div class="rev-card">
+        <div class="rev-slide"><div class="rev-card" data-filter="bot">
           <div class="rev-top">
             <div class="rev-av" style="background:rgba(56,189,248,.12);color:#38bdf8">S</div>
             <div class="rev-info"><div class="rev-name">shweppyk</div></div>
@@ -2226,7 +2263,7 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
           </div>
           <div class="rev-badge">Разработка бота в Telegram</div>
           <p class="rev-text">"Спасибо, быстро разработал полностью рабочего бота под ТЗ."</p>
-          <div class="rev-src">Проверенный отзыв · kwork.ru</div>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<button type="button" class="rev-case">Похожие проекты<span> · боты</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
         </div></div>
 
         <div class="rev-slide"><div class="rev-card">
@@ -3529,6 +3566,31 @@ document.querySelectorAll('.pft').forEach(btn=>{
     const el=document.getElementById(a.getAttribute('href').slice(1));
     if(el&&el.classList.contains('ps')&&el.style.display==='none'){orig('all').click();setOn('all')}
   });
+  const reviewChipMs=8000;
+  const backToReviews=()=>glide(document.getElementById('reviews').getBoundingClientRect().top+scrollY-84);
+  const markReviewed=(selector,author)=>{
+    const section=document.querySelector(selector);if(!section)return;
+    section.querySelector('.ps-hit')?.remove();
+    const chip=document.createElement('div');
+    chip.className='ps-hit';
+    chip.innerHTML='<b>★★★★★</b><span></span><button type="button">↩ к отзывам</button>';
+    chip.querySelector('span').textContent='отзыв · '+author;
+    chip.querySelector('button').addEventListener('click',backToReviews);
+    section.querySelector('.pi>.rv').prepend(chip);
+    setTimeout(()=>{chip.classList.add('out');setTimeout(()=>chip.remove(),400)},reviewChipMs);
+  };
+  const openCase=(selector,author)=>{jump(selector);markReviewed(selector,author)};
+  document.querySelectorAll('.rev-card[data-case],.rev-card[data-filter]').forEach(card=>{
+    card.tabIndex=0;
+    const author=card.querySelector('.rev-name').textContent.split(' · ')[0];
+    const open=()=>card.dataset.case?openCase(card.dataset.case,author):go(card.dataset.filter,true);
+    card.addEventListener('click',e=>{e.preventDefault();open()});
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();open()}});
+  });
+  document.querySelectorAll('.hx-cite a[href^="#p"]').forEach(link=>link.addEventListener('click',e=>{
+    e.preventDefault();
+    openCase(link.getAttribute('href'),link.parentElement.querySelector('span').textContent.split(',')[0]);
+  }));
 })();
 
 (function(){
