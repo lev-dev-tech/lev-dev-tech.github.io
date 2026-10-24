@@ -1080,6 +1080,50 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 .npc__pl i{font-style:normal;font-family:var(--mono);font-size:.58rem;padding:2px 6px;border-radius:4px;border:1px solid rgba(52,211,153,.4);color:#34d399}
 @media(max-width:600px){.npc{font-size:.74rem}.npc__hd,.npc__sec,.npc__ft{padding-left:14px;padding-right:14px}.npc__row{grid-template-columns:84px minmax(0,1fr) 46px;gap:8px}.npc__ft{flex-wrap:wrap}.npc__ft p{flex-basis:calc(100% - 50px)}}
 @media(prefers-reduced-motion:reduce){.npc__bar i{transition:none;transform:none}}
+.spk{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#121a0c,#0b1007);border:1px solid rgba(163,230,53,.24);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#e7eedf;font-size:.8rem}
+.spk__hd{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(163,230,53,.14)}
+.spk__logo{flex:none;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#65a30d,#1a2e05);font-family:'Onest',sans-serif;font-weight:900;font-size:1.05rem;color:#ecfccb;letter-spacing:-.04em}
+.spk__who{display:flex;flex-direction:column;gap:3px;min-width:0}
+.spk__who b{font-size:.95rem;letter-spacing:-.01em}
+.spk__who span{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.62rem;color:#9bb08a}
+.spk__who span i{width:6px;height:6px;border-radius:50%;background:#a3e635;animation:pulse 2s infinite}
+.spk__kpi{margin-left:auto;text-align:right}
+.spk__kpi b{display:block;font-family:var(--mono);font-weight:700;font-size:1.5rem;line-height:1;color:#a3e635}
+.spk__kpi span{font-family:var(--mono);font-size:.6rem;color:#9bb08a}
+.spk__sec{display:flex;flex-direction:column;gap:9px;padding:14px 18px;border-bottom:1px solid rgba(163,230,53,.1)}
+.spk__lbl{font-family:var(--mono);font-size:.62rem;color:#9bb08a}
+.spk__tab{display:grid;grid-template-columns:76px 34px minmax(0,1fr) 46px;align-items:center;gap:10px}
+.spk__tab>span{color:#c9d6bd;white-space:nowrap}
+.spk__ag{display:flex;gap:4px}
+.spk__ag i{width:7px;height:7px;border-radius:50%;background:#a3e635;box-shadow:0 0 6px rgba(163,230,53,.6);animation:spkag 1.6s ease-in-out infinite;animation-delay:calc(var(--i)*.27s)}
+.spk__poll{position:relative;height:8px;border-radius:2px;background:rgba(255,255,255,.06);overflow:hidden}
+.spk__poll i{position:absolute;top:0;bottom:0;width:22%;border-radius:2px;background:linear-gradient(90deg,transparent,#a3e635,transparent);animation:spkpoll 1.3s linear infinite;animation-delay:calc(var(--i)*-.43s)}
+.spk__tab>b{font-family:var(--mono);font-weight:500;font-size:.7rem;text-align:right;color:#c9d6bd}
+.spk__row{display:grid;grid-template-columns:76px minmax(0,1fr) 64px;align-items:center;gap:10px}
+.spk__row span{white-space:nowrap;color:#c9d6bd}
+.spk__row>b{font-family:var(--mono);font-weight:500;font-size:.72rem;text-align:right}
+.spk__bar{position:relative;height:8px;border-radius:2px;background:rgba(255,255,255,.06)}
+.spk__bar i{position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) calc(var(--i)*120ms)}
+.rv.in .spk__bar i{transform:none}
+.spk__row.was .spk__bar i{background:repeating-linear-gradient(135deg,rgba(239,68,68,.55) 0 6px,rgba(239,68,68,.25) 6px 12px)}
+.spk__row.was>b{color:#f87171}
+.spk__row.mid .spk__bar i{background:#facc15}
+.spk__row.mid>b{color:#facc15}
+.spk__row.ok .spk__bar i{background:#a3e635}
+.spk__row.ok>b{color:#a3e635}
+.spk__log{display:flex;flex-direction:column;gap:6px;padding:12px 18px;background:rgba(0,0,0,.22);font-family:var(--mono);font-size:.64rem;color:#9bb08a}
+.spk__log p{margin:0;display:flex;gap:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spk__log time{flex:none;color:#6f8360}
+.spk__log em{font-style:normal;font-weight:700;color:#a3e635}
+.spk__log p.new{animation:spknew 4s ease-in-out infinite}
+.spk__ft{display:flex;align-items:center;gap:8px;padding:11px 18px;border-top:1px solid rgba(255,255,255,.06);font-family:var(--mono);font-size:.62rem;color:#9bb08a}
+.spk__ft b{color:#a3e635;font-weight:700}
+.spk__ft .ok2{margin-left:auto;color:#a3e635;font-weight:700}
+@keyframes spkag{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes spkpoll{from{left:-22%}to{left:100%}}
+@keyframes spknew{0%,100%{color:#9bb08a}12%,40%{color:#ecfccb}}
+@media(max-width:600px){.spk{font-size:.74rem}.spk__hd,.spk__sec,.spk__log,.spk__ft{padding-left:14px;padding-right:14px}.spk__tab{grid-template-columns:68px 30px minmax(0,1fr) 40px;gap:8px}.spk__row{grid-template-columns:68px minmax(0,1fr) 58px;gap:8px}.spk__ft{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.spk__bar i{transition:none;transform:none}.spk__ag i,.spk__poll i,.spk__log p.new{animation:none}}
 .rev-card[data-case],.rev-card[data-filter]{position:relative;cursor:pointer}
 .rev-card[data-case]::before,.rev-card[data-filter]::before{content:'';position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
 .rev-card[data-case]:hover::before,.rev-card[data-filter]:hover::before,.rev-card:focus-visible::before{transform:scaleX(1)}
@@ -1282,16 +1326,17 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
         <div class="hx-bar"><span>отзывы · kwork</span><span class="st">★★★★★</span></div>
         <div class="hx-proof-in">
         <div class="hx-revs" aria-live="polite">
-          <div class="hx-rev on"><p class="hx-q">"Работает! За день починили то, что я не могла сделать месяц."</p><div class="hx-cite"><i>А</i><span>Алиса, бот-трекер питания на WatBot</span><a href="#p15">Кейс →</a></div></div>
+          <div class="hx-rev on"><p class="hx-q">"Закрыл все три этапа с опережением графика. Все общение с полуслова."</p><div class="hx-cite"><i>Z</i><span>zaratustra2002, автозахват выплат</span><a href="#p17">Кейс →</a></div></div>
+          <div class="hx-rev"><p class="hx-q">"Работает! За день починили то, что я не могла сделать месяц."</p><div class="hx-cite"><i>А</i><span>Алиса, бот-трекер питания на WatBot</span><a href="#p15">Кейс →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Отличный продавец, все супер!"</p><div class="hx-cite"><i>K</i><span>kucheryavchenkomish, ИИ-редактор новостей</span><a href="#p16">Кейс →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Всё сделал очень быстро, качественно и внимательно к нашим задачам."</p><div class="hx-cite"><i>Е</i><span>Екатерина, ИИ-ассистент продаж</span><a href="#p13">Кейс →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Нужно было срочно сделать бота в Telegram - человек сделал всё за 3 часа, всё работает."</p><div class="hx-cite"><i>G</i><span>gainutdinovarsla, бот в Telegram</span><a href="#reviews">Отзывы →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Всё прошло непросто, но главное - в итоге всё получилось."</p><div class="hx-cite"><i>S</i><span>Sadovnik2008, выгрузка 1С в PostgreSQL</span><a href="#p10">Кейс →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Всё сделано точно в срок и ровно так, как и договаривались по ТЗ."</p><div class="hx-cite"><i>P</i><span>pirat-ps, передача лидов в Bitrix24</span><a href="#p08">Кейс →</a></div></div>
         </div>
-        <div class="hx-dots"><button type="button" aria-label="Отзыв 1" class="on"></button><button type="button" aria-label="Отзыв 2"></button><button type="button" aria-label="Отзыв 3"></button><button type="button" aria-label="Отзыв 4"></button><button type="button" aria-label="Отзыв 5"></button><button type="button" aria-label="Отзыв 6"></button></div>
+        <div class="hx-dots"><button type="button" aria-label="Отзыв 1" class="on"></button><button type="button" aria-label="Отзыв 2"></button><button type="button" aria-label="Отзыв 3"></button><button type="button" aria-label="Отзыв 4"></button><button type="button" aria-label="Отзыв 5"></button><button type="button" aria-label="Отзыв 6"></button><button type="button" aria-label="Отзыв 7"></button></div>
         </div>
-        <div class="hx-meta"><span><b>16</b> проектов</span><span><b>16</b> отзывов</span><span>ответ <b>&lt;&nbsp;1&nbsp;ч</b></span></div>
+        <div class="hx-meta"><span><b>17</b> проектов</span><span><b>17</b> отзывов</span><span>ответ <b>&lt;&nbsp;1&nbsp;ч</b></span></div>
       </aside>
       <a class="hx-fc hx-fc--a" href="#p14" style="--dp:16px;--fd:0s">
         <span class="hx-fc-k">Проект 14 · бот записи</span>
@@ -1380,7 +1425,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
     <div class="feature-head rv">
       <div class="slabel"><b>~/</b>проекты</div>
       <h2 class="stitle">Проекты</h2>
-      <p class="ssub">16 проектов для клиентов. В каждом превью и разбор: какая была задача и что сделано.</p>
+      <p class="ssub">17 проектов для клиентов. В каждом превью и разбор: какая была задача и что сделано.</p>
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">Все</button>
@@ -1397,7 +1442,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 16</div>
+      <div class="pnl">01 / 17</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">Telegram Mini App</div>
       <h3 class="ptitle">Платформа<br>онлайн-курсов</h3>
       <p class="pdesc">Онлайн-школа внутри Telegram. Пользователь открывает Mini App, проходит уроки и оплачивает - без перехода на сторонний сайт.</p>
@@ -1443,7 +1488,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 16</div>
+      <div class="pnl">02 / 17</div>
       <div class="ptag" style="color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.06)">Telegram INFO-бот</div>
       <h3 class="ptitle">ONETRADE -<br>партнёрский бот</h3>
       <p class="pdesc">Информационный бот партнёрской экосистемы OneTrade: реферальная структура, кэшбэк, ранги и личный кабинет - всё в одном меню. <a class="pdesc-link" href="https://t.me/OneTradeINFO_bot" target="_blank" rel="noopener">@OneTradeINFO_bot →</a></p>
@@ -1498,7 +1543,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 16</div>
+      <div class="pnl">03 / 17</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">Userbot / Аутрич</div>
       <h3 class="ptitle">Рассылка KZ -<br>TG аутрич</h3>
       <p class="pdesc">Userbot для массового аутрича: сканирует участников нужных групп за нужный период, отправляет ЛС с картинкой и обрабатывает любые ошибки Telegram.</p>
@@ -1537,7 +1582,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 16</div>
+      <div class="pnl">04 / 17</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">Радар заказов · автопилот</div>
       <h3 class="ptitle">Lead Radar -<br>радар заказов</h3>
       <p class="pdesc">Каждые 3 часа сама обходит Telegram-каналы с заказами, отсеивает рекламу и чужие профили, пишет отклик под каждый подходящий заказ и выкладывает всё на закрытый сайт. Работает в облаке, даже когда компьютер выключен.</p>
@@ -1589,7 +1634,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 16</div>
+      <div class="pnl">05 / 17</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">Веб / Лендинги</div>
       <h3 class="ptitle">Продуктовые<br>лендинги</h3>
       <p class="pdesc">Два landing page с нуля: персональное портфолио и продуктовая страница SaaS-инструмента Lumina для дизайнеров - анимации, тарифы, отзывы.</p>
@@ -1624,7 +1669,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 16</div>
+      <div class="pnl">06 / 17</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">Веб / Лендинг · live</div>
       <h3 class="ptitle">ВОЛЬТ -<br>магазин электроники</h3>
       <p class="pdesc">Концепт-лендинг магазина электроники "по-человечески". Живой подбор акцентного цвета, светлая и тёмная тема, корзина-drawer и поиск по каталогу. Чистый HTML/CSS/JS без фреймворков - и он реально работает по ссылке.</p>
@@ -1659,7 +1704,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 16</div>
+      <div class="pnl">07 / 17</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">1С-Битрикс / Сервер · перенос</div>
       <h3 class="ptitle">Перенос и аудит<br>магазина на Битрикс</h3>
       <p class="pdesc">Перенос интернет-магазина мебели (~11 000 товаров) на облачный VPS и полный аудит после переезда. По ходу нашёл и устранил скрытую блокировку записи из-за переполнения диска и конфликт модулей, ронявший каталог в ошибку 500.</p>
@@ -1700,7 +1745,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">08</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">08 / 16</div>
+      <div class="pnl">08 / 17</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">Веб-сервис / Интеграция CRM</div>
       <h3 class="ptitle">Lead Router -<br>лиды в CRM и почту</h3>
       <p class="pdesc">Веб-панель, которая принимает лиды от поставщиков и раздаёт их клиентам. Админ решает, кому отдать заявку, и она уходит в Bitrix24, amoCRM или на почту. Node.js и SQLite, работает даже на самом дешёвом VPS.</p>
@@ -1776,7 +1821,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">09</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">09 / 16</div>
+      <div class="pnl">09 / 17</div>
       <div class="ptag" style="color:#e879f9;border-color:rgba(232,121,249,.32);background:rgba(232,121,249,.07)">Портфолио-лендинг · live</div>
       <h3 class="ptitle">Илья Громов -<br>портфолио дизайнера</h3>
       <p class="pdesc">Лендинг-портфолио для бренд- и визуал-дизайнера: секция кейсов с работами, бренд-кит для соцсетей, отзывы клиентов и блок контактов. Тёмная и светлая тема, плавные анимации появления, полный адаптив. Чистый HTML / CSS / JS - сдан и развёрнут, работает по ссылке.</p>
@@ -1812,7 +1857,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">10</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">10 / 16</div>
+      <div class="pnl">10 / 17</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">Данные · 1С → PostgreSQL</div>
       <h3 class="ptitle">Выгрузка <span class="t1c">1С</span>:Розница<br>в PostgreSQL</h3>
       <p class="pdesc">Переносит данные из 1С:Розница на кассе в PostgreSQL на втором ПК. Читает базу прямо из файла в фоне, не мешая кассиру, чистит данные и раз в день сама шлёт свежий пакет по почте.</p>
@@ -1853,7 +1898,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">11</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">11 / 16</div>
+      <div class="pnl">11 / 17</div>
       <div class="ptag" style="color:#4ade80;border-color:rgba(74,222,128,.32);background:rgba(74,222,128,.07)">Google Таблицы / Apps Script</div>
       <h3 class="ptitle">Планировщик рассылки<br>в Google Таблицах</h3>
       <p class="pdesc">Скрипт для Google Таблиц, который превращает список лидов в готовый план email-рассылки: цепочки писем по компаниям, ротация текстов, разбивка по дням и партиям. Запускается из меню прямо в таблице - без кода и внешних сервисов.</p>
@@ -1888,7 +1933,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">12</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">12 / 16</div>
+      <div class="pnl">12 / 17</div>
       <div class="ptag" style="color:#22c55e;border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.07)">Excel · Автоматизация отчётности <span class="t1c">1С</span></div>
       <h3 class="ptitle">Отчёты учредителю<br>из <span class="t1c">1С</span> в один клик</h3>
       <p class="pdesc">Два отчёта в Excel, которые 1С Fresh не собирает сама: движение денег по дням и выручка по кассе с номенклатурой. Заказчица сохраняет выгрузки и кликает по .bat - через пару секунд таблицы открываются в Excel.</p>
@@ -1932,7 +1977,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">13</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">13 / 16</div>
+      <div class="pnl">13 / 17</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.32);background:rgba(167,139,250,.07)">AI-ассистент продаж</div>
       <h3 class="ptitle">AI-ассистент<br>продаж в Telegram</h3>
       <p class="pdesc">Продавец на базе Claude, который ведёт переписку с клиентами с живого аккаунта в Telegram. Отвечает по скриптам компании, заводит лида в Bitrix24 и зовёт менеджера, когда вопрос сложный. Ниша - импорт из Китая.</p>
@@ -1973,7 +2018,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">14</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">14 / 16</div>
+      <div class="pnl">14 / 17</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.32);background:rgba(52,211,153,.07)">Бот записи и лояльности</div>
       <h3 class="ptitle">Универсальный бот<br>для локального бизнеса</h3>
       <p class="pdesc">Бот-шаблон для локального бизнеса: салон, клиника, кафе, цветы. Клиент выбирает нишу, и меню подстраивается само: запись, каталог с корзиной, бонусы, напоминания. Демо с рабочей логикой, под заказ подключается база.</p>
@@ -2030,7 +2075,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">15</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">15 / 16</div>
+      <div class="pnl">15 / 17</div>
       <div class="ptag" style="color:#fb923c;border-color:rgba(251,146,60,.32);background:rgba(251,146,60,.07)">Аудит и багфикс бота · WatBot</div>
       <h3 class="ptitle">Реанимация бота-<br>трекера питания</h3>
       <p class="pdesc">Клиентка месяц не могла запустить бота-трекера калорий на WatBot. За день нашёл и починил баги логики, пересобрал меню и настроил напоминания о подписке. Бот сдан и работает: <a class="pdesc-link" href="https://t.me/nutra_track_bot" target="_blank" rel="noopener" style="--lc:#fb923c">@nutra_track_bot →</a></p>
@@ -2088,7 +2133,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">16</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">16 / 16</div>
+      <div class="pnl">16 / 17</div>
       <div class="ptag" style="color:#f87171;border-color:rgba(248,113,113,.32);background:rgba(248,113,113,.07)">ИИ-агент · новостной канал</div>
       <h3 class="ptitle">ИИ-редактор<br>новостного канала</h3>
       <p class="pdesc">Бот сам ведёт новостной Telegram-канал: читает RSS, отсеивает повторы, выбирает главную новость, пишет пост в стиле канала и подбирает фото. Два заказа подряд: снизил расходы на платный ИИ и добавил авто-видео.</p>
@@ -2127,6 +2172,54 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   </div>
 </section>
 
+<section class="ps" data-category="parser" id="p17">
+  <div class="psbg">17</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">17 / 17</div>
+      <div class="ptag" style="color:#a3e635;border-color:rgba(163,230,53,.32);background:rgba(163,230,53,.07)">Автоматизация в браузере · userscript</div>
+      <h3 class="ptitle">Автозахват выплат<br>за 100 мс</h3>
+      <p class="pdesc">На сайте выплаты разбирают за доли секунды: кто первым отправил заявку, тот и забрал. Доработал скрипт клиента для Tampermonkey: проверки Cloudflare без перезагрузки, темп опроса подстраивается сам, три вкладки работают как одна команда. Потом перенёс всё на сервер, чтобы ловило круглосуточно. Три этапа сдал раньше срока.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>Проверка Cloudflare проходит в скрытом окне, страница не перезагружается</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>Темп опроса подбирается сам: на 20% ниже частоты, на которой ловили проверку</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>Три вкладки делят общий бюджет запросов и бьются за выплату вместе</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>Браузер со скриптом живёт на VPS и работает 24/7, без домашнего ПК</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>Замеры на сервере: ответ сайта с 275-370 мс до 95-115 мс</div></div>
+      </div>
+      <div class="pstack"><span class="sp">JavaScript</span><span class="sp">Tampermonkey</span><span class="sp">Web Workers</span><span class="sp">BroadcastChannel</span><span class="sp">Chrome DevTools Protocol</span><span class="sp">Linux VPS</span><span class="sp">Node.js тесты</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(163,230,53,.16)"></div>
+      <div class="spk">
+        <div class="spk__hd">
+          <div class="spk__logo">SH</div>
+          <div class="spk__who"><b>Перехватчик выплат</b><span><i></i>сервер · 3 вкладки · 24/7</span></div>
+          <div class="spk__kpi"><b>104</b><span>мс ответ</span></div>
+        </div>
+        <div class="spk__sec">
+          <div class="spk__lbl">вкладки опрашивают сайт</div>
+          <div class="spk__tab"><span>вкладка 1</span><span class="spk__ag"><i style="--i:0"></i><i style="--i:1"></i></span><div class="spk__poll"><i style="--i:0"></i></div><b>42/с</b></div>
+          <div class="spk__tab"><span>вкладка 2</span><span class="spk__ag"><i style="--i:2"></i><i style="--i:3"></i></span><div class="spk__poll"><i style="--i:1"></i></div><b>41/с</b></div>
+          <div class="spk__tab"><span>вкладка 3</span><span class="spk__ag"><i style="--i:4"></i><i style="--i:5"></i></span><div class="spk__poll"><i style="--i:2"></i></div><b>44/с</b></div>
+        </div>
+        <div class="spk__sec">
+          <div class="spk__lbl">ответ сайта на заявку, мс</div>
+          <div class="spk__row was" style="--i:0"><span>8 агентов</span><div class="spk__bar"><i style="--w:100%"></i></div><b>275-370</b></div>
+          <div class="spk__row mid" style="--i:1"><span>4 агента</span><div class="spk__bar"><i style="--w:51%"></i></div><b>140-190</b></div>
+          <div class="spk__row ok" style="--i:2"><span>2 агента</span><div class="spk__bar"><i style="--w:31%"></i></div><b>95-115</b></div>
+        </div>
+        <div class="spk__log">
+          <p class="new"><time>13:42:07</time><em>НАША</em><span>выплата взята · вкладка 2 · 104 мс</span></p>
+          <p><time>13:41:52</time><em>НАША</em><span>выплата взята · вкладка 1 · 98 мс</span></p>
+          <p><time>13:41:30</time><span>проверка Cloudflare пройдена без перезагрузки</span></p>
+        </div>
+        <div class="spk__ft">3 этапа · <b>54 теста</b><span class="ok2">✅ сдано раньше срока</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="sh proc-bg" id="process">
   <div class="wrap">
@@ -2160,9 +2253,20 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="wrap">
     <div class="slabel"><b>~/</b>отзывы</div>
     <h2 class="stitle rv">Отзывы клиентов</h2>
-    <p class="ssub rv">16 положительных отзывов · 0 отрицательных</p>
+    <p class="ssub rv">17 положительных отзывов · 0 отрицательных</p>
     <div class="rev-overflow">
       <div class="rev-slider" id="revSlider">
+
+        <div class="rev-slide"><div class="rev-card" data-case="#p17">
+          <div class="rev-top">
+            <div class="rev-av" style="background:rgba(163,230,53,.14);color:#a3e635">Z</div>
+            <div class="rev-info"><div class="rev-name">zaratustra2002</div></div>
+            <div class="rev-stars">★★★★★</div>
+          </div>
+          <div class="rev-badge">Скрипт автозахвата выплат: 3 этапа + сервер 24/7</div>
+          <p class="rev-text">"Быстро. Раньше срока. Недорого. За разумную цену. Без суеты и лишних вопросов. Была интересная задача по автоматизации процесса выборки. Закрыл все три этапа с опережением графика. Все возникающие вопросы подкручивал оперативно и творчески. Не пришлось ничего разжевывать. Все общение с полуслова. Не пожалел. Рекомендую."</p>
+          <div class="rev-src">Проверенный отзыв · kwork.ru<a class="rev-case" href="#p17">Кейс 17<span> · автозахват выплат</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div></div>
 
         <div class="rev-slide"><div class="rev-card" data-case="#p16">
           <div class="rev-top">
@@ -2345,7 +2449,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
     <div class="rev-nav">
       <button class="rev-arrow" id="revPrev" aria-label="Назад"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
       <div class="rev-dots" id="revDots"></div>
-      <span class="rev-counter" id="revCounter">1 / 16</span>
+      <span class="rev-counter" id="revCounter">1 / 17</span>
       <button class="rev-arrow" id="revNext" aria-label="Вперёд"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
     </div>
     <div style="text-align:center;margin-top:28px">

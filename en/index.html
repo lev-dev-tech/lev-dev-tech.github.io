@@ -1080,6 +1080,50 @@ body:has(.pfloat.vis) #totop{opacity:0;pointer-events:none}
 .npc__pl i{font-style:normal;font-family:var(--mono);font-size:.58rem;padding:2px 6px;border-radius:4px;border:1px solid rgba(52,211,153,.4);color:#34d399}
 @media(max-width:600px){.npc{font-size:.74rem}.npc__hd,.npc__sec,.npc__ft{padding-left:14px;padding-right:14px}.npc__row{grid-template-columns:84px minmax(0,1fr) 46px;gap:8px}.npc__ft{flex-wrap:wrap}.npc__ft p{flex-basis:calc(100% - 50px)}}
 @media(prefers-reduced-motion:reduce){.npc__bar i{transition:none;transform:none}}
+.spk{position:relative;z-index:1;width:100%;background:linear-gradient(180deg,#121a0c,#0b1007);border:1px solid rgba(163,230,53,.24);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#e7eedf;font-size:.8rem}
+.spk__hd{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(163,230,53,.14)}
+.spk__logo{flex:none;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,#65a30d,#1a2e05);font-family:'Onest',sans-serif;font-weight:900;font-size:1.05rem;color:#ecfccb;letter-spacing:-.04em}
+.spk__who{display:flex;flex-direction:column;gap:3px;min-width:0}
+.spk__who b{font-size:.95rem;letter-spacing:-.01em}
+.spk__who span{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.62rem;color:#9bb08a}
+.spk__who span i{width:6px;height:6px;border-radius:50%;background:#a3e635;animation:pulse 2s infinite}
+.spk__kpi{margin-left:auto;text-align:right}
+.spk__kpi b{display:block;font-family:var(--mono);font-weight:700;font-size:1.5rem;line-height:1;color:#a3e635}
+.spk__kpi span{font-family:var(--mono);font-size:.6rem;color:#9bb08a}
+.spk__sec{display:flex;flex-direction:column;gap:9px;padding:14px 18px;border-bottom:1px solid rgba(163,230,53,.1)}
+.spk__lbl{font-family:var(--mono);font-size:.62rem;color:#9bb08a}
+.spk__tab{display:grid;grid-template-columns:76px 34px minmax(0,1fr) 46px;align-items:center;gap:10px}
+.spk__tab>span{color:#c9d6bd;white-space:nowrap}
+.spk__ag{display:flex;gap:4px}
+.spk__ag i{width:7px;height:7px;border-radius:50%;background:#a3e635;box-shadow:0 0 6px rgba(163,230,53,.6);animation:spkag 1.6s ease-in-out infinite;animation-delay:calc(var(--i)*.27s)}
+.spk__poll{position:relative;height:8px;border-radius:2px;background:rgba(255,255,255,.06);overflow:hidden}
+.spk__poll i{position:absolute;top:0;bottom:0;width:22%;border-radius:2px;background:linear-gradient(90deg,transparent,#a3e635,transparent);animation:spkpoll 1.3s linear infinite;animation-delay:calc(var(--i)*-.43s)}
+.spk__tab>b{font-family:var(--mono);font-weight:500;font-size:.7rem;text-align:right;color:#c9d6bd}
+.spk__row{display:grid;grid-template-columns:76px minmax(0,1fr) 64px;align-items:center;gap:10px}
+.spk__row span{white-space:nowrap;color:#c9d6bd}
+.spk__row>b{font-family:var(--mono);font-weight:500;font-size:.72rem;text-align:right}
+.spk__bar{position:relative;height:8px;border-radius:2px;background:rgba(255,255,255,.06)}
+.spk__bar i{position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) calc(var(--i)*120ms)}
+.rv.in .spk__bar i{transform:none}
+.spk__row.was .spk__bar i{background:repeating-linear-gradient(135deg,rgba(239,68,68,.55) 0 6px,rgba(239,68,68,.25) 6px 12px)}
+.spk__row.was>b{color:#f87171}
+.spk__row.mid .spk__bar i{background:#facc15}
+.spk__row.mid>b{color:#facc15}
+.spk__row.ok .spk__bar i{background:#a3e635}
+.spk__row.ok>b{color:#a3e635}
+.spk__log{display:flex;flex-direction:column;gap:6px;padding:12px 18px;background:rgba(0,0,0,.22);font-family:var(--mono);font-size:.64rem;color:#9bb08a}
+.spk__log p{margin:0;display:flex;gap:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spk__log time{flex:none;color:#6f8360}
+.spk__log em{font-style:normal;font-weight:700;color:#a3e635}
+.spk__log p.new{animation:spknew 4s ease-in-out infinite}
+.spk__ft{display:flex;align-items:center;gap:8px;padding:11px 18px;border-top:1px solid rgba(255,255,255,.06);font-family:var(--mono);font-size:.62rem;color:#9bb08a}
+.spk__ft b{color:#a3e635;font-weight:700}
+.spk__ft .ok2{margin-left:auto;color:#a3e635;font-weight:700}
+@keyframes spkag{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes spkpoll{from{left:-22%}to{left:100%}}
+@keyframes spknew{0%,100%{color:#9bb08a}12%,40%{color:#ecfccb}}
+@media(max-width:600px){.spk{font-size:.74rem}.spk__hd,.spk__sec,.spk__log,.spk__ft{padding-left:14px;padding-right:14px}.spk__tab{grid-template-columns:68px 30px minmax(0,1fr) 40px;gap:8px}.spk__row{grid-template-columns:68px minmax(0,1fr) 58px;gap:8px}.spk__ft{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.spk__bar i{transition:none;transform:none}.spk__ag i,.spk__poll i,.spk__log p.new{animation:none}}
 .rev-card[data-case],.rev-card[data-filter]{position:relative;cursor:pointer}
 .rev-card[data-case]::before,.rev-card[data-filter]::before{content:'';position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
 .rev-card[data-case]:hover::before,.rev-card[data-filter]:hover::before,.rev-card:focus-visible::before{transform:scaleX(1)}
@@ -1281,16 +1325,17 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
         <div class="hx-bar"><span>reviews · kwork</span><span class="st">★★★★★</span></div>
         <div class="hx-proof-in">
         <div class="hx-revs" aria-live="polite">
-          <div class="hx-rev on"><p class="hx-q">"It works! In one day you fixed what I couldn't fix for a month."</p><div class="hx-cite"><i>A</i><span>Alisa, nutrition tracker bot on WatBot</span><a href="#p15">Case →</a></div></div>
+          <div class="hx-rev on"><p class="hx-q">"Closed all three stages ahead of schedule. We understood each other at half a word."</p><div class="hx-cite"><i>Z</i><span>zaratustra2002, payout auto-grabber</span><a href="#p17">Case →</a></div></div>
+          <div class="hx-rev"><p class="hx-q">"It works! In one day you fixed what I couldn't fix for a month."</p><div class="hx-cite"><i>A</i><span>Alisa, nutrition tracker bot on WatBot</span><a href="#p15">Case →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Great seller, everything's perfect!"</p><div class="hx-cite"><i>K</i><span>kucheryavchenkomish, AI news editor</span><a href="#p16">Case →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Did everything very fast, carefully and with real attention to our needs."</p><div class="hx-cite"><i>E</i><span>Ekaterina, AI sales assistant</span><a href="#p13">Case →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"I urgently needed a Telegram bot - he built it in 3 hours and it all works."</p><div class="hx-cite"><i>G</i><span>gainutdinovarsla, Telegram bot</span><a href="#reviews">Reviews →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"It wasn't easy, but in the end it all worked out."</p><div class="hx-cite"><i>S</i><span>Sadovnik2008, 1C to PostgreSQL export</span><a href="#p10">Case →</a></div></div>
           <div class="hx-rev"><p class="hx-q">"Done right on time and exactly as agreed in the spec."</p><div class="hx-cite"><i>P</i><span>pirat-ps, lead delivery to Bitrix24</span><a href="#p08">Case →</a></div></div>
         </div>
-        <div class="hx-dots"><button type="button" aria-label="Review 1" class="on"></button><button type="button" aria-label="Review 2"></button><button type="button" aria-label="Review 3"></button><button type="button" aria-label="Review 4"></button><button type="button" aria-label="Review 5"></button><button type="button" aria-label="Review 6"></button></div>
+        <div class="hx-dots"><button type="button" aria-label="Review 1" class="on"></button><button type="button" aria-label="Review 2"></button><button type="button" aria-label="Review 3"></button><button type="button" aria-label="Review 4"></button><button type="button" aria-label="Review 5"></button><button type="button" aria-label="Review 6"></button><button type="button" aria-label="Review 7"></button></div>
         </div>
-        <div class="hx-meta"><span><b>16</b> projects</span><span><b>16</b> reviews</span><span>reply <b>&lt;&nbsp;1&nbsp;h</b></span></div>
+        <div class="hx-meta"><span><b>17</b> projects</span><span><b>17</b> reviews</span><span>reply <b>&lt;&nbsp;1&nbsp;h</b></span></div>
       </aside>
       <a class="hx-fc hx-fc--a" href="#p14" style="--dp:16px;--fd:0s">
         <span class="hx-fc-k">Project 14 · booking bot</span>
@@ -1379,7 +1424,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
     <div class="feature-head rv">
       <div class="slabel"><b>~/</b>projects</div>
       <h2 class="stitle">Projects</h2>
-      <p class="ssub">16 client projects. Each one has a preview and a breakdown: what the task was and what I did.</p>
+      <p class="ssub">17 client projects. Each one has a preview and a breakdown: what the task was and what I did.</p>
     </div>
     <div class="pftabs">
       <button class="pft on" data-filter="all">All</button>
@@ -1396,7 +1441,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">01</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">01 / 16</div>
+      <div class="pnl">01 / 17</div>
       <div class="ptag" style="color:#29b6f6;border-color:rgba(41,182,246,.3);background:rgba(41,182,246,.06)">Telegram Mini App</div>
       <h3 class="ptitle">Online course<br>platform</h3>
       <p class="pdesc">An online school inside Telegram. Users open the Mini App, take lessons and pay without leaving for another site.</p>
@@ -1442,7 +1487,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">02</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">02 / 16</div>
+      <div class="pnl">02 / 17</div>
       <div class="ptag" style="color:#2dd4bf;border-color:rgba(45,212,191,.3);background:rgba(45,212,191,.06)">Telegram INFO bot</div>
       <h3 class="ptitle">ONETRADE -<br>partner bot</h3>
       <p class="pdesc">An info bot for the OneTrade partner ecosystem: referral structure, cashback, ranks and a personal account, all in one menu. <a class="pdesc-link" href="https://t.me/OneTradeINFO_bot" target="_blank" rel="noopener">@OneTradeINFO_bot →</a></p>
@@ -1497,7 +1542,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">03</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">03 / 16</div>
+      <div class="pnl">03 / 17</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)">Userbot / Outreach</div>
       <h3 class="ptitle">KZ mailing -<br>TG outreach</h3>
       <p class="pdesc">A userbot for mass outreach: collects members of target groups for a chosen period, sends DMs with an image and handles every Telegram error.</p>
@@ -1536,7 +1581,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">04</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">04 / 16</div>
+      <div class="pnl">04 / 17</div>
       <div class="ptag" style="color:#fbbf24;border-color:rgba(251,191,36,.32);background:rgba(251,191,36,.07)">Job radar · autopilot</div>
       <h3 class="ptitle">Lead Radar -<br>job radar</h3>
       <p class="pdesc">Every 3 hours it scans Telegram job channels, filters out ads and competitor profiles, writes a reply for every matching job and posts it all to a private site. Runs in the cloud even when the computer is off.</p>
@@ -1588,7 +1633,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">05</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">05 / 16</div>
+      <div class="pnl">05 / 17</div>
       <div class="ptag" style="color:#f472b6;border-color:rgba(244,114,182,.3);background:rgba(244,114,182,.06)">Web / Landing pages</div>
       <h3 class="ptitle">Product<br>landing pages</h3>
       <p class="pdesc">Two landing pages from scratch: a personal portfolio and a product page for Lumina, a SaaS tool for designers - animations, pricing, testimonials.</p>
@@ -1623,7 +1668,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">06</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">06 / 16</div>
+      <div class="pnl">06 / 17</div>
       <div class="ptag" style="color:#3b5bff;border-color:rgba(59,91,255,.32);background:rgba(59,91,255,.07)">Web / Landing · live</div>
       <h3 class="ptitle">VOLT -<br>electronics store</h3>
       <p class="pdesc">A concept landing for an electronics store that talks like a human. Live accent color picker, light and dark themes, a cart drawer and catalog search. Plain HTML/CSS/JS with no frameworks - and it actually works at the link.</p>
@@ -1658,7 +1703,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">07</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">07 / 16</div>
+      <div class="pnl">07 / 17</div>
       <div class="ptag" style="color:#22d3ee;border-color:rgba(34,211,238,.32);background:rgba(34,211,238,.07)">1C-Bitrix / Server · migration</div>
       <h3 class="ptitle">Migration and audit<br>of a Bitrix store</h3>
       <p class="pdesc">Moved a furniture online store (~11,000 products) to a cloud VPS and ran a full audit after the move. Along the way I found and fixed a hidden write lock caused by a full disk and a module conflict that crashed the catalog with a 500 error.</p>
@@ -1699,7 +1744,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">08</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">08 / 16</div>
+      <div class="pnl">08 / 17</div>
       <div class="ptag" style="color:#818cf8;border-color:rgba(129,140,248,.32);background:rgba(129,140,248,.07)">Web service / CRM integration</div>
       <h3 class="ptitle">Lead Router -<br>leads to CRM and email</h3>
       <p class="pdesc">A web panel that takes leads from suppliers and hands them out to clients. The admin decides who gets each lead, and it goes to Bitrix24, amoCRM or email. Node.js and SQLite, runs even on the cheapest VPS.</p>
@@ -1775,7 +1820,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">09</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">09 / 16</div>
+      <div class="pnl">09 / 17</div>
       <div class="ptag" style="color:#e879f9;border-color:rgba(232,121,249,.32);background:rgba(232,121,249,.07)">Portfolio landing · live</div>
       <h3 class="ptitle">Ilya Gromov -<br>designer portfolio</h3>
       <p class="pdesc">A portfolio landing for a brand and visual designer: a case gallery, a social media brand kit, client testimonials and a contact block. Dark and light themes, smooth reveal animations, fully responsive. Plain HTML / CSS / JS - delivered, deployed and live.</p>
@@ -1811,7 +1856,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">10</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">10 / 16</div>
+      <div class="pnl">10 / 17</div>
       <div class="ptag" style="color:#eab308;border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.07)">Data · 1C → PostgreSQL</div>
       <h3 class="ptitle">Exporting <span class="t1c">1C</span>:Retail<br>to PostgreSQL</h3>
       <p class="pdesc">Moves data from 1C:Retail on the cash register PC to PostgreSQL on a second PC. Reads the database straight from the file in the background without bothering the cashier, cleans the data and emails a fresh package once a day.</p>
@@ -1852,7 +1897,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">11</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">11 / 16</div>
+      <div class="pnl">11 / 17</div>
       <div class="ptag" style="color:#4ade80;border-color:rgba(74,222,128,.32);background:rgba(74,222,128,.07)">Google Sheets / Apps Script</div>
       <h3 class="ptitle">Email campaign planner<br>in Google Sheets</h3>
       <p class="pdesc">A Google Sheets script that turns a lead list into a ready email campaign plan: email sequences per company, text rotation, split by days and batches. Runs from a menu right in the sheet - no code, no external services.</p>
@@ -1887,7 +1932,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">12</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">12 / 16</div>
+      <div class="pnl">12 / 17</div>
       <div class="ptag" style="color:#22c55e;border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.07)">Excel · Reporting automation <span class="t1c">1C</span></div>
       <h3 class="ptitle">Owner reports<br>from <span class="t1c">1C</span> in one click</h3>
       <p class="pdesc">Two Excel reports that 1C Fresh can't build on its own: daily cash flow and register revenue with an item breakdown. The client saves the exports and clicks a .bat - a couple of seconds later the tables open in Excel.</p>
@@ -1931,7 +1976,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">13</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">13 / 16</div>
+      <div class="pnl">13 / 17</div>
       <div class="ptag" style="color:#a78bfa;border-color:rgba(167,139,250,.32);background:rgba(167,139,250,.07)">AI sales assistant</div>
       <h3 class="ptitle">AI sales<br>assistant in Telegram</h3>
       <p class="pdesc">A Claude-powered salesperson that chats with clients from a real Telegram account. Answers using the company's scripts, creates the lead in Bitrix24 and calls in a manager when a question gets tricky. Niche - imports from China.</p>
@@ -1972,7 +2017,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">14</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">14 / 16</div>
+      <div class="pnl">14 / 17</div>
       <div class="ptag" style="color:#34d399;border-color:rgba(52,211,153,.32);background:rgba(52,211,153,.07)">Booking and loyalty bot</div>
       <h3 class="ptitle">A universal bot<br>for local business</h3>
       <p class="pdesc">A bot template for local business: salon, clinic, cafe, flower shop. The client picks a niche and the menu adapts: bookings, a catalog with a cart, bonuses, reminders. A demo with working logic; a database is connected per order.</p>
@@ -2029,7 +2074,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">15</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">15 / 16</div>
+      <div class="pnl">15 / 17</div>
       <div class="ptag" style="color:#fb923c;border-color:rgba(251,146,60,.32);background:rgba(251,146,60,.07)">Bot audit and bug fixing · WatBot</div>
       <h3 class="ptitle">Reviving a<br>nutrition tracker bot</h3>
       <p class="pdesc">For a month the client couldn't get her calorie tracker bot on WatBot to work. In one day I found and fixed the logic bugs, rebuilt the menu and set up subscription reminders. Delivered and live: <a class="pdesc-link" href="https://t.me/nutra_track_bot" target="_blank" rel="noopener" style="--lc:#fb923c">@nutra_track_bot →</a></p>
@@ -2087,7 +2132,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="psbg">16</div>
   <div class="wrap pi">
     <div class="rv">
-      <div class="pnl">16 / 16</div>
+      <div class="pnl">16 / 17</div>
       <div class="ptag" style="color:#f87171;border-color:rgba(248,113,113,.32);background:rgba(248,113,113,.07)">AI agent · news channel</div>
       <h3 class="ptitle">AI editor<br>for a news channel</h3>
       <p class="pdesc">The bot runs a Telegram news channel on its own: reads RSS, filters out repeats, picks the top story, writes a post in the channel's style and finds photos. Two orders in a row: cut paid AI costs and added auto video.</p>
@@ -2126,6 +2171,54 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   </div>
 </section>
 
+<section class="ps" data-category="parser" id="p17">
+  <div class="psbg">17</div>
+  <div class="wrap pi">
+    <div class="rv">
+      <div class="pnl">17 / 17</div>
+      <div class="ptag" style="color:#a3e635;border-color:rgba(163,230,53,.32);background:rgba(163,230,53,.07)">Browser automation · userscript</div>
+      <h3 class="ptitle">Payout auto-grab<br>in 100 ms</h3>
+      <p class="pdesc">On this site payouts are gone in a fraction of a second: whoever sends the request first gets it. I reworked the client's Tampermonkey script: Cloudflare checks pass without a reload, the polling rate tunes itself, and three tabs work as one team. Then I moved it all to a server so it catches payouts around the clock. All three stages were delivered ahead of schedule.</p>
+      <div class="pfeats">
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>The Cloudflare check passes in a hidden window, the page never reloads</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>The polling rate tunes itself: 20% below the rate that triggered a check</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>Three tabs share one request budget and compete for a payout together</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>The browser with the script lives on a VPS and runs 24/7, no home PC needed</div></div>
+        <div class="pf"><div class="pfd" style="background:#a3e635"></div><div>Measured on the server: site response down from 275-370 ms to 95-115 ms</div></div>
+      </div>
+      <div class="pstack"><span class="sp">JavaScript</span><span class="sp">Tampermonkey</span><span class="sp">Web Workers</span><span class="sp">BroadcastChannel</span><span class="sp">Chrome DevTools Protocol</span><span class="sp">Linux VPS</span><span class="sp">Node.js tests</span></div>
+    </div>
+    <div class="pvisual rv">
+      <div class="mglow" style="--g:rgba(163,230,53,.16)"></div>
+      <div class="spk">
+        <div class="spk__hd">
+          <div class="spk__logo">SH</div>
+          <div class="spk__who"><b>Payout grabber</b><span><i></i>server · 3 tabs · 24/7</span></div>
+          <div class="spk__kpi"><b>104</b><span>ms response</span></div>
+        </div>
+        <div class="spk__sec">
+          <div class="spk__lbl">tabs polling the site</div>
+          <div class="spk__tab"><span>tab 1</span><span class="spk__ag"><i style="--i:0"></i><i style="--i:1"></i></span><div class="spk__poll"><i style="--i:0"></i></div><b>42/s</b></div>
+          <div class="spk__tab"><span>tab 2</span><span class="spk__ag"><i style="--i:2"></i><i style="--i:3"></i></span><div class="spk__poll"><i style="--i:1"></i></div><b>41/s</b></div>
+          <div class="spk__tab"><span>tab 3</span><span class="spk__ag"><i style="--i:4"></i><i style="--i:5"></i></span><div class="spk__poll"><i style="--i:2"></i></div><b>44/s</b></div>
+        </div>
+        <div class="spk__sec">
+          <div class="spk__lbl">site response to a claim, ms</div>
+          <div class="spk__row was" style="--i:0"><span>8 agents</span><div class="spk__bar"><i style="--w:100%"></i></div><b>275-370</b></div>
+          <div class="spk__row mid" style="--i:1"><span>4 agents</span><div class="spk__bar"><i style="--w:51%"></i></div><b>140-190</b></div>
+          <div class="spk__row ok" style="--i:2"><span>2 agents</span><div class="spk__bar"><i style="--w:31%"></i></div><b>95-115</b></div>
+        </div>
+        <div class="spk__log">
+          <p class="new"><time>13:42:07</time><em>OURS</em><span>payout taken · tab 2 · 104 ms</span></p>
+          <p><time>13:41:52</time><em>OURS</em><span>payout taken · tab 1 · 98 ms</span></p>
+          <p><time>13:41:30</time><span>Cloudflare check passed without a reload</span></p>
+        </div>
+        <div class="spk__ft">3 stages · <b>54 tests</b><span class="ok2">✅ delivered ahead of schedule</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="sh proc-bg" id="process">
   <div class="wrap">
@@ -2159,9 +2252,20 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
   <div class="wrap">
     <div class="slabel"><b>~/</b>reviews</div>
     <h2 class="stitle rv">Client reviews</h2>
-    <p class="ssub rv">16 positive reviews · 0 negative · translated from Russian</p>
+    <p class="ssub rv">17 positive reviews · 0 negative · translated from Russian</p>
     <div class="rev-overflow">
       <div class="rev-slider" id="revSlider">
+
+        <div class="rev-slide"><div class="rev-card" data-case="#p17">
+          <div class="rev-top">
+            <div class="rev-av" style="background:rgba(163,230,53,.14);color:#a3e635">Z</div>
+            <div class="rev-info"><div class="rev-name">zaratustra2002</div></div>
+            <div class="rev-stars">★★★★★</div>
+          </div>
+          <div class="rev-badge">Payout auto-grab script: 3 stages + 24/7 server</div>
+          <p class="rev-text">"Fast. Ahead of schedule. Inexpensive, a fair price. No fuss and no unnecessary questions. An interesting task automating the selection process. Closed all three stages ahead of schedule. Tweaked every question that came up quickly and creatively. Nothing had to be spelled out. We understood each other at half a word. No regrets. Recommended."</p>
+          <div class="rev-src">Verified review · kwork.ru<a class="rev-case" href="#p17">Case 17<span> · payout auto-grab</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div></div>
 
         <div class="rev-slide"><div class="rev-card" data-case="#p16">
           <div class="rev-top">
@@ -2344,7 +2448,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
     <div class="rev-nav">
       <button class="rev-arrow" id="revPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
       <div class="rev-dots" id="revDots"></div>
-      <span class="rev-counter" id="revCounter">1 / 16</span>
+      <span class="rev-counter" id="revCounter">1 / 17</span>
       <button class="rev-arrow" id="revNext" aria-label="Next"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
     </div>
     <div style="text-align:center;margin-top:28px">
