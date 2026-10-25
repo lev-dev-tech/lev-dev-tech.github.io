@@ -1,0 +1,465 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Путь техспеца с нуля</title><meta name="description" content="Бесплатный гайд Льва: от официанта до 200 000+ ₽ в месяц на ботах, автоматизации и нейросетях."><meta property="og:title" content="Путь техспеца с нуля"><meta property="og:description" content="От официанта до 200 000+ ₽ в месяц на ботах и нейросетях. Kwork, портфолио, отклики, цены и план на месяц."><meta property="og:image" content="https://lev-dev-tech.github.io/put/poster.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#FFF6EC"><style>@font-face{font-family:'Onest';font-weight:400;font-display:swap;src:url(fonts/onest-400-cyrillic.woff2) format('woff2');unicode-range:U+0400-04FF;}
+@font-face{font-family:'Onest';font-weight:400;font-display:swap;src:url(fonts/onest-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20BD;}
+@font-face{font-family:'Onest';font-weight:500;font-display:swap;src:url(fonts/onest-500-cyrillic.woff2) format('woff2');unicode-range:U+0400-04FF;}
+@font-face{font-family:'Onest';font-weight:500;font-display:swap;src:url(fonts/onest-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20BD;}
+@font-face{font-family:'Onest';font-weight:600;font-display:swap;src:url(fonts/onest-600-cyrillic.woff2) format('woff2');unicode-range:U+0400-04FF;}
+@font-face{font-family:'Onest';font-weight:600;font-display:swap;src:url(fonts/onest-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20BD;}
+@font-face{font-family:'Onest';font-weight:700;font-display:swap;src:url(fonts/onest-700-cyrillic.woff2) format('woff2');unicode-range:U+0400-04FF;}
+@font-face{font-family:'Onest';font-weight:700;font-display:swap;src:url(fonts/onest-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20BD;}
+@font-face{font-family:'Unbounded';font-weight:500;font-display:swap;src:url(fonts/unbounded-500-cyrillic.woff2) format('woff2');unicode-range:U+0400-04FF;}
+@font-face{font-family:'Unbounded';font-weight:500;font-display:swap;src:url(fonts/unbounded-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20BD;}
+@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(fonts/unbounded-700-cyrillic.woff2) format('woff2');unicode-range:U+0400-04FF;}
+@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(fonts/unbounded-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20BD;}
+:root { --display: 'Unbounded', 'Arial Black', sans-serif; --text: 'Onest', 'Segoe UI', sans-serif; --progress: 0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body { margin: 0; background: #FFF6EC; color: #2A1406; font-family: var(--text); font-size: 17px; line-height: 1.62; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+img { max-width: 100%; }
+
+.sec { --ink: #2A1406; --muted: #6B4128; --accent: #B8430A; --surface: rgba(255, 255, 255, .55); --rule: rgba(42, 20, 6, .16); --invert: #FFF3E6;
+  color: var(--ink); background: linear-gradient(to bottom, var(--bg) calc(100% - 160px), var(--next)); padding: 88px 20px 96px; }
+.sec[data-mode="mid"] { --muted: #3D1B07; --accent: #5A2306; --surface: rgba(255, 246, 236, .38); --rule: rgba(42, 20, 6, .22); }
+.sec[data-mode="dark"] { --ink: #FFF0E0; --muted: #FFE2C8; --accent: #FFC08A; --surface: rgba(255, 240, 224, .08); --rule: rgba(255, 240, 224, .22); --invert: #2A1406; }
+.wrap { max-width: 720px; margin: 0 auto; }
+
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+code { font-family: Consolas, monospace; background: var(--surface); padding: 1px 5px; border-radius: 3px; font-size: .9em; }
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 18px; padding-left: 24px; }
+li { margin-bottom: 7px; }
+li::marker { color: var(--accent); font-weight: 700; }
+h3 { font-family: var(--display); font-weight: 500; font-size: 19px; line-height: 1.3; margin: 40px 0 12px; break-after: avoid; }
+.lead { font-size: 19px; color: var(--muted); }
+
+.cover { min-height: 100svh; display: flex; align-items: center; padding-top: 56px; }
+.cover .wrap { width: 100%; }
+.kicker { font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.cover h1 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 11vw, 92px); line-height: .98; letter-spacing: -.02em; margin: 0 0 28px; max-width: 9ch; }
+.map { position: relative; margin: 72px 0 32px; }
+.route { display: block; width: 100%; height: auto; overflow: visible; }
+.route path { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 2 11; }
+.route .start { fill: var(--bg); stroke: var(--accent); stroke-width: 3.5; }
+.route .end { fill: var(--accent); }
+.pin { position: absolute; font-size: 14px; line-height: 1.3; font-weight: 600; max-width: 58%; overflow-wrap: anywhere; }
+.pin.from { left: 0; bottom: -6px; transform: translateY(100%); }
+.pin.to { right: 0; top: 0; transform: translateY(-110%); text-align: right; }
+.sub { font-size: 19px; max-width: 34em; margin-top: 52px; }
+.author { color: var(--muted); font-size: 15px; border-top: 2px solid var(--ink); padding-top: 16px; margin-top: 28px; }
+.author b { font-family: var(--display); color: var(--ink); }
+
+.toc-title { font-family: var(--display); font-size: 32px; margin: 0 0 24px; }
+.toc { list-style: none; padding: 0; margin: 0 0 24px; border-left: 3px dotted var(--accent); }
+.toc li { margin: 0; }
+.toc a { display: flex; gap: 16px; align-items: baseline; padding: 11px 0 11px 20px; text-decoration: none; font-size: 18px; font-weight: 500; }
+.toc a span { font-family: var(--display); font-size: 14px; color: var(--accent); min-width: 2ch; }
+.hint { color: var(--muted); }
+
+.chapter-head { display: flex; align-items: baseline; gap: 18px; border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-bottom: 30px; }
+.chapter-head .num { font-family: var(--display); font-weight: 700; font-size: 44px; line-height: 1; color: var(--accent); }
+.chapter-head h2 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 5vw, 32px); line-height: 1.15; margin: 0; }
+
+.tip { border-left: 4px solid var(--accent); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16.5px; break-inside: avoid; }
+.tip b { color: var(--accent); }
+
+.gallery { margin: 32px 0 0; display: grid; gap: 12px; break-inside: avoid; }
+.gallery.g6 { grid-template-columns: repeat(2, 1fr); }
+.gallery.g3 { grid-template-columns: 1fr 1fr; }
+.gallery.g3 > a:first-child { grid-column: 1 / -1; }
+.gallery img, .cases img { width: 100%; height: auto; display: block; border-radius: 4px; box-shadow: 0 0 0 1px var(--rule); }
+.gallery figcaption { grid-column: 1 / -1; font-size: 14px; color: var(--muted); }
+
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 36px; background: var(--ink); border: 2px solid var(--ink); }
+.stat { background: var(--bg); padding: 20px 18px; }
+.stat b { display: block; font-family: var(--display); font-size: clamp(22px, 6vw, 34px); line-height: 1.1; margin-bottom: 6px; }
+.stat span { color: var(--muted); font-size: 14px; }
+.stat:first-child { background: var(--ink); color: var(--invert); }
+.stat:first-child span { color: inherit; opacity: .8; }
+
+.chart { margin: 8px 0 24px; break-inside: avoid; }
+.chart h3 { margin-top: 0; }
+.chart .note { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+.bar { display: grid; grid-template-columns: minmax(0, 11em) 1fr 3.4em; align-items: center; gap: 12px; margin-bottom: 10px; }
+.bar .label { font-size: 15px; line-height: 1.25; }
+.bar .track { height: 18px; background: var(--rule); }
+.bar .fill { display: block; height: 100%; background: var(--accent); }
+.bar .value { font-family: var(--display); font-size: 14px; text-align: right; }
+
+.timeline { list-style: none; margin: 28px 0; padding: 0 0 0 26px; border-left: 3px dotted var(--accent); break-inside: avoid; }
+.timeline li { display: grid; grid-template-columns: 5.6em 1fr; gap: 12px; margin-bottom: 18px; position: relative; }
+.timeline li::before { content: ""; position: absolute; left: -35px; top: 5px; width: 13px; height: 13px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.timeline li:last-child::before { background: var(--accent); }
+.timeline b { font-family: var(--display); font-size: 14px; color: var(--accent); }
+.timeline strong { display: block; }
+.timeline span { color: var(--muted); font-size: 15px; }
+
+.versus { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin: 28px 0; break-inside: avoid; }
+.versus > div { padding: 18px; }
+.versus .was { border: 2px dashed var(--rule); }
+.versus .now { background: var(--ink); color: var(--invert); }
+.versus span { font-family: var(--display); font-size: 14px; }
+.versus .was span { text-decoration: line-through; text-decoration-thickness: 2px; }
+.versus p { font-weight: 600; margin: 8px 0; }
+.versus small { font-size: 14px; opacity: .85; }
+
+.message { background: var(--surface); border-radius: 16px 16px 16px 4px; padding: 20px 22px; margin: 28px 0; font-size: 15.5px; break-inside: avoid; box-shadow: 0 0 0 1px var(--rule); }
+.message-head { font-weight: 700; color: var(--accent); margin-bottom: 12px; font-size: 14px; }
+.message p { margin-bottom: 10px; }
+
+.cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+.cases figure { margin: 0; break-inside: avoid; }
+.cases figcaption { font-size: 14px; margin-top: 8px; font-weight: 600; line-height: 1.3; }
+
+.reviews { columns: 1; column-gap: 28px; }
+.review { margin: 0 0 26px; padding: 0 0 0 18px; border-left: 2px solid var(--rule); break-inside: avoid; }
+.review .stars { color: var(--accent); letter-spacing: 3px; font-size: 13px; }
+.review p { margin: 6px 0 8px; font-size: 16px; }
+.review footer b { display: block; font-size: 14px; }
+.review footer span { font-size: 13px; color: var(--muted); }
+
+.outro { min-height: 90svh; display: flex; align-items: center; background: var(--bg); }
+.outro h2 { font-family: var(--display); font-size: clamp(36px, 9vw, 64px); line-height: 1; margin: 0 0 28px; color: var(--accent); }
+.outro p { font-size: 19px; max-width: 32em; }
+.outro .big { margin: 32px 0; }
+.outro .big a { display: inline-block; font-family: var(--display); font-weight: 700; font-size: 20px; text-decoration: none; background: var(--accent); color: var(--invert); padding: 18px 26px; min-height: 44px; }
+.outro .big a:hover { background: var(--ink); }
+.download a { font-weight: 600; }
+
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 10; background: #B8430A; transform-origin: left; transform: scaleX(var(--progress)); }
+body[data-mode="dark"] .progress { background: #FFC08A; }
+.rail { display: none; }
+
+@media (min-width: 760px) {
+  body { font-size: 18px; }
+  .sec { padding: 120px 40px 128px; }
+  .gallery.g6, .cases { grid-template-columns: repeat(3, 1fr); }
+  .reviews { columns: 2; }
+  .pin { font-size: 16px; }
+}
+
+@media (min-width: 1180px) {
+  .progress { display: none; }
+  .rail { display: flex; flex-direction: column; position: fixed; left: 24px; top: 50%; transform: translateY(-50%); z-index: 10; gap: 2px; color: #2A1406; }
+  body[data-mode="mid"] .rail { color: #2A1406; }
+  body[data-mode="dark"] .rail { color: #FFF0E0; }
+  .rail a { display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 5px 6px; opacity: .45; font-size: 13px; }
+  .rail a span { font-family: var(--display); font-size: 12px; width: 2.2em; }
+  .rail a em { font-style: normal; max-width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rail a:hover, .rail a[aria-current] { opacity: 1; }
+  .rail a[aria-current] span { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; }
+}
+
+a.site { font-weight: 700; color: var(--accent); text-decoration-thickness: 3px; text-decoration-color: currentColor;
+  background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 22%, transparent) 0); padding: 0 2px; }
+a.site:hover { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
+.post { display: grid; gap: 2px; margin: 22px 0; padding: 14px 52px 14px 18px; position: relative; text-decoration: none;
+  border: 2px solid var(--ink); border-radius: 12px; background: var(--surface); break-inside: avoid;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.post span { font-size: 13px; color: var(--muted); font-weight: 600; }
+.post b { font-family: var(--display); font-weight: 500; font-size: 16px; line-height: 1.3; }
+.post em { font-style: normal; font-size: 13px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.post::after { content: "↗"; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--accent); transition: transform .25s ease; }
+.post:hover { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--ink); color: inherit; }
+.post:hover::after { transform: translate(4px, calc(-50% - 4px)); }
+
+a.zoom { display: block; position: relative; overflow: hidden; border-radius: 6px; cursor: zoom-in; text-decoration: none; }
+a.zoom img { transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+a.zoom::after { content: "+"; position: absolute; right: 10px; bottom: 10px; width: 32px; height: 32px; border-radius: 50%;
+  display: grid; place-items: center; font: 700 20px/1 var(--text); background: var(--accent); color: var(--invert);
+  opacity: 0; transform: scale(.6); transition: opacity .25s ease, transform .25s ease; }
+a.zoom:hover img { transform: scale(1.04); }
+a.zoom:hover::after, a.zoom:focus-visible::after { opacity: 1; transform: none; }
+@media (hover: none) { a.zoom::after { opacity: .9; transform: none; } }
+
+.lightbox { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px;
+  background: rgba(42, 20, 6, .86); opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s; }
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox figure { margin: 0; max-width: min(1100px, 100%); max-height: 100%; display: flex; flex-direction: column; gap: 14px;
+  transform: scale(.94) translateY(12px); transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.lightbox.open figure { transform: none; }
+.lightbox img { max-width: 100%; max-height: 72vh; object-fit: contain; border-radius: 8px; background: #FFF6EC; }
+.lightbox figcaption { color: #FFF0E0; font-size: 15px; }
+.lightbox figcaption b { font-family: var(--display); font-size: 17px; display: block; }
+.lightbox figcaption p { margin: 4px 0 10px; opacity: .85; }
+.lightbox figcaption p:empty { display: none; }
+.lb-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.lb-links a { background: #FFC08A; color: #2A1406; padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.lb-links a:hover { background: #FFF0E0; color: #2A1406; }
+.lb-close { position: absolute; top: 12px; right: 14px; width: 48px; height: 48px; border: 0; border-radius: 50%; background: rgba(255, 240, 224, .14);
+  color: #FFF0E0; font-size: 30px; cursor: pointer; }
+.lb-close:hover { background: rgba(255, 240, 224, .3); }
+
+.cases figure a.zoom { box-shadow: 0 0 0 1px var(--rule); transition: box-shadow .25s ease, transform .25s ease; }
+.cases figure:hover a.zoom { transform: translateY(-4px); box-shadow: 0 10px 24px -12px rgba(42, 20, 6, .45); }
+.toc a { transition: padding-left .25s ease, color .2s ease; }
+.toc a:hover { padding-left: 28px; color: var(--accent); }
+.outro .big a { transition: transform .2s ease, background .2s ease; }
+.outro .big a:hover { transform: translateY(-3px); }
+
+.cover .route { clip-path: inset(0 100% 0 0); animation: draw 1.8s .3s cubic-bezier(.6, .1, .2, 1) forwards; }
+.cover .route .end { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s 2.1s ease-in-out infinite; }
+.cover .pin, .cover .sub, .cover .author { opacity: 0; animation: rise .7s ease forwards; }
+.cover .pin.from { animation-delay: .4s; }
+.cover .pin.to { animation-delay: 1.9s; }
+.cover .sub { animation-delay: 1.1s; }
+.cover .author { animation-delay: 1.3s; }
+.cover h1, .cover .kicker { animation: rise .8s ease both; }
+@keyframes draw { to { clip-path: inset(0 0 0 0); } }
+@keyframes pulse { 50% { transform: scale(1.35); } }
+@keyframes rise { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+
+.anim .chapter .wrap > *, .anim .contents .wrap > *, .anim .outro .wrap > *, .anim .cases figure, .anim .gallery > a,
+.anim .review, .anim .stat, .anim .timeline li, .anim .toc li {
+  opacity: 0; translate: 0 22px; transition: opacity .7s ease, translate .7s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--i, 0) * 70ms); }
+.anim .in { opacity: 1 !important; translate: 0 0 !important; }
+.anim .chart .fill { transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(.2, .7, .2, 1) .2s; }
+.anim .chart.in .fill { transform: scaleX(1); }
+.anim .timeline li::before { scale: 0; transition: scale .4s cubic-bezier(.3, 1.6, .5, 1) calc(var(--i, 0) * 70ms + .3s); }
+.anim .timeline li.in::before { scale: 1; }
+.anim .chapter-head .num { display: inline-block; }
+.anim .chapter-head.in .num { animation: rise .6s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .cover .route { clip-path: none; }
+  .cover .pin, .cover .sub, .cover .author { opacity: 1; }
+}
+
+body.poster { width: 1080px; height: 1350px; overflow: hidden; font-size: 26px; }
+body.poster .sec { height: 1350px; padding: 90px 84px; background: var(--bg); }
+body.poster .wrap { max-width: none; }
+body.poster .cover { align-items: flex-start; }
+body.poster .cover h1 { font-size: 124px; margin-bottom: 70px; }
+body.poster .map { width: 80%; margin: 0 0 32px auto; }
+body.poster .pin { font-size: 26px; }
+body.poster .sub { font-size: 30px; }
+body.poster .author { font-size: 24px; }
+body.poster .kicker { font-size: 26px; }
+body.poster * { animation: none !important; clip-path: none !important; opacity: 1 !important; }
+
+@page { size: A4; margin: 16mm 0 14mm; }
+@media print {
+  body, .sec { background: none !important; }
+  body { font-size: 11.2pt; line-height: 1.55; }
+  .sec { padding: 6mm 20mm 0; min-height: 0; }
+  .cover { min-height: calc(297mm - 32mm); padding-top: 0; }
+  .outro { min-height: calc(297mm - 32mm); }
+  .wrap { max-width: none; }
+  .progress, .rail, .web-only { display: none !important; }
+  .cover .route, .cover .route .end, .cover .pin, .cover .sub, .cover .author, .cover h1, .cover .kicker { animation: none !important; clip-path: none !important; opacity: 1 !important; }
+  a.zoom::after, .post::after { display: none; }
+  .post { padding-right: 18px; }
+  .gallery.g6, .cases { grid-template-columns: repeat(3, 1fr); }
+  .reviews { columns: 2; }
+  .cover h1 { font-size: 54pt; }
+  h3 { font-size: 13pt; margin-top: 8mm; }
+  .chapter-head .num { font-size: 32pt; }
+  .chapter-head h2 { font-size: 21pt; }
+  .lead, .sub, .outro p { font-size: 12.5pt; }
+}
+</style></head><body data-mode="light"><div class="progress" aria-hidden="true"></div><nav class="rail" aria-label="Главы гайда"><a href="#glava-01" title="Мой путь: от официанта до 200 000 в месяц"><span>01</span><em>Мой путь: от официанта до 200 000 в месяц</em></a><a href="#glava-02" title="Цифры, а не обещания"><span>02</span><em>Цифры, а не обещания</em></a><a href="#glava-03" title="Кто такой техспец и за что платят"><span>03</span><em>Кто такой техспец и за что платят</em></a><a href="#glava-04" title="Инструменты: нейросети, Claude Code, плагины и скиллы"><span>04</span><em>Инструменты: нейросети, Claude Code, плагины и скиллы</em></a><a href="#glava-05" title="Kwork: старт, отзывы и рост профиля"><span>05</span><em>Kwork: старт, отзывы и рост профиля</em></a><a href="#glava-06" title="Портфолио-сайт: зачем он нужен и как я его оформляю"><span>06</span><em>Портфолио-сайт: зачем он нужен и как я его оформляю</em></a><a href="#glava-07" title="Мои кейсы"><span>07</span><em>Мои кейсы</em></a><a href="#glava-08" title="Где брать заказы и как писать отклик"><span>08</span><em>Где брать заказы и как писать отклик</em></a><a href="#glava-09" title="Клиенты, деньги и ошибки"><span>09</span><em>Клиенты, деньги и ошибки</em></a><a href="#glava-10" title="Что пишут мои клиенты"><span>10</span><em>Что пишут мои клиенты</em></a><a href="#glava-11" title="План на первый месяц"><span>11</span><em>План на первый месяц</em></a></nav><main><section class="sec cover" id="start" data-mode="light" style="--bg:#FFF6EC;--next:#FFF1E2"><div class="wrap"><p class="kicker">Бесплатный гайд Льва из канала lev.dev</p><h1>Путь техспеца с&nbsp;нуля</h1><div class="map"><svg class="route" viewBox="0 0 400 260" aria-hidden="true"><path d="M24 236 C 90 236, 70 160, 150 168 S 230 120, 250 92 S 330 40, 376 26" /><circle class="start" cx="24" cy="236" r="7"/><circle class="end" cx="376" cy="26" r="11"/></svg><span class="pin from">Геленджик, официант, 17 лет</span><span class="pin to">200 000+ ₽ в месяц на ботах и нейросетях</span></div><p class="sub">Как я дошел из официантов до техспеца без профильного образования: Kwork, портфолио, отклики, цены, отзывы клиентов и план на первый месяц.</p><p class="author"><b>Лев</b>, техспец. Канал <a href="https://t.me/levvddev">t.me/levvddev</a>, портфолио <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a></p></div></section><section class="sec contents" id="marshrut" data-mode="light" style="--bg:#FFF1E2;--next:#FFEAD3"><div class="wrap"><h2 class="toc-title">Маршрут</h2><ol class="toc"><li><a href="#glava-01"><span>01</span>Мой путь: от официанта до 200 000 в месяц</a></li><li><a href="#glava-02"><span>02</span>Цифры, а не обещания</a></li><li><a href="#glava-03"><span>03</span>Кто такой техспец и за что платят</a></li><li><a href="#glava-04"><span>04</span>Инструменты: нейросети, Claude Code, плагины и скиллы</a></li><li><a href="#glava-05"><span>05</span>Kwork: старт, отзывы и рост профиля</a></li><li><a href="#glava-06"><span>06</span>Портфолио-сайт: зачем он нужен и как я его оформляю</a></li><li><a href="#glava-07"><span>07</span>Мои кейсы</a></li><li><a href="#glava-08"><span>08</span>Где брать заказы и как писать отклик</a></li><li><a href="#glava-09"><span>09</span>Клиенты, деньги и ошибки</a></li><li><a href="#glava-10"><span>10</span>Что пишут мои клиенты</a></li><li><a href="#glava-11"><span>11</span>План на первый месяц</a></li></ol><p class="hint">Читается за 25 минут. Можно прыгать по главам - каждая отдельный шаг.</p></div></section><section class="sec chapter" id="glava-01" data-mode="light" style="--bg:#FFEAD3;--next:#FFE2C2"><div class="wrap"><header class="chapter-head"><span class="num">01</span><h2>Мой путь: от официанта до 200 000 в месяц</h2></header><h3>Привет! Это Лев</h3>
+<p>В 17 лет я работал официантом в Геленджике. Маленький город, где потолок зарплаты понятен заранее. Учеба, смены по 10 часов, помощь родителям и куча расходов, на которые не хватало чаевых.</p>
+<p>Сейчас мне 18, я совершеннолетний и работаю официально: сам пользуюсь Claude, сам оформлен как самозанятый и сам веду клиентов. Живу в Москве, а прямо сейчас работаю из-за границы - работа полностью удаленная, нужен только ноутбук. В октябре 2026 года я заработал больше 200 000 рублей.</p>
+<a class="post" href="https://t.me/levvddev/7" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>С чего начинался канал и кто я такой</b><em>t.me/levvddev/7</em></a>
+<h3>Я не боялся браться</h3>
+<p>Главное, что меня вытащило, - я не ждал момента, когда "буду готов". Видел заказ на бота, которого никогда не делал, и брал. Не знал, как подключить оплату, - разбирался прямо на месте, вечером, вместе с нейросетью. Не понимал, что такое сервер, вебхук или API, - открывал, смотрел, пробовал, ломал и чинил.</p>
+<p>Каждый заказ был новой темой: сначала боты, потом сайты, потом таблицы и 1С, потом маркетплейсы и ИИ-ассистенты. Я брал их по очереди и на каждом учился ровно тому, что было нужно здесь и сейчас. Так за пару месяцев набирается больше практики, чем за год курсов.</p>
+<aside class="tip"><b>Совет:</b> Не учи все заранее. Бери задачу и разбирайся в ней по ходу, нейросеть объяснит любую тему, если спросить.</aside>
+<a class="post" href="https://t.me/levvddev/28" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Схема, на которой поднимаются первые деньги</b><em>t.me/levvddev/28</em></a>
+<h3>Кто я и что делаю сейчас</h3>
+<p>Я техспец. Простыми словами: настраиваю бизнесу всю цифровую технику. Боты, интеграции, автоматизация, сайты, отчеты 1С и WB, ИИ-ассистенты.</p>
+<p>Главный инструмент - Claude Code. Кроме него конструкторы ботов BotHelp и SaleBot, Google Таблицы, 1С и WB API. Профильного образования программиста у меня нет.</p>
+<h3>Как я пришел к первым заказам</h3>
+<p>Первые заказы на ботов и сайты я брал, не умея толком программировать. Нейросеть писала код, я разбирался по ходу и сдавал проект клиенту.</p>
+<p>Заказы находил на Kwork и в Telegram-каналах с заказами. Чтобы было что показать, сделал простой сайт-портфолио <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a>. Все рабочие новости пишу в канале <a href="https://t.me/levvddev">@levvddev</a>.</p>
+<p>Сейчас у меня 17 закрытых проектов и 17 отзывов на 5 звезд, отрицательных нет. Клиентам отвечаю меньше чем за час.</p>
+<aside class="tip"><b>Совет:</b> Отвечай клиентам быстро, скорость связи часто важнее идеального кода.</aside>
+<a class="post" href="https://t.me/levvddev/17" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Как я взял проект за 50к и отдал на реализацию за 20к</b><em>t.me/levvddev/17</em></a>
+<h3>Какие были грабли</h3>
+<p>Однажды бот разослал заказчице 55 уведомлений за минуту: новая ветка логики сработала на всех, кто уже стоял в цепочке. В другой раз я разослал слишком много откликов подряд, и Telegram повесил на аккаунт спам-ограничение. Теперь пишу 3-5 откликов незнакомым людям в день.</p>
+<p>Ошибки будут у всех. Важно не бояться их и делать выводы, а не бросать.</p><ol class="timeline"><li><b>17 лет</b><div><strong>Официант в Геленджике</strong><span>Тарелки, чаевые и понятный потолок зарплаты</span></div></li><li><b>Старт</b><div><strong>Первые заказы без опыта</strong><span>Нейросеть пишет код, я разбираюсь по ходу и сдаю</span></div></li><li><b>Kwork</b><div><strong>Переупаковал профиль</strong><span>Из "делаю все" в техспеца для бизнеса</span></div></li><li><b>17 / 17</b><div><strong>Отзывы на 5 звезд</strong><span>Боты, интеграции, 1С, WB, ИИ-ассистенты</span></div></li><li><b>18 лет</b><div><strong>200 000+ ₽ за октябрь</strong><span>Совершеннолетний, самозанятый, 4 проекта на ведении</span></div></li></ol></div></section><section class="sec chapter" id="glava-02" data-mode="light" style="--bg:#FFE2C2;--next:#FFD9AF"><div class="wrap"><header class="chapter-head"><span class="num">02</span><h2>Цифры, а не обещания</h2></header><div class="stats"><div class="stat"><b>200 000+ ₽</b><span>заработок за октябрь</span></div><div class="stat"><b>17</b><span>проектов сдано</span></div><div class="stat"><b>17 из 17</b><span>отзывов на 5 звезд</span></div><div class="stat"><b>< 1 часа</b><span>ответ клиенту</span></div></div><div class="chart"><h3>Из чего складывается мой доход</h3><p class="note">по моему учету оплат за сентябрь-октябрь</p><div class="bar"><span class="label">ИИ-проект для эксперта</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="value">29%</span></div><div class="bar"><span class="label">Чат-боты</span><span class="track"><span class="fill" style="width:94.9%"></span></span><span class="value">28%</span></div><div class="bar"><span class="label">Сопровождение бизнеса</span><span class="track"><span class="fill" style="width:74.3%"></span></span><span class="value">22%</span></div><div class="bar"><span class="label">Скрипты автоматизации</span><span class="track"><span class="fill" style="width:48.0%"></span></span><span class="value">14%</span></div><div class="bar"><span class="label">Интеграции с 1С</span><span class="track"><span class="fill" style="width:22.9%"></span></span><span class="value">7%</span></div></div><aside class="tip"><b>Важно:</b> около половины дохода дают постоянные клиенты - сопровождение и долгие проекты. Разовые заказы приводят клиента, ведение кормит.</aside></div></section><section class="sec chapter" id="glava-03" data-mode="light" style="--bg:#FFD9AF;--next:#FFCD98"><div class="wrap"><header class="chapter-head"><span class="num">03</span><h2>Кто такой техспец и за что платят</h2></header><h3>Что именно заказывает бизнес</h3>
+<p>Предпринимателю некогда разбираться в настройках, поэтому он платит за готовое рабочее решение. Чаще всего заказывают:</p>
+<ul><li>Чат-боты для заявок и продаж, в том числе на конструкторах BotHelp и SaleBot.</li><li>Интеграции CRM вроде amoCRM и Битрикс24 с мессенджерами и сайтами.</li><li>Автоматизацию рутины: отчеты для Ozon и Wildberries, выгрузки в 1С.</li><li>Сайты и лендинги, собранные с ИИ-инструментами вроде Claude Code.</li><li>ИИ-ассистентов для ответов клиентам и техподдержки.</li></ul>
+<p>Самые жирные заказы, вроде связки бота с CRM или починки сломанных оплат, приходят из профильных каналов техспецов.</p>
+<a class="post" href="https://t.me/levvddev/39" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Кто такой техспец, если коротко</b><em>t.me/levvddev/39</em></a>
+<h3>Почему это ниша для новичка</h3>
+<p>Бизнесу не важно, какой у тебя диплом и сколько тебе лет. Ему нужен работающий бот или таблица, которая экономит время и приносит деньги.</p>
+<p>Онлайн-школам, экспертам, салонам и селлерам нужны боты, оплаты, доступы и рассылки, а настраивать все это некому. Заказы короткие, от пары дней до пары недель, и каждый сразу становится кейсом в портфолио.</p>
+<aside class="tip"><b>Совет:</b> Выбери одно направление и сделай 2-3 работы в портфолио. Хвататься за все сразу - главная ошибка новичка.</aside>
+<a class="post" href="https://t.me/levvddev/41" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Почему в техспецы стоит идти именно сейчас</b><em>t.me/levvddev/41</em></a>
+<a class="post" href="https://t.me/levvddev/33" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>5 способов заработать на нейросетях с нуля</b><em>t.me/levvddev/33</em></a></div></section><section class="sec chapter" id="glava-04" data-mode="light" style="--bg:#FFCD98;--next:#FDBF80"><div class="wrap"><header class="chapter-head"><span class="num">04</span><h2>Инструменты: нейросети, Claude Code, плагины и скиллы</h2></header><p>Мой главный инструмент - Claude Code. Плюс конструкторы ботов BotHelp и SaleBot, Google Таблицы, 1С и WB API. Ниже - что учить первым и как с этим работать.</p>
+<a class="post" href="https://t.me/levvddev/32" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Нейросеть простыми словами: с какой начать</b><em>t.me/levvddev/32</em></a>
+<h3>Как ставить задачу нейросети</h3>
+<p>Пишешь "напиши пост про кофейню" - получаешь пустой текст. Нейросеть не знает, какая у тебя кофейня и для кого пост, поэтому угадывает что-то среднее. Формула нормального запроса:</p>
+<ul><li>Роль - кем ей быть.</li><li>Задача - что конкретно сделать.</li><li>Контекст - все, что знаешь ты, а она нет.</li><li>Формат - длина, стиль, чего не писать.</li><li>Пример - образец, который нравится.</li></ul>
+<p>Первый ответ - всегда черновик. Уточняй 3-4 раза. Самый недооцененный прием: попроси "прежде чем начать, задай мне 5 вопросов".</p>
+<a class="post" href="https://t.me/levvddev/34" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Почему нейросеть "тупит" и формула запроса</b><em>t.me/levvddev/34</em></a>
+<h3>Claude Code</h3>
+<p>Это не чат, где копируешь код туда-сюда. Claude Code живет в папке с проектом: сам читает файлы, пишет код, запускает его, видит ошибки и чинит. Ты становишься руководителем, который ставит задачу и принимает работу.</p>
+<p>Для старта нужны подписка Claude Pro, VPN и компьютер. Запускать проще всего в приложении или в VS Code. Команда <code>/init</code> создает файл памяти проекта CLAUDE.md, и Claude не приходится объяснять одно и то же заново.</p>
+<aside class="tip"><b>Совет:</b> Перед задачей больше чем на полчаса включай режим плана (Shift + Tab). Ошибка в плане стоит минуту, ошибка в готовом коде - час.</aside>
+<a class="post" href="https://t.me/levvddev/38" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Claude Code: ИИ, который работает вместо тебя</b><em>t.me/levvddev/38</em></a>
+<a class="post" href="https://t.me/levvddev/40" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Кнопки и команды Claude Code на каждый день</b><em>t.me/levvddev/40</em></a>
+<h3>Плагины и скиллы</h3>
+<p>Голый Claude Code - один толковый разработчик. С плагинами и скиллами он превращается в команду: дизайнер, тестировщик и ревьюер в одном окне. По моему опыту, без них ты используешь процентов 20 его возможностей.</p>
+<ul><li><b>Скилл</b> - готовая инструкция под одну задачу, например "как верстать красивые сайты". Ставится фразой "установи этот скилл" и ссылкой на GitHub.</li><li><b>Плагин</b> - пачка скиллов, команд и помощников одной установкой. Пишешь <code>/plugin</code>, выбираешь из меню стрелками, Enter.</li><li><b>MCP</b> - руки за пределами папки: браузер, GitHub, Figma, базы данных.</li></ul>
+<p>Что стоит у меня под реальные заказы:</p>
+<ul><li><b>frontend-design и ui-ux-pro-max</b> - сайты и интерфейсы со своим стилем, а не шаблон "как у всех нейросетей".</li><li><b>Skill Finder</b> - сам ищет на GitHub готовые скиллы под задачу и сортирует их по звездам и свежести.</li><li><b>Caveman</b> - убирает из ответов вежливую воду, до 65% меньше токенов на тот же результат.</li><li><b>Плагин ECC</b> - набор агентов для планирования, ревью кода и проверки безопасности.</li><li><b>Второй мозг в Obsidian</b> - граф всех моих проектов, по которому Claude отвечает, не перечитывая все заново.</li></ul>
+<aside class="tip"><b>Совет:</b> Не ставь 30 плагинов сразу. Каждый занимает память Claude, и он начинает путаться. 3-5 под свои задачи - идеально.</aside>
+<a class="post" href="https://t.me/levvddev/42" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Плагины Claude Code: как из одного ИИ сделать команду</b><em>t.me/levvddev/42</em></a>
+<a class="post" href="https://t.me/levvddev/15" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Skill Finder и Caveman: два скилла, которые гоняю каждый день</b><em>t.me/levvddev/15</em></a>
+<a class="post" href="https://t.me/levvddev/16" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Мой второй мозг: граф проектов, подключенный к Claude</b><em>t.me/levvddev/16</em></a>
+<a class="post" href="https://t.me/levvddev/31" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Как нейросеть озвучивает мои ролики моим же голосом</b><em>t.me/levvddev/31</em></a></div></section><section class="sec chapter" id="glava-05" data-mode="light" style="--bg:#FDBF80;--next:#FAAE64"><div class="wrap"><header class="chapter-head"><span class="num">05</span><h2>Kwork: старт, отзывы и рост профиля</h2></header><h3>Почему Kwork дает такой прирост</h3>
+<p>Kwork - самый простой способ получить первые отзывы и популярность профиля. Минимальная цена кворка там 500 рублей, и это твой вход. Берешь простые заказы за 500-1000 рублей: поправить бота, сверстать страницу, настроить таблицу. Делаешь быстро и хорошо - получаешь отзыв.</p>
+<p>Дальше работает цепочка. Отзывы поднимают профиль в выдаче, Kwork повышает тебе уровень продавца, профиль видит больше людей, и приходят заказы уже на 5, 10 и 20 тысяч. Первые недели ты работаешь не за деньги, а за рейтинг, и это окупается очень быстро.</p>
+<aside class="tip"><b>Совет:</b> Первые 5-10 заказов бери недорогими и делай идеально. Один отзыв "быстро, понятно, работает" продает лучше любого описания.</aside>
+<a class="post" href="https://t.me/levvddev/28" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Как брать первые простые заказы и сдавать их с ИИ</b><em>t.me/levvddev/28</em></a>
+<h3>Как я переупаковал профиль</h3>
+<p>Раньше заголовок профиля был "Программист, менеджер бизнесов, копирайтер". Клиенту казалось, что я делаю все и ничего конкретно. При этом отзывы четко показывали: платят мне за разработку, скрипты и интеграции.</p>
+<p>Я переупаковал профиль под одно направление - технический специалист для бизнеса: боты, парсеры, лендинги, автоматизация и интеграции.</p>
+<aside class="tip"><b>Совет:</b> Убирай из профиля все, что не относится к главной специализации, иначе клиент не поймет, кто ты.</aside>
+<h3>Порядок и тексты кворков</h3>
+<p>Наверху разработка, второстепенное ниже:</p>
+<ol><li>Telegram-бот под ключ</li><li>Telegram-парсер</li><li>Доработка Telegram-бота</li><li>Лендинг под ключ</li><li>SEO-тексты</li><li>Карточки WB/Ozon</li></ol>
+<p>В первых двух строках каждого кворка стоит результат для клиента, а не процесс. Например: "Создам Telegram-бота под ключ с админкой и базой". Ниже - что входит и что нужно от клиента для старта. Обложки 1320 на 880 пикселей, чтобы были четкими на любых экранах. Нажми на любую обложку ниже, чтобы рассмотреть ее поближе.</p>
+<p>Мой профиль, кворки и отзывы: <a href="https://kwork.ru/user/lev_dev">kwork.ru/user/lev_dev</a>.</p>
+<a class="post" href="https://t.me/levvddev/22" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Где посмотреть оформление моего портфолио на Kwork</b><em>t.me/levvddev/22</em></a><div class="versus"><div class="was"><span>Было</span><p>"Программист, менеджер бизнесов, копирайтер"</p><small>Сайты, боты, тексты, WB и инфографика вперемешку. Клиенту непонятно, кто ты в первую очередь.</small></div><div class="now"><span>Стало</span><p>"Технический специалист для бизнеса: Telegram-боты, парсеры, лендинги, автоматизация и интеграции"</p><small>Наверху разработка, тексты и карточки ниже или скрыты. Кворк: "Создам Telegram-бота под ключ с админкой и базой".</small></div></div><figure class="gallery g6"><a class="zoom" href="img/out-02-telegram-bot-1600.webp" data-title="Обложка кворка" data-text="" data-links="Мои кворки на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/out-02-telegram-bot-700.webp" alt="Обложка кворка" loading="lazy"></a><a class="zoom" href="img/out-01-landing-page-1600.webp" data-title="Обложка кворка" data-text="" data-links="Мои кворки на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/out-01-landing-page-700.webp" alt="Обложка кворка" loading="lazy"></a><a class="zoom" href="img/out-04-telegram-parser-1600.webp" data-title="Обложка кворка" data-text="" data-links="Мои кворки на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/out-04-telegram-parser-700.webp" alt="Обложка кворка" loading="lazy"></a><a class="zoom" href="img/out-07-1c-integration-1600.webp" data-title="Обложка кворка" data-text="" data-links="Мои кворки на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/out-07-1c-integration-700.webp" alt="Обложка кворка" loading="lazy"></a><a class="zoom" href="img/out-08-analytics-1600.webp" data-title="Обложка кворка" data-text="" data-links="Мои кворки на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/out-08-analytics-700.webp" alt="Обложка кворка" loading="lazy"></a><a class="zoom" href="img/out-10-ai-bot-1600.webp" data-title="Обложка кворка" data-text="" data-links="Мои кворки на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/out-10-ai-bot-700.webp" alt="Обложка кворка" loading="lazy"></a><figcaption>Обложки моих кворков - нажми, чтобы рассмотреть. Живьем на <a href="https://kwork.ru/user/lev_dev">kwork.ru/user/lev_dev</a></figcaption></figure></div></section><section class="sec chapter" id="glava-06" data-mode="mid" style="--bg:#FAAE64;--next:#F59747"><div class="wrap"><header class="chapter-head"><span class="num">06</span><h2>Портфолио-сайт: зачем он нужен и как я его оформляю</h2></header><h3>Зачем нужно портфолио</h3>
+<p>Мой сайт-портфолио: <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a>. Он нужен не для красоты, а чтобы клиент за пару секунд понял: я уже делал то, что ему нужно, и справился.</p>
+<p>Сайт стоит на бесплатном хостинге GitHub Pages. За сервер и домен я не плачу ни рубля, и ты можешь так же: собираешь страницу с Claude Code, выкладываешь на GitHub, и через минуту у тебя рабочая ссылка для откликов.</p>
+<p>Ниже - как сайт выглядит сейчас. Нажми на картинку, чтобы посмотреть, как он листается.</p>
+<a class="post" href="https://t.me/levvddev/37" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Первый сайт за вечер и бесплатная публикация</b><em>t.me/levvddev/37</em></a>
+<h3>Структура карточки кейса</h3>
+<p>Каждый кейс отвечает на вопросы заказчика без воды:</p>
+<ul><li>Задача: что требовалось сделать.</li><li>Что сделал: конкретные шаги и модули.</li><li>Результат: чего добились, лучше в цифрах.</li><li>Стек: технологии и сервисы.</li></ul>
+<p>Никаких пустых заглушек и картинок с чужими брендами. Покупатель хочет видеть реальную работу.</p>
+<h3>Как это выглядит на практике</h3>
+<p><b>Lead Radar, мой радар заказов.</b> Задача: находить заказы в Telegram-каналах и сразу готовить отклики. Сделал фильтр отсева, разбор по 8 категориям, отклики через Claude API, закрытый дашборд и автозапуск на GitHub Actions без своего сервера. Результат: заказы собираются каждые 3 часа, повторы отсекаются сами. Стек: Python, Telethon, Claude API, GitHub Actions.</p>
+<a class="post" href="https://t.me/levvddev/21" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Как я сделал сервис, который сам находит мне заказы</b><em>t.me/levvddev/21</em></a>
+<p><b>Перенос магазина на 1С-Битрикс.</b> Задача: перенести магазин на 11 000 товаров на облачный сервер и починить то, что мешало работе. Провел аудит, снял блокировку дисковой квоты, освободил 32 ГБ кэша (диск с 88 до 43%), выпустил SSL без простоя. Результат: ошибка 500 устранена, магазин работает стабильно.</p>
+<aside class="tip"><b>Совет:</b> Ставь первыми самые сильные проекты с цифрами: сэкономленные часы, обработанные заявки, ускоренная работа.</aside>
+<a class="post" href="https://t.me/levvddev/30" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Три живых проекта: магазин, фитнес-клуб и отчеты WB</b><em>t.me/levvddev/30</em></a><figure class="gallery g3"><a class="zoom" href="img/portfolio-scroll.webp" data-title="Мой сайт-портфолио сейчас" data-text="Так он листается: услуги, проекты, процесс, отзывы." data-links="Открыть сайт&gt;https://lev-dev-tech.github.io|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/shots-portfolio-now-1280.webp" alt="Мой сайт-портфолио сейчас" loading="lazy"></a><a class="zoom" href="img/portfolio-covers-04-lead-radar-1600.webp" data-title="Карточка кейса на сайте" data-text="" data-links="Открыть сайт&gt;https://lev-dev-tech.github.io|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-04-lead-radar-700.webp" alt="Карточка кейса на сайте" loading="lazy"></a><a class="zoom" href="img/portfolio-covers-02-onetrade-bot-1600.webp" data-title="Карточка кейса на сайте" data-text="" data-links="Открыть сайт&gt;https://lev-dev-tech.github.io|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-02-onetrade-bot-700.webp" alt="Карточка кейса на сайте" loading="lazy"></a><figcaption>Мой сайт <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a> и карточки кейсов. Первая картинка оживает по нажатию.</figcaption></figure></div></section><section class="sec chapter" id="glava-07" data-mode="mid" style="--bg:#F59747;--next:#E5792A"><div class="wrap"><header class="chapter-head"><span class="num">07</span><h2>Мои кейсы</h2></header><p class="lead">Часть проектов из портфолио. Все - реальные заказы. Нажми на любой кейс, чтобы посмотреть поближе, полные описания с задачей, результатом и стеком - на сайте <a class="site" href="https://lev-dev-tech.github.io/#projects">lev-dev-tech.github.io</a> и в портфолио на <a href="https://kwork.ru/user/lev_dev">Kwork</a>.</p><div class="cases"><figure><a class="zoom" href="img/portfolio-covers-01-edu-mini-app-1600.webp" data-title="Платформа курсов в Telegram Mini App" data-text="Обучение и оплата прямо в Telegram, без перехода на сторонний сайт. Ученик не уходит из мессенджера." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-01-edu-mini-app-800.webp" alt="Платформа курсов в Telegram Mini App" loading="lazy"></a><figcaption>Платформа курсов в Telegram Mini App</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-02-onetrade-bot-1600.webp" data-title="Партнерский бот ONETRADE" data-text="Бот с личным кабинетом и многоуровневой партнерской программой. Участники видят свою структуру и начисления без ручных отчетов." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-02-onetrade-bot-800.webp" alt="Партнерский бот ONETRADE" loading="lazy"></a><figcaption>Партнерский бот ONETRADE</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-04-lead-radar-1600.webp" data-title="Lead Radar - сам находит заказы" data-text="Каждые 3 часа обходит каналы с заказами, отсеивает лишнее и пишет отклики через Claude. Работает на GitHub Actions без сервера." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-04-lead-radar-800.webp" alt="Lead Radar - сам находит заказы" loading="lazy"></a><figcaption>Lead Radar - сам находит заказы</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-08-lead-router-1600.webp" data-title="Lead Router - заявки в CRM и почту" data-text="Собирает заявки из разных источников и раскидывает по системам. До 184 лидов в день, дубли не долетают до менеджеров." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-08-lead-router-800.webp" alt="Lead Router - заявки в CRM и почту" loading="lazy"></a><figcaption>Lead Router - заявки в CRM и почту</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-07-bitrix-migration-1600.webp" data-title="Перенос магазина на 1С-Битрикс" data-text="Магазин на 11 000 товаров переехал на облачный сервер. Освобождено 32 ГБ, ошибка 500 устранена, SSL без простоя." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-07-bitrix-migration-800.webp" alt="Перенос магазина на 1С-Битрикс" loading="lazy"></a><figcaption>Перенос магазина на 1С-Битрикс</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-16-wb-analytics-1600.webp" data-title="Аналитика WB для селлера" data-text="Заказы, выкупы, реклама и остатки на одной странице, прогноз дозаказа и ABC-анализ. Хостинг 0 ₽, данные обновляются сами." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-16-wb-analytics-800.webp" alt="Аналитика WB для селлера" loading="lazy"></a><figcaption>Аналитика WB для селлера</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-05-product-landings-1600.webp" data-title="Продуктовые лендинги" data-text="Посадочные страницы для продукта и SaaS-инструмента с нуля. Быстрые, анимации без внешних библиотек." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-05-product-landings-800.webp" alt="Продуктовые лендинги" loading="lazy"></a><figcaption>Продуктовые лендинги</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-09-designer-portfolio-1600.webp" data-title="Портфолио для дизайнера" data-text="Лендинг-витрина работ. У дизайнера одна ссылка для заказчиков вместо разрозненных файлов." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-09-designer-portfolio-800.webp" alt="Портфолио для дизайнера" loading="lazy"></a><figcaption>Портфолио для дизайнера</figcaption></figure><figure><a class="zoom" href="img/portfolio-covers-13-pdd-landing-1600.webp" data-title="Лендинг автошколы" data-text="Посадочная страница под запись на обучение." data-links="Кейс на сайте&gt;https://lev-dev-tech.github.io/#projects|Портфолио на Kwork&gt;https://kwork.ru/user/lev_dev"><img src="img/portfolio-covers-13-pdd-landing-800.webp" alt="Лендинг автошколы" loading="lazy"></a><figcaption>Лендинг автошколы</figcaption></figure></div><a class="post" href="https://t.me/levvddev/30" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Разбор трех живых проектов с начинкой</b><em>t.me/levvddev/30</em></a></div></section><section class="sec chapter" id="glava-08" data-mode="mid" style="--bg:#E5792A;--next:#B04C14"><div class="wrap"><header class="chapter-head"><span class="num">08</span><h2>Где брать заказы и как писать отклик</h2></header><h3>Два источника, и оба нужны</h3>
+<p><b>Kwork</b> - копит рейтинг и приносит заказы сам, пока ты спишь. Не забывай про него, даже когда пошли клиенты из Telegram. Новые кворки выкладывай не пачкой за один день, а по 1-2 в неделю в течение месяца: профиль все время свежий, а кворки не тонут в выдаче. Следи, на каком ты сейчас уровне продавца и сколько отзывов осталось до следующего.</p>
+<p><b>Telegram-каналы с заказами</b> - быстрые деньги без комиссии. Заказчик пишет пост в канал и договаривается с тем, кто первым написал толковое сообщение в личку. Заказы разлетаются за минуты.</p>
+<aside class="tip"><b>Совет:</b> Сложи 10-15 каналов с заказами в отдельную папку Telegram и включи уведомления только на нее. Через неделю оставь 5 лучших.</aside>
+<a class="post" href="https://t.me/levvddev/36" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Где брать первые заказы, если ты пока никто</b><em>t.me/levvddev/36</em></a>
+<h3>Какие заказы брать</h3>
+<p>Разовые задачи под сдачу: бот, лендинг, парсер, интеграция, воронка. Там понятно, что сдать и за что платят. "В команду на постоянку", оклад и график - мимо, это найм, а не проект.</p>
+<h3>Доведи клиента до оплаты</h3>
+<p>Мало получить ответ, надо, чтобы человек реально заплатил. Отвечай быстро, уточни задачу одним-двумя вопросами, назови цену и срок и сразу предложи следующий шаг: "Если подходит, начну сегодня, после предоплаты". Чем дольше переписка висит без конкретики, тем выше шанс, что клиент уйдет к другому.</p>
+<h3>Структура отклика</h3>
+<p>Заказчику за час пишут 20-30 человек с "могу сделать, пиши в личку". Рабочий отклик - 600-900 знаков, три абзаца между приветствием и портфолио:</p>
+<ul><li>Первый: опыт в такой же задаче и дедлайн, если он есть.</li><li>Второй: сценарий заказчика своими словами и один реальный кейс. Прозой, без списков.</li><li>Третий: один-два вопроса, которые влияют на цену, и ориентир по стоимости.</li></ul>
+<p>В конце ссылка на портфолио <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a> и "Готов обсудить детали". Без имени собеседника и без благодарностей, сразу по делу.</p>
+<aside class="tip"><b>Совет:</b> Не больше 3-5 откликов незнакомым людям в день, иначе Telegram повесит спам-ограничение.</aside>
+<a class="post" href="https://t.me/levvddev/20" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Как общаться с клиентами, чтобы закрывать сделки</b><em>t.me/levvddev/20</em></a>
+<h3>Цены для новичка</h3>
+<p>Пиши цену чуть ниже рынка, на 1-2 тысячи от средней, и всегда "от". Если заказчик сам назвал бюджет, не торгуйся вниз, а пиши, что его ориентир подходит.</p><div class="chart"><h3>Ориентиры цен для старта</h3><p class="note">в рублях, за проект</p><div class="bar"><span class="label">Простой бот</span><span class="track"><span class="fill" style="width:22.2%"></span></span><span class="value">от 4к</span></div><div class="bar"><span class="label">Сбор заявок / запись</span><span class="track"><span class="fill" style="width:27.8%"></span></span><span class="value">от 5к</span></div><div class="bar"><span class="label">Простой лендинг</span><span class="track"><span class="fill" style="width:27.8%"></span></span><span class="value">от 5к</span></div><div class="bar"><span class="label">Клуб по подписке, воронка</span><span class="track"><span class="fill" style="width:33.3%"></span></span><span class="value">от 6к</span></div><div class="bar"><span class="label">Бот + CRM</span><span class="track"><span class="fill" style="width:55.6%"></span></span><span class="value">от 10к</span></div><div class="bar"><span class="label">Бот с ИИ</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="value">от 18к</span></div></div><div class="message"><div class="message-head">Мой эталонный отклик: 600-900 знаков, три абзаца</div><p>Здравствуйте!</p><p>Заинтересовал ваш проект. Боты для сбора заявок с выгрузкой в таблицу или CRM собирал не раз, задача понятная. К 5 сентября успеваю спокойно.</p><p>Ваш сценарий такой: бот общается с пользователем, собирает нужные поля заявки и сгружает их туда, где работает команда, в Google Таблицу, CRM или форму. Настрою логику вопросов, проверку данных и удобную выгрузку, чтобы заявки падали структурно и ничего не терялось. Из близкого делал передачу лидов в Bitrix24, amoCRM и таблицы.</p><p>Расскажите, какие поля собираем в заявке и куда удобнее их сгружать? Тогда назову точную цену и подтвержу срок. Ориентир от 5 000 руб.</p><p>Портфолио: <a class="site" href="https://lev-dev-tech.github.io">https://lev-dev-tech.github.io</a></p><p>Готов обсудить детали.</p></div></div></section><section class="sec chapter" id="glava-09" data-mode="dark" style="--bg:#B04C14;--next:#8F3B0E"><div class="wrap"><header class="chapter-head"><span class="num">09</span><h2>Клиенты, деньги и ошибки</h2></header><h3>На старте бери меньше денег</h3>
+<p>Люди не доверяют специалисту, у которого мало отзывов и опыта. Это нормально, я бы тоже не доверил. Поэтому первые заказы бери дешевле рынка: так клиенту проще рискнуть, а у тебя появляются отзывы и кейсы. Цену поднимаешь, когда за спиной есть 5-10 довольных клиентов.</p>
+<p>Второе, на что смотрят, - как ты общаешься. Медленные ответы, путаница и "щас, подождите" отпугивают сильнее, чем высокая цена.</p>
+<h3>Клиент платит не за бота</h3>
+<p>Клиент платит за рутину, которую ненавидит делать руками. До любой цены я задаю пять вопросов:</p>
+<ol><li>Что сейчас делаете руками и сколько времени это съедает?</li><li>Где теряете клиентов или деньги?</li><li>Какими сервисами уже пользуетесь: CRM, таблицы, оплата?</li><li>Кто будет пользоваться результатом каждый день?</li><li>Как поймем, что все работает?</li></ol>
+<aside class="tip"><b>Совет:</b> Записывай ответы и присылай клиенту коротко: "правильно понял, что...". Это защищает от правок "я имел в виду другое".</aside>
+<a class="post" href="https://t.me/levvddev/30" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Клиент платит за то, что ему больше не надо делать руками</b><em>t.me/levvddev/30</em></a>
+<h3>Как я называю цену</h3>
+<ul><li>Смотрю, сколько берут другие за такую же задачу.</li><li>На старте ставлю ниже рынка, но не в ноль. Бесплатно ценят меньше всего.</li><li>Называю цену "от" и уточняю, когда понял задачу.</li><li>Всегда пишу срок: "6 000 ₽, 2-3 дня" звучит увереннее, чем просто цифра.</li><li>Беру предоплату, хотя бы половину.</li></ul>
+<h3>Как писать клиенту</h3>
+<p>Коротко и по делу, как живой человек. Скобка вместо смайла смягчает: "Сделаю)", "Исправил)". Никогда не пиши "готово", пока сам не проверил результат. Накосячил - скажи сразу и предложи, как исправишь. Клиенты уходят не из-за ошибки, а из-за молчания после нее.</p>
+<a class="post" href="https://t.me/levvddev/20" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>7 принципов общения, которые закрывают сделки</b><em>t.me/levvddev/20</em></a>
+<h3>Ведение - это стабильные деньги</h3>
+<p>После сдачи предлагаю сопровождение: слежу, чтобы все работало, вношу мелкие правки, отвечаю на вопросы. Сейчас у меня 4 проекта на ведении, и каждый месяц есть деньги, которые не надо искать заново.</p>
+<aside class="tip"><b>Совет:</b> После сдачи всегда проси отзыв. Отзыв - это следующий заказ.</aside></div></section><section class="sec chapter" id="glava-10" data-mode="dark" style="--bg:#8F3B0E;--next:#6B2A09"><div class="wrap"><header class="chapter-head"><span class="num">10</span><h2>Что пишут мои клиенты</h2></header><p class="lead">17 отзывов на 5 звезд, ни одного отрицательного. Это не скриншоты из ниоткуда: все отзывы ниже оставлены на Kwork, их можно открыть и проверить в моем <a href="https://kwork.ru/user/lev_dev">профиле</a>. Те же отзывы собраны на <a class="site" href="https://lev-dev-tech.github.io/#reviews">моем сайте</a>.</p><p>Еще часть клиентов пишет отзывы просто в личные сообщения. Сейчас я веду 4 проекта на постоянной основе, и никто не жалуется. Обрати внимание, за что хвалят: скорость, понятность, "работает". Не за код.</p><div class="reviews"><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Быстро. Раньше срока. Недорого. За разумную цену. Без суеты и лишних вопросов. Была интересная задача по автоматизации процесса выборки. Закрыл все три этапа с опережением графика. Все возникающие вопросы подкручивал оперативно и творчески. Не пришлось ничего разжевывать. Все общение с полуслова. Не пожалел. Рекомендую.&quot;</p><footer><b>zaratustra2002</b><span>Скрипт автозахвата выплат: 3 этапа + сервер 24/7</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Все супер!&quot;</p><footer><b>kucheryavchenkomish · INFO+</b><span>Авто-видео из новостей + публикация в Telegram/MAX/TikTok/VK/YT</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Отличный продавец, все супер!&quot;</p><footer><b>kucheryavchenkomish · INFO+</b><span>Оптимизация новостного Telegram-бота: дедуп и снижение затрат</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Работает! Вы гений информатики, такую красоту сделали) За день починили то, что я не могла сделать месяц. Спасибо вам огромное!&quot;</p><footer><b>Алиса · бот Nutra</b><span>Аудит и доработка бота-трекера КБЖУ (WatBot)</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Очень довольны работой Льва по настройке ИИ-ассистента! Всё сделал очень быстро, качественно и внимательно к нашим задачам. Было действительно приятно работать - всё понятно, оперативно и без лишних сложностей. Спасибо, Лев! Обязательно обратимся ещё раз и будем рекомендовать!&quot;</p><footer><b>Екатерина · PlusDelivery</b><span>Настройка ИИ-ассистента продаж в Telegram</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Всё прошло отлично! Сложная задача выполнена, рекомендую к сотрудничеству!&quot;</p><footer><b>Sadovnik2008</b><span>Развитие базы и отчётов PostgreSQL / 1С</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Хороший специалист, оперативно сделал скрипт который был мне нужен!&quot;</p><footer><b>igores1990</b><span>Скрипт для Google Таблиц</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;И вновь обратился к данному специалисту за решением своей задачи. Всё сделано точно в срок и ровно так, как и договаривались по ТЗ. Благодарю вас!&quot;</p><footer><b>pirat-ps</b><span>Доработка админ-панели · выгрузка данных в AmoCRM / Bitrix</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Делали связку для забора данных из 1С:Розницы в PostgreSQL, чтобы отцепиться от монопольной зависимости. Всё прошло непросто, но главное - в итоге всё получилось. Рекомендую исполнителя как ответственного и грамотного.&quot;</p><footer><b>Sadovnik2008</b><span>Настройка миграции данных из 1С в PostgreSQL</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Обратился к Льву за сайтом-портфолио. Проект сделал очень оперативно, при этом качество не пострадало - всё выглядит дорого и современно. Приятно работать с профессионалом.&quot;</p><footer><b>Илья Громов</b><span>Лендинг-портфолио для дизайнера</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Лев, отличный исполнитель! Возникла необходимость перенести сайт на облачный сервер, так как на старом закончилось место. Лев, быстро и качественно всё настроил, проверил работу сайта и всего административного функционала. Всё работает отлично. Рекомендую!&quot;</p><footer><b>JuliaMT</b><span>Настройка работы сайта</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Безупречный исполнитель. Правило трёх &quot;О&quot;: оперативно выполняет заказ, очень вежливо и грамотно общается, передавая суть всех технических деталей. Отлично сделанная работа. Если хотите, чтобы заказ был выполнен в срок и вас понимали с полуслова - обращаться только к piwhip!&quot;</p><footer><b>pirat-ps</b><span>Передача лидов в Bitrix24 / amoCRM / e-mail</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Была задача сделать Инфо-Бота, продавец справился на УРА!! Уловил ход мыслей и разложил всё по полочкам - насмотреться не могу. Однозначно рекомендую Льва как отличного программиста, который превзошёл мои ожидания!&quot;</p><footer><b>PAFFKA</b><span>Разработка бота в Telegram</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Всё отлично, продавец вежливый, быстро ответил и сделал работу.&quot;</p><footer><b>yoshihatemyself</b><span>Разработка бота в Telegram</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Нужно было сделать срочно бота в Telegram - человек сделал всё за 3 часа, всё работает. Советую!&quot;</p><footer><b>gainutdinovarsla</b><span>Создание ТГ бота</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Спасибо, быстро разработал полностью рабочего бота под ТЗ.&quot;</p><footer><b>shweppyk</b><span>Разработка бота в Telegram</span></footer></blockquote><blockquote class="review"><div class="stars" aria-label="5 звезд">★★★★★</div><p>&quot;Очень хороший, вежливый продавец! Отлично написан текст, соответствует ТЗ. Очень быстро, спасибо.&quot;</p><footer><b>Tracksy</b><span>СЕО-копирайтинг</span></footer></blockquote></div></div></section><section class="sec chapter" id="glava-11" data-mode="dark" style="--bg:#6B2A09;--next:#4A1D07"><div class="wrap"><header class="chapter-head"><span class="num">11</span><h2>План на первый месяц</h2></header><h3>Неделя 1. Инструменты</h3>
+<ul><li>Разберись, как ставить задачу нейросети: роль - задача - контекст - формат - пример.</li><li>Поставь Claude Code и сделай в нем любую маленькую задачу до конца.</li><li>Ничего не покупай, кроме подписки. Остальное на старте бесплатно.</li></ul>
+<a class="post" href="https://t.me/levvddev/34" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Формула запроса и шаблоны</b><em>t.me/levvddev/34</em></a>
+<h3>Неделя 2. Портфолио</h3>
+<ul><li>Открой каналы с заказами и найди вакансию, которая тебе по силам.</li><li>Отклик писать не обязательно. Просто скажи Claude: "сделай мне проект по этому заданию" и доведи его до рабочего вида.</li><li>Забирай результат себе в портфолио как первый рабочий кейс: скрин и три строки - задача, что сделал, что это дает бизнесу.</li><li>Повтори 2-3 раза и выложи на бесплатный сайт-портфолио.</li></ul>
+<a class="post" href="https://t.me/levvddev/37" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Первый сайт за вечер, даже если ты не видел код</b><em>t.me/levvddev/37</em></a>
+<h3>Неделя 3. Первые отклики</h3>
+<ul><li>Заведи профиль на Kwork и выложи первые кворки, остальные - постепенно в течение месяца.</li><li>Бери простые заказы на Kwork за 500-1000 рублей ради первых отзывов.</li><li>Параллельно 3-5 толковых откликов в день в каналах с заказами.</li></ul>
+<a class="post" href="https://t.me/levvddev/36" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>Где брать первые заказы</b><em>t.me/levvddev/36</em></a>
+<h3>Неделя 4. Первые платные заказы</h3>
+<ul><li>Делаешь, проверяешь сам, сдаешь в срок.</li><li>Сразу открывай самозанятость. Многие компании, особенно крупные, работают только через нее и просят чек.</li><li>Просишь отзыв, предлагаешь ведение и добавляешь кейс в портфолио.</li></ul>
+<aside class="tip">Первые деньги приходят через 2-4 недели, если делать каждый день. Кто обещает быстрее - продает мечту, а не навык.</aside>
+<h3>Чек-лист перед каждым заказом</h3>
+<ul><li>Понял, какую рутину убираю, и записал ответы клиента.</li><li>Назвал цену "от" и срок, взял предоплату.</li><li>Проверил результат сам, прежде чем написать "готово".</li><li>Сдал, попросил отзыв, предложил ведение.</li></ul></div></section><section class="sec outro" id="dalshe" data-mode="dark" style="--bg:#4A1D07;--next:#4A1D07"><div class="wrap"><h2>Что дальше</h2><p>Это простой гайд, чтобы ты понял путь целиком. Дальше будет глубже: я готовлю подробные разборы каждого шага и курс, где покажу на живых проектах, как собирать ботов, сайты и интеграции и доводить клиента до оплаты. Первыми о нем узнают в канале.</p><p>Кстати, этот гайд, как и мой сайт-портфолио, стоит на бесплатном хостинге GitHub Pages. Он не стоил мне ни рубля, и ты можешь так же: старт в этой профессии почти не требует вложений.</p><p class="big"><a href="https://t.me/levvddev">Перейти в канал levvddev</a></p><p>Пока ждешь - в канале уже лежат разборы инструментов, откликов и моих проектов. Портфолио: <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a></p><p>Если гайд помог - перешли его другу, который давно хочет зарабатывать на нейросетях 🤍</p><p class="web-only download"><a href="put-tehspeca.pdf" download>Скачать гайд в PDF</a></p></div></section></main><script>
+const chapters = [...document.querySelectorAll('.sec')];
+const links = new Map([...document.querySelectorAll('.rail a')].map(link => [link.hash.slice(1), link]));
+const root = document.documentElement;
+let ticking = false;
+function onScroll() {
+  ticking = false;
+  const max = root.scrollHeight - innerHeight;
+  root.style.setProperty('--progress', max > 0 ? (scrollY / max).toFixed(4) : 0);
+  const probe = innerHeight * 0.35;
+  const current = chapters.filter(section => section.getBoundingClientRect().top <= probe).pop() || chapters[0];
+  document.body.dataset.mode = current.dataset.mode;
+  links.forEach((link, id) => link.toggleAttribute('aria-current', id === current.id));
+}
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+onScroll();
+
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealable = document.querySelectorAll('.chapter .wrap > *, .contents .wrap > *, .outro .wrap > *, .cases figure, .gallery > a, .review, .stat, .timeline li, .toc li');
+function countUp(stat) {
+  const label = stat.querySelector('b');
+  const match = label.textContent.match(/^(\D*)(\d+(?:[\s\u00a0]\d{3})*)(.*)$/);
+  if (!match || calm) return;
+  const target = Number(match[2].replace(/\D/g, ''));
+  const started = performance.now();
+  const step = now => {
+    const share = Math.min((now - started) / 1100, 1);
+    const eased = 1 - Math.pow(1 - share, 3);
+    label.textContent = match[1] + Math.round(target * eased).toLocaleString('ru-RU') + match[3];
+    if (share < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+if (!calm && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('anim');
+  const watcher = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('in');
+    if (entry.target.classList.contains('stat')) countUp(entry.target);
+    watcher.unobserve(entry.target);
+  }), { rootMargin: '0px 0px -8% 0px' });
+  revealable.forEach((element, index) => { element.style.setProperty('--i', index % 6); watcher.observe(element); });
+  document.querySelectorAll('.chart').forEach(chart => watcher.observe(chart));
+}
+
+const box = document.createElement('div');
+box.className = 'lightbox';
+box.setAttribute('role', 'dialog');
+box.setAttribute('aria-modal', 'true');
+box.innerHTML = '<button class="lb-close" aria-label="Закрыть">×</button><figure><img alt=""><figcaption><b></b><p></p><span class="lb-links"></span></figcaption></figure>';
+document.body.append(box);
+const [boxImage, boxTitle, boxText, boxLinks] = ['img', 'b', 'p', '.lb-links'].map(selector => box.querySelector(selector));
+let opener = null;
+function openBox(link) {
+  opener = link;
+  boxImage.src = link.href;
+  boxImage.alt = link.dataset.title || '';
+  boxTitle.textContent = link.dataset.title || '';
+  boxText.textContent = link.dataset.text || '';
+  boxLinks.innerHTML = (link.dataset.links || '').split('|').filter(Boolean).map(pair => {
+    const [label, url] = pair.split('>');
+    return `<a href="${url}" target="_blank" rel="noopener">${label}</a>`;
+  }).join('');
+  box.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  box.querySelector('.lb-close').focus();
+}
+function closeBox() {
+  box.classList.remove('open');
+  document.body.style.overflow = '';
+  if (opener) opener.focus();
+}
+document.addEventListener('click', event => {
+  const link = event.target.closest('a.zoom');
+  if (link) { event.preventDefault(); openBox(link); return; }
+  if (box.classList.contains('open') && (event.target === box || event.target.closest('.lb-close'))) closeBox();
+});
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && box.classList.contains('open')) closeBox(); });
+</script></body></html>
