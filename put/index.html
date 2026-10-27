@@ -72,7 +72,8 @@ h3 { font-family: var(--display); font-weight: 500; font-size: 19px; line-height
 
 .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 36px; background: var(--ink); border: 2px solid var(--ink); }
 .stat { background: var(--bg); padding: 20px 18px; }
-.stat b { display: block; font-family: var(--display); font-size: clamp(22px, 6vw, 34px); line-height: 1.1; margin-bottom: 6px; }
+.stat b { display: block; font-family: var(--display); font-size: clamp(22px, 6vw, 34px); line-height: 1.1; margin-bottom: 6px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (max-width: 519px) { .stats { grid-template-columns: 1fr; } .stat { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; } .stat b { margin: 0; } .stat span { text-align: right; } }
 .stat span { color: var(--muted); font-size: 14px; }
 .stat:first-child { background: var(--ink); color: var(--invert); }
 .stat:first-child span { color: inherit; opacity: .8; }
@@ -126,9 +127,25 @@ h3 { font-family: var(--display); font-weight: 500; font-size: 19px; line-height
 .outro .big a:hover { background: var(--ink); }
 .download a { font-weight: 600; }
 
-.progress { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 10; background: #B8430A; transform-origin: left; transform: scaleX(var(--progress)); }
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 21; background: #B8430A; transform-origin: left; transform: scaleX(var(--progress)); }
 body[data-mode="dark"] .progress { background: #FFC08A; }
 .rail { display: none; }
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; height: 50px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 3px 16px 0; background: rgba(255, 246, 236, .9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(42, 20, 6, .12); color: #2A1406; transform: translateY(-100%); transition: transform .25s ease; }
+body.scrolled .topbar, body.toc-open .topbar { transform: none; }
+body[data-mode="dark"] .topbar { background: rgba(42, 20, 6, .9); color: #FFF0E0; border-color: rgba(255, 240, 224, .16); }
+.topbar .now { font-size: 14px; font-weight: 600; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-decoration: none; }
+.toc-toggle { flex: none; font: 600 14px var(--text); color: inherit; background: none; border: 1.5px solid currentColor; border-radius: 999px; padding: 7px 16px; min-height: 36px; cursor: pointer; }
+.sec { scroll-margin-top: 50px; }
+@media (max-width: 1179px) {
+  body.toc-open .rail { display: flex; flex-direction: column; position: fixed; top: 50px; left: 0; right: 0; z-index: 19; max-height: calc(100svh - 50px); overflow-y: auto;
+    background: #FFF6EC; padding: 6px 8px 14px; box-shadow: 0 14px 30px rgba(42, 20, 6, .22); }
+  body.toc-open .rail a { display: flex; gap: 12px; align-items: baseline; padding: 11px 10px; color: #2A1406; text-decoration: none; font-size: 15px; border-bottom: 1px solid rgba(42, 20, 6, .08); }
+  body.toc-open .rail a span { font-family: var(--display); font-size: 12px; width: 2.2em; flex: none; color: #B8430A; }
+  body.toc-open .rail a em { font-style: normal; }
+  body.toc-open .rail a[aria-current] { font-weight: 700; background: rgba(184, 67, 10, .08); }
+}
 
 @media (min-width: 760px) {
   body { font-size: 18px; }
@@ -139,7 +156,7 @@ body[data-mode="dark"] .progress { background: #FFC08A; }
 }
 
 @media (min-width: 1180px) {
-  .progress { display: none; }
+  .progress, .topbar { display: none; }
   .rail { display: flex; flex-direction: column; position: fixed; left: 24px; top: 50%; transform: translateY(-50%); z-index: 10; gap: 2px; color: #2A1406; }
   body[data-mode="mid"] .rail { color: #2A1406; }
   body[data-mode="dark"] .rail { color: #FFF0E0; }
@@ -248,7 +265,7 @@ body.poster * { animation: none !important; clip-path: none !important; opacity:
   .cover { min-height: calc(297mm - 32mm); padding-top: 0; }
   .outro { min-height: calc(297mm - 32mm); }
   .wrap { max-width: none; }
-  .progress, .rail, .web-only { display: none !important; }
+  .progress, .rail, .topbar, .web-only { display: none !important; }
   .cover .route, .cover .route .end, .cover .pin, .cover .sub, .cover .author, .cover h1, .cover .kicker { animation: none !important; clip-path: none !important; opacity: 1 !important; }
   a.zoom::after, .post::after { display: none; }
   .post { padding-right: 18px; }
@@ -260,7 +277,7 @@ body.poster * { animation: none !important; clip-path: none !important; opacity:
   .chapter-head h2 { font-size: 21pt; }
   .lead, .sub, .outro p { font-size: 12.5pt; }
 }
-</style></head><body data-mode="light"><div class="progress" aria-hidden="true"></div><nav class="rail" aria-label="Главы гайда"><a href="#glava-01" title="Мой путь: от официанта до 200 000 в месяц"><span>01</span><em>Мой путь: от официанта до 200 000 в месяц</em></a><a href="#glava-02" title="Цифры, а не обещания"><span>02</span><em>Цифры, а не обещания</em></a><a href="#glava-03" title="Кто такой техспец и за что платят"><span>03</span><em>Кто такой техспец и за что платят</em></a><a href="#glava-04" title="Инструменты: Claude Code, плагины и скиллы"><span>04</span><em>Инструменты: Claude Code, плагины и скиллы</em></a><a href="#glava-05" title="Kwork: старт, отзывы и рост профиля"><span>05</span><em>Kwork: старт, отзывы и рост профиля</em></a><a href="#glava-06" title="Портфолио-сайт: зачем он нужен и как я его оформляю"><span>06</span><em>Портфолио-сайт: зачем он нужен и как я его оформляю</em></a><a href="#glava-07" title="Мои кейсы"><span>07</span><em>Мои кейсы</em></a><a href="#glava-08" title="Где брать заказы и как писать отклик"><span>08</span><em>Где брать заказы и как писать отклик</em></a><a href="#glava-09" title="Клиенты, деньги и ошибки"><span>09</span><em>Клиенты, деньги и ошибки</em></a><a href="#glava-10" title="Что пишут мои клиенты"><span>10</span><em>Что пишут мои клиенты</em></a><a href="#glava-11" title="План на первый месяц"><span>11</span><em>План на первый месяц</em></a></nav><main><section class="sec cover" id="start" data-mode="light" style="--bg:#FFF6EC;--next:#FFF1E2"><div class="wrap"><p class="kicker">Бесплатный гайд Льва из канала lev.dev</p><h1>Путь техспеца с&nbsp;нуля</h1><div class="map"><svg class="route" viewBox="0 0 400 260" aria-hidden="true"><path d="M24 236 C 90 236, 70 160, 150 168 S 230 120, 250 92 S 330 40, 376 26" /><circle class="start" cx="24" cy="236" r="7"/><circle class="end" cx="376" cy="26" r="11"/></svg><span class="pin from">Геленджик, официант, 17 лет</span><span class="pin to">200 000+ ₽ в месяц на ботах и нейросетях</span></div><p class="sub">Как я дошел из официантов до техспеца без профильного образования: Kwork, портфолио, отклики, цены, отзывы клиентов и план на первый месяц.</p><p class="author"><b>Лев</b>, техспец. Канал <a href="https://t.me/levvddev">t.me/levvddev</a>, портфолио <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a></p></div></section><section class="sec contents" id="marshrut" data-mode="light" style="--bg:#FFF1E2;--next:#FFEAD3"><div class="wrap"><h2 class="toc-title">Маршрут</h2><ol class="toc"><li><a href="#glava-01"><span>01</span>Мой путь: от официанта до 200 000 в месяц</a></li><li><a href="#glava-02"><span>02</span>Цифры, а не обещания</a></li><li><a href="#glava-03"><span>03</span>Кто такой техспец и за что платят</a></li><li><a href="#glava-04"><span>04</span>Инструменты: Claude Code, плагины и скиллы</a></li><li><a href="#glava-05"><span>05</span>Kwork: старт, отзывы и рост профиля</a></li><li><a href="#glava-06"><span>06</span>Портфолио-сайт: зачем он нужен и как я его оформляю</a></li><li><a href="#glava-07"><span>07</span>Мои кейсы</a></li><li><a href="#glava-08"><span>08</span>Где брать заказы и как писать отклик</a></li><li><a href="#glava-09"><span>09</span>Клиенты, деньги и ошибки</a></li><li><a href="#glava-10"><span>10</span>Что пишут мои клиенты</a></li><li><a href="#glava-11"><span>11</span>План на первый месяц</a></li></ol><p class="hint">Читается за 25 минут. Можно прыгать по главам - каждая отдельный шаг.</p></div></section><section class="sec chapter" id="glava-01" data-mode="light" style="--bg:#FFEAD3;--next:#FFE2C2"><div class="wrap"><header class="chapter-head"><span class="num">01</span><h2>Мой путь: от официанта до 200 000 в месяц</h2></header><h3>Привет! Это Лев</h3>
+</style></head><body data-mode="light"><div class="progress" aria-hidden="true"></div><header class="topbar"><a class="now" href="#marshrut">Путь техспеца с нуля</a><button class="toc-toggle" type="button" aria-expanded="false" aria-controls="rail">Главы</button></header><nav class="rail" id="rail" aria-label="Главы гайда"><a href="#glava-01" title="Мой путь: от официанта до 200 000 в месяц"><span>01</span><em>Мой путь: от официанта до 200 000 в месяц</em></a><a href="#glava-02" title="Цифры, а не обещания"><span>02</span><em>Цифры, а не обещания</em></a><a href="#glava-03" title="Кто такой техспец и за что платят"><span>03</span><em>Кто такой техспец и за что платят</em></a><a href="#glava-04" title="Инструменты: Claude Code, плагины и скиллы"><span>04</span><em>Инструменты: Claude Code, плагины и скиллы</em></a><a href="#glava-05" title="Kwork: старт, отзывы и рост профиля"><span>05</span><em>Kwork: старт, отзывы и рост профиля</em></a><a href="#glava-06" title="Портфолио-сайт: зачем он нужен и как я его оформляю"><span>06</span><em>Портфолио-сайт: зачем он нужен и как я его оформляю</em></a><a href="#glava-07" title="Мои кейсы"><span>07</span><em>Мои кейсы</em></a><a href="#glava-08" title="Где брать заказы и как писать отклик"><span>08</span><em>Где брать заказы и как писать отклик</em></a><a href="#glava-09" title="Клиенты, деньги и ошибки"><span>09</span><em>Клиенты, деньги и ошибки</em></a><a href="#glava-10" title="Что пишут мои клиенты"><span>10</span><em>Что пишут мои клиенты</em></a><a href="#glava-11" title="План на первый месяц"><span>11</span><em>План на первый месяц</em></a></nav><main><section class="sec cover" id="start" data-mode="light" style="--bg:#FFF6EC;--next:#FFF1E2"><div class="wrap"><p class="kicker">Бесплатный гайд Льва из канала lev.dev</p><h1>Путь техспеца с&nbsp;нуля</h1><div class="map"><svg class="route" viewBox="0 0 400 260" aria-hidden="true"><path d="M24 236 C 90 236, 70 160, 150 168 S 230 120, 250 92 S 330 40, 376 26" /><circle class="start" cx="24" cy="236" r="7"/><circle class="end" cx="376" cy="26" r="11"/></svg><span class="pin from">Геленджик, официант, 17 лет</span><span class="pin to">200 000+ ₽ в месяц на ботах и нейросетях</span></div><p class="sub">Как я дошел из официантов до техспеца без профильного образования: Kwork, портфолио, отклики, цены, отзывы клиентов и план на первый месяц.</p><p class="author"><b>Лев</b>, техспец. Канал <a href="https://t.me/levvddev">t.me/levvddev</a>, портфолио <a class="site" href="https://lev-dev-tech.github.io">lev-dev-tech.github.io</a></p></div></section><section class="sec contents" id="marshrut" data-mode="light" style="--bg:#FFF1E2;--next:#FFEAD3"><div class="wrap"><h2 class="toc-title">Маршрут</h2><ol class="toc"><li><a href="#glava-01"><span>01</span>Мой путь: от официанта до 200 000 в месяц</a></li><li><a href="#glava-02"><span>02</span>Цифры, а не обещания</a></li><li><a href="#glava-03"><span>03</span>Кто такой техспец и за что платят</a></li><li><a href="#glava-04"><span>04</span>Инструменты: Claude Code, плагины и скиллы</a></li><li><a href="#glava-05"><span>05</span>Kwork: старт, отзывы и рост профиля</a></li><li><a href="#glava-06"><span>06</span>Портфолио-сайт: зачем он нужен и как я его оформляю</a></li><li><a href="#glava-07"><span>07</span>Мои кейсы</a></li><li><a href="#glava-08"><span>08</span>Где брать заказы и как писать отклик</a></li><li><a href="#glava-09"><span>09</span>Клиенты, деньги и ошибки</a></li><li><a href="#glava-10"><span>10</span>Что пишут мои клиенты</a></li><li><a href="#glava-11"><span>11</span>План на первый месяц</a></li></ol><p class="hint">Читается за 25 минут. Можно прыгать по главам - каждая отдельный шаг.</p></div></section><section class="sec chapter" id="glava-01" data-mode="light" style="--bg:#FFEAD3;--next:#FFE2C2"><div class="wrap"><header class="chapter-head"><span class="num">01</span><h2>Мой путь: от официанта до 200 000 в месяц</h2></header><h3>Привет! Это Лев</h3>
 <p>В 17 лет я работал официантом в Геленджике: смены по 10 часов и понятный потолок зарплаты. Сейчас мне 18, я самозанятый техспец, работаю удаленно, и в октябре 2026 года заработал больше 200 000 рублей. Профильного образования программиста у меня нет.</p>
 <a class="post" href="https://t.me/levvddev/7" target="_blank" rel="noopener"><span>Подробнее уже разбирал в канале</span><b>С чего начинался канал и кто я такой</b><em>t.me/levvddev/7</em></a>
 <h3>Я не ждал, когда буду готов</h3>
@@ -408,8 +425,21 @@ function onScroll() {
   const probe = innerHeight * 0.35;
   const current = chapters.filter(section => section.getBoundingClientRect().top <= probe).pop() || chapters[0];
   document.body.dataset.mode = current.dataset.mode;
+  document.body.classList.toggle('scrolled', scrollY > innerHeight * 0.6);
   links.forEach((link, id) => link.toggleAttribute('aria-current', id === current.id));
+  const active = links.get(current.id);
+  nowLabel.textContent = active ? active.querySelector('span').textContent + ' · ' + active.querySelector('em').textContent : 'Путь техспеца с нуля';
 }
+const nowLabel = document.querySelector('.topbar .now');
+const tocToggle = document.querySelector('.toc-toggle');
+function setToc(open) {
+  document.body.classList.toggle('toc-open', open);
+  tocToggle.setAttribute('aria-expanded', open);
+  tocToggle.textContent = open ? 'Закрыть' : 'Главы';
+}
+tocToggle.addEventListener('click', () => setToc(!document.body.classList.contains('toc-open')));
+links.forEach(link => link.addEventListener('click', () => setToc(false)));
+addEventListener('keydown', event => { if (event.key === 'Escape') setToc(false); });
 addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 onScroll();
 
@@ -419,6 +449,7 @@ function countUp(stat) {
   const label = stat.querySelector('b');
   const match = label.textContent.match(/^(\D*)(\d+(?:[\s\u00a0]\d{3})*)(.*)$/);
   if (!match || calm) return;
+  label.style.minWidth = label.getBoundingClientRect().width + 'px';
   const target = Number(match[2].replace(/\D/g, ''));
   const started = performance.now();
   const step = now => {
