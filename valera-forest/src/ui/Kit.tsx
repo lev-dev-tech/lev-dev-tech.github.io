@@ -255,7 +255,7 @@ export const Phone: React.FC<{ children: React.ReactNode; w?: number; h?: number
   </div>
 );
 
-export const Hand: React.FC<{ style?: React.CSSProperties; sleeve?: string }> = ({ style, sleeve = C.yellow }) => (
+export const Hand: React.FC<{ style?: React.CSSProperties; sleeve?: string }> = ({ style, sleeve = "#2a2d37" }) => (
   <svg width={420} height={520} viewBox="0 0 420 520" style={{ position: "absolute", ...style }}>
     <path d="M 150 520 L 170 300 L 330 300 L 360 520 Z" fill={sleeve} stroke={C.ink} strokeWidth={9} strokeLinejoin="round" />
     <path d="M 160 330 L 340 330" stroke={C.ink} strokeWidth={7} />

@@ -39,7 +39,7 @@ type Props = {
 type Look = { hair: string; hairHi: string; top: string; topShade: string; pants: string; shoe: string; accent: string };
 
 const LOOKS: Record<Who, Look> = {
-  artem: { hair: "#f4f4f7", hairHi: "#ffffff", top: C.yellow, topShade: "#d0960c", pants: "#2b3550", shoe: "#e9e9ee", accent: "#ffffff" },
+  artem: { hair: "#f4f4f7", hairHi: "#ffffff", top: "#2a2d37", topShade: "#191b22", pants: "#2b3550", shoe: "#e9e9ee", accent: "#ffffff" },
   alina: { hair: C.blue, hairHi: "#4d93f0", top: "#2b2f3d", topShade: "#1d2029", pants: "#1b1d25", shoe: "#3a2a26", accent: C.red },
   valera: { hair: "#16171d", hairHi: "#3a4157", top: "#2e4a3a", topShade: "#20352a", pants: "#24262e", shoe: "#4a3424", accent: "#8b5a2b" },
 };
@@ -88,30 +88,37 @@ const Leg: React.FC<{ x: number; a: number; color: string; shoe: string; len: nu
   </g>
 );
 
-const HairBack: React.FC<{ who: Who; l: Look }> = ({ who, l }) =>
-  who === "alina" ? (
-    <path
-      d="M -112 -30 C -128 60 -120 150 -92 175 L -40 160 L 40 160 L 92 175 C 120 150 128 60 112 -30 Z"
-      fill={l.hair}
-      stroke={C.ink}
-      strokeWidth={SW}
-      strokeLinejoin="round"
-    />
-  ) : null;
+const HairBack: React.FC<{ who: Who; l: Look }> = ({ who, l }) => {
+  if (who === "alina")
+    return (
+      <g fill={l.hair} stroke={C.ink} strokeWidth={SW} strokeLinejoin="round">
+        <path d="M -112 -30 C -130 50 -126 130 -104 178 Q -86 190 -64 176 C -74 130 -70 80 -60 40 L -40 -20 Z" />
+        <path d="M 112 -30 C 130 50 126 130 104 178 Q 86 190 64 176 C 74 130 70 80 60 40 L 40 -20 Z" />
+      </g>
+    );
+  if (who === "artem")
+    return (
+      <g fill={l.hair} stroke={C.ink} strokeWidth={SW} strokeLinejoin="round">
+        <path d="M -98 20 Q -106 90 -86 146 Q -80 116 -70 128 Q -66 102 -54 108 L -50 50 Z" />
+        <path d="M 98 20 Q 106 90 86 146 Q 80 116 70 128 Q 66 102 54 108 L 50 50 Z" />
+      </g>
+    );
+  return null;
+};
 
 const HairFront: React.FC<{ who: Who; l: Look }> = ({ who, l }) => {
   if (who === "artem")
     return (
       <g>
         <path
-          d="M -104 18 C -116 -62 -66 -124 2 -124 C 72 -124 118 -70 104 14 C 96 -10 88 -26 74 -36 C 60 -20 30 -18 4 -30 C -14 -10 -40 0 -64 -6 L -50 -26 C -70 -24 -86 -14 -96 2 Z"
+          d="M -114 52 C -130 -50 -80 -136 2 -136 C 84 -136 132 -50 114 52 Q 106 30 98 66 Q 92 20 80 0 Q 76 -20 66 -26 Q 62 -10 54 -6 Q 48 -24 40 -36 Q 32 -16 22 -12 Q 18 -30 8 -40 Q 2 -12 -8 -4 Q -12 -34 -22 -40 Q -30 -18 -42 -10 Q -44 -26 -54 -32 Q -62 -10 -70 -2 Q -76 -16 -82 -10 Q -92 20 -98 64 Q -104 30 -114 52 Z"
           fill={l.hair}
           stroke={C.ink}
           strokeWidth={SW}
           strokeLinejoin="round"
         />
-        <path d="M -40 -96 C -10 -110 30 -108 54 -94" stroke="#d9dbe3" strokeWidth={8} fill="none" strokeLinecap="round" />
-        <path d="M 30 -60 C 10 -48 -14 -42 -34 -40" stroke="#d9dbe3" strokeWidth={6} fill="none" strokeLinecap="round" />
+        <path d="M -60 -100 C -30 -118 30 -118 62 -98" stroke="#d9dbe3" strokeWidth={8} fill="none" strokeLinecap="round" />
+        <path d="M -40 -76 Q -34 -56 -36 -30 M 4 -82 Q 6 -60 0 -30 M 44 -74 Q 40 -52 44 -30 M -80 -44 Q -86 -10 -90 30 M 82 -44 Q 90 -10 94 32" stroke="#d2d5de" strokeWidth={5} fill="none" strokeLinecap="round" />
       </g>
     );
   if (who === "valera")
@@ -150,11 +157,48 @@ const HairFront: React.FC<{ who: Who; l: Look }> = ({ who, l }) => {
   );
 };
 
-const Brow: React.FC<{ x: number; y: number; rot: number; w?: number }> = ({ x, y, rot, w = 30 }) => (
-  <rect x={x - w / 2} y={y - 5} width={w} height={10} rx={5} fill={C.ink} transform={`rotate(${rot},${x},${y})`} />
+const BrowShape: React.FC<{ x: number; y: number; rot: number; w?: number; h?: number }> = ({ x, y, rot, w = 30, h = 10 }) => (
+  <rect x={x - w / 2} y={y - h / 2} width={w} height={h} rx={h / 2} fill={C.ink} transform={`rotate(${rot},${x},${y})`} />
 );
 
-const Face: React.FC<{ e: Emotion; lx: number; ly: number; frame: number; redEyes?: boolean; who: Who }> = ({ e, lx, ly, frame, redEyes, who }) => {
+const CLOSED_EYES: Emotion[] = ["blink", "smug"];
+const OPEN_MOUTH: Emotion[] = ["panic", "shocked", "happy", "cry", "scared", "determined", "angry"];
+
+const Makeup: React.FC<{ e: Emotion; lx: number }> = ({ e, lx }) => {
+  const ex = 36;
+  const ey = 4;
+  const mx = lx * 0.9;
+  const cx = lx * 0.75;
+  const wide = e === "panic" || e === "shocked" || e === "scared" ? 1.5 : 1;
+  return (
+    <g>
+      {[-1, 1].map((s) => (
+        <g key={s}>
+          <ellipse cx={s * ex + cx} cy={ey - 16 * wide} rx={17} ry={7} fill="#a98bd8" opacity={0.28} />
+          {!CLOSED_EYES.includes(e) ? (
+            <g stroke={C.ink} strokeWidth={4} strokeLinecap="round" fill="none">
+              <path d={`M ${s * (ex + 12 * wide) + cx} ${ey - 4 * wide} L ${s * (ex + 24 * wide) + cx} ${ey - 13 * wide}`} />
+              <path d={`M ${s * (ex + 5 * wide) + cx} ${ey - 11 * wide} L ${s * (ex + 13 * wide) + cx} ${ey - 21 * wide}`} />
+            </g>
+          ) : (
+            <path d={`M ${s * (ex + 12) + lx} ${ey + 3} L ${s * (ex + 20) + lx} ${ey - 4}`} stroke={C.ink} strokeWidth={4} strokeLinecap="round" />
+          )}
+        </g>
+      ))}
+      {!OPEN_MOUTH.includes(e) ? <ellipse cx={mx} cy={58} rx={15} ry={7} fill="#d8667a" opacity={0.55} /> : null}
+    </g>
+  );
+};
+
+const Face: React.FC<{ e: Emotion; lx: number; ly: number; frame: number; redEyes?: boolean; who: Who }> = (props) => (
+  <g>
+    <FaceBase {...props} />
+    {props.who === "alina" ? <Makeup e={props.e} lx={props.lx} /> : null}
+  </g>
+);
+
+const FaceBase: React.FC<{ e: Emotion; lx: number; ly: number; frame: number; redEyes?: boolean; who: Who }> = ({ e, lx, ly, frame, redEyes, who }) => {
+  const Brow: React.FC<{ x: number; y: number; rot: number; w?: number }> = (b) => <BrowShape {...b} h={who === "alina" ? 6 : 10} w={(b.w ?? 30) * (who === "alina" ? 1.1 : 1)} />;
   const ex = 36;
   const ey = 4;
   const eyeColor = redEyes ? C.red : C.ink;
@@ -186,7 +230,7 @@ const Face: React.FC<{ e: Emotion; lx: number; ly: number; frame: number; redEye
   const nose = <path d={`M ${mx - 6} 30 Q ${mx} 38 ${mx + 6} 30`} stroke={C.skinShade} strokeWidth={5} fill="none" strokeLinecap="round" />;
   const blush =
     who === "alina" ? (
-      <g opacity={0.45}>
+      <g opacity={0.3}>
         <ellipse cx={-60 + lx} cy={34} rx={16} ry={9} fill="#ff7b7b" />
         <ellipse cx={60 + lx} cy={34} rx={16} ry={9} fill="#ff7b7b" />
       </g>
@@ -382,14 +426,21 @@ const Face: React.FC<{ e: Emotion; lx: number; ly: number; frame: number; redEye
 
 const Torso: React.FC<{ who: Who; l: Look; dirty?: boolean }> = ({ who, l, dirty }) => (
   <g>
-    <path d="M -78 -318 Q -84 -230 -76 -150 L 76 -150 Q 84 -230 78 -318 Q 0 -340 -78 -318 Z" fill={l.top} stroke={C.ink} strokeWidth={SW} strokeLinejoin="round" />
+    {who === "alina" ? (
+      <path d="M -66 -318 Q -46 -250 -54 -196 Q -66 -170 -64 -150 L 64 -150 Q 66 -170 54 -196 Q 46 -250 66 -318 Q 0 -336 -66 -318 Z" fill={l.top} stroke={C.ink} strokeWidth={SW} strokeLinejoin="round" />
+    ) : (
+      <path d="M -78 -318 Q -84 -230 -76 -150 L 76 -150 Q 84 -230 78 -318 Q 0 -340 -78 -318 Z" fill={l.top} stroke={C.ink} strokeWidth={SW} strokeLinejoin="round" />
+    )}
     <path d="M 30 -326 Q 74 -322 78 -318 Q 84 -230 76 -150 L 40 -150 Q 52 -240 30 -326 Z" fill={l.topShade} opacity={0.6} />
     {who === "artem" ? (
       <g>
         <path d="M -52 -330 Q 0 -300 52 -330 Q 0 -350 -52 -330 Z" fill={l.topShade} stroke={C.ink} strokeWidth={6} />
         <line x1={-14} y1={-312} x2={-18} y2={-262} stroke="#fff" strokeWidth={6} strokeLinecap="round" />
         <line x1={14} y1={-312} x2={18} y2={-262} stroke="#fff" strokeWidth={6} strokeLinecap="round" />
-        <path d="M -46 -214 L 46 -214 L 54 -168 L -54 -168 Z" fill={l.topShade} stroke={C.ink} strokeWidth={6} strokeLinejoin="round" />
+        <line x1={0} y1={-318} x2={0} y2={-152} stroke="#8a90a0" strokeWidth={5} />
+        <circle cx={0} cy={-240} r={9} fill="none" stroke="#8a90a0" strokeWidth={4} />
+        <path d="M -56 -206 L -36 -176 M 56 -206 L 36 -176" stroke={l.topShade} strokeWidth={6} strokeLinecap="round" />
+        <path d="M -78 -318 Q -84 -230 -76 -150" stroke="#3c404d" strokeWidth={4} fill="none" transform="translate(6,0)" />
       </g>
     ) : null}
     {who === "alina" ? (
@@ -465,10 +516,12 @@ export const Character: React.FC<Props> = ({
   );
   const rItem = pose === "phone" ? phoneItem : pose === "smash" ? rockItem : undefined;
   const armsOver = armR[0] > 110 || armL[0] > 110;
+  const shoulder = who === "alina" ? 60 : 70;
+  const neckLen = who === "alina" ? 18 : 0;
   const arms = (
     <>
-      <Arm x={-70} side={-1} a={armL} color={l.top} shade={l.topShade} />
-      <Arm x={70} side={1} a={armR} color={l.top} shade={l.topShade} item={rItem} />
+      <Arm x={-shoulder} side={-1} a={armL} color={l.top} shade={l.topShade} />
+      <Arm x={shoulder} side={1} a={armR} color={l.top} shade={l.topShade} item={rItem} />
     </>
   );
   return (
@@ -503,12 +556,25 @@ export const Character: React.FC<Props> = ({
           )}
           <Torso who={who} l={l} dirty={dirty} />
           {!armsOver ? arms : null}
-          <g transform={`translate(${look * 6},${-436 + lookY * 4})`}>
+          <g transform={`translate(${look * 6},${-436 - neckLen + lookY * 4})`}>
             <HairBack who={who} l={l} />
-            <rect x={-26} y={70} width={52} height={40} fill={C.skin} stroke={C.ink} strokeWidth={SW} />
+            {who === "alina" ? (
+              <g>
+                <rect x={-20} y={70} width={40} height={70} fill={C.skin} stroke={C.ink} strokeWidth={SW} />
+                <rect x={-17} y={96} width={34} height={14} fill={C.skinShade} opacity={0.45} />
+              </g>
+            ) : (
+              <rect x={-26} y={70} width={52} height={40} fill={C.skin} stroke={C.ink} strokeWidth={SW} />
+            )}
             <circle cx={-98 + look * 4} cy={10} r={20} fill={C.skin} stroke={C.ink} strokeWidth={SW} />
             <circle cx={98 + look * 4} cy={10} r={20} fill={C.skin} stroke={C.ink} strokeWidth={SW} />
             <circle cx={0} cy={0} r={100} fill={C.skin} stroke={C.ink} strokeWidth={SW} />
+            {who === "alina" ? (
+              <g fill={C.red} stroke={C.ink} strokeWidth={4}>
+                <circle cx={-101 + look * 4} cy={40} r={8} />
+                <circle cx={101 + look * 4} cy={40} r={8} />
+              </g>
+            ) : null}
             <g clipPath={`url(#hc${uid})`}>
               <circle cx={-38} cy={-38} r={112} fill="none" stroke={C.skinShade} strokeWidth={30} opacity={0.35} />
             </g>
