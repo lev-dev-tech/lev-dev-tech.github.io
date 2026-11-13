@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /lumina/
+
+Sitemap: https://lev-dev-tech.github.io/sitemap.xml
