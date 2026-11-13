@@ -1324,25 +1324,14 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
 .ab-facts div{padding:18px 12px 18px 0}
 .ab-facts b{display:block;font-family:var(--display);font-weight:400;font-size:1.75rem;line-height:1.1;color:var(--accent)}
 .ab-facts span{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
-.ab-big{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ab-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 22px 20px;border:1px solid var(--line);border-radius:10px;background:rgba(var(--tint),.025);overflow:hidden;transition:border-color .25s,transform .35s var(--ease)}
-.ab-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0,rgba(249,115,22,.16),transparent 60%);opacity:.7;transition:opacity .3s}
-.ab-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.ab-card:hover::before{opacity:1}
-.ab-card-h{position:relative;display:flex;align-items:center;gap:12px}
-.ab-card-ic{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:var(--accent);color:#140c05}
-.ab-card-ic .ico{width:22px;height:22px;stroke-width:2}
-.ab-card-t{display:flex;flex-direction:column;font-family:var(--display);font-size:1.25rem;line-height:1.1}
-.ab-card-t span{font-family:var(--mono);font-size:.82rem;color:var(--accent)}
-.ab-card p{position:relative;font-size:.9rem;line-height:1.55;color:var(--muted)}
-.ab-card-go{position:relative;margin-top:auto;font-family:var(--mono);font-size:.84rem;color:var(--text)}
-.ab-card-go b{color:var(--accent);display:inline-block;transition:transform .3s var(--ease)}
-.ab-card:hover .ab-card-go b{transform:translateX(4px)}
-.ab-soc{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.ab-soc a{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border:1px solid var(--line);border-radius:6px;font-family:var(--mono);font-size:.82rem;color:var(--text);transition:border-color .2s,color .2s,transform .3s var(--ease)}
-.ab-soc a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.ab-soc a span{color:var(--muted)}
-@media(max-width:860px){.ab{grid-template-columns:1fr;gap:34px}.ab-ph{width:100%;max-width:440px}.ab-facts{grid-template-columns:repeat(2,1fr)}.ab-big{grid-template-columns:1fr}}
+.ab-links{margin-top:-31px}
+.ab-links a{display:grid;grid-template-columns:150px 1fr auto;align-items:center;gap:20px;padding:15px 10px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.88rem;transition:background .3s,padding .5s var(--ease)}
+.ab-links a:hover{background:rgba(var(--tint),.035);padding-left:20px}
+.ab-links dt{color:var(--muted)}
+.ab-links dd{color:var(--text)}
+.ab-links i{font-style:normal;color:var(--accent);transition:transform .3s var(--ease)}
+.ab-links a:hover i{transform:translate(3px,-3px)}
+@media(max-width:860px){.ab{grid-template-columns:1fr;gap:34px}.ab-ph{width:100%;max-width:440px}.ab-facts{grid-template-columns:repeat(2,1fr)}.ab-links a{grid-template-columns:96px 1fr auto;gap:12px}}
 @media(prefers-reduced-motion:reduce){.ab-ph,.ab-ph figcaption i{animation:none}}
 </style>
 <link rel="alternate" hreflang="ru" href="https://lev-dev-tech.github.io/">
@@ -2596,8 +2585,7 @@ nav.s .ni,.pfloat-in{backdrop-filter:none;-webkit-backdrop-filter:none;backgroun
         <p>Сам пишу код на Python и сам настраиваю конструкторы - WatBot, BotHelp, SaleBot. Поэтому предлагаю то, что <b>дешевле и надежнее для вашей задачи</b>, а не то, что проще мне.</p>
         <p>Сейчас веду <b>5 проектов одновременно</b> и при этом отвечаю всем: работаю один и напрямую, без менеджеров. После сдачи остаюсь на поддержке - если что-то сломалось, чиню сразу. В работе использую нейросети - Claude Code и Codex, поэтому сроки короче, а цена ниже студийной.</p>
         <div class="ab-facts"><div><b>20+</b><span>проектов сдано</span></div><div><b>5</b><span>проектов в работе сейчас</span></div><div><b>17</b><span>отзывов клиентов</span></div><div><b>&lt; 1 ч</b><span>отвечаю в рабочее время</span></div></div>
-        <div class="ab-big"><a class="ab-card" href="https://t.me/levvddev" target="_blank" rel="noopener me"><div class="ab-card-h"><span class="ab-card-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span><span class="ab-card-t">Telegram-канал<span>@levvddev</span></span></div><p>Разборы проектов, мои цены, как нахожу клиентов и что делаю с нейросетями.</p><span class="ab-card-go">Подписаться <b>→</b></span></a><a class="ab-card" href="https://www.tiktok.com/@levvddev" target="_blank" rel="noopener me"><div class="ab-card-h"><span class="ab-card-ic"><svg class="ico" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.6 2.8 2.4 4.4 5 4.6"/></svg></span><span class="ab-card-t">TikTok<span>@levvddev</span></span></div><p>Короткие ролики и карусели: боты, сайты и нейросети на реальных задачах.</p><span class="ab-card-go">Смотреть <b>→</b></span></a></div>
-        <div class="ab-soc"><a href="https://www.instagram.com/levv_ddev" target="_blank" rel="noopener me"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".6"/></svg>Instagram <span>@levv_ddev</span></a><a href="https://kwork.ru/user/lev_dev" target="_blank" rel="noopener me"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>Kwork <span>lev_dev</span></a></div>
+        <dl class="ab-links"><a href="https://t.me/levvddev" target="_blank" rel="noopener me"><dt>telegram</dt><dd>@levvddev <span style="color:var(--muted)">· канал</span></dd><i>↗</i></a><a href="https://www.tiktok.com/@levvddev" target="_blank" rel="noopener me"><dt>tiktok</dt><dd>@levvddev <span style="color:var(--muted)">· ролики</span></dd><i>↗</i></a><a href="https://www.instagram.com/levv_ddev" target="_blank" rel="noopener me"><dt>instagram</dt><dd>@levv_ddev <span style="color:var(--muted)">· рилсы</span></dd><i>↗</i></a><a href="https://kwork.ru/user/lev_dev" target="_blank" rel="noopener me"><dt>kwork</dt><dd>lev_dev <span style="color:var(--muted)">· отзывы</span></dd><i>↗</i></a></dl>
       </div>
     </div>
   </div>
